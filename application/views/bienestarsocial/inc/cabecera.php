@@ -4,10 +4,10 @@
       <!--Import Google Icon Font
       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       -->							
-      <link type="text/css" href="/ipsfa-dg/public/css/material.css" rel="stylesheet">
+      <link type="text/css" href="<?php echo base_url(); ?>public/css/material.css" rel="stylesheet">
       
       <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="/ipsfa-dg/public/css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>public/css/materialize.min.css"  media="screen,projection"/>
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -28,13 +28,36 @@
 			<div class="nav-wrapper blue">
 				<a href="#" class="brand-logo">Bienestar</a>
 				<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-				<ul id="nav-mobile" class="side-nav">
+				<ul id="solicitudes" class="dropdown-content">
+				  <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar">
+				  	Bienestar<i class="mdi-action-face-unlock left grey-text "></i>
+				  	</a>
+				  </li>
+				  <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia">
+				  Drogueria<i class="mdi-av-my-library-add left grey-text "></i></a></li>
+				</ul>
+				
+				<ul id="solicitudes1" class="dropdown-content">
+				  <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar">
+				  	Bienestar<i class="mdi-action-face-unlock left grey-text "></i>
+				  	</a>
+				  </li>
+				  <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia">
+				  Drogueria<i class="mdi-av-my-library-add left grey-text "></i></a></li>
+				</ul>
+				
+				<ul id="nav-mobile" class="side-nav">		
+					<img src="<?php echo base_url(); ?>public/img/ipsfa.png" class="responsive-img">
+						
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/index">Principal
+					<i class="mdi-action-home left grey-text "></i></a></li>
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/datos">Datos Personales<i class="mdi-action-account-circle left grey-text"></i></a></li>
 					
-					<img src="/ipsfa-dg/public/img/ipsfa.png" class="responsive-img">
-	
-					<li><a href="/ipsfa-dg/index.php/BienestarSocial/index">Principal<i class="mdi-action-home left grey-text "></i></a></li>
-					<li><a href="/ipsfa-dg/index.php/BienestarSocial/datos">Datos Personales<i class="mdi-action-account-circle left grey-text"></i></a></li>
-					<li><a href="/ipsfa-dg/index.php/BienestarSocial/solicitud">Solicitudes<i class="mdi-action-assignment left grey-text"></i> </a></li>
+					<li><a class="dropdown-button" href="#!" data-activates="solicitudes">
+						<i class="mdi-action-assignment left grey-text"></i>Solicitudes
+						<i class="mdi-navigation-arrow-drop-down grey-text right"></i></a>
+					</li>
+					
 					<hr>
 					<li><a href="#">Promociones<i class="mdi-action-lock left grey-text"></i></a></li>
 					<li><a href="#">Importantes<i class="mdi-action-favorite-outline left grey-text"></i> </a></li>
@@ -45,9 +68,14 @@
 				
 				
 				<ul class="right hide-on-med-and-down">
-					<li><a href="/ipsfa-dg/index.php/BienestarSocial/index">Principal<i class="mdi-action-home left"></i></a></li>
-					<li><a href="/ipsfa-dg/index.php/BienestarSocial/datos">Datos Personales<i class="mdi-action-account-circle left"></i></a></li>
-					<li><a href="/ipsfa-dg/index.php/BienestarSocial/solicitud">Solicitudes<i class="mdi-action-assignment left"></i> </a></li>
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/index">Principal<i class="mdi-action-home left"></i></a></li>
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/datos">Datos Personales<i class="mdi-action-account-circle left"></i></a></li>
+					
+					<li><a class="dropdown-button" href="#!" data-activates="solicitudes1">
+						<i class="mdi-action-assignment left"></i>Solicitudes
+						<i class="mdi-navigation-arrow-drop-down right"></i></a>
+					</li>
+					
 					<li><a href="#">Promociones<i class="mdi-action-lock left"></i></a></li>
 					<li><a href="#">Importantes<i class="mdi-action-favorite-outline left"></i> </a></li>
 					

@@ -8,7 +8,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 
 	<div class="continer">
 		<div class="row">
-		<div class="col s5">
+		<div class="col s6">
 			  
 		  <div class="card small">
             <div class="card-image">
@@ -26,7 +26,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 		</div>
 		
 		
-		<div class="col s5" >
+		<div class="col s6" >
 		 <div class="card small">
             <div class="card-image">
               <img src="/ipsfa-dg/public/img/ayudasocial.jpg">
