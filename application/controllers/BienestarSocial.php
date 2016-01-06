@@ -61,6 +61,8 @@ class BienestarSocial extends CI_Controller {
 		
 		$rs = $this->db->query("SELECT * FROM productos WHERE nomb ~* '$pr'");
 		print_r(json_encode($rs->result()));
+		
+		
 	}
 }
 
