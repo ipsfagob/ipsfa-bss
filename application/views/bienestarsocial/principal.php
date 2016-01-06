@@ -19,7 +19,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
               <p>Poseemos una amplia gama en medicamentos no dejes de consultarnos.</p>
             </div>
             <div class="card-action">
-              <a href="#">Solicita Aquí</a>
+              <a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia">Solicita Aquí</a>
             </div>
           </div>
 			  
@@ -36,7 +36,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
               <p>Te ayudamos con protesis, dialisis y medicamentos de alto costo.</p>
             </div>
             <div class="card-action">
-              <a href="#">Reserva cita</a>
+              <a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar">Reserva cita</a>
             </div>
           </div>
 		</div>

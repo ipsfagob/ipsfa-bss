@@ -1,50 +1,30 @@
 <?php
 $this->load->view ( "bienestarsocial/inc/cabecera.php" );
 ?>
+<script type="text/javascript"
+	src="/ipsfa-bss/application/views/bienestarsocial/js/farmacia.js"></script>
 
 <br>
+
 <div class="row">
-	<div class="col s12">
-		<form>
-			<div class="input-field">
-				<input id="search" type="search" required> <label for="search"><i
-					class="material-icons">search</i></label> <i class="material-icons">close</i>
-			</div>
-		</form>
+	<div class="col s12 ">
+	<nav>
+    <div class="nav-wrapper white ">      
+        <div class="input-field col s10">
+          <input id="search" type="text" required placeholder='Buscar...' class="grey-text">
+          <label for="search"><i class="mdi-action-search grey-text "></i></label>
+          
+        </div>
+    </div>
+  </nav>	
 	</div>
 </div>
 
-<ul class="collection">
-	<li class="collection-item avatar"><img
-		src="<?php echo base_url()?>public/img/inventario/acetaminofen.jpg"
-		alt="" class="circle"> <span class="title">Acetaminofen</span>
-		<p>
-			First Line <br> Second Line
-		</p> <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-	</li>
-	<li class="collection-item avatar"><i class="material-icons circle">folder</i>
-		<span class="title">Title</span>
-		<p>
-			First Line <br> Second Line
-		</p> <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-	</li>
-	<li class="collection-item avatar"><i
-		class="material-icons circle green">insert_chart</i> <span
-		class="title">Title</span>
-		<p>
-			First Line <br> Second Line
-		</p> <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-	</li>
-	<li class="collection-item avatar"><i class="material-icons circle red">play_arrow</i>
-		<span class="title">Title</span>
-		<p>
-			First Line <br> Second Line
-		</p> <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-	</li>
+
+<ul class="collection" >
+
+
 </ul>
-
-
-
 
 <?php
 $this->load->view ( "bienestarsocial/inc/pie.php" );

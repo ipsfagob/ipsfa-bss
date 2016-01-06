@@ -2,9 +2,9 @@
   <html>
     <head>
       <!--Import Google Icon Font
-      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      -->							
       <link type="text/css" href="<?php echo base_url(); ?>public/css/material.css" rel="stylesheet">
+      -->							
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>public/css/materialize.min.css"  media="screen,projection"/>
@@ -13,7 +13,23 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       
     <style>
+    
+      body {
+	    display: flex;
+	    min-height: 100vh;
+	    flex-direction: column;
+	  }
+	
+	  main {
+	    flex: 1 0 auto;
+	  }
       
+    
+      /* label underline focus color */
+   .input-field input[id="search"]:focus {
+     border-bottom: 0px solid #000;
+     box-shadow: 0 0px 0 0 #000;
+   }
 	// html {
     //font-family: GillSans, Calibri, Trebuchet, sans-serif;
   	//}
@@ -22,12 +38,13 @@
     </head>
 
     <body>
-	
+	<main>
 	<div class="navbar-fixed">
 		<nav>
 			<div class="nav-wrapper blue">
 				<a href="#" class="brand-logo">Bienestar</a>
-				<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+				<a href="#" data-activates="nav-mobile" class="button-collapse" id="menuprincipal">
+					<i class="mdi-image-dehaze"></i></a>
 				<ul id="solicitudes" class="dropdown-content">
 				  <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar">
 				  	Bienestar<i class="mdi-action-face-unlock left grey-text "></i>
@@ -57,10 +74,18 @@
 						<i class="mdi-action-assignment left grey-text"></i>Solicitudes
 						<i class="mdi-navigation-arrow-drop-down grey-text right"></i></a>
 					</li>
-					
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/pendientes">
+						Pendientes<i class="mdi-action-alarm-add left grey-text"></i>
+						<span class="new badge">4</span>
+						</a>
+							
+					</li>
 					<hr>
 					<li><a href="#">Promociones<i class="mdi-action-lock left grey-text"></i></a></li>
 					<li><a href="#">Importantes<i class="mdi-action-favorite-outline left grey-text"></i> </a></li>
+					
+					<li><a href="#">Configurar<i class="mdi-action-settings left grey-text"></i> </a></li>
+					
 					
 					<li><a href="#">Salir<i class="mdi-action-settings-power left grey-text"></i> </a></li>
 				</ul>

@@ -38,10 +38,17 @@ class BienestarSocial extends CI_Controller {
 	}
 	
 	/**
-	 * Vista de las solicitudes
+	 * Vista de las Bienestar Ayudas
 	 */
-	public function solicitud() {
-		$this->load->view ( 'bienestarsocial/solicitud' );
+	public function bienestar() {
+		$this->load->view ( 'bienestarsocial/bienestar' );
+	}
+	
+	/**
+	 * Vista de las Bienestar Ayudas
+	 */
+	public function pendientes() {
+		$this->load->view ( 'bienestarsocial/pendientes' );
 	}
 	
 	/**
@@ -57,11 +64,10 @@ class BienestarSocial extends CI_Controller {
 	/**
 	 * Listar Los Productos en Postgres
 	 */
-	public function listarProductosPG($pr){
+	public function listarProductosPG($pr = ''){
 		
-		$rs = $this->db->query("SELECT * FROM productos WHERE nomb ~* '$pr'");
-		print_r(json_encode($rs->result()));
-		
+		$this->load->model("fisico/maestroproducto", "Producto");
+		echo $this->Producto->listarPostgres($pr);
 		
 	}
 }

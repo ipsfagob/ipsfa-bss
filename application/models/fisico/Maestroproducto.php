@@ -3,14 +3,14 @@ if (! defined ( 'BASEPATH' ))
 	exit ( 'No direct script access allowed' );
 
 /**
- * Coorporacion de Estampado
+ * 
  * Carrito de Compras 01/02/2014
  *
- * @package estcorp
+ * @package mamonsoft
  * @subpackage administracion
  * @author Carlos Peña
- * @copyright Derechos Reservados (c) 2014 - 2015, GenProg C.A.
- * @link http://www.solo-educacion.org
+ * @copyright Derechos Reservados (c) 2014 - 2015, MamonSoft C.A.
+ * @link http://www.mamonsoft.com.ve
  * @since Version 1.0
  */
 class MaestroProducto extends CI_Model {
@@ -160,6 +160,19 @@ class MaestroProducto extends CI_Model {
 		);
 		return $arr;
 	}
+	
+	
+	/**
+	 * Listar los productos en Postgres
+	 * cod, nomb, obse, imag
+	 * @return JsonSerializable
+	 */
+	function listarPostgres($pr = ''){
+		$rs = $this->db->query("SELECT * FROM productos WHERE nomb ~* '$pr'");
+		return json_encode($rs->result());
+	}
+	
+	
 	
 	/**
 	 * Listar existencia de productos
