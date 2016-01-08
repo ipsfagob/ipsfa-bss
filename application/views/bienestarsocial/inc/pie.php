@@ -1,4 +1,6 @@
 
+
+
 <!--Import jQuery before materialize.js-->
 <script type="text/javascript" src="/ipsfa-dg/public/js/jquery-2.min.js"></script>
 <script type="text/javascript"
@@ -6,16 +8,34 @@
 
 <script type="text/javascript">
       
-      $(document).ready(function(){
-    	  $(".dropdown-button").dropdown(); 
-    	  $(".button-collapse").sideNav();
-    	  $("#search").keypress(function(event) {
+    $(document).ready(function(){
+    	  
+		$('.materialboxed').materialbox();
+		$('.dropdown-button').dropdown({
+			inDuration: 400,
+			outDuration: 225,
+			constrain_width: false, // Does not change width of dropdown to that of the activator
+			hover: false, // Activate on hover
+			gutter: 0, // Spacing from edge
+			belowOrigin: true, // Displays dropdown below the button
+			alignment: 'left' // Displays dropdown with edge aligned to the left of button
+			}
+		);
+
+    	$(".button-collapse").sideNav({
+	      menuWidth: 300, // Default is 240
+	      edge: 'left', // Choose the horizontal origin
+	      closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+	    });
+    	  
+    	$("#search").keypress(function(event) {
     		if (event.which == 13) {
     			listarProductos($("#search").val());
     			$("#search").val('');
     		}
     	  });
-    	    	 
+
+    	  	 
       });
       
     </script>

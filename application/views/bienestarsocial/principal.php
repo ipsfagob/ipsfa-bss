@@ -5,14 +5,14 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 ?>
 
 
-
-	<div class="continer">
-		<div class="row">
-		<div class="col s6">
+<div class="container">
+	
+		<div class="row center">
+		<div class="col s12 m4 13">
 			  
-		  <div class="card small">
+		  <div class="card medium hoverable">
             <div class="card-image">
-              <img src="/ipsfa-dg/public/img/farmaipsfa.jpg" >
+              <img src="/ipsfa-dg/public/img/farmaipsfa.jpg" class="materialboxed">
               
             </div>
             <div class="card-content">
@@ -26,8 +26,8 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 		</div>
 		
 		
-		<div class="col s6" >
-		 <div class="card small">
+		<div class="col s12 m4 13" >
+		 <div class="card medium hoverable">
             <div class="card-image">
               <img src="/ipsfa-dg/public/img/ayudasocial.jpg">
               
@@ -40,6 +40,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
             </div>
           </div>
 		</div>
+
 		</div>
 	</div>
 

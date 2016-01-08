@@ -19,6 +19,7 @@ class BienestarSocial extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->helper('url');
+		$this -> load -> model('carro/mcarro','Carro');
 		$this->load->database();
 	}
 	/**
@@ -64,8 +65,7 @@ class BienestarSocial extends CI_Controller {
 	/**
 	 * Listar Los Productos en Postgres
 	 */
-	public function listarProductosPG($pr = ''){
-		
+	public function listarProductosPG($pr = ''){		
 		$this->load->model("fisico/maestroproducto", "Producto");
 		echo $this->Producto->listarPostgres($pr);
 		
