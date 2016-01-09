@@ -14,22 +14,32 @@
  * @filesource
  */
 
+
+
 class BienestarSocial extends CI_Controller {
 	
 	function __construct(){
 		parent::__construct();
 		$this->load->helper('url');
 		$this -> load -> model('carro/mcarro','Carro');
-		$this->load->database();
+		$this->load->library('session');
+		//$this->load->database();
 	}
+
+	/*
+	|------------------------------------------------------------
+	|	Control de Vistas en la WEB
+	|	
+	|------------------------------------------------------------
+	*/
+	
 	/**
 	 * Vista Pagina Principal
 	 */
 	public function index() {
-		$this->load->view ( 'bienestarsocial/principal' );
-		
-		
+		$this->validarUsuario();
 	}
+
 	
 	/**
 	 * Vista Datos Basicos del Personal
@@ -56,12 +66,43 @@ class BienestarSocial extends CI_Controller {
 	 * Vista Pagina Principal
 	 */
 	public function farmacia() {
-		
+		$data = array('id' => 2, 'cantidad' => 4, 'precio' => '180.82', 'nombre' => 'Bolsas de Color Rojas');
+        $this->Carro->registrar($data);
+
 		$this->load->view ( 'bienestarsocial/farmacia' );
 	
 	
 	}
+
+	public function salir() {
+		session_destroy();
+		$this->index();
 	
+	
+	}
+	
+	/** ------------------------------------------------------------
+	*	Control de Acciones
+	*	------------------------------------------------------------
+	*/
+
+	/**
+	*/
+	function validarUsuario(){
+		$this->load->model('usuario/Iniciar', 'Iniciar');
+		//$this->Iniciar->validarCuenta($_POST);
+		$valores["txtUsuario"] = "MamonSoft";
+		$valores["txtClave"] = "za63qj2p";
+		$resultado = $this->Iniciar->validarCuenta($valores); 
+		if ( $resultado == 1){
+			//print_r($_SESSION);
+			$this->load->view ( 'bienestarsocial/principal' );
+		}else{
+			echo "Error en el usuario con la base de datos";
+		}		
+	}
+
+
 	/**
 	 * Listar Los Productos en Postgres
 	 */
@@ -70,6 +111,9 @@ class BienestarSocial extends CI_Controller {
 		echo $this->Producto->listarPostgres($pr);
 		
 	}
+
+
+
 }
 
 

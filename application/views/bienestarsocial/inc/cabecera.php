@@ -80,29 +80,22 @@
 					<li><a href="#">Importantes<i class="mdi-action-favorite-outline left grey-text"></i> </a></li>
 					
 					<li><a href="#">Configurar<i class="mdi-action-settings left grey-text"></i> </a></li>
-					
-					
 					<li><a href="#">Salir<i class="mdi-action-settings-power left grey-text"></i> </a></li>
 				</ul>
 				
 				<ul class="right hide-off-med-and-down">
-					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/pendientes">					
-					<i class="mdi-action-shopping-cart"></i></a></li>
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/pendientes"><i class="mdi-action-shopping-cart"></i></a></li>
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/salir"><i class="mdi-action-settings-power"></i></a></li>
 				</ul>
 
 				<ul class="right hide-on-med-and-down">
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/index">
 					<i class="mdi-action-home"></i></a></li>
-					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/datos">
-					<i class="mdi-action-account-circle"></i></a></li>
-					
 					<li><a class="dropdown-button" href="#!" data-activates="solicitudes1">
-						<i class="mdi-navigation-more-vert"></i></a>
+						<i class="mdi-navigation-apps"></i></a>
 					</li>
-					
-					
-					
-					
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/datos">
+					<i class="mdi-action-account-circle"></i></a></li>					
 				</ul>
 				
 				
