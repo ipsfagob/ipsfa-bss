@@ -22,7 +22,13 @@ class MCarro extends CI_Model {
 
     function registrar($arg = array()) {
         if (count($arg) > 1) {
-            $data = array('id' => $arg['id'], 'qty' => $arg['cantidad'], 'price' => $arg['precio'], 'name' => $arg['nombre']);
+            $data = array(
+                'id' => $arg['id'], 
+                'qty' => $arg['cantidad'], 
+                'price' => $arg['precio'], 
+                'name' => $arg['nombre'],
+                'imagen' => $arg['imagen']
+            );
             
             //print_r($data);
             $this -> cart -> insert($data);
@@ -49,7 +55,7 @@ class MCarro extends CI_Model {
         return TRUE;
     }
 
-    function eliminar() {
+    function eliminar($rowid = null) {
         $data = array('rowid' => $rowid, 'qty' => 0, );
         $this -> cart -> update($data);
         return TRUE;

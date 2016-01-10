@@ -25,6 +25,7 @@
 	    flex: 1 0 auto;
 	  }
       
+
     
 	  /* label underline focus color */
 	  .input-field input[id="search"]:focus {
@@ -48,44 +49,48 @@
 				
 				
 				<ul id="solicitudes1" class="dropdown-content">
+				  
+				  <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia">
+				  Drogueria y Farmacia<i class="mdi-av-my-library-add left grey-text "></i></a></li>
 				  <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar">
 				  	Bienestar Social<i class="mdi-action-face-unlock left grey-text "></i>
 				  	</a>
 				  </li>
-				  <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia">
-				  Drogueria y Farmacia<i class="mdi-av-my-library-add left grey-text "></i></a></li>
 				  <li class="divider"></li>
 				  <li><a href="#">Promociones<i class="mdi-action-lock left"></i></a></li>
 				  <li><a href="#">Importantes<i class="mdi-action-favorite-outline left"></i> </a></li>
 				</ul>
 				
 				<ul id="nav-mobile" class="side-nav">		
-					<img src="<?php echo base_url(); ?>public/img/ipsfa.png" class="responsive-img">
-						
+					<img src="<?php echo base_url(); ?>public/img/ipsfa.png" class="responsive-img">					
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/index">Principal
 					<i class="mdi-action-home left grey-text "></i></a></li>
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/datos">Datos Personales<i class="mdi-action-account-circle left grey-text"></i></a></li>
 					
-					<li><a class="dropdown-button" href="#">
-						<i class="mdi-action-assignment left grey-text"></i>Solicitudes</a>
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia">
+						Drogueria y Farmacia<i class="mdi-av-my-library-add left grey-text "></i></a>
 					</li>
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar">
+					  	Bienestar Social<i class="mdi-action-face-unlock left grey-text "></i></a>
+					</li>					
+					<li class="divider"></li>				
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/pendientes">
 						Pendientes<i class="mdi-action-alarm-add left grey-text"></i>
-						<span class="new badge">4</span>
-						</a>
-							
+						<span class="new badge">4</span></a>							
 					</li>
-					<li class="divider"></li>
-					<li><a href="#">Promociones<i class="mdi-action-lock left grey-text"></i></a></li>
-					<li><a href="#">Importantes<i class="mdi-action-favorite-outline left grey-text"></i> </a></li>
-					
+					<li><a href="#">Promociones<i class="mdi-action-lock left grey-text"></i></a></li>			
 					<li><a href="#">Configurar<i class="mdi-action-settings left grey-text"></i> </a></li>
 					<li><a href="#">Salir<i class="mdi-action-settings-power left grey-text"></i> </a></li>
 				</ul>
 				
 				<ul class="right hide-off-med-and-down">
-					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/pendientes"><i class="mdi-action-shopping-cart"></i></a></li>
-					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/salir"><i class="mdi-action-settings-power"></i></a></li>
+
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/carro">
+						<i class="mdi-action-shopping-cart"></i></a>
+					</li>
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/salir">
+						<i class="mdi-action-settings-power"></i></a>
+					</li>
 				</ul>
 
 				<ul class="right hide-on-med-and-down">
@@ -111,10 +116,15 @@
 	      <i class="large mdi-action-view-module"></i>
 	    </a>
 	    <ul>
-	      <li><a class="btn-floating red"><i class="material-icons">shopping_cart</i></a></li>
-	      <li><a class="btn-floating yellow darken-1" title="Sugerencias"><i class="mdi-communication-chat"></i></a></li>
-	      <li><a class="btn-floating green"><i class="mdi-navigation-check"></i></a></li>
-	      <li><a class="btn-floating blue"><i class="mdi-file-folder-open"></i></a></li>
+	      <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/pendientes" 
+	      		class="btn-floating yellow darken-1"><i class="mdi-navigation-check"></i></a>
+	      </li>
+	      <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/carro"  
+	      	class="btn-floating green"><i class="material-icons">shopping_cart</i></a>
+	      </li>
+	      <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia" 
+	      		class="btn-floating blue darken-4"><i class="mdi-av-my-library-add"></i></a>
+	      </li>
 	    </ul>
 	  </div>
 

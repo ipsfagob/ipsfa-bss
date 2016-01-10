@@ -27,6 +27,20 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
 
 </ul>
 
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4 id="Cabecera"></h4>
+      <p id="Cuerpo"></p>
+      <input type="text" id="oid" hidden value=""/>
+      <input type="text" id="img" hidden value=""/>
+    </div>
+    <div class="modal-footer">
+      <a href="javascript:Agregar();" class="modal-action modal-close waves-effect waves-green btn-flat ">Agregar</a>
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Cancelar</a>
+    </div>
+  </div>
+
 <?php
 $this->load->view ( "bienestarsocial/inc/pie.php" );
 ?>

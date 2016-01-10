@@ -16,8 +16,11 @@ function listarProductos(val) {
 			'<img src="' + sUrl +  '/public/img/productos/' + val.imag + '" alt="" class="materialboxed circle">' +
 			'<span class="title">' + val.nomb + 
 			'</span><p>' + val.obse + 
-			'<a class="secondary-content btn-floating btn-small waves-effect waves-light blue"><i class="mdi-action-add-shopping-cart"></i></a>';		
+			'<a href="javascript:Modal(\'' + val.nomb + '\',\'' + val.obse + '\',\'' + val.imag +
+			'\',\'' + val.oid + '\');"' +
+			'class="secondary-content btn-floating btn-small waves-effect waves-light  modal-trigger blue"><i class="mdi-action-add-shopping-cart"></i></a>';		
 			$(".collection").append(cadena);
+
 		});
 	}
 
@@ -28,3 +31,46 @@ function listarProductos(val) {
 		alert(jqXHR.responseText);
 	});
 }
+
+/**
+*	titutlo, descripcion, imagen, identificador
+*/
+function Modal(tit, des, img, id){
+
+	$('#Cabecera').html(tit);
+	$('#Cuerpo').html(des);
+	$('#oid').val(id);
+	$('#img').val(img);
+	$('#modal1').openModal();
+}
+
+function Agregar(){
+	$.post(sUrlP + "AgregarProductosCarrito/", {
+			id : $('#oid').val(), 
+			cantidad: "1", 
+			precio: "0.00", 
+			nombre: $('#Cuerpo').html(),
+			imagen: $('#img').val()
+		}
+	).done(function (data){		
+		$('#modal1').closeModal();
+	}).fail(function (data){
+		
+	});
+}
+
+/**
+* Limpiar Carrit de Compras
+*/
+function Eliminar(oid){
+	$('#' + oid).remove();
+	$.post(sUrlP + "EliminarProductosCarrito/", {
+			rowid : oid
+		}
+	).done(function (data){		
+		
+	}).fail(function (data){
+		
+	});
+}
+

@@ -3,6 +3,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 ?>
 
 <br><br>
+<div class="container .hide-on-small-only">
  <div class="row">
 	 <div class="col s4">
 	 	<img src="/ipsfa-dg/public/img/nodisponible.jpg" class="responsive-img circle" >
@@ -53,7 +54,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       
       <div class="row">
       	<div class="col s12">
-			<button class="btn waves-effect waves-light" type="submit" name="action">Enviar
+			<button class="btn-large waves-effect waves-light" type="submit" name="action">Confirmar Datos
 			    <i class="material-icons right">send</i>
 			</button>
       	</div>
@@ -61,7 +62,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
     </form>
  
 
-
+</div>
 
 <?php 
 $this->load->view("bienestarsocial/inc/pie.php");

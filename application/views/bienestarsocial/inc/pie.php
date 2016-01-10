@@ -35,7 +35,9 @@
     		}
     	  });
 
-    	  	 
+    	$('.modal-trigger').leanModal();
+    	
+    	 
       });
       
     </script>

@@ -66,12 +66,12 @@ class BienestarSocial extends CI_Controller {
 	 * Vista Pagina Principal
 	 */
 	public function farmacia() {
-		$data = array('id' => 2, 'cantidad' => 4, 'precio' => '180.82', 'nombre' => 'Bolsas de Color Rojas');
-        $this->Carro->registrar($data);
-
 		$this->load->view ( 'bienestarsocial/farmacia' );
-	
-	
+	}
+
+	public function carro(){
+		$data['data'] = $this->Carro->listar();
+		$this->load->view ( 'bienestarsocial/carro', $data );
 	}
 
 	public function salir() {
@@ -96,7 +96,7 @@ class BienestarSocial extends CI_Controller {
 		$resultado = $this->Iniciar->validarCuenta($valores); 
 		if ( $resultado == 1){
 			//print_r($_SESSION);
-			$this->load->view ( 'bienestarsocial/principal' );
+			$this->load->view ( 'bienestarsocial/principal');
 		}else{
 			echo "Error en el usuario con la base de datos";
 		}		
@@ -112,7 +112,17 @@ class BienestarSocial extends CI_Controller {
 		
 	}
 
+	public function AgregarProductosCarrito(){
+		//$data = array('id' => 2, 'cantidad' => 4, 'precio' => '180.82', 'nombre' => 'Bolsas de Color Rojas');
+        $this->Carro->registrar($_POST);
+	}
 
+	public function EliminarProductosCarrito(){
+		$this->Carro->eliminar($_POST['rowid']);		
+	}
+	public function LimipiarProductosCarrito(){
+		$this->Carro->limpiar();
+	}
 
 }
 
