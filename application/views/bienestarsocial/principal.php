@@ -69,6 +69,18 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
     </div>
 
 		</div>
+
+    <div class="row center">
+      <div class="col s12 m3 13" >
+        <img src="/ipsfa-bss/public/img/badan.jpg" class="responsive-img">
+      </div>
+      <div class="col s12 m3 13" >
+        <img src="/ipsfa-bss/public/img/logo-locatel.png" class="responsive-img">
+      </div>
+
+    </div>
+
+
 	</div>
 
 
