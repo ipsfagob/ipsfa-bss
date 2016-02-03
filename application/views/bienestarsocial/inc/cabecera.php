@@ -46,10 +46,8 @@
 				<a href="#" class="brand-logo">Bienestar</a>
 				<a href="#" data-activates="nav-mobile" class="button-collapse" id="menuprincipal">
 				<i class="mdi-image-dehaze"></i></a>
-				
-				
-				<ul id="solicitudes1" class="dropdown-content">
-				  
+								
+				<ul id="solicitudes1" class="dropdown-content">				  			 
 				  <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia">
 				  Drogueria y Farmacia<i class="mdi-av-my-library-add left grey-text "></i></a></li>
 				  <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar">
@@ -57,6 +55,7 @@
 				  	</a>
 				  </li>
 				  <li class="divider"></li>
+				   
 				  <li><a href="#">Promociones<i class="mdi-action-lock left"></i></a></li>
 				  <li><a href="#">Importantes<i class="mdi-action-favorite-outline left"></i> </a></li>
 				</ul>
@@ -128,7 +127,7 @@
 	    </ul>
 	  </div>
 
-<div class="navbar-fixed hide-on-med-and-down center">
+<div class="navbar hide-on-med-and-down center">
 						<img src="<?php echo base_url(); ?>public/img/menu.png">
 				
 </div>

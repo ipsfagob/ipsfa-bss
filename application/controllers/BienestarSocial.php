@@ -74,6 +74,11 @@ class BienestarSocial extends CI_Controller {
 		$this->load->view ( 'bienestarsocial/carro', $data );
 	}
 
+	public function solicitud(){
+		$data['data'] = $this->Carro->listar();
+		$this->load->view ( 'bienestarsocial/solicitud', $data );
+	}
+	
 	public function salir() {
 		session_destroy();
 		$this->index();
@@ -122,6 +127,10 @@ class BienestarSocial extends CI_Controller {
 	}
 	public function LimipiarProductosCarrito(){
 		$this->Carro->limpiar();
+	}
+
+	public function BD_Postgres(){
+		$rs = "SELECT * FROM censo ";
 	}
 
 }
