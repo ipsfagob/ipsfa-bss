@@ -50,16 +50,20 @@ class BienestarSocial extends CI_Controller {
 	
 	/**
 	 * Vista de las Bienestar Ayudas
+	 *	@param string url
 	 */
-	public function bienestar() {
-		$this->load->view ( 'bienestarsocial/bienestar' );
+	public function bienestar($url) {
+		$data['url'] = $url; 
+		$this->load->view ( 'bienestarsocial/bienestar', $data);
 	}
 	
 	/**
 	 * Vista de las Bienestar Ayudas
 	 */
 	public function pendientes() {
-		$this->load->view ( 'bienestarsocial/pendientes' );
+		$this->load->model('comun/reembolso', 'Reembolso');
+		$data['listarPendientes'] = $this->Reembolso->listarCedula('11953710');
+		$this->load->view ( 'bienestarsocial/pendientes', $data );
 	}
 	
 	/**
@@ -129,10 +133,15 @@ class BienestarSocial extends CI_Controller {
 		$this->Carro->limpiar();
 	}
 
-	public function BD_Postgres(){
+	/**
+	*	Listar todos los reembolsos pendiente por personas
+	*	
+	*/
+	public function listarCasosBienestar(){
 		print("<pre>");
 		$this->load->model('comun/reembolso', 'Reembolso');
-		print_r($this->Reembolso->listar('20019729'));
+		$this->Reembolso->listarCedula('11953710');
+		print_r($this->Reembolso->listarCedula('11953710'));
 	}
 
 }

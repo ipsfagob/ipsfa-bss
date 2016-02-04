@@ -49,13 +49,20 @@
 								
 				<ul id="solicitudes1" class="dropdown-content">				  			 
 				  <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia">
-				  Drogueria y Farmacia<i class="mdi-av-my-library-add left grey-text "></i></a></li>
-				  <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar">
-				  	Bienestar Social<i class="mdi-action-face-unlock left grey-text "></i>
-				  	</a>
-				  </li>
+				  Drogueria y Farmacia<i class="mdi-action-face-unlock left grey-text "></i></a></li>
+				  <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/re">
+					  	Notificar Reembolso<i class="mdi-action-star-rate left green-text "></i></a>
+					</li>
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/ap">
+					  	Notificar Apoyo<i class="mdi-action-star-rate left green-text "></i></a>
+					 </li>
+
+
 				  <li class="divider"></li>
-				   
+				  <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/pendientes">
+						Pendientes<i class="mdi-action-alarm-add left grey-text"></i>
+						<span class="new badge"></span></a>							
+					</li> 
 				  <li><a href="#">Promociones<i class="mdi-action-lock left"></i></a></li>
 				  <li><a href="#">Importantes<i class="mdi-action-favorite-outline left"></i> </a></li>
 				</ul>
@@ -69,13 +76,16 @@
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia">
 						Drogueria y Farmacia<i class="mdi-av-my-library-add left grey-text "></i></a>
 					</li>
-					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar">
-					  	Bienestar Social<i class="mdi-action-face-unlock left grey-text "></i></a>
-					</li>					
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/re">
+					  	Notificar Reembolso<i class="mdi-action-face-unlock left grey-text "></i></a>
+					</li>
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/ap">
+					  	Notificar Apoyo<i class="mdi-action-face-unlock left grey-text "></i></a>
+					</li>			
 					<li class="divider"></li>				
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/pendientes">
 						Pendientes<i class="mdi-action-alarm-add left grey-text"></i>
-						<span class="new badge">4</span></a>							
+						<span class="new badge"></span></a>							
 					</li>
 					<li><a href="#">Promociones<i class="mdi-action-lock left grey-text"></i></a></li>			
 					<li><a href="#">Configurar<i class="mdi-action-settings left grey-text"></i> </a></li>

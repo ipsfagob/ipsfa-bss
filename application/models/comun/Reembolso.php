@@ -22,7 +22,33 @@ class Reembolso extends CI_Model{
 
 	var $oid = NULL;
 	
+	/**
+	*	Reembolso, Apoyo, Carta Aval
+	*	@var string
+	*/
+	var $tipo = '';
 
+	/**
+	*	Formato: AAAA/MM/DD
+	*	@var date
+	*/
+	var $fechaSolicitud;
+
+	/**
+	*	Formato: AAAA/MM/DD
+	*	@var date 
+	*/
+	var $fechaAprobación;
+
+	/**
+	*	@var doblue
+	*/
+	var $montoSolicitado;
+	
+	/**
+	*	@var doblue
+	*/
+	var $montoAprobado;
 
 	/**
 	*	Listado de Dependientes
@@ -31,13 +57,18 @@ class Reembolso extends CI_Model{
 	var $dependientes = array();
 
 	/**
+	*	Listado de Pendientes
+	*	@var PendienteReembolsos
+	*/
+	var $pendientes = array();
+
+
+	/**
 	*	Constructor de la Calse
 	*
 	*/
 	function __construct(){
 		parent::__construct();
-		echo "conexion";
-
 		$this->__DBSaman = $this->load->database('saman', true);
 
 	}
@@ -56,7 +87,7 @@ class Reembolso extends CI_Model{
 	*	@param string
 	* @return Persona
 	*/
-	function MapearSaman($cedula = NULL){
+	function mapear($cedula = NULL){
 
 	}
 
@@ -65,15 +96,31 @@ class Reembolso extends CI_Model{
 	}
 
 	/*
-	*	
+	*	Buscar Reembolsos Por Cedula de Identidad del Afiliado
 	*	@param integer
-	*	@return Reembolso
+	*	@param boolean
+	*	@return boolean
 	*/
 
-	function buscar($nropersfilfam ){
-		$sConsulta = "SELECT * FROM persona WHERE codnip='$cedula' LIMIT 1";
-		$rs = $this->cedula = "";
-		$this->oid = "";
+	function listarCedula($cedula = NULL, $estatus = FALSE){
+		
+		$sConsulta = "SELECT reembsolicnro AS oid,ci_reembolso_tipo.reembtiponombre AS tipo, 
+		ci_reembolso_solic.reembfchsolicitud AS fechaSolicitud,
+		ci_reembolso_solic.reembfchaprobacion AS fechaAprobacion, 
+		ordenpagomonto AS montoSolicitado,reembconcmontoapr AS montoAprobado FROM personas 
+			INNER JOIN ci_reembolso_solic ON (personas.nropersona=ci_reembolso_solic.nropersonaafilmil)
+			INNER JOIN ci_reembolso_tipo ON (ci_reembolso_solic.reembtipocod=ci_reembolso_tipo.reembtipocod)
+		WHERE codnip='$cedula'";
+		
+		$rs = $this->__DBSaman->query($sConsulta);
+		
+
+		if($rs->num_rows() > 0){
+			$this->pendientes = $rs->result();
+		}
+		
+
+		return $this->pendientes;
 	}
 
 	/*
