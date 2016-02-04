@@ -130,7 +130,9 @@ class BienestarSocial extends CI_Controller {
 	}
 
 	public function BD_Postgres(){
-		$rs = "SELECT * FROM censo ";
+		print("<pre>");
+		$this->load->model('comun/reembolso', 'Reembolso');
+		print_r($this->Reembolso->listar('20019729'));
 	}
 
 }

@@ -5,10 +5,8 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 <br><br>
 <div class="container .hide-on-small-only">
  <div class="row">
-	 <div class="col s4">
-	 	<img src="/ipsfa-dg/public/img/nodisponible.jpg" class="responsive-img circle" >
-	 </div>
-	 <div class="col s8">
+
+	 <div class="col s12">
 	 	<p>
 	 	Hola. Saludos, bienvenidos al sistema de reservación de citas para ayudas especializadas en:
 	 	Medicamentos de alto costo, Protesis, Operaciones y otros.
@@ -45,7 +43,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       
       <div class="row">
       	<div class="col s12">
-			<button class="btn-large waves-effect waves-light" type="submit" name="action">Solicitar Cita
+			<button class="btn-large waves-effect waves-light" type="submit" name="action">Notificar
 			    <i class="material-icons right">send</i>
 			</button>
       	</div>

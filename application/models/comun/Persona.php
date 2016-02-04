@@ -65,7 +65,7 @@ class Persona extends CI_Model{
 	*/
 	function MapearSaman($cedula = NULL){
 		$sConsulta = "SELECT * FROM persona WHERE codnip='$cedula' LIMIT 1";
-		$rs = $this->
+		$rs = $this->cedula = "";
 		$this->oid = "";
 	}
 

@@ -126,8 +126,3 @@
 	      </li>
 	    </ul>
 	  </div>
-
-<div class="navbar hide-on-med-and-down center">
-						<img src="<?php echo base_url(); ?>public/img/menu.png">
-				
-</div>
