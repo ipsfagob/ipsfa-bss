@@ -137,10 +137,8 @@
 		<td style="width:30%" class="bde  btop">30.FIRMA</td><td style="width:20%" class="bde  btop">31.FECHA</td></tr>
 		<tr class="doble"><td class="biz bde  bajo"></td><td class="bde  bajo"></td><td class="bde  bajo"><table class="tcontenedor"><tr class="simple"><td style="width:30%;" class="bde"></td><td style="width:30%;" class="bde"></td><td style="width:40%;"></td></tr></table></td></tr>
 	</table>
-
-	<br><br>
 	<p style="color:red;width:100%" class"textoCenter">GERENCIA DE FINANZAS DPTO. DE CONTABILIDAD</p>
-	<br><br>
+
 </div>
 </body>
 </html>
