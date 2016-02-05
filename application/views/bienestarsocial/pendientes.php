@@ -17,6 +17,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 	      <i>Fecha de la solicitud:</i>  ' . $val->fechasolicitud . '<br>
 	      <i>Fecha de la aprobación: </i> ' . $val->fechaaprobacion . '<br>
 	      <i>Monto Solicitado: </i> ' . $val->montosolicitado . '<br>
+	      <i>Monto Aprobado: </i> ' . $val->montoaprobado . '<br>
 	      </p>
 		</div>
 	    </li>';

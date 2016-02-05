@@ -10,7 +10,8 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 	 </div>
 	 <div class="col s8">
 	 	<div class="input-field col s12">
-          <input id="cedula" type="text" class="validate">
+          <input id="cedula" type="text" class="validate" 
+          value="<?php echo $Persona->nacionalidad . '-' . $Persona->cedula?>">
           <label for="cedula">Documento de Identidad</label>
         </div>
  
@@ -24,18 +25,18 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
     <form class="col s12">
      <div class="row">
      	<div class="input-field col s12">
-          <input id="first_name" type="text" class="validate">
+          <input id="first_name" type="text" class="validate" value="<?php echo $Persona->nombreCompleto()?>">
           <label for="first_name">Nombres</label>
         </div>
         
         <div class="input-field col s12">
-          <input id="last_name" type="text" class="validate">
+          <input id="last_name" type="text" class="validate" value="<?php echo $Persona->apellidoCompleto()?>">
           <label for="last_name">Apellidos</label>
         </div>
      </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="email" type="email" class="validate">
+          <input id="email" type="email" class="validate" value="<?php echo $Persona->correoElectronico?>">
           <label for="email" data-error="Invalido" data-success="right">Correo Electronico</label>
         </div>
       </div>
@@ -43,11 +44,11 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       
       <div class="row">
         <div class="input-field col s6">
-          <input id="cel" type="text" class="validate">
+          <input id="cel" type="text" class="validate" value="<?php echo $Persona->celular?>">
           <label for="cel">Celular</label>
         </div>
         <div class="input-field col s6">
-          <input id="tel" type="text" class="validate">
+          <input id="tel" type="text" class="validate" value="<?php echo $Persona->telefono?>">
           <label for="tel">Teléfono de Casa</label>
         </div>
       </div>

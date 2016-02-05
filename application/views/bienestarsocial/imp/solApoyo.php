@@ -57,21 +57,46 @@
 <div class="contenedor" >
 
 	<table class="tcontenedor" border=0>
-		<tr><td class="textoCenter" style="width:80%;" rowspan="2"><H1>SOLICITUD DE APOYO ECON&Oacute;MICO<br>SOCIAL PARA GASTOS M&Eacute;DICOS</H1></td><td style="width:20%;" class="biz bde btop bajo">Codigo</td></tr>
-		<tr><td style="width:20%;" class="biz bde btop bajo"><table class="tcontenedor"><tr><td colspan="3">2.FECHA</td></tr><tr class="simple"><td style="width:30%;" class="bde"></td><td style="width:30%;" class="bde"></td><td style="width:40%;"></td></tr></table></td></tr>
+		<tr>
+			<td class="textoCenter" style="width:80%;" rowspan="2">
+				<H1>SOLICITUD DE APOYO ECON&Oacute;MICO<br>SOCIAL PARA GASTOS M&Eacute;DICOS</H1>
+			</td>
+			<td style="width:20%;" class="biz bde btop bajo">
+				Codigo: <b><?php echo '00000'. $Codigo ?></b>
+			</td>
+		</tr>
+		<tr><td style="width:20%;" class="biz bde btop bajo"><table class="tcontenedor"><tr>
+		<td colspan="3">2.FECHA</td></tr><tr class="simple"><td style="width:30%;" class="bde"></td>
+		<td style="width:30%;" class="bde"></td><td style="width:40%;"></td></tr></table></td></tr>
 	</table>
 
 
 	<table class="tcontenedor junta" border=1>
-		<tr class"texto12"><td class="textoCenter " style="width:25%;">UEL</td><td style="width:35%;">PROYECTO</td><td style="width:40%;">ACCION ESPECIFICA</td></tr>
-		<tr style="height:50px;"><td class="textoCenter" style="width:25%;"></td><td style="width:35%;"></td><td style="width:40%;"></td></tr>
+		<tr class"texto12">
+			<td class="textoCenter " style="width:25%;">UEL</td>
+			<td style="width:35%;">PROYECTO</td><td style="width:40%;">ACCION ESPECIFICA</td>
+		</tr>
+		<tr style="height:50px;">
+			<td class="textoCenter" style="width:25%;"></td>
+			<td style="width:35%;"></td><td style="width:40%;"></td></tr>
 	</table>
 
 
 	<table class="tcontenedor junta" border=0>
-		<thead><tr><td><P class="texto16">DATOS DEL SOLICITANTE:</p></td> <td colspan="3" style="width:100%;color:red;" class="textoCenter"><P class="texto16">POR FAVOR NO ESCRIBO SOBRE LAS CASILLAS SOMBREADAS</p></td></tr></thead>
-		<tbody>
-			<tr class="texto12"><td style="width:30%;" class="biz bde btop">4.CEDULA DE IDENTIDAD DEL AFILIADO:</td><td style="width:70%;" colspan="3" class="bde btop">5.APELLIDOS Y NOMBRES DEL AFILIADO:</td></tr>
+		<thead>
+			<tr>
+				<td><P class="texto16">DATOS DEL SOLICITANTE:</p></td> 
+				<td colspan="3" style="width:100%;color:red;" class="textoCenter">
+				<p class="texto16">POR FAVOR NO ESCRIBA SOBRE LAS CASILLAS SOMBREADAS</p></td></tr></thead>
+			<tbody>
+			<tr class="texto12">
+				<td style="width:30%;" class="biz bde btop">4.CEDULA DE IDENTIDAD DEL AFILIADO:
+					<br><b><?php echo $Persona->nacionalidad . '-' . $Persona->cedula; ?></b>
+				</td>
+				<td style="width:70%;" colspan="3" class="bde btop">5.APELLIDOS Y NOMBRES DEL AFILIADO:
+					<br><b><?php echo $Persona->apellidoCompleto() . ' ' . $Persona->nombreCompleto(); ?></b>
+				</td>
+			</tr>
 			<tr class="texto12 doble"><td style="width:30%;" class="biz bde bajo"></td><td style="width:70%;" colspan="3" class="bde bajo"></td></tr>
 			<tr class="texto12"><td style="width:25%;" class="biz bde btop">6.GRADO:</td><td style="width:25%;" class="bde btop">7.COMPONENTE:</td><td style="width:25%;" class="bde btop">8.SITUACI&Oacute;N:</td><td style="width:25%;" class="bde btop">9.ESTADO CIVIL:</td></tr>
 			<tr class="texto12 doble">

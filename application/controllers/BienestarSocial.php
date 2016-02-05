@@ -13,8 +13,8 @@
  * @since	Version 1.0.0
  * @filesource
  */
-
-
+//24775075 | 11953710 | 9348067 | 6547344 | 2664801 | 2615359
+define('__CEDULA', '2615359');
 
 class BienestarSocial extends CI_Controller {
 	
@@ -45,14 +45,17 @@ class BienestarSocial extends CI_Controller {
 	 * Vista Datos Basicos del Personal
 	 */
 	public function datos() {
-		$this->load->view ( 'bienestarsocial/datos' );
+		$this->load->model('comun/Persona', 'Persona');
+		$this->Persona->consultar(__CEDULA);
+		$data['Persona'] = $this->Persona;
+		$this->load->view ( 'bienestarsocial/datos', $data );
 	}
 	
 	/**
 	 * Vista de las Bienestar Ayudas
 	 *	@param string url
 	 */
-	public function bienestar($url) {
+	public function bienestar($url = '') {
 		$data['url'] = $url; 
 		$this->load->view ( 'bienestarsocial/bienestar', $data);
 	}
@@ -62,7 +65,7 @@ class BienestarSocial extends CI_Controller {
 	 */
 	public function pendientes() {
 		$this->load->model('comun/reembolso', 'Reembolso');
-		$data['listarPendientes'] = $this->Reembolso->listarCedula('11953710');
+		$data['listarPendientes'] = $this->Reembolso->listarCedula(__CEDULA);
 		$this->load->view ( 'bienestarsocial/pendientes', $data );
 	}
 	
@@ -134,17 +137,49 @@ class BienestarSocial extends CI_Controller {
 	}
 
 	/**
+	*	TESTS
 	*	Listar todos los reembolsos pendiente por personas
 	*	
 	*/
 	public function listarCasosBienestar(){
 		print("<pre>");
 		$this->load->model('comun/reembolso', 'Reembolso');
-		$this->Reembolso->listarCedula('11953710');
-		print_r($this->Reembolso->listarCedula('11953710'));
+		print_r($this->Reembolso->listarCedula(__CEDULA));
+	}
+	public function obtenerCodigo(){
+		$this->load->model('utilidades/Semillero', 'Semillero');
+		$this->Semillero->generar();
+		return $this->Semillero->codigo;
+	}
+
+	function ConsultarPersona(){
+		$this->load->model('comun/Persona', 'Persona');
+		$this->Persona->consultar(__CEDULA);
+		print_r($this->Persona->fechaNacimiento);
+
+	}
+
+	function imprimirHoja($tipo = ''){
+
+		$this->load->model('comun/Solicitud', 'Solicitud');
+		$this->load->model('comun/Persona', 'Persona');
+		$this->Persona->consultar(__CEDULA);
+		$arr['Persona'] = $this->Persona;
+		$arr['Codigo'] = $this->obtenerCodigo();
+		if($tipo == 're'){
+			$this->load->view('bienestarsocial/imp/solReembolso', $arr);
+			$this->Solicitud->crear($this->Persona->cedula,$arr['Codigo'],'Reembolso', 0);	
+		}else{
+			$this->load->view('bienestarsocial/imp/solApoyo', $arr);
+			$this->Solicitud->crear($this->Persona->cedula,$arr['Codigo'],'Apoyo', 1);	
+		}
+
+
+		
 	}
 
 }
+
 
 
 

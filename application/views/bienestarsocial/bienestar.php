@@ -33,7 +33,9 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
  </div>
  </div>
 
-    <form class="col s12" action="solicitud" method="post">
+    <form class="col s12" 
+      action="<?php echo base_url(); ?>index.php/BienestarSocial/imprimirHoja/<?php echo $url; ?>" 
+      method="post">
       <div class="row">
         <div class="input-field col s12">
           <textarea id="textarea1" class="materialize-textarea"></textarea>

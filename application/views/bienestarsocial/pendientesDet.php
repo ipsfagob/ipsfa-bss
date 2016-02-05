@@ -8,11 +8,11 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 <ul class="collapsible"  data-collapsible="expandable">
 <li>
   <div class="collapsible-header"><i class="material-icons">filter_drama</i></div>
+  <div class="collapsible-body">
   <?php
     foreach ($listarPendientes as $key => $val) {
-      $cadena = '
-	    
-	    <div class="collapsible-body"><p>
+      $cadena = '	    
+	    <p>
 	      <i>Fecha de la solicitud:</i>  ' . $val->fechasolicitud . '<br>
 	      <i>Fecha de la aprobación: </i> ' . $val->fechaaprobacion . '<br>
 	      <i>Monto Solicitado: </i> ' . $val->montosolicitado . '<br>
