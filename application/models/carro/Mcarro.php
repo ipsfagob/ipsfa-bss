@@ -5,8 +5,8 @@ if (!defined('BASEPATH'))
 /**
  * Carrito de Compra
  *
- * @package mamonsoft
- * @subpackage carro
+ * @package Ipsfa.BienestarSocial
+ * @subpackage Carro
  * @author Carlos Peña
  * @copyright	Derechos Reservados (c) 2014 - 2015, MamonSoft C.A.
  * @link		http://www.mamonsoft.com.ve

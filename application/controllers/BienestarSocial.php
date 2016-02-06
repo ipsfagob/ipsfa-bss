@@ -13,38 +13,39 @@
  * @since	Version 1.0.0
  * @filesource
  */
-//24775075 | 11953710 | 9348067 | 6547344 | 2664801 | 2615359
-define('__CEDULA', '2615359');
+//24775075 | 11953710 | 9348067 | 6547344 | 2664801 | 2615359 | 10156786
+define('__CEDULA', '12633177');
 
 class BienestarSocial extends CI_Controller {
+
 	
 	function __construct(){
 		parent::__construct();
 		$this->load->helper('url');
 		$this -> load -> model('carro/mcarro','Carro');
 		$this->load->library('session');
-		//$this->load->database();
 	}
 
 	/*
-	|------------------------------------------------------------
+	| -----------------------------------------------------------
 	|	Control de Vistas en la WEB
-	|	
-	|------------------------------------------------------------
+	| -----------------------------------------------------------
 	*/
-	
+
 	/**
-	 * Vista Pagina Principal
+	 * Vista Datos Basicos del Personal
+	 * @return mixed
 	 */
-	public function index() {
+	function index() {
 		$this->validarUsuario();
 	}
 
 	
 	/**
 	 * Vista Datos Basicos del Personal
+	 * @return html
 	 */
-	public function datos() {
+	function datos() {
 		$this->load->model('comun/Persona', 'Persona');
 		$this->Persona->consultar(__CEDULA);
 		$data['Persona'] = $this->Persona;
@@ -53,104 +54,149 @@ class BienestarSocial extends CI_Controller {
 	
 	/**
 	 * Vista de las Bienestar Ayudas
-	 *	@param string url
+	 * @param string url
+	 * @return html
 	 */
-	public function bienestar($url = '') {
+	
+	function bienestar($url = '') {
 		$data['url'] = $url; 
 		$this->load->view ( 'bienestarsocial/bienestar', $data);
 	}
 	
 	/**
 	 * Vista de las Bienestar Ayudas
+	 * @return html
 	 */
-	public function pendientes() {
+	function pendientes() {
 		$this->load->model('comun/reembolso', 'Reembolso');
 		$data['listarPendientes'] = $this->Reembolso->listarCedula(__CEDULA);
 		$this->load->view ( 'bienestarsocial/pendientes', $data );
 	}
 	
 	/**
-	 * Vista Pagina Principal
+	 * Vista Pagina Farmacia
+	 * @return html
 	 */
-	public function farmacia() {
+	function farmacia() {
 		$this->load->view ( 'bienestarsocial/farmacia' );
 	}
 
-	public function carro(){
+	/**
+	 * Vista Pagina Carro de Pedidos
+	 * @return html
+	 */
+	function carro(){
 		$data['data'] = $this->Carro->listar();
 		$this->load->view ( 'bienestarsocial/carro', $data );
 	}
 
-	public function solicitud(){
+	/**
+	 * Vista Pagina Solicitud de Ayudas
+	 * @return html
+	 */
+	function solicitud(){
 		$data['data'] = $this->Carro->listar();
 		$this->load->view ( 'bienestarsocial/solicitud', $data );
 	}
-	
-	public function salir() {
+
+	/**
+	 * Salir del Sistema
+	 * @return mixed
+	 */	
+	function salir() {
 		session_destroy();
 		$this->index();
-	
-	
 	}
 	
-	/** ------------------------------------------------------------
-	*	Control de Acciones
-	*	------------------------------------------------------------
+	/* 
+	| ------------------------------------------------------------
+	|	Control de Acciones
+	| ------------------------------------------------------------
 	*/
 
 	/**
-	*/
-	function validarUsuario(){
+	 * Validar y sincronizar el usuario de conexión
+	 * @return mixed
+	 */	
+	protected function validarUsuario(){
 		$this->load->model('usuario/Iniciar', 'Iniciar');
-		//$this->Iniciar->validarCuenta($_POST);
 		$valores["txtUsuario"] = "MamonSoft";
 		$valores["txtClave"] = "za63qj2p";
 		$resultado = $this->Iniciar->validarCuenta($valores); 
 		if ( $resultado == 1){
-			//print_r($_SESSION);
 			$this->load->view ( 'bienestarsocial/principal');
 		}else{
 			echo "Error en el usuario con la base de datos";
 		}		
 	}
 
+	/**
+	 * Permite generar un codigo de planillas
+	 * @return string
+	 */	
+	public function obtenerCodigo(){
+		$this->load->model('utilidades/Semillero', 'Semillero');
+		$this->Semillero->generar();
+		return $this->Semillero->codigo;
+	}
+	
+	/* 
+	| ------------------------------------------------------------
+	|	Metodos de Asignación, Selección y Eliminación del Carro
+	| ------------------------------------------------------------
+	*/
 
 	/**
-	 * Listar Los Productos en Postgres
+	 * Listar un producto o medicamento según lo declare un usuario
+	 *
+	 * @param string
+	 * @return json 
 	 */
-	public function listarProductosPG($pr = ''){		
+	public function listarMedicamentosBADAN($pr = ''){		
 		$this->load->model("fisico/maestroproducto", "Producto");
 		echo $this->Producto->listarPostgres($pr);
 		
 	}
 
+	/**
+	 * Agregar un Medicamento al Carro
+	 *
+	 * @return mixed 
+	 */
 	public function AgregarProductosCarrito(){
 		//$data = array('id' => 2, 'cantidad' => 4, 'precio' => '180.82', 'nombre' => 'Bolsas de Color Rojas');
         $this->Carro->registrar($_POST);
 	}
 
+	/**
+	 * Agregar un Medicamento al Carro
+	 *
+	 * @return mixed 
+	 */
 	public function EliminarProductosCarrito(){
 		$this->Carro->eliminar($_POST['rowid']);		
 	}
+	/**
+	 * Agregar un Medicamento al Carro
+	 *
+	 * @return mixed 
+	 */
 	public function LimipiarProductosCarrito(){
 		$this->Carro->limpiar();
 	}
 
-	/**
-	*	TESTS
-	*	Listar todos los reembolsos pendiente por personas
-	*	
+	/*
+	| ------------------------------------------------------------	
+	| TESTS
+	| Listar todos los reembolsos pendiente por personas
+	| ------------------------------------------------------------
 	*/
 	public function listarCasosBienestar(){
 		print("<pre>");
 		$this->load->model('comun/reembolso', 'Reembolso');
 		print_r($this->Reembolso->listarCedula(__CEDULA));
 	}
-	public function obtenerCodigo(){
-		$this->load->model('utilidades/Semillero', 'Semillero');
-		$this->Semillero->generar();
-		return $this->Semillero->codigo;
-	}
+
 
 	function ConsultarPersona(){
 		$this->load->model('comun/Persona', 'Persona');
