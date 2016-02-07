@@ -13,12 +13,13 @@
  * @since	Version 1.0.0
  * @filesource
  */
-//24775075 | 11953710 | 9348067 | 6547344 | 2664801 | 2615359 | 10156786
-define('__CEDULA', '12633177');
+//24775075 | 11953710 | 9348067 | 6547344 | 2664801 | 2615359 | 10156786 | 12633177
+define('__CEDULA', '10156786');
 
 class BienestarSocial extends CI_Controller {
 
-	
+	var $_PRIVADO = TRUE;
+
 	function __construct(){
 		parent::__construct();
 		$this->load->helper('url');
@@ -39,7 +40,6 @@ class BienestarSocial extends CI_Controller {
 	function index() {
 		$this->validarUsuario();
 	}
-
 	
 	/**
 	 * Vista Datos Basicos del Personal
@@ -201,7 +201,15 @@ class BienestarSocial extends CI_Controller {
 	function ConsultarPersona(){
 		$this->load->model('comun/Persona', 'Persona');
 		$this->Persona->consultar(__CEDULA);
-		print_r($this->Persona->fechaNacimiento);
+		
+		$this->load->model('comun/Solicitud', 'Solicitud');
+		print('<pre>');
+		$Persona = $this->Solicitud->importarSolicitudesSaman($this->Persona)->Persona;
+		print_r($Persona->solicitudes);
+
+	}
+	function listarSolicitudes(){
+
 
 	}
 

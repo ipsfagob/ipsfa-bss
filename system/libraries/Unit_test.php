@@ -214,11 +214,17 @@ class CI_Unit_test {
 				{
 					if ($val === $CI->lang->line('ut_passed'))
 					{
-						$val = '<span style="color: #0C0;">'.$val.'</span>';
+						$val = '<spam>
+						<i class="small material-icons green-text left">thumb_up</i></spam><font style="color:green">
+						' . $val . '</font>';
+						//<b>'.$val.'</b>
 					}
 					elseif ($val === $CI->lang->line('ut_failed'))
 					{
-						$val = '<span style="color: #C00;">'.$val.'</span>';
+						//$val = '<span style="color: #C00;">'.$val.'</span>';
+						$val = '<i class="small circle material-icons red-text left">report_problem</i>
+						<font style="color:red">
+						' . $val . '</font>';
 					}
 				}
 

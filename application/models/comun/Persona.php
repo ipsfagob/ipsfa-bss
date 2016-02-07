@@ -14,11 +14,7 @@ if (!defined('BASEPATH'))
  *
  */
 class Persona extends CI_Model{
-	
-	/**
-	*	Objeto de Conexión SAMAN
-	*/
-	var $__DBSaman = NULL;
+
 
 	var $oid = NULL;
 	
@@ -50,67 +46,61 @@ class Persona extends CI_Model{
 	*/
 	var $dependientes = array();
 
+		/**
+	*	Listado de Dependientes
+	*	@var Dependiente
+	*/
+	var $solicitudes = array();
+
 	/**
 	*	Constructor de la Calse
 	*
 	*/
 	function __construct(){
 		parent::__construct();
-		$this->__iniciarSaman();
+		$this->load->model('comun/Dbsaman', 'Dbsaman');		
 
 	}
 
-	/**
-	*	Establecer Conexión a la Base de datos SAMAN
-	*/
-	function __iniciarSaman(){
-		if (! isset ( $this->__DBSaman )) {
-			$this->__DBSaman = $this->load->database('saman', true);
-		}
 
-	}
 
 	/**
 	* Permite Mapear un objeto (personas) de la BD SAMAN
-	*	@param string
+	* @param string
 	* @return Persona
 	*/
 	function mapear($cedula = NULL){
 		$sConsulta = "SELECT * FROM personas WHERE codnip='$cedula' LIMIT 1";
 		
-		$this->oid = "";
+		
+		return TRUE;
 	}
 
+
+	/**
+	* Consultar y Mapear un objeto (personas) de la BD SAMAN
+	* @param string
+	* @return Persona
+	*/
 	function consultar($cedula = NULL){
 		$sConsulta = "SELECT * FROM personas WHERE codnip='$cedula' LIMIT 1";
-		$rs = $this->__DBSaman->query($sConsulta);
+		$arr = $this->Dbsaman->consultar($sConsulta);
+		if($arr->code == 0){
+			foreach ($arr->rs as $clv => $val) {
+				$this->oid = $val->nropersona;
+				$this->nacionalidad = $val->tipnip;
+				$this->cedula = $val->codnip;				
+				$this->primerNombre = $val->nombreprimero;
+				$this->segundoNombre = $val->nombresegundo;
+				$this->primerApellido = $val->apellidoprimero;
+				$this->segundoApellido = $val->apellidosegundo;
+				$this->fechaNacimiento = $val->fechanacimiento;
+				$this->correoElectronico = $val->email1;
+				$this->direccion = $val->paginaweb;					
+			}
+		}		
 
-
-		/*
-		if ($this -> __DBSaman -> _error_number() == 0) $rs = $resultado -> result();
-
-    	$arr[] = array(
-    		'err' => $this -> __DBSaman -> _error_number(), 
-    		'msj' => $this -> __DBSaman -> _error_message(), 
-    		'rs' => $rs,
-    		'cant'=>$resultado -> num_rows());
-    	*/
-
-
-
-		foreach ($rs->result() as $clv => $val) {
-			$this->nacionalidad = $val->tipnip;
-			$this->cedula = $val->codnip;
-			
-			$this->primerNombre = $val->nombreprimero;
-			$this->segundoNombre = $val->nombresegundo;
-			$this->primerApellido = $val->apellidoprimero;
-			$this->segundoApellido = $val->apellidosegundo;
-			$this->fechaNacimiento = $val->fechanacimiento;
-			$this->correoElectronico = $val->email1;
-			$this->direccion = $val->paginaweb;					
-		}
-		return TRUE; //$arr;
+		return $arr;
 	}
 
 	function nombreCompleto(){
@@ -120,4 +110,21 @@ class Persona extends CI_Model{
 	function apellidoCompleto(){
 		return $this->primerApellido . ' ' . $this->segundoApellido;
 	}
+
+	/**
+	* Actualizar Objeto Persona en las tablas 
+	*
+	*/
+	function actualizar(){
+
+	}
+
+	/**
+	*
+	*
+	*/
+	function __destruct(){
+
+	}
+
 }

@@ -37,13 +37,13 @@
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$lang['ut_test_name'] = 'Test Name';
-$lang['ut_test_datatype'] = 'Test Datatype';
-$lang['ut_res_datatype'] = 'Expected Datatype';
-$lang['ut_result'] = 'Result';
-$lang['ut_undefined'] = 'Undefined Test Name';
-$lang['ut_file'] = 'File Name';
-$lang['ut_line'] = 'Line Number';
+$lang['ut_test_name'] = 'Nombre de la Prueba';
+$lang['ut_test_datatype'] = 'Tipo de Dato';
+$lang['ut_res_datatype'] = 'Dato Esperado';
+$lang['ut_result'] = 'Resultado';
+$lang['ut_undefined'] = 'Nombre de Prueba Indefinido';
+$lang['ut_file'] = 'Nombre del Arcchivo';
+$lang['ut_line'] = 'Número de Linea';
 $lang['ut_passed'] = 'Ok Funciona';
 $lang['ut_failed'] = 'Problema Detectado';
 $lang['ut_boolean'] = 'Boolean';
@@ -55,4 +55,4 @@ $lang['ut_array'] = 'Array';
 $lang['ut_object'] = 'Object';
 $lang['ut_resource'] = 'Resource';
 $lang['ut_null'] = 'Null';
-$lang['ut_notes'] = 'Notes';
+$lang['ut_notes'] = 'Notas';
