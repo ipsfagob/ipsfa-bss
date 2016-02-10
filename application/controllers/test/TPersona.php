@@ -38,46 +38,33 @@ class TPersona extends CI_Controller{
 		error_reporting(E_ALL & ~(E_STRICT|E_NOTICE));
 		$e = $p;
 
-		$this->load->model('comun/Persona', 'Persona');
-		$arr = $this->Persona->consultar('11953710');
+		
 
 		$this->unit->set_template($this->plantilla);
+		
+		$this->load->model('saman/Dbsaman');
+		/*
 		$this->unit->run(
 				$arr->code, 
 				0,  
 				'Clase: Persona (Prueba 1) ', 
 				'<br> 
-				Archivo Model: comun/Persona.php<br>
+				Archivo Model: saman/Persona.php<br>
 				Metodo : consultar() <br> Motivo: ' . $arr->message);
+		*/
+
+		$this->load->model('saman/Militar', 'Militar');
+		$arr = $this->Militar->consultar('11953710');
+		
+		$this->unit->run(
+				$arr->code, 
+				0,  
+				'Clase: Persona (Prueba 1) ', 
+				'<br> 
+				Archivo Model: saman/Persona.php<br>
+				Metodo : consultar() <br> Motivo: ' . $arr->message . ' <br><br>Consulta: <br>' . $arr->query);
 	
-		$this->unit->run(
-				$this->Persona->mapear(), 
-				'is_bool',  
-				'Clase: Persona (Prueba 2) ', 
-				'<br> 
-				Archivo Model: comun/Persona.php<br>
-				Metodo : mapear()');
 
-		$this->load->model('comun/Solicitud', 'Solicitud');
-
-		$arr = $this->Solicitud->importarSolicitudesSaman($this->Persona);
-
-		$this->unit->run(
-				$arr->code, 
-				0,  
-				'Clase: Solicitud (Prueba 3) ', 
-				'<br> 
-				Archivo Model: comun/Solicitud.php<br>
-				Metodo : importarSolicitudesSaman() <br> Motivo: ' . $arr->message);
-
-		$arr = $this->Solicitud->importarDetalleSolicitudSaman('252097');
-		$this->unit->run(
-				$arr->code, 
-				0,  
-				'Clase: Solicitud (Prueba 4) ', 
-				'<br> 
-				Archivo Model: comun/Solicitud.php<br>
-				Metodo : importarDetalleSolicitudSaman() <br> Motivo: ' . $arr->query);
 
 		$data['Reporte'] = $this->unit->report();
 		$this->load->view('test/Plantilla', $data);

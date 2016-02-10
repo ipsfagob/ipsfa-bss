@@ -14,7 +14,7 @@
  * @filesource
  */
 //24775075 | 11953710 | 9348067 | 6547344 | 2664801 | 2615359 | 10156786 | 12633177
-define('__CEDULA', '10156786');
+define('__CEDULA', '11953710');
 
 class BienestarSocial extends CI_Controller {
 
@@ -46,9 +46,11 @@ class BienestarSocial extends CI_Controller {
 	 * @return html
 	 */
 	function datos() {
-		$this->load->model('comun/Persona', 'Persona');
-		$this->Persona->consultar(__CEDULA);
-		$data['Persona'] = $this->Persona;
+		$this->load->model('saman/Militar', 'Militar');
+		$this->load->model('saman/CodigoArea', 'CodigoArea');
+		$this->Militar->consultar(__CEDULA);
+		$data['CodigoArea'] = $this->CodigoArea->listar()->rs;
+		$data['Persona'] = $this->Militar->Persona;
 		$this->load->view ( 'bienestarsocial/datos', $data );
 	}
 	
@@ -193,19 +195,19 @@ class BienestarSocial extends CI_Controller {
 	*/
 	public function listarCasosBienestar(){
 		print("<pre>");
-		$this->load->model('comun/reembolso', 'Reembolso');
+		$this->load->model('saman/reembolso', 'Reembolso');
 		print_r($this->Reembolso->listarCedula(__CEDULA));
 	}
 
 
 	function ConsultarPersona(){
-		$this->load->model('comun/Persona', 'Persona');
-		$this->Persona->consultar(__CEDULA);
+		$this->load->model('saman/Militar', 'Militar');
+		$this->Militar->consultar(__CEDULA);
 		
-		$this->load->model('comun/Solicitud', 'Solicitud');
+		$this->load->model('saman/Solicitud', 'Solicitud');
 		print('<pre>');
-		$Persona = $this->Solicitud->importarSolicitudesSaman($this->Persona)->Persona;
-		print_r($Persona->solicitudes);
+		$Militar = $this->Solicitud->importarSolicitudesSaman($this->Militar);
+		print_r($this->Militar);
 
 	}
 	function listarSolicitudes(){
@@ -215,8 +217,8 @@ class BienestarSocial extends CI_Controller {
 
 	function imprimirHoja($tipo = ''){
 
-		$this->load->model('comun/Solicitud', 'Solicitud');
-		$this->load->model('comun/Persona', 'Persona');
+		$this->load->model('saman/Solicitud', 'Solicitud');
+		$this->load->model('saman/Persona', 'Persona');
 		$this->Persona->consultar(__CEDULA);
 		$arr['Persona'] = $this->Persona;
 		$arr['Codigo'] = $this->obtenerCodigo();

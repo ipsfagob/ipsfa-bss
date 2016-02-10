@@ -45,9 +45,9 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       
       <div class="row">
       	<div class="col s12">
-			<button class="btn-large waves-effect waves-light" type="submit" name="action">Notificar
-			    <i class="material-icons right">send</i>
-			</button>
+    			<button class="btn-large waves-effect waves-light" type="submit" name="action">Notificar
+    			    <i class="material-icons right">send</i>
+    			</button>
       	</div>
       </div>       
     </form>

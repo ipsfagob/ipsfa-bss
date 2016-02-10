@@ -11,6 +11,7 @@
     $(document).ready(function(){
     	  
 		$('.materialboxed').materialbox();
+  		$('select').material_select();  
 		$('.dropdown-button').dropdown({
 			inDuration: 400,
 			outDuration: 225,
@@ -37,6 +38,12 @@
 
     	$('.modal-trigger').leanModal();
     	
+    	$('.datepicker').pickadate({
+	    	selectMonths: true, // Creates a dropdown to control month
+	    	selectYears: 15 // Creates a dropdown of 15 years to control year
+	  	});
+
+	  	//$('textarea#direccion').characterCounter();
     	 
       });
       

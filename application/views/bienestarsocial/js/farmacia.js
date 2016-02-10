@@ -25,7 +25,6 @@ function listarProductos(val) {
 	}
 
 	).done(function(msg) {
-		//$("#pos").remove();
 		$("#menuprincipal").focus();
 	}).fail(function(jqXHR, textStatus) {
 		alert(jqXHR.responseText);

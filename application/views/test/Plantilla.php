@@ -30,7 +30,7 @@
           <nav>
 
             <div class="nav-wrapper blue">
-              <a href="#" class="brand-logo">Pruebas Unitarias del Sistema</a>
+              <a href="#" class="brand-logo">Pruebas Unitarias</a>
 
 
 

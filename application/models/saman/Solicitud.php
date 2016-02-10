@@ -40,53 +40,73 @@ class Solicitud extends CI_Model{
 
 	}
 
-	function importarSolicitudesSaman(Persona $Persona){
+
+	function importarSolicitudesSaman(Militar $Militar){
 		$this->load->model('comun/Dbsaman');		
-		$sConsulta = 'SELECT * FROM personas 
-		INNER JOIN ci_reembolso_solic ON personas.nropersona=ci_reembolso_solic.nropersonaafilmil
-		WHERE personas.nropersona = ' . $Persona->oid;
-		$obj = $this->Dbsaman->consultar($sConsulta);
+		$sConsulta = 'SELECT * FROM ci_reembolso_solic WHERE nropersonaafilmil = ' . $Militar->Persona->oid;
+		$obj = $this->Dbsaman->consultar($sConsulta);		
 		if($obj->code == 0){
 			foreach ($obj->rs as $key => $val) {
-				$Persona->Solicitudes[$i++] = array(
-					'id' => array(
-						'codigo' => $val->reembsolicnro, 
+				$Militar->Solicitudes[] = array(
+					'solicitud' => array('codigo' => $val->reembsolicnro, 
 						'montoSolicitado' => $val->ordenpagomonto,
 						'montoAprobado' => $val->reembconcmontoapr,
 						'fechaSolicitado' => $val->reembfchsolicitud,
 						'fechaAprobado' => $val->reembfchaprobacion,
-						), 
-					'detalle' => $this->importarDetalleSolicitudSaman($val->reembsolicnro)->detalleSolicitud
-				);
-			}
-		}
-		$obj->Persona = $Persona;.
-		return $obj;
-	}
-
-	function importarDetalleSolicitudSaman($codigo){
-		$this->load->model('comun/Dbsaman');
-		$detalleSolicitud = array();	
-		$sConsulta = 'SELECT * FROM ci_reembolso_det 
-			INNER JOIN ci_reembolso_det_clase ON ci_reembolso_det.reembclasecod=ci_reembolso_det_clase.reembclasecod
-			INNER JOIN ci_reembolso_concep ON ci_reembolso_det.reembconccod=ci_reembolso_concep.reembconccod
-			INNER JOIN personas ON ci_reembolso_det.nropersafilfam=personas.nropersona
-			INNER JOIN pers_relaciones ON personas.nropersona= pers_relaciones.nropersonarel
-			INNER JOIN pers_relacs_tipo ON pers_relaciones.persrelstipcod=pers_relacs_tipo.persrelstipcod
-		WHERE ci_reembolso_det.reembsolicnro = ' . $codigo;
-
-		$obj = $this->Dbsaman->consultar($sConsulta);
-		if($obj->code == 0){
-			foreach ($obj->rs as $key => $val) {
-				$detalleSolicitud[] = array(
-					'parentesco' => $val->persrelstipnombre,
-					'concepto' => $val->reembconcnombre,
-					'monto' => $val->reembconcmonto
+						'detalle' => $this->importarDetalleSolicitudSaman($val->reembsolicnro, $Militar->Persona)->detalleSolicitud
+					)
 					
 				);
 			}
 		}
+		$obj->Militar = $Militar;
+		return $obj;
+	}
+
+	function importarDetalleSolicitudSaman($codigo, Persona $Persona){
+		$this->load->model('comun/Dbsaman');
+		$detalleSolicitud = array();
+
+		$sConsulta = 'SELECT * FROM ci_reembolso_det 
+			INNER JOIN ci_reembolso_det_clase ON ci_reembolso_det.reembclasecod=ci_reembolso_det_clase.reembclasecod
+			INNER JOIN ci_reembolso_concep ON ci_reembolso_det.reembconccod=ci_reembolso_concep.reembconccod
+			INNER JOIN personas ON ci_reembolso_det.nropersafilfam=personas.nropersona
+		WHERE ci_reembolso_det.reembsolicnro = ' . $codigo;
+		$obj = $this->Dbsaman->consultar($sConsulta);
+		if($obj->code == 0){
+			foreach ($obj->rs as $key => $val) {				
+				$parentesco = $this->validarTitular($val->nropersafilfam, $Persona, $this->Dbsaman);				
+				$detalleSolicitud[] = array(
+					'codigoConcepto' => $val->reembconccod,
+					'concepto' => $val->reembconcnombre,					
+					'nombre' => $parentesco->Dependiente->Persona->nombreApellidoCompleto(),										
+					'parentesco' => $parentesco->Dependiente->parentesco,
+					'monto' => $val->reembconcmonto,
+					'dependiente' => $parentesco->Dependiente		
+				);
+			}
+		}
 		$obj->detalleSolicitud = $detalleSolicitud;
+		return $obj;
+	}
+
+	/**
+	* @var string
+	* @var Persona
+	* @var DbSaman
+	* @return Dependiente
+	*/
+	function validarTitular($oid, Persona $Persona, Dbsaman $Dbsaman){
+		$this->load->model('saman/Dependiente', 'Dependiente');
+		
+		$obj = $Dbsaman;
+		if($oid == $Persona->oid){
+			$this->Dependiente->Persona = $Persona;
+			$this->Dependiente->parentesco = 'Titular';
+		}else {
+			$this->Dependiente->consultar($oid, $Persona);
+		}		
+		$obj->Dependiente = $this->Dependiente;		
 		return $obj;
 	}
 
