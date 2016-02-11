@@ -26,11 +26,6 @@ class Militar extends CI_Model{
 
 
 	/**
-	* @var Rango
-	*/
-	var $Rango;
-
-	/**
 	*	Listado de Dependientes
 	*	@var Dependiente
 	*/
@@ -68,19 +63,16 @@ class Militar extends CI_Model{
 	* @return Persona
 	*/
 	function consultar($cedula = NULL){
-		$this->Persona->consultar($cedula);	 	
+		$this->Persona->consultar($cedula);	
+		$this->Componente->cargar($this->Persona->oid);
 		$sConsulta = 'SELECT * FROM pers_dat_militares 
 			INNER JOIN ipsfa_pers_situac ON pers_dat_militares.perssituaccod=ipsfa_pers_situac.perssituaccod
 			INNER JOIN ipsfa_pers_clase ON pers_dat_militares.persclasecod=ipsfa_pers_clase.persclasecod
-			INNER JOIN ipsfa_pers_categ ON pers_dat_militares.perscategcod=ipsfa_pers_categ.perscategcod			
-			INNER JOIN ipsfa_componentes ON pers_dat_militares.componentecod=ipsfa_componentes.componentecod
+			INNER JOIN ipsfa_pers_categ ON pers_dat_militares.perscategcod=ipsfa_pers_categ.perscategcod
 			WHERE pers_dat_militares.nropersona=' . $this->Persona->oid . ' LIMIT 1';
 		$arr = $this->Dbsaman->consultar($sConsulta);
 		if($arr->code == 0){
-			foreach ($arr->rs as $clv => $val) {
-				$this->Componente->nombre = $val->componentenombre; 			
-				$this->Componente->codigo = $val->componentecod; 			
-				$this->Componente->siglas = $val->componentesiglas; 			
+			foreach ($arr->rs as $clv => $val) {		
 				$this->categoria = $val->perscategnombre;
 				$this->situacion = $val->perssituacnombre;
 				$this->clase = $val->persclasenombre;

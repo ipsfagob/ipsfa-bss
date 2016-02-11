@@ -49,13 +49,15 @@
 								
 				<ul id="solicitudes1" class="dropdown-content">				  			 
 				  <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia">
-				  Drogueria y Farmacia<i class="mdi-action-face-unlock left grey-text "></i></a></li>
+				  Drogueria y Farmacia<i class="mdi-action-assignment-ind left blue-text "></i></a></li>
+				  
+				  <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/ap">
+					  	Notificar Apoyo<i class="mdi-action-assignment-late left red-text "></i></a>
+				  </li>
 				  <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/re">
-					  	Notificar Reembolso<i class="mdi-action-star-rate left green-text "></i></a>
-					</li>
-					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/ap">
-					  	Notificar Apoyo<i class="mdi-action-star-rate left green-text "></i></a>
-					 </li>
+					  	Notificar Reembolso<i class="mdi-action-assignment left green-text "></i></a>
+				  </li>
+					
 
 
 				  <li class="divider"></li>

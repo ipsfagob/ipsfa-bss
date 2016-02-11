@@ -50,7 +50,7 @@ class BienestarSocial extends CI_Controller {
 		$this->load->model('saman/CodigoArea', 'CodigoArea');
 		$this->Militar->consultar(__CEDULA);
 		$data['CodigoArea'] = $this->CodigoArea->listar()->rs;
-		$data['Persona'] = $this->Militar->Persona;
+		$data['Militar'] = $this->Militar;
 		$this->load->view ( 'bienestarsocial/datos', $data );
 	}
 	
@@ -90,6 +90,15 @@ class BienestarSocial extends CI_Controller {
 	function carro(){
 		$data['data'] = $this->Carro->listar();
 		$this->load->view ( 'bienestarsocial/carro', $data );
+	}
+
+	/**
+	 * Vista Pagina Solicitud de Ayudas
+	 * @return html
+	 */
+	function reportar(){
+		//$data['data'] = $this->Carro->listar();
+		$this->load->view ( 'bienestarsocial/reportar' );
 	}
 
 	/**
