@@ -10,7 +10,9 @@
 	var sUrlP = sUrl + '/index.php/BienestarSocial/';
 
     $(document).ready(function(){
-    	  
+
+
+
 		$('.materialboxed').materialbox();
   		$('select').material_select();  
 		$('.dropdown-button').dropdown({

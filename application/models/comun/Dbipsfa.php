@@ -3,19 +3,19 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 /**
- * Carrito de Compra
+ * 
  *
- * @package mamonsoft
+ * @package ipsfa-bss\application\model
  * @subpackage comun
  * @author Carlos Peña
- * @copyright	Derechos Reservados (c) 2014 - 2015, MamonSoft C.A.
- * @link		http://www.mamonsoft.com.ve
- * @since Version 1.0
+ * @copyright Derechos Reservados (c) 2015 - 2016, MamonSoft C.A.
+ * @link http://www.mamonsoft.com.ve
+ * @since version 1.0
  *
  */
-class Dbsaman extends CI_Model {
+class Dbipsfa extends CI_Model {
 	
-	var $__DB;
+	var $__DBipsfa;
 	
 	var $err;
 	/**
@@ -24,17 +24,17 @@ class Dbsaman extends CI_Model {
 	*/
 	function __construct(){
 		parent::__construct();
-		$this->__iniciarSaman();
+		$this->__iniciarIpsfa();
 	}
 
 	/**
 	*	Establecer Conexión a la Base de datos SAMAN
 	*/
-	function __iniciarSaman(){
-		if (! isset ( $this->__DB )) {
-			$this->__DB = $this->load->database('saman', true);
+	function __iniciarIpsfa(){
+		if (! isset ( $this->__DBipsfa )) {
+			$this->__DBipsfa = $this->load->database('default', true);
 		}
-		return $this->__DB;
+		return $this->__DBipsfa;
 	}
 
 	/**
@@ -44,19 +44,28 @@ class Dbsaman extends CI_Model {
 	* @return array
 	*/
 	function consultar($consulta){
+		
 		$this->err = array(
 				'message' => 'Bien',
 				'query' => $consulta
 				);
-		if ( ! (@$rs = $this->__DB->query($consulta))){
-			$this->err = $this->__DB->error();
+		if ( ! (@$rs = $this->__DBipsfa->query($consulta))){
+			$this->err = $this->__DBipsfa->error();
 			$this->err['query'] = $consulta;		
 			$this->err['code'] = 1;
 			//En el caso de un error se genera $err['message']
 		}else{
+
 			$this->err['code'] = 0;
-			$this->err['rs'] =  $rs->result();
+			$this->err['rs'] = array();
+			if(is_object($rs))$this->err['rs'] =  $rs->result();
 		}
 		return (object)$this->err;
 	}
+
+	function __destruct(){
+		unset($this->__DBipsfa);
+	}
+
+
 }

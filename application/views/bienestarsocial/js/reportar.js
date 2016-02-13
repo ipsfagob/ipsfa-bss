@@ -1,14 +1,10 @@
 
 
-
-function Iniciar(){
-	alert('Fine');
-	$('#modal1').openModal();
-}
-
 /**
 * Reportar Anomalias en los campos a DB
-* @return Anomalia
+*
+* @access public
+* @return mixed
 */
 function Salvar(){
 	var bool = false;
@@ -23,7 +19,6 @@ function Salvar(){
 			Anomalia[indice] = valor;
 		}
 	});
-
 	if(bool == true){
 		$.post( sUrlP + "SalvarAnomalia/", Anomalia)
 	  		.done(function(data) {
@@ -35,6 +30,12 @@ function Salvar(){
 	}	
 }
 
+/**
+* Cargar todos los elementos
+*
+* @access public
+* @return mixed
+*/
 function CargarCheckBox(){
 	$("body").data("Reportar", {
 			"nombre" : $('#chNombre').prop('checked'), 

@@ -1,7 +1,7 @@
 <?php
 
 class Militar extends CI_Model{
-
+	
 	/**
 	* @var Persona
 	*/

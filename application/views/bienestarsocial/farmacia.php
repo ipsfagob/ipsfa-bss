@@ -32,6 +32,25 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
     <div class="modal-content">
       <h4 id="Cabecera"></h4>
       <p id="Cuerpo"></p>
+
+      <label for="cantidad">Seleccioné la Cantidad</label>
+      <select id='cantidad'>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="7">Otros</option>
+      </select>
+      <br>
+      <label>Indique la Prioridad</label>
+      <select id='prioridad'>
+            <option value="0">Baja</option>
+            <option value="1">Media</option>
+            <option value="2">Alta</option>
+      </select>
+      
+
+
       <input type="text" id="oid" hidden value=""/>
       <input type="text" id="img" hidden value=""/>
     </div>

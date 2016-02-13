@@ -2,7 +2,7 @@
 $this->load->view("bienestarsocial/inc/cabecera.php");
 ?>
 <script type="text/javascript"
-  src="<?php echo base_url(); ?>application/views/bienestarsocial/js/reportar.js"></script>
+  src="<?php echo base_url(); ?>application/views/bienestarsocial/js/datos.js"></script>
 <br><br>
 <div class="container .hide-on-small-only">
  <div class="row">
@@ -134,7 +134,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
      
 
 
-     <form>
+     <form class="col s12" id="reportar" method="post" name="reportar">
        <div class="row">
          <div class="col s12">
           <p style="text-align: justify;">

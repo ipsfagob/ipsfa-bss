@@ -4,7 +4,7 @@
 
 -- Dumped from database version 9.1.18
 -- Dumped by pg_dump version 9.1.18
--- Started on 2016-02-06 10:58:35 VET
+-- Started on 2016-02-13 17:14:15 VET
 
 SET statement_timeout = 0;
 SET client_encoding = 'UTF8';
@@ -13,8 +13,8 @@ SET check_function_bodies = false;
 SET client_min_messages = warning;
 
 --
--- TOC entry 1891 (class 1262 OID 16386)
--- Dependencies: 1890
+-- TOC entry 1902 (class 1262 OID 16386)
+-- Dependencies: 1901
 -- Name: ipsfa-bss; Type: COMMENT; Schema: -; Owner: gesaodin
 --
 
@@ -22,7 +22,7 @@ COMMENT ON DATABASE "ipsfa-bss" IS 'Apoyo y Bienestar Social';
 
 
 --
--- TOC entry 169 (class 3079 OID 11644)
+-- TOC entry 171 (class 3079 OID 11644)
 -- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
 --
 
@@ -30,8 +30,8 @@ CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 
 
 --
--- TOC entry 1894 (class 0 OID 0)
--- Dependencies: 169
+-- TOC entry 1905 (class 0 OID 0)
+-- Dependencies: 171
 -- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
 --
 
@@ -43,6 +43,50 @@ SET search_path = public, pg_catalog;
 SET default_tablespace = '';
 
 SET default_with_oids = false;
+
+--
+-- TOC entry 168 (class 1259 OID 20855)
+-- Dependencies: 5
+-- Name: anomalia; Type: TABLE; Schema: public; Owner: gesaodin; Tablespace: 
+--
+
+CREATE TABLE anomalia (
+    oid integer NOT NULL,
+    codigo character varying(32),
+    detalle text,
+    fecha timestamp without time zone,
+    tipo integer,
+    prioridad integer,
+    estatus bigint
+);
+
+
+ALTER TABLE public.anomalia OWNER TO gesaodin;
+
+--
+-- TOC entry 167 (class 1259 OID 20853)
+-- Dependencies: 168 5
+-- Name: anomalia_oid_seq; Type: SEQUENCE; Schema: public; Owner: gesaodin
+--
+
+CREATE SEQUENCE anomalia_oid_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.anomalia_oid_seq OWNER TO gesaodin;
+
+--
+-- TOC entry 1906 (class 0 OID 0)
+-- Dependencies: 167
+-- Name: anomalia_oid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gesaodin
+--
+
+ALTER SEQUENCE anomalia_oid_seq OWNED BY anomalia.oid;
+
 
 --
 -- TOC entry 161 (class 1259 OID 16398)
@@ -78,7 +122,7 @@ CREATE SEQUENCE productos_oid_seq
 ALTER TABLE public.productos_oid_seq OWNER TO gesaodin;
 
 --
--- TOC entry 1895 (class 0 OID 0)
+-- TOC entry 1907 (class 0 OID 0)
 -- Dependencies: 164
 -- Name: productos_oid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gesaodin
 --
@@ -119,7 +163,7 @@ CREATE SEQUENCE semillero_oid_seq
 ALTER TABLE public.semillero_oid_seq OWNER TO gesaodin;
 
 --
--- TOC entry 1896 (class 0 OID 0)
+-- TOC entry 1908 (class 0 OID 0)
 -- Dependencies: 165
 -- Name: semillero_oid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gesaodin
 --
@@ -128,26 +172,29 @@ ALTER SEQUENCE semillero_oid_seq OWNED BY semillero.oid;
 
 
 --
--- TOC entry 168 (class 1259 OID 20816)
+-- TOC entry 170 (class 1259 OID 20904)
 -- Dependencies: 5
 -- Name: solicitud; Type: TABLE; Schema: public; Owner: gesaodin; Tablespace: 
 --
 
 CREATE TABLE solicitud (
     oid integer NOT NULL,
-    cedula character varying(16),
     codigo character varying(16),
+    numero character varying(16),
     certi character varying(32),
-    fecha character varying(16),
-    tipo bigint
+    detalle text,
+    recipes text,
+    fecha timestamp without time zone,
+    tipo bigint,
+    estatus bigint
 );
 
 
 ALTER TABLE public.solicitud OWNER TO gesaodin;
 
 --
--- TOC entry 167 (class 1259 OID 20814)
--- Dependencies: 168 5
+-- TOC entry 169 (class 1259 OID 20902)
+-- Dependencies: 170 5
 -- Name: solicitud_oid_seq; Type: SEQUENCE; Schema: public; Owner: gesaodin
 --
 
@@ -162,8 +209,8 @@ CREATE SEQUENCE solicitud_oid_seq
 ALTER TABLE public.solicitud_oid_seq OWNER TO gesaodin;
 
 --
--- TOC entry 1897 (class 0 OID 0)
--- Dependencies: 167
+-- TOC entry 1909 (class 0 OID 0)
+-- Dependencies: 169
 -- Name: solicitud_oid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gesaodin
 --
 
@@ -198,7 +245,7 @@ ALTER TABLE public.usuario OWNER TO gesaodin;
 
 --
 -- TOC entry 162 (class 1259 OID 16406)
--- Dependencies: 5 163
+-- Dependencies: 163 5
 -- Name: usuario_oid_seq; Type: SEQUENCE; Schema: public; Owner: gesaodin
 --
 
@@ -213,7 +260,7 @@ CREATE SEQUENCE usuario_oid_seq
 ALTER TABLE public.usuario_oid_seq OWNER TO gesaodin;
 
 --
--- TOC entry 1898 (class 0 OID 0)
+-- TOC entry 1910 (class 0 OID 0)
 -- Dependencies: 162
 -- Name: usuario_oid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gesaodin
 --
@@ -222,7 +269,16 @@ ALTER SEQUENCE usuario_oid_seq OWNED BY usuario.oid;
 
 
 --
--- TOC entry 1771 (class 2604 OID 16431)
+-- TOC entry 1782 (class 2604 OID 20858)
+-- Dependencies: 168 167 168
+-- Name: oid; Type: DEFAULT; Schema: public; Owner: gesaodin
+--
+
+ALTER TABLE ONLY anomalia ALTER COLUMN oid SET DEFAULT nextval('anomalia_oid_seq'::regclass);
+
+
+--
+-- TOC entry 1779 (class 2604 OID 16431)
 -- Dependencies: 164 161
 -- Name: oid; Type: DEFAULT; Schema: public; Owner: gesaodin
 --
@@ -231,8 +287,8 @@ ALTER TABLE ONLY productos ALTER COLUMN oid SET DEFAULT nextval('productos_oid_s
 
 
 --
--- TOC entry 1773 (class 2604 OID 20813)
--- Dependencies: 165 166 166
+-- TOC entry 1781 (class 2604 OID 20813)
+-- Dependencies: 166 165 166
 -- Name: oid; Type: DEFAULT; Schema: public; Owner: gesaodin
 --
 
@@ -240,8 +296,8 @@ ALTER TABLE ONLY semillero ALTER COLUMN oid SET DEFAULT nextval('semillero_oid_s
 
 
 --
--- TOC entry 1774 (class 2604 OID 20819)
--- Dependencies: 168 167 168
+-- TOC entry 1783 (class 2604 OID 20907)
+-- Dependencies: 170 169 170
 -- Name: oid; Type: DEFAULT; Schema: public; Owner: gesaodin
 --
 
@@ -249,7 +305,7 @@ ALTER TABLE ONLY solicitud ALTER COLUMN oid SET DEFAULT nextval('solicitud_oid_s
 
 
 --
--- TOC entry 1772 (class 2604 OID 16411)
+-- TOC entry 1780 (class 2604 OID 16411)
 -- Dependencies: 162 163 163
 -- Name: oid; Type: DEFAULT; Schema: public; Owner: gesaodin
 --
@@ -258,8 +314,27 @@ ALTER TABLE ONLY usuario ALTER COLUMN oid SET DEFAULT nextval('usuario_oid_seq':
 
 
 --
--- TOC entry 1878 (class 0 OID 16398)
--- Dependencies: 161 1886
+-- TOC entry 1894 (class 0 OID 20855)
+-- Dependencies: 168 1897
+-- Data for Name: anomalia; Type: TABLE DATA; Schema: public; Owner: gesaodin
+--
+
+COPY anomalia (oid, codigo, detalle, fecha, tipo, prioridad, estatus) FROM stdin;
+\.
+
+
+--
+-- TOC entry 1911 (class 0 OID 0)
+-- Dependencies: 167
+-- Name: anomalia_oid_seq; Type: SEQUENCE SET; Schema: public; Owner: gesaodin
+--
+
+SELECT pg_catalog.setval('anomalia_oid_seq', 17, true);
+
+
+--
+-- TOC entry 1887 (class 0 OID 16398)
+-- Dependencies: 161 1897
 -- Data for Name: productos; Type: TABLE DATA; Schema: public; Owner: gesaodin
 --
 
@@ -386,7 +461,7 @@ Eyectores para s	Eyectores para saliva nacionalx 100 Uds	Eyectores para saliva n
 
 
 --
--- TOC entry 1899 (class 0 OID 0)
+-- TOC entry 1912 (class 0 OID 0)
 -- Dependencies: 164
 -- Name: productos_oid_seq; Type: SEQUENCE SET; Schema: public; Owner: gesaodin
 --
@@ -395,19 +470,17 @@ SELECT pg_catalog.setval('productos_oid_seq', 118, true);
 
 
 --
--- TOC entry 1883 (class 0 OID 20810)
--- Dependencies: 166 1886
+-- TOC entry 1892 (class 0 OID 20810)
+-- Dependencies: 166 1897
 -- Data for Name: semillero; Type: TABLE DATA; Schema: public; Owner: gesaodin
 --
 
 COPY semillero (oid, codigo, certi, tipo) FROM stdin;
-1	000001	\N	1
-2	2	-	1
 \.
 
 
 --
--- TOC entry 1900 (class 0 OID 0)
+-- TOC entry 1913 (class 0 OID 0)
 -- Dependencies: 165
 -- Name: semillero_oid_seq; Type: SEQUENCE SET; Schema: public; Owner: gesaodin
 --
@@ -416,40 +489,27 @@ SELECT pg_catalog.setval('semillero_oid_seq', 2, true);
 
 
 --
--- TOC entry 1885 (class 0 OID 20816)
--- Dependencies: 168 1886
+-- TOC entry 1896 (class 0 OID 20904)
+-- Dependencies: 170 1897
 -- Data for Name: solicitud; Type: TABLE DATA; Schema: public; Owner: gesaodin
 --
 
-COPY solicitud (oid, cedula, codigo, certi, fecha, tipo) FROM stdin;
-1	3	24775075	Apoyo	\N	1
-2	3	24775075	Apoyo	\N	1
-3	3	24775075	Apoyo	\N	1
-4	3	24775075	Apoyo	\N	1
-5	24775075	3	Reembolso	\N	0
-6	9348067	3	Reembolso	\N	0
-7	9348067	3	Apoyo	\N	1
-8	2664801	3	Reembolso	\N	0
-9	2615359	3	Reembolso	\N	0
-10	2615359	3	Reembolso	\N	0
-11	2615359	3	Reembolso	\N	0
-12	10156786	3	Reembolso	\N	0
-13	10156786	3	Reembolso	\N	0
+COPY solicitud (oid, codigo, numero, certi, detalle, recipes, fecha, tipo, estatus) FROM stdin;
 \.
 
 
 --
--- TOC entry 1901 (class 0 OID 0)
--- Dependencies: 167
+-- TOC entry 1914 (class 0 OID 0)
+-- Dependencies: 169
 -- Name: solicitud_oid_seq; Type: SEQUENCE SET; Schema: public; Owner: gesaodin
 --
 
-SELECT pg_catalog.setval('solicitud_oid_seq', 13, true);
+SELECT pg_catalog.setval('solicitud_oid_seq', 4, true);
 
 
 --
--- TOC entry 1880 (class 0 OID 16408)
--- Dependencies: 163 1886
+-- TOC entry 1889 (class 0 OID 16408)
+-- Dependencies: 163 1897
 -- Data for Name: usuario; Type: TABLE DATA; Schema: public; Owner: gesaodin
 --
 
@@ -459,7 +519,7 @@ COPY usuario (oid, tipo, cedu, nomb, apel, dire, seud, clav, corr, celu, telf, e
 
 
 --
--- TOC entry 1902 (class 0 OID 0)
+-- TOC entry 1915 (class 0 OID 0)
 -- Dependencies: 162
 -- Name: usuario_oid_seq; Type: SEQUENCE SET; Schema: public; Owner: gesaodin
 --
@@ -468,8 +528,8 @@ SELECT pg_catalog.setval('usuario_oid_seq', 1, true);
 
 
 --
--- TOC entry 1776 (class 2606 OID 16416)
--- Dependencies: 163 163 1887
+-- TOC entry 1785 (class 2606 OID 16416)
+-- Dependencies: 163 163 1898
 -- Name: usuario_pkey; Type: CONSTRAINT; Schema: public; Owner: gesaodin; Tablespace: 
 --
 
@@ -478,7 +538,7 @@ ALTER TABLE ONLY usuario
 
 
 --
--- TOC entry 1893 (class 0 OID 0)
+-- TOC entry 1904 (class 0 OID 0)
 -- Dependencies: 5
 -- Name: public; Type: ACL; Schema: -; Owner: postgres
 --
@@ -489,7 +549,7 @@ GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
--- Completed on 2016-02-06 10:58:36 VET
+-- Completed on 2016-02-13 17:14:16 VET
 
 --
 -- PostgreSQL database dump complete

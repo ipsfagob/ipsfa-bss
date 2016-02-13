@@ -3,7 +3,7 @@
 /**
 * 
 */
-class TPersona extends CI_Controller{
+class TAnomalia extends CI_Controller{
 
 	var $plantilla = '';
 
@@ -40,29 +40,23 @@ class TPersona extends CI_Controller{
 
 		$this->unit->set_template($this->plantilla);
 		
-		$this->load->model('saman/Dbsaman');
-		/*
-		$this->unit->run(
-				$arr->code, 
-				0,  
-				'Clase: Persona (Prueba 1) ', 
-				'<br> 
-				Archivo Model: saman/Persona.php<br>
-				Metodo : consultar() <br> Motivo: ' . $arr->message);
-		*/
 
-		$this->load->model('saman/Militar', 'Militar');
-		$arr = $this->Militar->consultar('11953710');
-		
-		$this->unit->run(
-				$arr->code, 
-				0,  
-				'Clase: Persona (Prueba 1) ', 
-				'<br> 
-				Archivo Model: saman/Persona.php<br>
-				Metodo : consultar() <br> Motivo: ' . $arr->message . ' <br><br>Consulta: <br>' . $arr->query);
-	
+		$this->load->model('utilidad/Anomalia');
+		$arr = $this->Anomalia->media('syslog','{"Test":"Prueba Inicial"}');
+		$this->unit->run($arr->code, 0,  
+				'Clase: Anomalia (Prueba 1) ', '<br> 
+				Archivo Model: utilidad/Anomalia.php<br>
+				Metodo : @media() <br> Motivo: ' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
+		if($arr->code != 0) 
+			$this->Anomalia->exentrica('sysdb','{"Clase": "Anomalia", "Metodo": "media()"}' );
 
+		$arr = $this->Anomalia->eliminarMedia();
+		$this->unit->run($arr->code, 0,  
+				'Clase: Anomalia (Prueba 2) ', '<br> 
+				Archivo Model: utilidad/Anomalia.php<br>
+				Metodo : @eliminarMedia() <br> Motivo: ' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
+		if($arr->code != 0) 
+			$this->Anomalia->exentrica('sysdb','{"Clase": "Anomalia", "Metodo": "eliminarMedia()"}' );
 
 		$data['Reporte'] = $this->unit->report();
 		$this->load->view('test/Plantilla', $data);

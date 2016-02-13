@@ -27,6 +27,7 @@ class MCarro extends CI_Model {
                 'qty' => $arg['cantidad'], 
                 'price' => $arg['precio'], 
                 'name' => $arg['nombre'],
+                'prioridad' =>$arg['prioridad'],
                 'imagen' => $arg['imagen']
             );
             
@@ -68,21 +69,25 @@ class MCarro extends CI_Model {
         return $this -> cart -> contents();
     }
 
-    /**
-     * Insertar en la Base de datos
-     */
-    function realizarPedido() {
-        $this -> load -> model('comun/mpedido', 'Pedido');
-        //$this -> correo();
-        return $this -> Pedido -> registrar($this -> listar());
-
-    }
 
     function limpiar(){
         $this -> cart -> destroy();
     }
 
+    function salvarPedido(){
+        $arr = array();
+        foreach ($this->cart->contents() as $items){
+            $arr[] = array(
+                'id' => $items['id'], 
+                'nombre' => $items['name'],
+                'cantida'=> $items['qty'],
+                'prioridad'=> $items['prioridad'],
+                'imagen'=> $items['imagen'],
+            );
+        }
+        return $arr;
 
+    }
 
     function obtener() {
         return $this -> cart;

@@ -170,17 +170,16 @@ class BienestarSocial extends CI_Controller {
 	 */
 	public function listarMedicamentosBADAN($pr = ''){		
 		$this->load->model("fisico/maestroproducto", "Producto");
-		echo $this->Producto->listarPostgres($pr);
+		print($this->Producto->listarExistenciaProductos($pr));
 		
 	}
 
 	/**
 	 * Agregar un Medicamento al Carro
 	 *
-	 * @return mixed 
+	 * @return string
 	 */
 	public function AgregarProductosCarrito(){
-		//$data = array('id' => 2, 'cantidad' => 4, 'precio' => '180.82', 'nombre' => 'Bolsas de Color Rojas');
         $this->Carro->registrar($_POST);
 	}
 
@@ -248,8 +247,71 @@ class BienestarSocial extends CI_Controller {
 		
 	}
 
-	function SalvarAnomalia(){
-		print_r(json_encode($_POST));
+	function SalvarAnomaliaMedia(){	
+		if(isset($_SESSION['oid'])){
+			$this->load->model('utilidad/Anomalia');
+			$obj = $this->Anomalia->media( $_SESSION['oid'], json_encode($_POST));
+			$msj = "Nos estaremos comunicando con usted a la brevedad posible.";
+			if($obj->code !=0) $msj = "Por favor llamar a: ";
+			echo $msj;
+		}else{
+			echo "Su sesión ha caducado...";
+		}
+	}
+
+
+	function SalvarSolicitudMedicamentos(){
+		if(isset($_SESSION['oid'])){
+			$this->load->model('saman/Solicitud');
+			$detalle = $this->Carro->salvarPedido();
+			//$imagen = $this->Imagen->Salvar();
+			$imagen = array(); //Listado de Imagenes Subidas
+			$arr = array(
+				'codigo' => $_SESSION['oid'],
+				'numero' => 'MD-0000-A', 
+				'certi' => md5($_SESSION['oid']), 
+				'detalle' => json_encode($detalle), //Esquema Json Opcional
+				'recipes' => json_encode($imagen),
+				'fecha' => 'now()', 
+				'tipo' => 0, 
+				'estatus' => 1
+			);
+			$obj = $this->Solicitud->crear($arr);
+			$msj = "Nos estaremos comunicando con usted a la brevedad posible.";
+			if($obj->code !=0) $msj = "Por favor llamar a: ";
+			$this->LimipiarProductosCarrito();
+			echo $msj;
+		}else{
+			echo "Su sesión ha caducado...";
+		}
+	}
+
+	function listarMedicamentosSolicitados(){
+		$this->load->model('saman/Solicitud');
+		$obj = $this->Solicitud->listar();	
+		echo "<pre>";
+		foreach ($obj->rs as $c => $v) {
+			$valor = json_decode($v->detalle);
+			//print_r($valor);
+
+			if(is_array($valor)){
+				
+				foreach ($valor as $key => $value) {
+					
+					print_r($value->cantida);
+					echo "  |  ";
+					print_r($value->nombre);
+					echo "<br>";
+				}
+
+			}else{
+				print_r($valor->cantidad);
+				echo "  |  ";
+				print_r($valor->nombre);	
+				echo "<br>";
+			}
+			
+		}
 	}
 
 }

@@ -3,7 +3,7 @@
 /**
 * 
 */
-class TPersona extends CI_Controller{
+class TSolicitud extends CI_Controller{
 
 	var $plantilla = '';
 
@@ -11,7 +11,7 @@ class TPersona extends CI_Controller{
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->library('unit_test');
-		
+		$this->load->model('utilidad/Anomalia');
 		$this->generarPlantilla();
 	}
 
@@ -37,31 +37,37 @@ class TPersona extends CI_Controller{
 	function index(){
 		error_reporting(E_ALL & ~(E_STRICT|E_NOTICE));
 		
-
 		$this->unit->set_template($this->plantilla);
 		
-		$this->load->model('saman/Dbsaman');
-		/*
-		$this->unit->run(
-				$arr->code, 
-				0,  
-				'Clase: Persona (Prueba 1) ', 
-				'<br> 
-				Archivo Model: saman/Persona.php<br>
-				Metodo : consultar() <br> Motivo: ' . $arr->message);
-		*/
 
-		$this->load->model('saman/Militar', 'Militar');
-		$arr = $this->Militar->consultar('11953710');
-		
-		$this->unit->run(
-				$arr->code, 
-				0,  
-				'Clase: Persona (Prueba 1) ', 
-				'<br> 
-				Archivo Model: saman/Persona.php<br>
-				Metodo : consultar() <br> Motivo: ' . $arr->message . ' <br><br>Consulta: <br>' . $arr->query);
-	
+		$this->load->model('saman/Solicitud');
+
+		 $detalle = array(
+                'id' => 'Test-COD', 
+                'cantidad' => 4, 
+                'nombre' => 'Aguja Espinal N18 x 100',
+                'prioridad' => 1,
+                'imagen' => 'espinal18.jpg'
+            );
+		$arr = array(
+			'codigo' => 'syslog',
+			'numero' => '000-X', 
+			'certi' => md5('0'), 
+			'detalle' => json_encode($detalle), //Esquema Json Opcional
+			'recipes' => '',
+			'fecha' => 'now()', 
+			'tipo' => 0, 
+			'estatus' => 1
+		);
+
+		$arr = $this->Solicitud->crear($arr);
+
+		$this->unit->run($arr->code, 0,  
+				'Clase: Anomalia (Prueba 1) ', '<br> 
+				Archivo Model: utilidad/Anomalia.php<br>
+				Metodo : @media() <br> Motivo: ' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
+		if($arr->code != 0) 
+			$this->Anomalia->exentrica('sysdb','{"Clase": "Solicitud", "Metodo": "crear()"}' );
 
 
 		$data['Reporte'] = $this->unit->report();

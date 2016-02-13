@@ -18,7 +18,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
                 <p>Consultar Medicamentos</p>
               </div>
               <div class="card-action">
-                <a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/re">Medicamentos</a>
+                <a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia/me">Medicamentos</a>
               </div>
             </div>
   		</div>

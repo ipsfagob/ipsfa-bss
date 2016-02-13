@@ -3,65 +3,133 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 /**
- * Carrito de Compra
+ * IPSFA Bienestar y Seguridad Social 
+ * 
+ * Persona 
  *
- * @package mamonsoft
- * @subpackage comun
+ *
+ * @package ipsfa-bss\application\model
+ * @subpackage saman
  * @author Carlos Peña
- * @copyright	Derechos Reservados (c) 2014 - 2015, MamonSoft C.A.
- * @link		http://www.mamonsoft.com.ve
- * @since Version 1.0
- *
+ * @copyright Derechos Reservados (c) 2015 - 2016, MamonSoft C.A.
+ * @link http://www.mamonsoft.com.ve
+ * @since version 1.0
  */
 class Persona extends CI_Model{
 
-
+	/**
+	* @var string
+	*/
 	var $oid = '';
 	
+	/**
+	* @var string
+	*/
 	var $cedula = '';
 
+	/**
+	* @var string
+	*/
 	var $nacionalidad = "";
 
+	/**
+	* @var string
+	*/
 	var $sexo = '';
 
+	/**
+	* @var string
+	*/
 	var $primerNombre = "";
 	
+	/**
+	* @var string
+	*/
 	var $segundoNombre = "";
 	
+	/**
+	* @var string
+	*/
 	var $segundoApellido = "";
 
+	/**
+	* @var string
+	*/
 	var $primerApellido = "";
 
+	/**
+	* AAAA/MM/DD
+	*
+	* @var string
+	*/
 	var $fechaNacimiento = "";
 
+	/**
+	* @var string
+	*/
 	var $correoElectronico = '';
 
+	/**
+	* @var string
+	*/
 	var $estadoCivil = '';
 
+	/**
+	* @var string
+	*/	
+	var $codigoDireccion = '';
+
+	/**
+	* @var string
+	*/
 	var $direccion = '';
 
+	/**
+	* @var CodigoArea
+	*/
 	var $codigoCelular = '';
 
+	/**
+	* @var string
+	*/
 	var $celular = '';
 
+	/**
+	* @var CodigoArea
+	*/
 	var $codigoTelefono = '';
 
+	/**
+	* @var string
+	*/
 	var $telefono = '';
 
+	/**
+	* @var string
+	*/
 	var $banco = '';
 
+	/**
+	* @var string
+	*/
 	var $cuenta = '';
 
+	/**
+	* Iniciando la clase, Cargando Elementos BD SAMAN
+	*
+	* @access public
+	* @return void
+	*/
 	function __construct(){
 		parent::__construct();
 		$this->load->model('saman/Dbsaman', 'Dbsaman');
 
 	}
 
-
-
 	/**
-	* Permite Mapear un objeto (personas) de la BD SAMAN
+	* Permite Mapear un objeto (personas) 
+	* 
+	* @access public
 	* @param string
 	* @return Persona
 	*/
@@ -69,11 +137,18 @@ class Persona extends CI_Model{
 		return TRUE;
 	}
 
+	/**
+	* Consultar Persona 
+	* 
+	* @access protected
+	* @param string
+	* @param string
+	* @return object
+	*/
 	function consultar($cedula, $codigo = null){
-		$arr = $this->Dbsaman->consultar($this->generarSelectPersonas($cedula,$codigo));
-
-		if($arr->code == 0){
-			foreach ($arr->rs as $clv => $val) {
+		$obj = $this->Dbsaman->consultar($this->generarSelectPersonas($cedula,$codigo));
+		if($obj->code == 0){
+			foreach ($obj->rs as $clv => $val) {
 				$this->oid = $val->nropersona;
 				$this->nacionalidad = $val->tipnip;
 				$this->cedula = $val->codnip;				
@@ -84,22 +159,27 @@ class Persona extends CI_Model{
 				$this->primerApellido = $val->apellidoprimero;
 				$this->segundoApellido = $val->apellidosegundo;
 				$this->fechaNacimiento = $val->fechanacimiento;
-
 				$this->correoElectronico = $val->email1;
 				$this->direccion = $val->direccion1;
-
 				$this->codigoTelefono = $val->telefonocodigoarea;
 				$this->telefono = $val->telefononumero;
-
 				$this->banco = $val->instfinannombre;
 				$this->cuenta = $val->nrocuenta;
 			}
 		}
-		return $arr;
+		return $obj;
 	}
 
-	function generarSelectPersonas($cedula, $codigo = null){
-		$sConsulta = 'SELECT * FROM personas 
+	/**
+	* Gerar consulta dependiendo de la cedula o el codigo
+	* 
+	* @access protected
+	* @param string
+	* @param string
+	* @return string
+	*/
+	protected function generarSelectPersonas($cedula, $codigo = null){
+		$sConsulta = 'SELECT * FROM personas
 		LEFT JOIN telefono_correo ON personas.nropersona=telefono_correo.nropersona
 		LEFT JOIN edo_civil ON personas.edocivilcod=edo_civil.edocivilcod
 		LEFT JOIN direcciones ON personas.nropersona=direcciones.nropersona 
@@ -116,21 +196,43 @@ class Persona extends CI_Model{
 	}
 
 
-	
-
-	function nombreCompleto(){
+	/**
+	* Concatenar primer y segundo nombre para devolverlo en Mayuscula
+	* 
+	* @access public
+	* @return string
+	*/
+	public function nombreCompleto(){
 		return strtoupper($this->primerNombre . ' ' . $this->segundoNombre);
 	}
 
-	function apellidoCompleto(){
+	/**
+	* Concatenar primer y segundo apellido para devolverlo en Mayuscula
+	* 
+	* @access public
+	* @return string
+	*/
+	public function apellidoCompleto(){
 		return strtoupper($this->primerApellido . ' ' . $this->segundoApellido);
 	}
 
-	function nombreApellidoCompleto(){
+	/**
+	* Concatena nombres y apellidos para devolverlo en Mayuscula
+	* 
+	* @access public
+	* @return string
+	*/
+	public function nombreApellidoCompleto(){
 		return strtoupper($this->nombreCompleto() . ' ' . $this->apellidoCompleto());
 	}
 
-	function obtenerSexo(){
+	/**
+	* Evalua el sexo por caracter y retorna el nombre
+	* 
+	* @access public
+	* @return string
+	*/
+	public function obtenerSexo(){
 		if($this->sexo == 'M'){
 			return 'MASCULINO';
 		}else{
@@ -140,11 +242,12 @@ class Persona extends CI_Model{
 	/**
 	* Actualizar Objeto Persona en las tablas 
 	* Direccion | Telefonos | Correos
+	*
 	* @var Persona
 	* @return bool
 	*/
-	function actualizar(){
-
+	public function actualizar(){
+		$sConsulta = '';
 	}
 
 	/**

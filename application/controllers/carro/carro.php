@@ -94,9 +94,7 @@ class Carro extends CI_Controller
      */
     function agregar()
     {
-        //$data = array('id' => 1, 'cantidad' => 1, 'precio' => '20.82', 'nombre' => 'Bolsas de Color Rojo');
         $this->MCarro->registrar($_POST);
-        //print_r($_POST);
         echo "Se agrego con exito";
     }
 

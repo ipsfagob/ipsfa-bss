@@ -13,17 +13,34 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
   <?php
     
     foreach ($data as $key => $val) {
-    
+      
+
       $cadena = '<li class="collection-item avatar" id="' . $val['rowid'] . '">' . 
         '<img src="' . base_url() .  '/public/img/productos/' . $val['imagen'] . '" 
         alt="" class="materialboxed circle">' .
         '<span class="title truncate">' . $val['name'] . 
-        '</span><p class="truncate">' . $val['name'] . 
+        '</span><p class="truncate"> Cantidad: ' . $val['qty'] . ' <br> Prioridad: ' . prioridad($val['prioridad']) .
         '<a href="javascript:Eliminar(\'' . $val['rowid'] .  '\');" class="secondary-content">
         <i class="mdi-navigation-cancel small"></i></a>';   
         echo $cadena;
     }
     
+    function prioridad($val){
+      switch ($val) {
+        case 0:
+          return 'Baja';
+          break;
+        case 1:
+          return 'Media';
+          break;
+        case 2:
+          return 'Alta';
+          break;
+        default:
+          return 'Baja';
+          break;
+      }
+    }
   ?>
 
 </ul>
@@ -62,7 +79,7 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
 
       <div class="row">
         <div class="col s12">
-          <button class="btn-large medium waves-effect waves-light" type="submit" name="action">Solicitar
+          <button class="btn-large medium waves-effect waves-light" onclick="Salvar()">Solicitar
             <i class="material-icons right">send</i>
           </button>
         </div>
