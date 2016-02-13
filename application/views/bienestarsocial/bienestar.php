@@ -7,15 +7,14 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 
  <div class="row">
  <div class="col s12">
-<?php 
-  if($url == "ap"){
-    $this->load->view('bienestarsocial/imp/detApoyo');
-  }else{
-     $this->load->view('bienestarsocial/imp/detReembolso');
-  }
-?>
-
-    <form class="col s12" 
+  <?php 
+    if($url == "ap"){
+      $this->load->view('bienestarsocial/imp/detApoyo');
+    }else{
+       $this->load->view('bienestarsocial/imp/detReembolso');
+    }
+  ?>
+  <form class="col s12" 
       action="<?php echo base_url(); ?>index.php/BienestarSocial/imprimirHoja/<?php echo $url; ?>" 
       method="post">
       <div class="row">

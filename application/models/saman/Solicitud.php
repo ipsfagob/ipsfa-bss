@@ -43,16 +43,22 @@ class Solicitud extends CI_Model{
 
 	function importarSolicitudesSaman(Militar $Militar){
 		$this->load->model('comun/Dbsaman');		
-		$sConsulta = 'SELECT * FROM ci_reembolso_solic WHERE nropersonaafilmil = ' . $Militar->Persona->oid;
+		$sConsulta = 'SELECT * FROM ci_reembolso_solic 
+		INNER JOIN ci_reembolso_tipo ON ci_reembolso_solic.reembtipocod=ci_reembolso_tipo.reembtipocod
+		INNER JOIN canal_liquidacion ON ci_reembolso_solic.canalliquidcod=canal_liquidacion.canalliquidcod
+		WHERE nropersonaafilmil = ' . $Militar->Persona->oid . ' ORDER BY reembfchsolicitud DESC';
 		$obj = $this->Dbsaman->consultar($sConsulta);		
 		if($obj->code == 0){
 			foreach ($obj->rs as $key => $val) {
 				$Militar->Solicitudes[] = array(
-					'solicitud' => array('codigo' => $val->reembsolicnro, 
+					'solicitud' => (object)array(
+						'codigo' => $val->reembsolicnro, 
+						'tipo' => $val->reembtiponombre,
 						'montoSolicitado' => $val->ordenpagomonto,
 						'montoAprobado' => $val->reembconcmontoapr,
 						'fechaSolicitado' => $val->reembfchsolicitud,
 						'fechaAprobado' => $val->reembfchaprobacion,
+						'canalLiquidacion' => $val->canalliquidnombre,
 						'detalle' => $this->importarDetalleSolicitudSaman($val->reembsolicnro, $Militar->Persona)->detalleSolicitud
 					)
 					
@@ -76,12 +82,13 @@ class Solicitud extends CI_Model{
 		if($obj->code == 0){
 			foreach ($obj->rs as $key => $val) {				
 				$parentesco = $this->validarTitular($val->nropersafilfam, $Persona, $this->Dbsaman);				
-				$detalleSolicitud[] = array(
+				$detalleSolicitud[] = (object)array(
 					'codigoConcepto' => $val->reembconccod,
 					'concepto' => $val->reembconcnombre,					
 					'nombre' => $parentesco->Dependiente->Persona->nombreApellidoCompleto(),										
 					'parentesco' => $parentesco->Dependiente->parentesco,
 					'monto' => $val->reembconcmonto,
+					'porcentaje' => $val->reembconcporc,
 					'dependiente' => $parentesco->Dependiente		
 				);
 			}
@@ -102,7 +109,7 @@ class Solicitud extends CI_Model{
 		$obj = $Dbsaman;
 		if($oid == $Persona->oid){
 			$this->Dependiente->Persona = $Persona;
-			$this->Dependiente->parentesco = 'Titular';
+			$this->Dependiente->parentesco = 'TITULAR';
 		}else {
 			$this->Dependiente->consultar($oid, $Persona);
 		}		

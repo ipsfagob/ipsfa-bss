@@ -2,12 +2,13 @@
 
 
 <!--Import jQuery before materialize.js-->
-<script type="text/javascript" src="/ipsfa-dg/public/js/jquery-2.min.js"></script>
-<script type="text/javascript"
-	src="/ipsfa-dg/public/js/materialize.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>public/js/jquery-2.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>public/js/materialize.min.js"></script>
 
 <script type="text/javascript">
-      
+    var sUrl = 'http://' + window.location.hostname + '/ipsfa-bss';
+	var sUrlP = sUrl + '/index.php/BienestarSocial/';
+
     $(document).ready(function(){
     	  
 		$('.materialboxed').materialbox();

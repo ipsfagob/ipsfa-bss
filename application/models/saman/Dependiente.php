@@ -32,7 +32,7 @@ class Dependiente extends CI_Model{
 		$this->Persona->consultar('', $oid);		
 		if($obj->code == 0){
 			foreach ($obj->rs as $key => $val) {					
-				$this->parentesco = $val->persrelstipnombre;
+				$this->parentesco = strtoupper($val->persrelstipnombre);
 			}
 		}	
 	}

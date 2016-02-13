@@ -14,7 +14,7 @@
  * @filesource
  */
 //24775075 | 11953710 | 9348067 | 6547344 | 2664801 | 2615359 | 10156786 | 12633177
-define('__CEDULA', '11953710');
+define('__CEDULA', '10156786');
 
 class BienestarSocial extends CI_Controller {
 
@@ -70,8 +70,13 @@ class BienestarSocial extends CI_Controller {
 	 * @return html
 	 */
 	function pendientes() {
-		$this->load->model('comun/reembolso', 'Reembolso');
-		$data['listarPendientes'] = $this->Reembolso->listarCedula(__CEDULA);
+		$this->load->model('saman/Militar', 'Militar');
+		$this->Militar->consultar(__CEDULA);
+		
+		$this->load->model('saman/Solicitud', 'Solicitud');		
+		$Militar = $this->Solicitud->importarSolicitudesSaman($this->Militar)->Militar;		
+		
+		$data['Militar'] = $Militar->Solicitudes;
 		$this->load->view ( 'bienestarsocial/pendientes', $data );
 	}
 	
@@ -97,7 +102,7 @@ class BienestarSocial extends CI_Controller {
 	 * @return html
 	 */
 	function reportar(){
-		//$data['data'] = $this->Carro->listar();
+		//$data['data'] = $this->Carro->listar();pendientes
 		$this->load->view ( 'bienestarsocial/reportar' );
 	}
 
@@ -241,6 +246,10 @@ class BienestarSocial extends CI_Controller {
 
 
 		
+	}
+
+	function SalvarAnomalia(){
+		print_r(json_encode($_POST));
 	}
 
 }

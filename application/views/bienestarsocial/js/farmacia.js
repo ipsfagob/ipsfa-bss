@@ -3,8 +3,7 @@
  * @returns true
  */
 
-var sUrl = 'http://' + window.location.hostname + '/ipsfa-bss';
-var sUrlP = sUrl + '/index.php/BienestarSocial/';
+
 
 function listarProductos(val) {
 	$.getJSON(sUrlP + "listarProductosPG/" + val, function(data) {

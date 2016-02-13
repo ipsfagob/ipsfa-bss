@@ -49,49 +49,47 @@
 								
 				<ul id="solicitudes1" class="dropdown-content">				  			 
 				  <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia">
-				  Drogueria y Farmacia<i class="mdi-action-assignment-ind left blue-text "></i></a></li>
-				  
-				  <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/ap">
-					  	Notificar Apoyo<i class="mdi-action-assignment-late left red-text "></i></a>
-				  </li>
-				  <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/re">
+						Medicamentos<i class="mdi-maps-local-hospital left red-text "></i></a>
+					</li>
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/ap">
+					  	Notificar Apoyo<i class="mdi-action-assignment-late left yellow-text"></i></a>
+					</li>	
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/re">
 					  	Notificar Reembolso<i class="mdi-action-assignment left green-text "></i></a>
-				  </li>
-					
-
-
-				  <li class="divider"></li>
-				  <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/pendientes">
-						Pendientes<i class="mdi-action-alarm-add left grey-text"></i>
-						<span class="new badge"></span></a>							
-					</li> 
-				  <li><a href="#">Promociones<i class="mdi-action-lock left"></i></a></li>
-				  <li><a href="#">Importantes<i class="mdi-action-favorite-outline left"></i> </a></li>
+					</li>
+							
+					<li class="divider"></li>				
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/pendientes">
+						Solicitudes<i class="mdi-action-alarm-add left orange-text text-accent-4"></i></a>							
+					</li>
+					<li><a href="#">Promociones<i class="mdi-action-lock left amber-text text-darken-4"></i></a></li>			
+					<li><a href="#">Configurar<i class="mdi-action-settings left teal-text"></i> </a></li>
 				</ul>
 				
 				<ul id="nav-mobile" class="side-nav">		
 					<img src="<?php echo base_url(); ?>public/img/ipsfa.png" class="responsive-img">					
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/index">Principal
-					<i class="mdi-action-home left grey-text "></i></a></li>
-					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/datos">Datos Personales<i class="mdi-action-account-circle left grey-text"></i></a></li>
+					<i class="mdi-action-home left blue-text "></i></a></li>
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/datos">Datos Personales
+					<i class="mdi-action-account-circle left deep-purple-text text-lighten-1"></i></a></li>
 					
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia">
-						Drogueria y Farmacia<i class="mdi-av-my-library-add left grey-text "></i></a>
-					</li>
-					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/re">
-					  	Notificar Reembolso<i class="mdi-action-face-unlock left grey-text "></i></a>
+						Medicamentos<i class="mdi-maps-local-hospital left red-text "></i></a>
 					</li>
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/ap">
-					  	Notificar Apoyo<i class="mdi-action-face-unlock left grey-text "></i></a>
-					</li>			
+					  	Notificar Apoyo<i class="mdi-action-assignment-late left yellow-text"></i></a>
+					</li>	
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/re">
+					  	Notificar Reembolso<i class="mdi-action-assignment left green-text "></i></a>
+					</li>
+							
 					<li class="divider"></li>				
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/pendientes">
-						Pendientes<i class="mdi-action-alarm-add left grey-text"></i>
-						<span class="new badge"></span></a>							
+						Solicitudes<i class="mdi-action-alarm-add left orange-text text-accent-4"></i></a>							
 					</li>
-					<li><a href="#">Promociones<i class="mdi-action-lock left grey-text"></i></a></li>			
-					<li><a href="#">Configurar<i class="mdi-action-settings left grey-text"></i> </a></li>
-					<li><a href="#">Salir<i class="mdi-action-settings-power left grey-text"></i> </a></li>
+					<li><a href="#">Promociones<i class="mdi-action-lock left amber-text text-darken-4"></i></a></li>			
+					<li><a href="#">Configurar<i class="mdi-action-settings left teal-text"></i> </a></li>
+					<li><a href="#">Salir<i class="mdi-action-settings-power left red-text"></i> </a></li>
 				</ul>
 				
 				<ul class="right hide-off-med-and-down">

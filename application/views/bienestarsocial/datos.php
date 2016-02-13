@@ -1,7 +1,8 @@
 <?php 
 $this->load->view("bienestarsocial/inc/cabecera.php");
 ?>
-
+<script type="text/javascript"
+  src="<?php echo base_url(); ?>application/views/bienestarsocial/js/reportar.js"></script>
 <br><br>
 <div class="container .hide-on-small-only">
  <div class="row">
@@ -16,9 +17,6 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
         </div>
 	 </div>
  </div>
- 
- 
-
     <form class="col s12">
      <div class="row">
       <div class="input-field col s6">
@@ -118,15 +116,86 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
   			</button>
       	</div>
         <div class="col s6">
-        <button class="btn-large waves-effect waves-light amber darken-3" onclick="" >Reportar
+        <button data-target="modal1" class="btn-large waves-effect waves-light amber darken-3 modal-trigger">Reportar
             <i class="material-icons left">verified_user</i>
         </button>
         </div>
       </div> 
     </form>
- 
-
 </div>
+
+
+
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Notificar!!!</h4>
+     
+
+
+     <form>
+       <div class="row">
+         <div class="col s12">
+          <p style="text-align: justify;">
+            Bienvenidos al sistema de reportes, está interfaz le servirá en caso de que
+            detecte algún dato errado y no pueda ser actualizado; sólo debe seleccionar y pulsar 
+            enviar y pronto estará resuelto.
+          </p>    
+         </div>
+       </div>
+      
+       <div class="section">
+          <h5>Datos Personales</h5>
+          <div class="divider"></div>
+          <br>
+           <div class="row">
+              <div class="col s12 m4">
+                <input type="checkbox" id="chNombre" />
+                <label for="chNombre" >Nombre y Apellido</label>
+              </div>
+
+              <div class="col s12 m4">
+                <input type="checkbox" id="chSexo" />
+                <label for="chSexo">Sexo o Genero</label>
+              </div>
+
+              <div class="col s12 m4">
+                <input type="checkbox" id="chFecha" />
+                <label for="chFecha">Fecha de Nacimiento</label>
+              </div>
+           </div>
+
+           <br>
+           <h5>Datos Militares</h5>
+           <div class="divider"></div>
+           <br>
+           <div class="row">
+              <div class="col s12 m4">
+                <input type="checkbox" id="chComponente" />
+                <label for="chComponente">Componente</label>
+              </div>
+              <div class="col s12 m4">
+                <input type="checkbox" id="chRango" />
+                <label for="chRango">Rango Militar</label>
+              </div>
+           </div>
+
+          
+          <br>
+
+           
+      </div>
+    </form>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Cancelar</a>
+      <a class="modal-action modal-close waves-effect waves-green btn-flat" onclick="Salvar()">Reportar</a>
+      
+    </div>
+  </div>
+          
+
 
 <?php 
 $this->load->view("bienestarsocial/inc/pie.php");

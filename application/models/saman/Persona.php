@@ -44,10 +44,13 @@ class Persona extends CI_Model{
 
 	var $celular = '';
 
-
 	var $codigoTelefono = '';
 
 	var $telefono = '';
+
+	var $banco = '';
+
+	var $cuenta = '';
 
 	function __construct(){
 		parent::__construct();
@@ -68,6 +71,7 @@ class Persona extends CI_Model{
 
 	function consultar($cedula, $codigo = null){
 		$arr = $this->Dbsaman->consultar($this->generarSelectPersonas($cedula,$codigo));
+
 		if($arr->code == 0){
 			foreach ($arr->rs as $clv => $val) {
 				$this->oid = $val->nropersona;
@@ -86,6 +90,9 @@ class Persona extends CI_Model{
 
 				$this->codigoTelefono = $val->telefonocodigoarea;
 				$this->telefono = $val->telefononumero;
+
+				$this->banco = $val->instfinannombre;
+				$this->cuenta = $val->nrocuenta;
 			}
 		}
 		return $arr;
@@ -95,13 +102,16 @@ class Persona extends CI_Model{
 		$sConsulta = 'SELECT * FROM personas 
 		LEFT JOIN telefono_correo ON personas.nropersona=telefono_correo.nropersona
 		LEFT JOIN edo_civil ON personas.edocivilcod=edo_civil.edocivilcod
-		LEFT JOIN direcciones ON personas.nropersona=direcciones.nropersona ';
+		LEFT JOIN direcciones ON personas.nropersona=direcciones.nropersona 
+		LEFT JOIN pers_cta_bancarias ON personas.nropersona=pers_cta_bancarias.nropersona
+		LEFT JOIN inst_financieras ON pers_cta_bancarias.instfinancod=inst_financieras.instfinancod ';
 		if(!$codigo){
 			$sConsulta .= 'WHERE personas.codnip=\'' . $cedula . '\' LIMIT 1';
 
 		}else{
 			$sConsulta .= 'WHERE personas.nropersona=' . $codigo . ' LIMIT 1';
 		}
+		
 		return $sConsulta;
 	}
 
@@ -109,15 +119,15 @@ class Persona extends CI_Model{
 	
 
 	function nombreCompleto(){
-		return $this->primerNombre . ' ' . $this->segundoNombre;
+		return strtoupper($this->primerNombre . ' ' . $this->segundoNombre);
 	}
 
 	function apellidoCompleto(){
-		return $this->primerApellido . ' ' . $this->segundoApellido;
+		return strtoupper($this->primerApellido . ' ' . $this->segundoApellido);
 	}
 
 	function nombreApellidoCompleto(){
-		return $this->nombreCompleto() . ' ' . $this->apellidoCompleto();
+		return strtoupper($this->nombreCompleto() . ' ' . $this->apellidoCompleto());
 	}
 
 	function obtenerSexo(){

@@ -18,6 +18,8 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       
        <div class="section">
           <h5>Datos Personales</h5>
+          <div class="divider"></div>
+          <br>
            <div class="row">
               <div class="col s12 m4">
                 <input type="checkbox" id="nombre" />
@@ -35,8 +37,10 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
               </div>
            </div>
 
-           <div class="divider"></div>
+           <br>
            <h5>Datos Militares</h5>
+           <div class="divider"></div>
+           <br>
            <div class="row">
               <div class="col s12 m4">
                 <input type="checkbox" id="componente" />
@@ -48,12 +52,12 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
               </div>
            </div>
 
-          <div class="divider"></div>
+          
           <br>
 
            <div class="row">
              <div class="col s12">
-               <button class="btn waves-effect waves-light  amber darken-3" type="submit" name="action">Enviar
+               <button class="btn-large waves-effect waves-light  amber darken-3" type="submit" name="action">Enviar
                 <i class="material-icons right">send</i>
               </button>
 

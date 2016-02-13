@@ -15,13 +15,28 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
                 
               </div>
               <div class="card-content">
-                <p>Notificar Reembolsos.</p>
+                <p>Consultar Medicamentos</p>
               </div>
               <div class="card-action">
-                <a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/re">Notificar Reembolso</a>
+                <a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/re">Medicamentos</a>
               </div>
             </div>
   		</div>
+
+      <div class="col s12 m3 13" >
+       <div class="card small hoverable">
+              <div class="card-image">
+                <img src="/ipsfa-bss/public/img/reembolsos.jpg">
+                
+              </div>
+              <div class="card-content">
+                <p>Notificar Reembolsos.</p>
+              </div>
+              <div class="card-action">
+                <a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/re">Reembolso</a>
+              </div>
+            </div>
+      </div>
 
       <div class="col s12 m3 13" >
        <div class="card small hoverable">
@@ -33,10 +48,13 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
                 <p>Notificar Apoyos.</p>
               </div>
               <div class="card-action">
-                <a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/ap">Notificar Apoyo</a>
+                <a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/ap">Apoyo</a>
               </div>
             </div>
       </div>
+
+
+
       <div class="col s12 m3 13">   
         <div class="card small hoverable">
               <div class="card-image">

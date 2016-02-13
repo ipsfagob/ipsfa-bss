@@ -2,7 +2,7 @@
 $this->load->view ( "bienestarsocial/inc/cabecera.php" );
 ?>
 <script type="text/javascript"
-	src="/ipsfa-bss/application/views/bienestarsocial/js/farmacia.js"></script>
+	src="<?php echo base_url(); ?>application/views/bienestarsocial/js/farmacia.js"></script>
 
 <br>
 
