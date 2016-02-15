@@ -5,22 +5,30 @@ Es primordial el diseño de una plataforma para el control, seguimiento y distri
 
 ## Requerimientos
   - S.O Linux Recomendado Debián
-  - CodeIgniter V.3 (Base)
   - PHP 5 o superior
   - Postgres 9.3 o Superior
   - ArgoUml.
   - WoPeD.
-  
+  - BD externa (UML) fuente: /public/uml/saman.zargo
 ## Instalación
-  - UML BD Saman /public/uml/saman.zargo
+  - BD Saman 
   - BD ipsfa-bss /system/sql/ipsfa
   - Modificar /application/config/config.php
   - Modificar /application/config/database.php
   
 ## Arquitectura
-  - UML /public/uml/ipsfa.zargo
+  - CodeIgniter V.3 (Base)
+  - Lenguajes:
+    - Html 5   
+    - Materialize Css
+    - JavaScript Jquery 3
+    - Css 3
+    - PHP 5
+    - NoSQL Objetos (Json)
+    - (UML) fuente: /public/uml/ipsfa.zargo
   
 ## Prototipo
 
 ![Screenshot](public/img/doc/medium.png)
+![Screenshot](public/img/doc/small.png)
 
