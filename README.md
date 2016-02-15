@@ -10,20 +10,13 @@ Es primordial el diseño de una plataforma para el control, seguimiento y distri
   - ArgoUml.
   - WoPeD.
   - BD externa (UML) fuente: /public/uml/saman.zargo
+
 ## Instalación
   - BD Saman 
   - BD ipsfa-bss /system/sql/ipsfa
   - Modificar /application/config/config.php
   - Modificar /application/config/database.php
-    **Coidgo**
-      ```php
-        $db['saman'] = array(
-	        'hostname' => 'localhost',
-	        'username' => 'gesaodin',
-	        'password' => 'za63qj2p',
-	        'database' => 'saman'
-	        );
-      ```
+
 ## Arquitectura
   - CodeIgniter V.3 (Base)
   - Lenguajes:
