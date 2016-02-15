@@ -51,10 +51,10 @@
 				  <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia">
 						Medicamentos<i class="mdi-maps-local-hospital left red-text "></i></a>
 					</li>
-					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/ap">
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/2">
 					  	Notificar Apoyo<i class="mdi-action-assignment-late left yellow-text"></i></a>
 					</li>	
-					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/re">
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/1">
 					  	Notificar Reembolso<i class="mdi-action-assignment left green-text "></i></a>
 					</li>
 							
@@ -76,10 +76,10 @@
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia">
 						Medicamentos<i class="mdi-maps-local-hospital left red-text "></i></a>
 					</li>
-					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/ap">
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/2">
 					  	Notificar Apoyo<i class="mdi-action-assignment-late left yellow-text"></i></a>
 					</li>	
-					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/re">
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/1">
 					  	Notificar Reembolso<i class="mdi-action-assignment left green-text "></i></a>
 					</li>
 							
@@ -125,14 +125,16 @@
 	      <i class="large mdi-action-view-module"></i>
 	    </a>
 	    <ul>
-	      <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/pendientes" 
-	      		class="btn-floating yellow darken-1"><i class="mdi-navigation-check"></i></a>
+	      <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/pendientes"  
+	      	class="btn-floating green tooltipped" data-position="top" data-delay="10" data-tooltip="Solicitud"><i class="mdi-action-thumb-up"></i></a>
 	      </li>
-	      <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/carro"  
-	      	class="btn-floating green"><i class="material-icons">shopping_cart</i></a>
+
+	      <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/ayudas" 
+	      		class="btn-floating tooltipped blue darken-1"  data-position="top" data-delay="10" data-tooltip="Reembolsos y Apoyos"><i class="mdi-action-description"></i></a>
 	      </li>
-	      <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia" 
-	      		class="btn-floating blue darken-4"><i class="mdi-av-my-library-add"></i></a>
+	      
+	      <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/medicamentos" 
+	      		class="btn-floating red darken-4 tooltipped" data-position="top" data-delay="10" data-tooltip="Solicitud Medicamentos"><i class="mdi-editor-publish"></i></a>
 	      </li>
 	    </ul>
 	  </div>

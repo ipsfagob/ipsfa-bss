@@ -56,7 +56,7 @@
 				<H1>SOLICITUD DE REEMBOLSO<br>POR SERVICOS M&Eacute;DICOS</H1>
 			</td>
 			<td style="width:20%;" class="biz bde btop bajo">
-				Codigo: <b><?php echo '00000'. $Codigo ?></b>
+				Codigo: <b><?php echo $Codigo ?></b>
 			</td>
 		</tr>
 		<tr><td style="width:20%;" class="biz bde btop bajo"><table class="tcontenedor"><tr><td colspan="3">2.FECHA</td></tr><tr class="simple"><td style="width:30%;" class="bde"></td><td style="width:30%;" class="bde"></td><td style="width:40%;"></td></tr></table></td></tr>

@@ -80,7 +80,7 @@ class MCarro extends CI_Model {
             $arr[] = array(
                 'id' => $items['id'], 
                 'nombre' => $items['name'],
-                'cantida'=> $items['qty'],
+                'cantidad'=> $items['qty'],
                 'prioridad'=> $items['prioridad'],
                 'imagen'=> $items['imagen'],
             );

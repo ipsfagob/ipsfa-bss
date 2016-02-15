@@ -33,7 +33,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
                 <p>Notificar Reembolsos.</p>
               </div>
               <div class="card-action">
-                <a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/re">Reembolso</a>
+                <a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/1">Reembolso</a>
               </div>
             </div>
       </div>
@@ -48,7 +48,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
                 <p>Notificar Apoyos.</p>
               </div>
               <div class="card-action">
-                <a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/ap">Apoyo</a>
+                <a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/2">Apoyo</a>
               </div>
             </div>
       </div>

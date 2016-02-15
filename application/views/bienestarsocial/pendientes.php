@@ -4,27 +4,22 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 
 <br>
 <div class="container">
-<h4>Casos Pendientes</h4>
+
+<h4>Casos generales</h4>
 <ul class="collapsible"  data-collapsible="accordion">
   <?php
-  	
-  	
-
     foreach ($Militar as $key => $val) {
-    	
     	foreach ($val as $c => $v) {
-
-    		$icon = '<i class="material-icons right yellow-text">alarm_on</i>';
+    		$icon = '<i class="material-icons right amber-text text-darken-4">alarm_on</i>';
     		$aprobado = '<font color="RED"><b>PENDIENTE</b></font>';
     		if($v->fechaAprobado != '') {
     		  $icon = '<i class="material-icons right green-text">done</i>';
     		  $aprobado = $v->fechaAprobado;
     		}
-
     		$cadena = '<li>
 	      	<div class="collapsible-header"><i class="material-icons grey-text">playlist_add</i>
 		      ' . $v->tipo . ' ( <b><font color="green">' . $v->codigo . '</font></b> )
-		      <a href="solicitud">' . $icon . ' </a>
+		      ' . $icon . '
 		    </div>
 		   	<div class="collapsible-body" style="padding:10px">	    	
 			      <table class="responsive-table highlight">
@@ -68,6 +63,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 				      	</tr>
 			      	</tbody>
 			      </table>
+			    </div>
 		    </li>';
 	        echo $cadena;	
     	}

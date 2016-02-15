@@ -62,7 +62,7 @@
 				<H1>SOLICITUD DE APOYO ECON&Oacute;MICO<br>SOCIAL PARA GASTOS M&Eacute;DICOS</H1>
 			</td>
 			<td style="width:20%;" class="biz bde btop bajo">
-				Codigo: <b><?php echo '00000'. $Codigo ?></b>
+				Codigo: <b><?php echo $Codigo ?></b>
 			</td>
 		</tr>
 		<tr><td style="width:20%;" class="biz bde btop bajo"><table class="tcontenedor"><tr>

@@ -3,7 +3,7 @@
 /**
 * 
 */
-class TSolicitud extends CI_Controller{
+class TSemillero extends CI_Controller{
 
 	var $plantilla = '';
 
@@ -40,32 +40,7 @@ class TSolicitud extends CI_Controller{
 		$this->unit->set_template($this->plantilla);
 		
 
-		$this->load->model('saman/Solicitud');
 
-		 $detalle = array(
-                'id' => 'Test-COD', 
-                'cantidad' => 4, 
-                'nombre' => 'Aguja Espinal N18 x 100',
-                'prioridad' => 1,
-                'imagen' => 'espinal18.jpg'
-            );
-		$arr = array(
-			'codigo' => 'syslog',
-			'numero' => '000-X', 
-			'certi' => md5('0'), 
-			'detalle' => json_encode($detalle), //Esquema Json Opcional
-			'recipes' => '',
-			'fecha' => 'now()', 
-			'tipo' => 0, 
-			'estatus' => 1
-		);
-
-		$arr = $this->Solicitud->crear($arr);
-
-		$this->unit->run($arr->code, 0, 'Clase: Solicitud (Prueba 1) ', '<br> 
-		Archivo Model: utilidad/Anomalia.php<br>Metodo : crear() <br> Motivo: ' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
-		if($arr->code != 0) 
-			$this->Anomalia->exentrica('sysdb','{"Clase": "Solicitud", "Metodo": "crear()"}' );
 
 
 		$data['Reporte'] = $this->unit->report();

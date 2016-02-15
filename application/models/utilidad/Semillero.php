@@ -41,50 +41,100 @@ class Semillero extends CI_Model{
 	*
 	* @return string
 	*/
-	var $tipo = '';
+	var $tipo = 0 ;
+
+	/**
+	* Longitud del codigo generado
+	*
+	* @return int
+	*/
+	var $longitud = 8;
+
+
+	var $session = '';
+
+	var $observacion = '';
 
 
 	function __construct(){
 		parent::__construct();
-		if (! isset ( $this->db )) {
-			$this->load->database ();
-		}
+		$this->load->model('comun/Dbipsfa');
 	}
 
 
+	private function generarConsultaSQL($sConsulta){
+		$obj = $this->Dbipsfa->consultar($sConsulta);
+		foreach ($obj->rs as $clave => $valor) {
+			$this->codigo = $valor->codigo;
+		}
+
+		return $obj;
+	}
 	/**
 	* Generar Codigo Unico
 	*
 	* @return string
 	*/
-	function generar($tipo = NULL){
-		if(!isset($tipo)){
-			$sConsulta = "SELECT max(oid) + 1 AS codigo,'-',1 FROM semillero LIMIT 1;";
-			$rs = $this->db->query($sConsulta);
-			foreach ($rs->result() as $clave => $valor) {
-				$this->codigo = $valor->codigo;
-			}
-		}
-		return $this->codigo;
+	function generar(){		
+		$sConsulta = "SELECT max(oid) + 1 AS codigo FROM semillero LIMIT 1;";
+		$obj = $this->generarConsultaSQL($sConsulta);
+		return $obj;
+	}
+
+	//Modificar para listar o ver
+	function consultar(){
+		$sConsulta = 'SELECT * FROM semillero WHERE codigo=\'' . $this->codigo . '\'';		
+		$obj = $this->generarConsultaSQL($sConsulta);
+		return $obj;
 	}
 
 	/**
 	* Obtener Codigo Automatico
 	*
-	* @return string
+	* @var string | 1: Reembolso 2: Apoyo 3: Medicamentos
+	* @var string
+	* @var string | Observaciones extras
+	* @return mixed
 	*/
-	function obtener($codigo){
+	function obtener($tipo = 0, $session, $obs){
+		$this->tipo = $tipo;
+		$this->session = md5($session);
+		$this->observacion = $obs;
+		$obj = $this->validar();
 
+		if($obj->cant == 0){
+			$this->generar();
+			$this->salvar($this->codigo, $session , $this->tipo, $this->observacion);
+		}
+		
 	}
 
+	function validar(){
+		$sConsulta = 'SELECT * FROM semillero WHERE certi=\'' . $this->session . '\' AND tipo=\'' . $this->tipo . '\' AND estatus=0';		
+		$obj = $this->generarConsultaSQL($sConsulta);
+		return $obj;
+	}
+
+
+	function activar(){
+
+	}
 	/**
 	* Salvar Codigo Automatico
 	*
+	* @var string | $this->generar
+	* @var string
+	* @var string
+	*
 	* @return mixed
 	*/
-	function salvar(){
-		$sConsulta = "INSERT INTO semillero (codigo,certi,tipo) SELECT max(oid) + 1 AS valor,'-',1 from semillero;";
-		$this->db->query($sConsulta);
+	function salvar($sCodigo,$sCertificado, $sTipo, $sObservacion){
+		$sConsulta = "INSERT INTO semillero (codigo,certi,fecha, tipo, observacion, estatus ) VALUES ('" .  
+		$this->completar($sCodigo, $this->longitud) . "','" .  md5($sCertificado) . "', now()," .  $sTipo . ",'" .  $sObservacion . "',0);";
+		
+		$this->codigo = $this->completar($sCodigo, $this->longitud);
+		$obj = $this->Dbipsfa->consultar($sConsulta);
+		return $obj;
 	}
 	/**
 	* Anular Codigo
@@ -108,6 +158,20 @@ class Semillero extends CI_Model{
 		return TRUE;
 	}
 
+
+	public function completar($sCadena = '', $iLongitud = 0) {
+		$strContenido = '';
+		$strAux = '';
+		$intLen = strlen ( $sCadena );
+		if ($intLen != $iLongitud) {
+			$intCount = $iLongitud - $intLen;
+			for($i = 0; $i < $intCount; $i ++) {
+				$strAux .= '0';
+			}
+			$strContenido = $strAux . $sCadena;
+		}
+		return $strContenido;
+	}
 	
 
 

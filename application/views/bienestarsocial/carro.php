@@ -1,5 +1,6 @@
 <?php
 $this->load->view ( "bienestarsocial/inc/cabecera.php" );
+
 ?>
 <script type="text/javascript"
 	src="/ipsfa-bss/application/views/bienestarsocial/js/farmacia.js"></script>
@@ -8,7 +9,7 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
 <div class="container">
 
 
-<ul class="collection with-header" >
+<ul class="collection with-header" id='producto'>
  <li class="collection-header"><h5>Productos Seleccionados</h5></li>
   <?php
     
@@ -68,8 +69,8 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">mode_edit</i>
-          <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
-          <label for="icon_prefix2">Observaciones</label>
+          <textarea id="Obs" class="materialize-textarea"></textarea>
+          <label for="Obs">Observaciones</label>
         </div>
       </div> 
       
@@ -77,14 +78,15 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
 
 
 
-      <div class="row">
+             
+    </form>
+    <div class="row">
         <div class="col s12">
           <button class="btn-large medium waves-effect waves-light" onclick="Salvar()">Solicitar
             <i class="material-icons right">send</i>
           </button>
         </div>
-      </div>       
-    </form>
+      </div>
 </div>
 
 

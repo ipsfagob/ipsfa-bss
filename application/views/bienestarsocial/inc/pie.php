@@ -11,10 +11,10 @@
 
     $(document).ready(function(){
 
-
-
+    	$('.tooltipped').tooltip({delay: 50});
 		$('.materialboxed').materialbox();
   		$('select').material_select();  
+		
 		$('.dropdown-button').dropdown({
 			inDuration: 400,
 			outDuration: 225,
@@ -22,7 +22,7 @@
 			hover: false, // Activate on hover
 			gutter: 0, // Spacing from edge
 			belowOrigin: true, // Displays dropdown below the button
-			alignment: 'right' // Displays dropdown with edge aligned to the left of button
+			alignment: 'left' // Displays dropdown with edge aligned to the left of button
 			}
 		);
 

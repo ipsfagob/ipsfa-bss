@@ -55,9 +55,9 @@ class Solicitud extends CI_Model{
 		return $obj;
 	}
 
-	function listar(){
+	function listar($codigo = ''){
 		$this->load->model('comun/Dbipsfa');
-		$sConsulta = "SELECT * FROM solicitud WHERE tipo=0 AND estatus=1";
+		$sConsulta = "SELECT * FROM solicitud WHERE tipo=0 AND estatus=1 AND codigo= '" . $codigo . "'";
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		return $obj;
 	}

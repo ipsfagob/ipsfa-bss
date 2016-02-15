@@ -110,9 +110,17 @@ class BienestarSocial extends CI_Controller {
 	 * Vista Pagina Solicitud de Ayudas
 	 * @return html
 	 */
-	function solicitud(){
-		$data['data'] = $this->Carro->listar();
+	function adjuntos($codigo){
+
+		$data['codigo'] = $codigo;
+
 		$this->load->view ( 'bienestarsocial/solicitud', $data );
+	}
+
+	function medicamentos(){
+		$this->load->model('saman/Solicitud');
+		$data['data'] = $this->Solicitud->listar($_SESSION['oid']);
+		$this->load->view ( 'bienestarsocial/medicamentos', $data );
 	}
 
 	/**
@@ -146,15 +154,7 @@ class BienestarSocial extends CI_Controller {
 		}		
 	}
 
-	/**
-	 * Permite generar un codigo de planillas
-	 * @return string
-	 */	
-	public function obtenerCodigo(){
-		$this->load->model('utilidades/Semillero', 'Semillero');
-		$this->Semillero->generar();
-		return $this->Semillero->codigo;
-	}
+
 	
 	/* 
 	| ------------------------------------------------------------
@@ -228,25 +228,50 @@ class BienestarSocial extends CI_Controller {
 
 	}
 
-	function imprimirHoja($tipo = ''){
-
+	function imprimirHoja(){
 		$this->load->model('saman/Solicitud', 'Solicitud');
 		$this->load->model('saman/Persona', 'Persona');
-		$this->Persona->consultar(__CEDULA);
+		$this->Persona->consultar(__CEDULA);		
 		$arr['Persona'] = $this->Persona;
-		$arr['Codigo'] = $this->obtenerCodigo();
-		if($tipo == 're'){
+		$arr['Codigo'] = $this->generarCodigo($_POST['codigo'], $_POST['obs']);
+
+
+			//$imagen = $this->Imagen->Salvar();
+			$imagen = array(); //Listado de Imagenes Subidas
+			$arr = array(
+				'codigo' => $_SESSION['oid'],
+				'numero' => $arr['Codigo'], 
+				'certi' => md5($_SESSION['oid']), 
+				'detalle' => "", //Esquema Json Opcional
+				'recipes' => "",
+				'fecha' => 'now()', 
+				'tipo' => 0, 
+				'estatus' => 0			
+			);
+
+		if($_POST['codigo'] == 1){			
+			$this->Solicitud->crear($this->Persona->cedula,$arr['Codigo'],'Reembolso', 1);
 			$this->load->view('bienestarsocial/imp/solReembolso', $arr);
-			$this->Solicitud->crear($this->Persona->cedula,$arr['Codigo'],'Reembolso', 0);	
 		}else{
+			$this->Solicitud->crear($this->Persona->cedula,$arr['Codigo'],'Apoyo', 2);	
 			$this->load->view('bienestarsocial/imp/solApoyo', $arr);
-			$this->Solicitud->crear($this->Persona->cedula,$arr['Codigo'],'Apoyo', 1);	
 		}
-
-
-		
 	}
 
+	/**
+	 * Permite generar un codigo de planillas
+	 * @return string
+	 */	
+	public function generarCodigo($tipo = "", $obs = ""){
+		$this->load->model('utilidad/Semillero', 'Semillero');
+		$this->Semillero->obtener($tipo, $_SESSION['oid'], $obs);
+		return $this->Semillero->codigo;
+	}
+
+	/**
+	 * 
+	 * @return string
+	 */	
 	function SalvarAnomaliaMedia(){	
 		if(isset($_SESSION['oid'])){
 			$this->load->model('utilidad/Anomalia');
@@ -288,22 +313,16 @@ class BienestarSocial extends CI_Controller {
 
 	function listarMedicamentosSolicitados(){
 		$this->load->model('saman/Solicitud');
-		$obj = $this->Solicitud->listar();	
-		echo "<pre>";
+		$data['data'] = $this->Solicitud->listar($_SESSION['oid']);
 		foreach ($obj->rs as $c => $v) {
 			$valor = json_decode($v->detalle);
-			//print_r($valor);
-
-			if(is_array($valor)){
-				
-				foreach ($valor as $key => $value) {
-					
+			if(is_array($valor)){				
+				foreach ($valor as $key => $value) {					
 					print_r($value->cantida);
 					echo "  |  ";
 					print_r($value->nombre);
 					echo "<br>";
 				}
-
 			}else{
 				print_r($valor->cantidad);
 				echo "  |  ";

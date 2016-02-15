@@ -8,25 +8,25 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
  <div class="row">
  <div class="col s12">
   <?php 
-    if($url == "ap"){
+    if($url == 2){
       $this->load->view('bienestarsocial/imp/detApoyo');
     }else{
        $this->load->view('bienestarsocial/imp/detReembolso');
     }
   ?>
   <form class="col s12" 
-      action="<?php echo base_url(); ?>index.php/BienestarSocial/imprimirHoja/<?php echo $url; ?>" 
-      method="post">
+      action="<?php echo base_url(); ?>index.php/BienestarSocial/imprimirHoja"  method="post">
+      <input type="hidden" name="codigo" value="<?php echo $url; ?>"> </input>
       <div class="row">
         <div class="input-field col s12">
-          <textarea id="textarea1" class="materialize-textarea"></textarea>
-          <label for="textarea1">Por favor introduzca una breve descripción, que nos permita evaluar su situación de forma rápida y directa</label>
+          <textarea name="obs" id="obs" class="materialize-textarea" length="250"></textarea>
+          <label for="obs">Introduzca una breve descripción, que nos permita evaluar su situación</label>
         </div>
       </div> 
       
       <div class="row">
       	<div class="col s12">
-    			<button class="btn-large waves-effect waves-light" type="submit" name="action">Notificar
+    			<button class="btn-large waves-effect waves-light" type="submit">Notificar
     			    <i class="material-icons right">send</i>
     			</button>
       	</div>
