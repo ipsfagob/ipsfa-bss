@@ -14,7 +14,7 @@
  * @filesource
  */
 //24775075 | 11953710 | 9348067 | 6547344 | 2664801 | 2615359 | 10156786 | 12633177
-define('__CEDULA', '10156786');
+define('__CEDULA', '10977253');
 
 class BienestarSocial extends CI_Controller {
 
@@ -238,22 +238,22 @@ class BienestarSocial extends CI_Controller {
 
 			//$imagen = $this->Imagen->Salvar();
 			$imagen = array(); //Listado de Imagenes Subidas
-			$arr = array(
+			$arg = array(
 				'codigo' => $_SESSION['oid'],
 				'numero' => $arr['Codigo'], 
 				'certi' => md5($_SESSION['oid']), 
-				'detalle' => "", //Esquema Json Opcional
-				'recipes' => "",
+				'detalle' => $_POST['codigo'], //Esquema Json Opcional
+				'recipes' => $_POST['codigo'],
 				'fecha' => 'now()', 
 				'tipo' => 0, 
 				'estatus' => 0			
 			);
 
 		if($_POST['codigo'] == 1){			
-			$this->Solicitud->crear($this->Persona->cedula,$arr['Codigo'],'Reembolso', 1);
+			$this->Solicitud->crear($arg);
 			$this->load->view('bienestarsocial/imp/solReembolso', $arr);
 		}else{
-			$this->Solicitud->crear($this->Persona->cedula,$arr['Codigo'],'Apoyo', 2);	
+			$this->Solicitud->crear($arg);	
 			$this->load->view('bienestarsocial/imp/solApoyo', $arr);
 		}
 	}

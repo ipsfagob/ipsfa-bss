@@ -158,7 +158,7 @@ class Usuario extends CI_Model {
     $this -> load -> database();
     $consulta = 'SELECT usuario.oid, usuario.nomb AS nombre, apel AS apellido, corr AS correo, perf AS perfil 
     FROM usuario 
-				 WHERE seud=\'' . $this -> sobreNombre . '\' AND clav=\'' . $this -> claveEncriptada() . '\' LIMIT 1;';
+				 WHERE seud=\'' . $this -> sobreNombre . '\' AND clav=\'' . $this -> _claveEncriptada() . '\' LIMIT 1;';
     $rs = $this -> db -> query($consulta);
     $this -> db -> close();
     unset($this -> db);

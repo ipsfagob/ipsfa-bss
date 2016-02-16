@@ -46,7 +46,48 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
         </div>
      </div>
           
-      
+
+     <div class="row">
+        <?php
+
+          foreach ($Militar->Persona->Telefonos as $c => $v) {
+            $sTip = '<div class="input-field col s2 m2 l1">
+                    <select id="codTipo">
+                    <option value="' . $v->tipo . '">' . $v->tipo . '</option>
+                    <option value="HAB">HAB</option> 
+                    <option value="CEL">CEL</option> 
+                    <option value="PRIN">PRIN</option>    
+                    </select>
+                    <label>Tipo</label>
+                    </div>';
+
+            $sCodA = '<div class="input-field col s3 m3 l1">
+                      <select id="codTelefono"><option value="' . $v->codigoArea . '">' . $v->codigoArea . '</option>
+                      ' . generarCodigos($CodigoArea) . '</select>
+                      <label>Código</label>
+                      </div>';
+            $sNum = '<div class="input-field col s7 m7 l4">
+                      <i class="material-icons prefix" onclick="alert(1);">delete</i>
+                      <input id="telefono" type="text" class="validate" value="' . $v->numero . '">
+                      <label>Teléfono</label>
+                      </div>';
+
+            
+            echo $sTip . $sCodA . $sNum ;
+          }
+
+          function generarCodigos($CodigoArea){
+            $sArea = '';
+
+            foreach ($CodigoArea as $key => $val) {
+              $sArea .= '<option value="' . $val->codarea . '">' . $val->codarea . '</option>';
+            }
+            return $sArea;
+          }
+        ?>
+      </div>
+      <!--
+
       <div class="row">
 
         <div class="input-field col s4 m4 l2">
@@ -81,6 +122,8 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
         </div>
         
       </div>
+
+      -->
 
 
       <div class="row">

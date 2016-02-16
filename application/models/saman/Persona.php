@@ -84,25 +84,11 @@ class Persona extends CI_Model{
 	*/
 	var $direccion = '';
 
-	/**
-	* @var CodigoArea
-	*/
-	var $codigoCelular = '';
 
 	/**
-	* @var string
+	* @var Telefono
 	*/
-	var $celular = '';
-
-	/**
-	* @var CodigoArea
-	*/
-	var $codigoTelefono = '';
-
-	/**
-	* @var string
-	*/
-	var $telefono = '';
+	var $Telefonos = array();
 
 	/**
 	* @var string
@@ -160,12 +146,15 @@ class Persona extends CI_Model{
 				$this->segundoApellido = $val->apellidosegundo;
 				$this->fechaNacimiento = $val->fechanacimiento;
 				$this->correoElectronico = $val->email1;
+				$this->codigoDireccion = $val->direccioncod;
 				$this->direccion = $val->direccion1;
-				$this->codigoTelefono = $val->telefonocodigoarea;
-				$this->telefono = $val->telefononumero;
+				//$this->tipoTelefono = $val->telefonotipcod;
+				//$this->codigoTelefono = $val->telefonocodigoarea;
+				//$this->telefono = $val->telefononumero;
 				$this->banco = $val->instfinannombre;
 				$this->cuenta = $val->nrocuenta;
 			}
+			$this->cargarTelefonos();
 		}
 		return $obj;
 	}
@@ -193,6 +182,24 @@ class Persona extends CI_Model{
 		}
 		
 		return $sConsulta;
+	}
+
+	function cargarTelefonos(){
+		$this->load->model('saman/Telefono', 'Telefono');
+		$sConsulta = 'SELECT * from telefono_correo WHERE nropersona=' . $this->oid;
+		
+
+		$obj = $this->Dbsaman->consultar($sConsulta);
+		if($obj->code == 0){
+			foreach ($obj->rs as $c => $v) {
+				$Telefono = new $this->Telefono;
+				$Telefono->tipo = $v->telefonotipcod;				
+				$Telefono->codigoPais = $v->telefonocodigopais;
+				$Telefono->codigoArea = $v->telefonocodigoarea;
+				$Telefono->numero = $v->telefononumero;
+				$this->Telefonos[] = $Telefono; 
+			}
+		}
 	}
 
 
@@ -246,8 +253,13 @@ class Persona extends CI_Model{
 	* @var Persona
 	* @return bool
 	*/
-	public function actualizar(){
-		$sConsulta = '';
+	public function actualizar($arg = array()){
+		$this->consultar($arg['cedula']);
+
+		$sConsulta = 'UPDATE direcciones SET direccion1=\'' . $arg['direccion'] . '\' WHERE direccioncod=\'' . $this->codigoDireccion . '\';';
+
+		$sConsulta = 'UPDATE personas SET email1=\'' . $arg['correo'] . '\' WHERE nropersona=\'' . $this->oid . '\';';		
+
 	}
 
 	/**
