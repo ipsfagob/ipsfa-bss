@@ -142,15 +142,15 @@ class Usuario extends CI_Model {
    * @return boolean
    */
   
-  function _evaluarSobreNombre() {
+  protected function _evaluarSobreNombre() {
   	return preg_match("/^([-a-z0-9_-])+$/i", $this -> sobreNombre);
   }
   
-  function _evaluarCorreo() {
+  protected function _evaluarCorreo() {
   	return preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $this -> correo);
   }
   
-  function claveEncriptada() {
+  protected function _claveEncriptada() {
   	return md5($this -> clave);
   }
   

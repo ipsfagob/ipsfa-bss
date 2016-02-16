@@ -20,6 +20,10 @@ class Perfil {
 	var $nombre;
 	
 	var $descripcion;
+
+	var $Privilegios = array();;
+
+	var $Dependientes = array();
 	
 	
 	
