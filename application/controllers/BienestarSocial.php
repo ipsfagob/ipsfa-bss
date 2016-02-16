@@ -14,7 +14,7 @@
  * @filesource
  */
 //24775075 | 11953710 | 9348067 | 6547344 | 2664801 | 2615359 | 10156786 | 12633177
-define('__CEDULA', '10977253');
+define('__CEDULA', '11953710');
 
 class BienestarSocial extends CI_Controller {
 
@@ -79,6 +79,17 @@ class BienestarSocial extends CI_Controller {
 		$data['Militar'] = $Militar->Solicitudes;
 		$this->load->view ( 'bienestarsocial/pendientes', $data );
 	}
+
+	/**
+	 * Vista Pagina Farmacia
+	 * @return html
+	 */
+	function ayudas() {
+		$this->load->model('saman/Solicitud', 'Solicitud');	
+		$arr = $this->Solicitud->listarSolicitudes($_SESSION['oid']);
+		$this->load->view ( 'bienestarsocial/ayuda', $arr);
+	}
+
 	
 	/**
 	 * Vista Pagina Farmacia
@@ -119,7 +130,7 @@ class BienestarSocial extends CI_Controller {
 
 	function medicamentos(){
 		$this->load->model('saman/Solicitud');
-		$data['data'] = $this->Solicitud->listar($_SESSION['oid']);
+		$data['data'] = $this->Solicitud->listarMedicamentos($_SESSION['oid']);
 		$this->load->view ( 'bienestarsocial/medicamentos', $data );
 	}
 
@@ -298,7 +309,7 @@ class BienestarSocial extends CI_Controller {
 				'detalle' => json_encode($detalle), //Esquema Json Opcional
 				'recipes' => json_encode($imagen),
 				'fecha' => 'now()', 
-				'tipo' => 0, 
+				'tipo' => 3, 
 				'estatus' => 1
 			);
 			$obj = $this->Solicitud->crear($arr);

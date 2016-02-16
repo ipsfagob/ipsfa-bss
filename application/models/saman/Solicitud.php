@@ -55,9 +55,9 @@ class Solicitud extends CI_Model{
 		return $obj;
 	}
 
-	function listar($codigo = ''){
+	function listarMedicamentos($codigo = ''){
 		$this->load->model('comun/Dbipsfa');
-		$sConsulta = "SELECT * FROM solicitud WHERE tipo=0 AND estatus=1 AND codigo= '" . $codigo . "'";
+		$sConsulta = "SELECT * FROM solicitud WHERE tipo=3 AND estatus=1 AND codigo= '" . $codigo . "'";
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		return $obj;
 	}
@@ -140,6 +140,13 @@ class Solicitud extends CI_Model{
 			$this->Dependiente->consultar($oid, $Persona);
 		}		
 		$obj->Dependiente = $this->Dependiente;		
+		return $obj;
+	}
+
+	function listarSolicitudes($codigo){
+		$this->load->model("comun/Dbipsfa");
+		$sConsulta = 'SELECT * FROM solicitud WHERE codigo=\'' . $codigo . '\' AND estatus=0';
+		$obj = $this->Dbsaman->consultar($sConsulta);
 		return $obj;
 	}
 
