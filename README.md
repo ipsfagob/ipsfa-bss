@@ -38,12 +38,15 @@ de automatizar y agilizar los procesos de control para los insumos pendientes po
 ### Diargrama IPSFA UML
 ![Screenshot](public/uml/dc-ipsfa.png)
 
-### Diagrama SAMAN UML
+### Diagrama Saman UML
 ![Screenshot](public/uml/dc-saman.png)
 
 
-## Prototipo
+## Prototipos
 
+### Computadores Personales
 ![Screenshot](public/img/doc/medium.png)
+
+### Teléfonos Celulares
 ![Screenshot](public/img/doc/small.png)
 
