@@ -34,11 +34,12 @@ de automatizar y agilizar los procesos de control para los insumos pendientes po
     - PHP 5
     - NoSQL Objetos (Json)
     - (UML) fuente: /public/uml/ipsfa.zargo
+
 ### Diargrama IPSFA UML
-![Screenshot](public/img/uml/dc-ipsfa.png)
+![Screenshot](public/uml/dc-ipsfa.png)
 
 ### Diagrama SAMAN UML
-![Screenshot](public/img/uml/dc-saman.png)
+![Screenshot](public/uml/dc-saman.png)
 
 
 ## Prototipo
