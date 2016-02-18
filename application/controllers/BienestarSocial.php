@@ -40,8 +40,15 @@ class BienestarSocial extends CI_Controller {
 	 * Vista Datos Basicos del Personal
 	 * @return mixed
 	 */
-	function index($cedula = '') {
-		$this->validarUsuario($cedula);
+	function index($cedula = null) {
+		if(!isset($cedula)){
+			$this->validarUsuario($cedula);	
+		}else{
+			header('Location: http://www.ipsfa.gob.ve/web/css/style/vista/vmenu.php');
+			exit;
+		}
+		
+
 	}
 	
 	/**

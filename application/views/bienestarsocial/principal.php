@@ -6,7 +6,12 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 
 
 <div class="container">
-	
+
+	<?php "<pre>";
+    echo 
+    print_r($_SESSION); 
+
+  ?>
 		<div class="row center">  		
   		<div class="col s12 m3 13" >
   		 <div class="card small hoverable">
