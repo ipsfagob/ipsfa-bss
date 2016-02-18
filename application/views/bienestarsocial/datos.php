@@ -5,6 +5,12 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
   src="<?php echo base_url(); ?>application/views/bienestarsocial/js/datos.js"></script>
 <br><br>
 <div class="container .hide-on-small-only">
+
+<?php "<pre>";
+    echo 
+    print_r($_SESSION); 
+
+  ?>
  <div class="row">
 	 <div class="col s4">
 	 	<img src="/ipsfa-dg/public/img/nodisponible.jpg" class="responsive-img circle" >
