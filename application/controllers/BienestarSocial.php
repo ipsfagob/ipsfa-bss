@@ -17,7 +17,7 @@
  * #990000
  */
 //24775075 | 11953710 | 9348067 | 6547344 | 2664801 | 2615359 | 10156786 | 12633177 | 9241417 | 7829589 |17328217
-//define('$_SESSION['cedula']', '10156786');
+define('_CEDULA', '11400652');
 
 class BienestarSocial extends CI_Controller {
 
@@ -59,7 +59,7 @@ class BienestarSocial extends CI_Controller {
 		$this->load->model('saman/Militar', 'Militar');
 		$this->load->model('saman/CodigoArea', 'CodigoArea');
 		$this->Militar->consultar($_SESSION['cedula']);
-		
+
 		$data['CodigoArea'] = $this->CodigoArea->listar()->rs;
 		$data['Militar'] = $this->Militar;
 		$this->load->view ( 'bienestarsocial/datos', $data );
