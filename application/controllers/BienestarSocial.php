@@ -17,7 +17,7 @@
  * #990000
  */
 //24775075 | 11953710 | 9348067 | 6547344 | 2664801 | 2615359 | 10156786 | 12633177 | 9241417 | 7829589 |17328217
-//define('__CEDULA', '10156786');
+//define('$_SESSION['cedula']', '10156786');
 
 class BienestarSocial extends CI_Controller {
 
@@ -51,7 +51,7 @@ class BienestarSocial extends CI_Controller {
 	function datos() {
 		$this->load->model('saman/Militar', 'Militar');
 		$this->load->model('saman/CodigoArea', 'CodigoArea');
-		$this->Militar->consultar(__CEDULA);
+		$this->Militar->consultar($_SESSION['cedula']);
 		$data['CodigoArea'] = $this->CodigoArea->listar()->rs;
 		$data['Militar'] = $this->Militar;
 		$this->load->view ( 'bienestarsocial/datos', $data );
@@ -74,7 +74,7 @@ class BienestarSocial extends CI_Controller {
 	 */
 	function pendientes() {
 		$this->load->model('saman/Militar', 'Militar');
-		$this->Militar->consultar(__CEDULA);
+		$this->Militar->consultar($_SESSION['cedula']);
 		
 		$this->load->model('saman/Solicitud', 'Solicitud');		
 		$Militar = $this->Solicitud->importarSolicitudesSaman($this->Militar)->Militar;		
@@ -158,10 +158,11 @@ class BienestarSocial extends CI_Controller {
 	 * Validar y sincronizar el usuario de conexión
 	 * @return mixed
 	 */	
-	protected function validarUsuario(){
+	protected function validarUsuario($cedula){
 		$this->load->model('usuario/Iniciar', 'Iniciar');
 		$valores["txtUsuario"] = "MamonSoft";
 		$valores["txtClave"] = "za63qj2p";
+		$valores["cedula"] = $cedula;
 		$resultado = $this->Iniciar->validarCuenta($valores); 
 		if ( $resultado == 1){
 			$this->load->view ( 'bienestarsocial/principal');
@@ -225,13 +226,13 @@ class BienestarSocial extends CI_Controller {
 	public function listarCasosBienestar(){
 		print("<pre>");
 		$this->load->model('saman/reembolso', 'Reembolso');
-		print_r($this->Reembolso->listarCedula(__CEDULA));
+		print_r($this->Reembolso->listarCedula($_SESSION['cedula']));
 	}
 
 
 	function ConsultarPersona(){
 		$this->load->model('saman/Militar', 'Militar');
-		$this->Militar->consultar(__CEDULA);
+		$this->Militar->consultar($_SESSION['cedula']);
 		
 		$this->load->model('saman/Solicitud', 'Solicitud');
 		print('<pre>');
@@ -247,7 +248,7 @@ class BienestarSocial extends CI_Controller {
 	function imprimirHoja(){
 		$this->load->model('saman/Solicitud', 'Solicitud');
 		$this->load->model('saman/Persona', 'Persona');
-		$this->Persona->consultar(__CEDULA);		
+		$this->Persona->consultar($_SESSION['cedula']);		
 		$arr['Persona'] = $this->Persona;
 		$arr['Codigo'] = $this->generarCodigo($_POST['codigo'], $_POST['obs']);
 
