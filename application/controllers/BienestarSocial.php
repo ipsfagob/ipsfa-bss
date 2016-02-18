@@ -17,7 +17,7 @@
  * #990000
  */
 //24775075 | 11953710 | 9348067 | 6547344 | 2664801 | 2615359 | 10156786 | 12633177 | 9241417 | 7829589 |17328217
-define('__CEDULA', '10156786');
+//define('__CEDULA', '10156786');
 
 class BienestarSocial extends CI_Controller {
 
@@ -40,8 +40,8 @@ class BienestarSocial extends CI_Controller {
 	 * Vista Datos Basicos del Personal
 	 * @return mixed
 	 */
-	function index() {
-		$this->validarUsuario();
+	function index($cedula = '') {
+		$this->validarUsuario($cedula);
 	}
 	
 	/**
@@ -142,8 +142,9 @@ class BienestarSocial extends CI_Controller {
 	 * @return mixed
 	 */	
 	function salir() {
-		session_destroy();
-		$this->index();
+		//session_destroy();
+		//$this->index();
+		location ();
 	}
 	
 	/* 

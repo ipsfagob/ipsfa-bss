@@ -11,7 +11,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
   		<div class="col s12 m3 13" >
   		 <div class="card small hoverable">
               <div class="card-image">
-                <img src="/ipsfa-bss/public/img/medicamentos.jpg">
+                <img src="<?php echo base_url(); ?>public/img/medicamentos.jpg">
                 
               </div>
               <div class="card-content">
@@ -26,7 +26,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       <div class="col s12 m3 13" >
        <div class="card small hoverable">
               <div class="card-image">
-                <img src="/ipsfa-bss/public/img/reembolsos.jpg">
+                <img src="<?php echo base_url(); ?>/public/img/reembolsos.jpg">
                 
               </div>
               <div class="card-content">
@@ -41,7 +41,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       <div class="col s12 m3 13" >
        <div class="card small hoverable">
               <div class="card-image">
-                <img src="/ipsfa-bss/public/img/ayudasocial.jpg">
+                <img src="<?php echo base_url(); ?>public/img/ayudasocial.jpg">
                 
               </div>
               <div class="card-content">
@@ -58,7 +58,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       <div class="col s12 m3 13">   
         <div class="card small hoverable">
               <div class="card-image">
-                <img src="/ipsfa-bss/public/img/farmaipsfa.jpg" class="materialboxed">
+                <img src="<?php echo base_url(); ?>public/img/farmaipsfa.jpg" class="materialboxed">
                 
               </div>
               <div class="card-content">
@@ -75,10 +75,10 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 
     <div class="row center">
       <div class="col s12 m3 13" >
-        <img src="/ipsfa-bss/public/img/badan.jpg" class="responsive-img">
+        <img src="<?php echo base_url(); ?>public/img/badan.jpg" class="responsive-img">
       </div>
       <div class="col s12 m3 13" >
-        <img src="/ipsfa-bss/public/img/logo-locatel.png" class="responsive-img">
+        <img src="<?php echo base_url(); ?>public/img/logo-locatel.png" class="responsive-img">
       </div>
 
     </div>
