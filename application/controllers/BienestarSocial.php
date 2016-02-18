@@ -41,7 +41,7 @@ class BienestarSocial extends CI_Controller {
 	 * @return mixed
 	 */
 	function index($cedula = null) {
-		if(!isset($cedula)){
+		if(isset($cedula)){
 			$this->validarUsuario($cedula);	
 		}else{
 			header('Location: http://www.ipsfa.gob.ve/web/css/style/vista/vmenu.php');
