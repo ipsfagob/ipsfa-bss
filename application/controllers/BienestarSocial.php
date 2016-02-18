@@ -12,9 +12,11 @@
  * @link	http://www.mamonsoft.com.ve/ipsfa
  * @since	Version 1.0.0
  * @filesource
+ * #1070B7 Azul claro 
+ * #00345A Azul Oscuro
  */
-//24775075 | 11953710 | 9348067 | 6547344 | 2664801 | 2615359 | 10156786 | 12633177
-define('__CEDULA', '11953710');
+//24775075 | 11953710 | 9348067 | 6547344 | 2664801 | 2615359 | 10156786 | 12633177 | 9241417 | 7829589 |17328217
+define('__CEDULA', '10156786');
 
 class BienestarSocial extends CI_Controller {
 

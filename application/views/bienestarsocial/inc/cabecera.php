@@ -42,54 +42,55 @@
 
 	<div class="navbar-fixed">
 		<nav>
-			<div class="nav-wrapper blue">
+			<div class="nav-wrapper" style="background-color:#00345A">
 				<a href="#" class="brand-logo">Bienestar</a>
 				<a href="#" data-activates="nav-mobile" class="button-collapse" id="menuprincipal">
 				<i class="mdi-image-dehaze"></i></a>
 								
 				<ul id="solicitudes1" class="dropdown-content">				  			 
 				  <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia">
-						Medicamentos<i class="mdi-maps-local-hospital left red-text "></i></a>
+						Medicamentos<i class="mdi-maps-local-hospital left blue-text "></i></a>
 					</li>
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/2">
-					  	Notificar Apoyo<i class="mdi-action-assignment-late left yellow-text"></i></a>
+					  	Notificar Apoyo<i class="mdi-action-assignment-late left blue-text"></i></a>
 					</li>	
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/1">
-					  	Notificar Reembolso<i class="mdi-action-assignment left green-text "></i></a>
+					  	Notificar Reembolso<i class="mdi-action-assignment left blue-text "></i></a>
 					</li>
 							
 					<li class="divider"></li>				
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/pendientes">
-						Solicitudes<i class="mdi-action-alarm-add left orange-text text-accent-4"></i></a>							
+						Solicitudes<i class="mdi-action-alarm-add left blue-text"></i></a>							
 					</li>
-					<li><a href="#">Promociones<i class="mdi-action-lock left amber-text text-darken-4"></i></a></li>			
-					<li><a href="#">Configurar<i class="mdi-action-settings left teal-text"></i> </a></li>
+					<li><a href="#">Promociones<i class="mdi-action-lock left blue-text"></i></a></li>			
+					<li><a href="#">Configurar<i class="mdi-action-settings left blue-text"></i> </a></li>
 				</ul>
 				
-				<ul id="nav-mobile" class="side-nav">		
-					<img src="<?php echo base_url(); ?>public/img/ipsfa.png" class="responsive-img">					
+				<ul id="nav-mobile" class="side-nav">
+					<br>	
+					<!-- <img src="<?php echo base_url(); ?>public/img/ipsfa.png" class="responsive-img"> -->
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/index">Principal
-					<i class="mdi-action-home left blue-text "></i></a></li>
+					<i class="mdi-action-home left blue-text"></i></a></li>
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/datos">Datos Personales
-					<i class="mdi-action-account-circle left deep-purple-text text-lighten-1"></i></a></li>
+					<i class="mdi-action-account-circle left blue-text"></i></a></li>
 					
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia">
-						Medicamentos<i class="mdi-maps-local-hospital left red-text "></i></a>
+						Medicamentos<i class="mdi-maps-local-hospital left blue-text"></i></a>
 					</li>
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/2">
-					  	Notificar Apoyo<i class="mdi-action-assignment-late left yellow-text"></i></a>
+					  	Notificar Apoyo<i class="mdi-action-assignment-late left blue-text"></i></a>
 					</li>	
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/1">
-					  	Notificar Reembolso<i class="mdi-action-assignment left green-text "></i></a>
+					  	Notificar Reembolso<i class="mdi-action-assignment left blue-text"></i></a>
 					</li>
 							
 					<li class="divider"></li>				
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/pendientes">
-						Solicitudes<i class="mdi-action-alarm-add left orange-text text-accent-4"></i></a>							
+						Solicitudes<i class="mdi-action-alarm-add left blue-text"></i></a>							
 					</li>
-					<li><a href="#">Promociones<i class="mdi-action-lock left amber-text text-darken-4"></i></a></li>			
-					<li><a href="#">Configurar<i class="mdi-action-settings left teal-text"></i> </a></li>
-					<li><a href="#">Salir<i class="mdi-action-settings-power left red-text"></i> </a></li>
+					<li><a href="#">Promociones<i class="mdi-action-lock left blue-text"></i></a></li>			
+					<li><a href="#">Configurar<i class="mdi-action-settings left blue-text"></i> </a></li>
+					<li><a href="#">Salir<i class="mdi-action-settings-power left blue-text"></i> </a></li>
 				</ul>
 				
 				<ul class="right hide-off-med-and-down">
@@ -121,20 +122,21 @@
 
 
 	<div class="fixed-action-btn horizontal" style="bottom: 45px; right: 24px;">
-	    <a class="btn-floating btn-large green">
+	    <a class="btn-floating btn-large blue darken-3">
 	      <i class="large mdi-action-view-module"></i>
 	    </a>
 	    <ul>
 	      <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/pendientes"  
-	      	class="btn-floating green tooltipped" data-position="top" data-delay="10" data-tooltip="Solicitud"><i class="mdi-action-thumb-up"></i></a>
+	      	class="btn-floating blue tooltipped" data-position="top" data-delay="10" data-tooltip="Solicitud">
+	      	<i class="material-icons">library_books</i></a>
 	      </li>
 
 	      <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/ayudas" 
-	      		class="btn-floating tooltipped blue darken-1"  data-position="top" data-delay="10" data-tooltip="Reembolsos y Apoyos"><i class="mdi-action-description"></i></a>
+	      		class="btn-floating tooltipped blue"  data-position="top" data-delay="10" data-tooltip="Reembolsos y Apoyos"><i class="mdi-action-description"></i></a>
 	      </li>
 	      
 	      <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/medicamentos" 
-	      		class="btn-floating red darken-4 tooltipped" data-position="top" data-delay="10" data-tooltip="Solicitud Medicamentos"><i class="mdi-editor-publish"></i></a>
+	      		class="btn-floating blue tooltipped" data-position="top" data-delay="10" data-tooltip="Solicitud Medicamentos"><i class="mdi-editor-publish"></i></a>
 	      </li>
 	    </ul>
 	  </div>

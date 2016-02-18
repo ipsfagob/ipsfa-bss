@@ -52,7 +52,7 @@
       
     </script>
 </main>
-<footer class="page-footer blue">
+<footer class="page-footer" style="background-color:#00345A">
 	<div class="container">
 		<div class="row">
 			<div class="col l6 s12">
@@ -71,7 +71,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="footer-copyright">
+	<div class="footer-copyright"  style="background-color:#1070B7">
 		<div class="container">
 			© 2016 MamonSoft<a class="grey-text text-lighten-4 right"
 				href="http://www.mamonsoft.com.ve">http://www.mamonsoft.com.ve</a>

@@ -154,12 +154,12 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       
       <div class="row">
       	<div class="col s6">
-  			<button class="btn-large waves-effect waves-light green darken-1" onclick="">Actualizar
+  			<button class="btn-large waves-effect waves-light blue darken-1" onclick="">Actualizar
   			    <i class="material-icons left">swap_vertical_circle</i>
   			</button>
       	</div>
         <div class="col s6">
-        <button data-target="modal1" class="btn-large waves-effect waves-light amber darken-3 modal-trigger">Reportar
+        <button data-target="modal1" class="btn-large waves-effect waves-light blue darken-3 modal-trigger">Reportar
             <i class="material-icons left">verified_user</i>
         </button>
         </div>
@@ -232,8 +232,8 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
     </form>
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Cancelar</a>
-      <a class="modal-action modal-close waves-effect waves-green btn-flat" onclick="Salvar()">Reportar</a>
+      <a href="#!" class="modal-action modal-close waves-effect waves-blue btn-flat">Cancelar</a>
+      <a class="modal-action modal-close waves-effect waves-blue btn-flat" onclick="Salvar()">Reportar</a>
       
     </div>
   </div>
