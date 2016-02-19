@@ -44,10 +44,10 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
                 
               </div>
               <div class="card-content">
-                <p>Notificar Apoyos.</p>
+                <p>Notificar Ayuda.</p>
               </div>
               <div class="card-action">
-                <a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/2">Apoyo</a>
+                <a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/2">Ayuda</a>
               </div>
             </div>
       </div>
