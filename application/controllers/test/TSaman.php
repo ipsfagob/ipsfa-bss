@@ -57,6 +57,122 @@ class TSaman extends CI_Controller{
 		$sCon = "SELECT * FROM pers_relaciones LIMIT 1";
 		$arr = $this->Dbsaman->consultar($sCon);
 		$this->unit->run($arr->code, 0, 'Existencias de Tablas (pers_relaciones) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
+		/*
+		* ---------------------------------------
+		* pers_cta_bancarias
+		* ---------------------------------------
+		*/
+		$sCon = "SELECT * FROM pers_cta_bancarias LIMIT 1";
+		$arr = $this->Dbsaman->consultar($sCon);
+		$this->unit->run($arr->code, 0, 'Existencias de Tablas (pers_relaciones) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
+		
+		/*
+		* ---------------------------------------
+		* pers_cta_bancarias
+		* ---------------------------------------
+		*/
+		$sCon = "SELECT * FROM pers_relacs_tipo LIMIT 1";
+		$arr = $this->Dbsaman->consultar($sCon);
+		$this->unit->run($arr->code, 0, 'Existencias de Tablas (pers_relaciones) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
+
+
+		$sCon = "SELECT * FROM ci_remmbolso_concep LIMIT 1";
+		$arr = $this->Dbsaman->consultar($sCon);
+		$this->unit->run($arr->code, 0, 'Existencias de Tablas (pers_relaciones) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
+
+
+		$sCon = "SELECT * FROM ci_reembolso_det LIMIT 1";
+		$arr = $this->Dbsaman->consultar($sCon);
+		$this->unit->run($arr->code, 0, 'Existencias de Tablas (pers_relaciones) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
+
+
+		$sCon = "SELECT * FROM ci_reembolso_det_clas LIMIT 1";
+		$arr = $this->Dbsaman->consultar($sCon);
+		$this->unit->run($arr->code, 0, 'Existencias de Tablas (pers_relaciones) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
+
+
+		$sCon = "SELECT * FROM ci_reemb_opiniones LIMIT 1";
+		$arr = $this->Dbsaman->consultar($sCon);
+		$this->unit->run($arr->code, 0, 'Existencias de Tablas (pers_relaciones) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
+
+
+
+		$sCon = "SELECT * FROM ci_reembolso_solic LIMIT 1";
+		$arr = $this->Dbsaman->consultar($sCon);
+		$this->unit->run($arr->code, 0, 'Existencias de Tablas (pers_relaciones) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
+
+
+		$sCon = "SELECT * FROM ci_reembolso_tipo LIMIT 1";
+		$arr = $this->Dbsaman->consultar($sCon);
+		$this->unit->run($arr->code, 0, 'Existencias de Tablas (pers_relaciones) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
+
+
+		$sCon = "SELECT * FROM canal_liquidacion LIMIT 1";
+		$arr = $this->Dbsaman->consultar($sCon);
+		$this->unit->run($arr->code, 0, 'Existencias de Tablas (pers_relaciones) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
+
+
+		$sCon = "SELECT * FROM pers_dat_militares LIMIT 1";
+		$arr = $this->Dbsaman->consultar($sCon);
+		$this->unit->run($arr->code, 0, 'Existencias de Tablas (pers_relaciones) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
+
+
+		$sCon = "SELECT * FROM edo_civil LIMIT 1";
+		$arr = $this->Dbsaman->consultar($sCon);
+		$this->unit->run($arr->code, 0, 'Existencias de Tablas (pers_relaciones) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
+
+
+		$sCon = "SELECT * FROM telefono_correo LIMIT 1";
+		$arr = $this->Dbsaman->consultar($sCon);
+		$this->unit->run($arr->code, 0, 'Existencias de Tablas (pers_relaciones) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
+
+
+		$sCon = "SELECT * FROM inst_finacieras LIMIT 1";
+		$arr = $this->Dbsaman->consultar($sCon);
+		$this->unit->run($arr->code, 0, 'Existencias de Tablas (pers_relaciones) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
+
+
+		$sCon = "SELECT * FROM direcciones LIMIT 1";
+		$arr = $this->Dbsaman->consultar($sCon);
+		$this->unit->run($arr->code, 0, 'Existencias de Tablas (pers_relaciones) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
+
+
+		$sCon = "SELECT * FROM codarea LIMIT 1";
+		$arr = $this->Dbsaman->consultar($sCon);
+		$this->unit->run($arr->code, 0, 'Existencias de Tablas (pers_relaciones) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
+
+
+		$sCon = "SELECT * FROM ipsfa_pers_situac LIMIT 1";
+		$arr = $this->Dbsaman->consultar($sCon);
+		$this->unit->run($arr->code, 0, 'Existencias de Tablas (pers_relaciones) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
+
+
+		$sCon = "SELECT * FROM ipsfa_grado_x_pers LIMIT 1";
+		$arr = $this->Dbsaman->consultar($sCon);
+		$this->unit->run($arr->code, 0, 'Existencias de Tablas (pers_relaciones) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
+
+
+		$sCon = "SELECT * FROM ipsfa_grados LIMIT 1";
+		$arr = $this->Dbsaman->consultar($sCon);
+		$this->unit->run($arr->code, 0, 'Existencias de Tablas (pers_relaciones) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
+
+
+		$sCon = "SELECT * FROM ipsfa_componentes LIMIT 1";
+		$arr = $this->Dbsaman->consultar($sCon);
+		$this->unit->run($arr->code, 0, 'Existencias de Tablas (pers_relaciones) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
+
+
+		$sCon = "SELECT * FROM ipsfa_pers_categ LIMIT 1";
+		$arr = $this->Dbsaman->consultar($sCon);
+		$this->unit->run($arr->code, 0, 'Existencias de Tablas (pers_relaciones) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
+
+
+		$sCon = "SELECT * FROM ipsfa_pers_clase LIMIT 1";
+		$arr = $this->Dbsaman->consultar($sCon);
+		$this->unit->run($arr->code, 0, 'Existencias de Tablas (pers_relaciones) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
+
+
+		
 
 
 	
