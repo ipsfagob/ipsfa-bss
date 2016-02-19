@@ -3,7 +3,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 ?>
 
 <br><br>
-<?php echo $codigo?>
+<?php //echo $codigo?>
 <div class="container .hide-on-small-only">
 	
  
