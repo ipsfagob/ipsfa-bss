@@ -154,7 +154,7 @@ class BienestarSocial extends CI_Controller {
 	 * @return mixed
 	 */	
 	function salir() {
-		//session_destroy();
+		session_destroy();
 		//$this->index();
 		header('Location: http://www.ipsfa.gob.ve/web/css/style/vista/vmenu.php');
 		exit;
