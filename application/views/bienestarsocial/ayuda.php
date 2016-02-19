@@ -25,8 +25,10 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 			foreach ($valor as $key => $value) {					
 				$cadena .= $value->cantidad . '  |  ' . $value->nombre . '<br>';
 			}
-		}else{
+		}elseif (is_object($valor)){
 			$cadena .= $valor->cantidad . '  |  ' . $valor->nombre . '<br>';
+		}else{
+			$cadena .= $valor;
 		}
 		$cadena .= "</div></li>";	
 	}
