@@ -21,7 +21,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
     <form class="col s12">
      <div class="row">
       <div class="input-field col s6">
-          <input  disabled  id="fechaNacimiento" type="date" class="datepicker" value="<?php echo $Militar->Persona->fechaNacimiento?>">
+          <input  disabled  id="fechaNacimiento" type="text" value="<?php echo $Militar->Persona->fechaNacimiento?>">
           <label for="disabled">Fecha de Nacimiento</label>
         </div>
         
