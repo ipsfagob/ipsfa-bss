@@ -102,7 +102,7 @@ class BienestarSocial extends CI_Controller {
 	function ayudas() {
 		$this->load->model('saman/Solicitud', 'Solicitud');	
 		$data['data'] = $this->Solicitud->listarSolicitudes($_SESSION['oid']);
-		$this->load->view ( 'bienestarsocial/ayuda', $arr);
+		$this->load->view ( 'bienestarsocial/ayuda', $data);
 	}
 
 	
