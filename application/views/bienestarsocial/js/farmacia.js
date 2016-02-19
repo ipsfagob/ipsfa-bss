@@ -3,7 +3,8 @@
 *
 */
 function listarProductos(val) {
-	alert(sUrlP + "listarMedicamentosBADAN/ + val)
+	alert(sUrlP + "listarMedicamentosBADAN/" + val);
+
 	$.getJSON(sUrlP + "listarMedicamentosBADAN/" + val, function(data) {
 		var cadena = '';
 		$(".collection-item").remove();
