@@ -68,7 +68,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
                       <label>Código</label>
                       </div>';
             $sNum = '<div class="input-field col s7 m7 l4">
-                      <i class="material-icons prefix" onclick="alert(1);">delete</i>
+                      
                       <input id="telefono" type="text" class="validate" value="' . $v->numero . '">
                       <label>Teléfono</label>
                       </div>';
