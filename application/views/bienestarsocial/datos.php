@@ -8,7 +8,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 
  <div class="row">
 	 <div class="col s4">
-	 	<img src="/ipsfa-dg/public/img/nodisponible.jpg" class="responsive-img circle" >
+	 	<img src="<?php echo base_url(); ?>public/img/nodisponible.jpg" class="responsive-img circle" >
 	 </div>
 	 <div class="col s8">
 	 	<div class="input-field col s12">
