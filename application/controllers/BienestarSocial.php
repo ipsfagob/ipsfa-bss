@@ -322,15 +322,15 @@ class BienestarSocial extends CI_Controller {
 
 
 	function SalvarSolicitudMedicamentos(){
-		if(isset($_SESSION['oid'])){
+		if(isset($_SESSION['cedula'])){
 			$this->load->model('saman/Solicitud');
 			$detalle = $this->Carro->salvarPedido();
 			//$imagen = $this->Imagen->Salvar();
 			$imagen = array(); //Listado de Imagenes Subidas
 			$arr = array(
-				'codigo' => $_SESSION['oid'],
-				'numero' => 'MD-0000-A', 
-				'certi' => md5($_SESSION['oid']), 
+				'codigo' => $_SESSION['cedula'],
+				'numero' => $this->generarCodigo('3','MED'),
+				'certi' => md5($_SESSION['cedula']), 
 				'detalle' => json_encode($detalle), //Esquema Json Opcional
 				'recipes' => json_encode($imagen),
 				'fecha' => 'now()', 
@@ -349,7 +349,7 @@ class BienestarSocial extends CI_Controller {
 
 	function listarMedicamentosSolicitados(){
 		$this->load->model('saman/Solicitud');
-		$data['data'] = $this->Solicitud->listar($_SESSION['oid']);
+		$data['data'] = $this->Solicitud->listar($_SESSION['cedula']);
 		foreach ($obj->rs as $c => $v) {
 			$valor = json_decode($v->detalle);
 			if(is_array($valor)){				
