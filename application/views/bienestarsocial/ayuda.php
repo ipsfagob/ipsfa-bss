@@ -5,7 +5,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 <br>
 <div class="container">
 
-<?php print_r($data->rs); ?>
+<?php //print_r($data->rs); ?>
 <h4>Solicitud</h4>
 <ul class="collapsible"  data-collapsible="accordion">
 
@@ -28,7 +28,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 		}elseif (is_object($valor)){
 			$cadena .= $valor->cantidad . '  |  ' . $valor->nombre . '<br>';
 		}else{
-			$cadena .= $valor;
+			$cadena .= tipo($valor);
 		}
 		$cadena .= "</div></li>";	
 	}
@@ -36,6 +36,21 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 	echo $cadena;
 
 
+	function tipo($id){
+		$msj = '';
+		switch ($id) {
+			case 1:
+				$msj = 'SOLICITUD DE REEMBOLSO PENDIENTE';
+				break;
+			case 2:
+				$msj = 'SOLICITUD DE AYUDA PENDIENTE';
+				break;
+			default:
+				# code...
+				break;
+		}
+		return $msj;
+	}
   ?>
 </ul>
 <br>
