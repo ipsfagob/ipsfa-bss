@@ -69,7 +69,7 @@
 				<ul id="nav-mobile" class="side-nav">
 					<br>	
 					<!-- <img src="<?php echo base_url(); ?>public/img/ipsfa.png" class="responsive-img"> -->
-					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/index">Principal
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/index/<?php echo $_SESSION['cedula']; ?>">Principal
 					<i class="mdi-action-home left blue-text"></i></a></li>
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/datos">Datos Personales
 					<i class="mdi-action-account-circle left blue-text"></i></a></li>
