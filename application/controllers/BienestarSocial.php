@@ -149,6 +149,13 @@ class BienestarSocial extends CI_Controller {
 		$this->load->view ( 'bienestarsocial/medicamentos', $data );
 	}
 
+	function medica(){
+		$this->load->model('saman/Solicitud');
+		echo "<pre>";
+		print_r($this->Solicitud->listarTodo());
+		
+	}
+
 	/**
 	 * Salir del Sistema
 	 * @return mixed
