@@ -76,7 +76,7 @@ class TSaman extends CI_Controller{
 		$this->unit->run($arr->code, 0, 'Existencias de Tablas (pers_relaciones) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
 
 
-		$sCon = "SELECT * FROM ci_remmbolso_concep LIMIT 1";
+		$sCon = "SELECT * FROM ci_reembolso_concep LIMIT 1";
 		$arr = $this->Dbsaman->consultar($sCon);
 		$this->unit->run($arr->code, 0, 'Existencias de Tablas (pers_relaciones) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
 
@@ -86,7 +86,7 @@ class TSaman extends CI_Controller{
 		$this->unit->run($arr->code, 0, 'Existencias de Tablas (pers_relaciones) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
 
 
-		$sCon = "SELECT * FROM ci_reembolso_det_clas LIMIT 1";
+		$sCon = "SELECT * FROM ci_reembolso_det_clase LIMIT 1";
 		$arr = $this->Dbsaman->consultar($sCon);
 		$this->unit->run($arr->code, 0, 'Existencias de Tablas (pers_relaciones) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
 
@@ -127,7 +127,7 @@ class TSaman extends CI_Controller{
 		$this->unit->run($arr->code, 0, 'Existencias de Tablas (pers_relaciones) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
 
 
-		$sCon = "SELECT * FROM inst_finacieras LIMIT 1";
+		$sCon = "SELECT * FROM inst_financieras LIMIT 1";
 		$arr = $this->Dbsaman->consultar($sCon);
 		$this->unit->run($arr->code, 0, 'Existencias de Tablas (pers_relaciones) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
 
