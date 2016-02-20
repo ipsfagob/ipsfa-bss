@@ -379,6 +379,8 @@ class BienestarSocial extends CI_Controller {
 		$this->load->model('comun/Dbipsfa');
 		$sCon = 'select column_name, data_type, character_maximum_length
 		from INFORMATION_SCHEMA.COLUMNS where table_name = \'solicitud\';';
+
+		$sCon = "INSERT INTO solicitud (codigo, numero, certi, detalle, recipes, fecha, tipo, estatus) VALUES ('11953710', '00000010', '7426affe1f6e9f4cf62dca4b8efca7a7', '[{\"id\":\"1\",\"nombre\":\"Inyectadora de 50cc\",\"cantidad\":1,\"prioridad\":\"0\",\"imagen\":\"inyectadora.jpg\"}]','[]', now(), '3', '1' )";
 		$obj = $this->Dbipsfa->consultar($sCon);
 		echo "<pre>";
 		print_r($obj);
