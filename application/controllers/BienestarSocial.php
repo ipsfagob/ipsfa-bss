@@ -384,6 +384,13 @@ class BienestarSocial extends CI_Controller {
 		$obj = $this->Dbipsfa->consultar($sCon);
 		echo "<pre>";
 		print_r($obj);
+
+		$sCon = 'select column_name, data_type, character_maximum_length
+		from INFORMATION_SCHEMA.COLUMNS where table_name = \'solicitud\';';
+		$obj = $this->Dbipsfa->consultar($sCon);
+		echo "<pre>";
+		print_r($obj);
+
 	}
 
 }
