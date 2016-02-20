@@ -26,7 +26,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       
       <div class="row">
       	<div class="col s12">
-    			<button class="btn-large waves-effect waves-light" type="submit">Notificar
+    			<button class="btn-large waves-effect waves-light blue darken-1" type="submit">Notificar
     			    <i class="material-icons right">send</i>
     			</button>
       	</div>

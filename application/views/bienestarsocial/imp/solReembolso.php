@@ -48,6 +48,10 @@
 	</style>
 </head>
 <body>
+
+<?php 
+//echo "<pre>";
+//print_r($Militar);?>
 <div class="contenedor" >
 
 	<table class="tcontenedor" border=0>
@@ -64,8 +68,27 @@
 
 
 	<table class="tcontenedor junta" border=1>
-		<tr class"texto12"><td class="textoCenter " style="width:25%;">UEL</td><td style="width:35%;">PROYECTO</td><td style="width:40%;">ACCION ESPECIFICA</td></tr>
-		<tr style="height:50px;"><td class="textoCenter" style="width:25%;"></td><td style="width:35%;"></td><td style="width:40%;"></td></tr>
+		<tr class"texto12">
+			<td class="textoCenter " style="width:25%;">UEL</td>
+			<td style="width:35%;" align="center">PROYECTO</td>
+			<td style="width:40%;" align="center">ACCION ESPECIFICA</td></tr>
+		<tr style="height:50px;">
+			<td class="textoCenter" style="width:25%;">
+				3221
+			</td>
+			<td style="width:35%;" align="center">
+				<font style="font-size: 9px">
+				ADMINISTRACION DE LOS RECURSOS DEL FONDO DE CUIDADO INTEGRAL<BR>
+				DE LA SALUD PERSONAL MILITAR Y SUS FAMILIARES CON DERECHO
+				</font>
+			</td>
+			<td style="width:40%;" align="center">
+				<font style="font-size: 9px">
+				ADMINISTRACION DE LOS RECURSOS DEL FONDO DE CUIDADO INTEGRAL<BR>
+				DE LA SALUD PERSONAL MILITAR Y SUS FAMILIARES CON DERECHO
+				</font>
+			</td>
+		</tr>
 		<tr><td colspan="3" style="width:100%;color:red;" class="textoCenter"><h3>POR FAVOR NO ESCRIBA SOBRE LAS CASILLAS SOMBREADAS</h3></td></tr>
 	</table>
 
@@ -74,31 +97,40 @@
 		<thead><tr><td><h3>Datos:</h3></td></tr></thead>
 		<tbody>
 			<tr class="texto12 simple">
-				<td style="width:30%;" class="biz bde btop">4.CEDULA DE IDENTIDAD DEL AFILIADO:
-					<br><b><?php echo $Persona->nacionalidad . '-' . $Persona->cedula; ?></b>
+				<td style="width:30%;" class="biz bde btop">
+					4.CEDULA DE IDENTIDAD DEL AFILIADO:
+					<br><b><?php echo $Militar->Persona->nacionalidad . '-' . $Militar->Persona->cedula; ?></b>
 				</td>
 				<td style="width:70%;" colspan="3" class="bde btop">5.APELLIDOS Y NOMBRES DEL AFILIADO:
-					<br><b><?php echo $Persona->apellidoCompleto() . ' ' . $Persona->nombreCompleto(); ?></b>
+					<br><b><?php echo $Militar->Persona->apellidoCompleto() . ' ' . $Militar->Persona->nombreCompleto(); ?></b>
 				</td>
 			</tr>
 
 			<tr class="texto12 doble"><td style="width:30%;" class="biz bde bajo"></td><td style="width:70%;" colspan="3" class="bde bajo"></td></tr>
-			<tr class="texto12"><td style="width:25%;" class="biz bde btop">6.GRADO:</td><td style="width:25%;" class="bde btop">7.COMPONENTE:</td><td style="width:25%;" class="bde btop">8.SITUACI&Oacute;N:</td><td style="width:25%;" class="bde btop">9.ESTADO CIVIL:</td></tr>
-			<tr class="texto12 doble">
-				<td style="width:25%;" class="biz bde bajo"></td>
-				<td style="width:25%;" class="bde bajo">
-					<table class="tcontenedor">
-						<tr class="texto12"><td style="width:25%;">EJ<input type="checkbox"/></td><td style="width:25%;">ARBV<input type="checkbox"/></td><td style="width:25%;">AV<input type="checkbox"/></td><td style="width:25%;">GN<input type="checkbox"/></td></tr>
-					</table></td>
-				<td style="width:25%;" class="biz bde bajo">
-					<table class="tcontenedor">
-						<tr class="texto10"><td style="width:25%;">ACTIVO<input type="checkbox"/></td><td style="width:25%;">RETIRADO<input type="checkbox"/></td><td style="width:25%;">FALLEC<input type="checkbox"/></td></tr>
-					</table>
+			
+			<tr class="texto12">
+				<td style="width:25%;" class="biz bde btop">
+					6.GRADO:<br>
 				</td>
-				<td style="width:25%;" class="biz bde bajo">
-					<table class="tcontenedor" >
-						<tr class="texto12"><td style="width:25%;">S<input type="checkbox"/></td><td style="width:25%;">C<input type="checkbox"/></td><td style="width:25%;">D<input type="checkbox"/></td><td style="width:25%;">V<input type="checkbox"/></td></tr>
-					</table>
+				<td style="width:25%;" class="bde btop">7.COMPONENTE:
+					<br>
+				</td>
+				<td style="width:25%;" class="bde btop">8.SITUACI&Oacute;N:</td>
+				<td style="width:25%;" class="bde btop">9.ESTADO CIVIL:</td>
+			</tr>
+
+			<tr class="texto12 simple" style="font-size: 12px">
+				<td style="width:25%; " class="biz bde bajo"><font style="font-size: 12px">
+					<b><?php echo strtoupper($Militar->Componente->rango)?></b></font>
+				</td>
+				<td style="width:25%;" class="bde bajo"><font style="font-size: 12px">
+					<b><?php echo strtoupper($Militar->Componente->nombre); ?></b></font>
+				</td>
+				<td style="width:25%;" class="biz bde bajo"><font style="font-size: 12px">
+					<b><?php echo strtoupper($Militar->situacion); ?></b></font>
+				</td>
+				<td style="width:25%;" class="biz bde bajo"><font style="font-size: 12px">
+					<b><?php echo strtoupper($Militar->Persona->estadoCivil); ?></b></font>
 				</td>
 			</tr>
 			<tr class="texto12"><td style="width:30%;" class="biz bde btop">10.CEDULA DE IDENTIDAD SOBREVIVIENTE:</td><td style="width:70%;" colspan="3" class="bde">11.APELLIDOS Y NOMBRES DEL SOBREVIVIENTE:</td></tr>

@@ -266,9 +266,9 @@ class BienestarSocial extends CI_Controller {
 
 	function imprimirHoja(){
 		$this->load->model('saman/Solicitud', 'Solicitud');
-		$this->load->model('saman/Persona', 'Persona');
-		$this->Persona->consultar($_SESSION['cedula']);		
-		$arr['Persona'] = $this->Persona;
+		$this->load->model('saman/Militar', 'Militar');
+		$this->Militar->consultar($_SESSION['cedula']);		
+		$arr['Militar'] = $this->Militar;
 		$arr['Codigo'] = $this->generarCodigo($_POST['codigo'], $_POST['obs']);
 
 

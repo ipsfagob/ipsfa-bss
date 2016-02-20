@@ -9,7 +9,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
   <div class="row">
    <div class="col s12">
     <p style="text-align: justify;">
-      Bienvenidos al sistem de datos personales en caso de que
+      Bienvenidos al sistema de datos personales en caso de que
       detecte algún dato errado y no pueda ser actualizado; sólo debe pulsar click en reportar y enviar.
     </p>    
    </div>
@@ -194,7 +194,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
   			</button>
       	</div>
         <div class="col s6">
-        <button data-target="modal1" class="btn-large waves-effect waves-light blue darken-3 modal-trigger">Reportar
+        <button data-target="modal1" class="btn-large waves-effect waves-light blue darken-1 modal-trigger">Reportar
             <i class="material-icons left">verified_user</i>
         </button>
         </div>
