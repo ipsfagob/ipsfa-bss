@@ -77,7 +77,7 @@ function Salvar(){
 	
 	$.post( sUrlP + "SalvarSolicitudMedicamentos/", Anomalia)
 		.done(function(data) {
-			//alert( data );
+			alert( data );
 			Materialize.toast('Su Solicitud se atendera a la brevedad', 3000, 'rounded');
 			$('#producto').html('' );
 		})
