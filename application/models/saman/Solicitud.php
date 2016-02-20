@@ -157,6 +157,13 @@ class Solicitud extends CI_Model{
 		return $obj;
 	}
 
+	function salir(){
+		$this->load->model("comun/Dbipsfa");
+		$sConsulta = 'SELECT * FROM solicitud';
+		$obj = $this->Dbipsfa->consultar($sConsulta);
+		return $obj;
+	}
+
 	function imprimirHoja($cedula){
 		
 		return true;

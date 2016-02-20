@@ -6,6 +6,15 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 <br><br>
 <div class="container .hide-on-small-only">
 
+  <div class="row">
+   <div class="col s12">
+    <p style="text-align: justify;">
+      Bienvenidos al sistem de datos personales en caso de que
+      detecte algún dato errado y no pueda ser actualizado; sólo debe pulsar click en reportar y enviar.
+    </p>    
+   </div>
+</div>
+
  <div class="row">
 	 <div class="col s4">
 	 	<img src="<?php echo base_url(); ?>public/img/nodisponible.jpg" class="responsive-img circle" >
@@ -127,6 +136,8 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       -->
 
 
+
+
       <div class="row">
       <div class="input-field col s6">
           <input  disabled  id="componente" type="text" class="validate" value="<?php echo $Militar->Componente->nombre?>">
@@ -152,7 +163,30 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
           <label for="direccion">Por favor verifique su dirección</label>
         </div>
       </div> 
+
+     <div class="row">
+      <div class="input-field col s6 m6 l6">
+          <input  disabled  id="banco" type="text" class="validate" value="<?php echo $Militar->Persona->banco?>">
+          <label for="canco">Banco</label>
+        </div>
+        
+        <div class="input-field col s6 m6 l6">
+          <input  disabled id="cuenta" type="text" class="validate" value="<?php echo $Militar->Persona->cuenta?>">
+          <label for="cuenta">Cuenta Bancaria</label>
+        </div>
+        
+     </div>
+
       
+      <div class="row">
+      <h5>Notas: </h5>
+
+        <div class="input-field col s6 m6 l6">
+          <input type="checkbox" id="certificar" />
+          <label for="certificar" >Pulse click si certifica que esa es su cuenta bancaria actualmente</label>
+        </div>
+      </div>
+      <br><br>      
       <div class="row">
       	<div class="col s6">
   			<button class="btn-large waves-effect waves-light blue darken-1" onclick="">Actualizar
@@ -165,6 +199,8 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
         </button>
         </div>
       </div> 
+
+      
     </form>
 </div>
 
@@ -223,9 +259,20 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
                 <input type="checkbox" id="chRango" />
                 <label for="chRango">Rango Militar</label>
               </div>
+
            </div>
 
-          
+          <br>
+           <h5>Datos Bancarios</h5>
+           <div class="divider"></div>
+           <br>
+           <div class="row">
+              <div class="col s12 m4">
+                <input type="checkbox" id="chBanco" />
+                <label for="chBanco">Cuenta Bancario</label>
+              </div>
+
+           </div>
           <br>
 
            
