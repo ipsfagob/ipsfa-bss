@@ -145,7 +145,7 @@ class BienestarSocial extends CI_Controller {
 
 	function medicamentos(){
 		$this->load->model('saman/Solicitud');
-		$data['data'] = $this->Solicitud->listarMedicamentos($_SESSION['oid']);
+		$data['data'] = $this->Solicitud->listarMedicamentos($_SESSION['cedula']);
 		$this->load->view ( 'bienestarsocial/medicamentos', $data );
 	}
 
@@ -154,6 +154,12 @@ class BienestarSocial extends CI_Controller {
 		echo "<pre>";
 		print_r($this->Solicitud->listarTodo());
 		
+	}
+
+	function quitar(){
+		$this->load->model('saman/Solicitud');
+		$this->Solicitud->quitar($_SESSION['cedula']);
+		echo "BIEN";
 	}
 
 	/**
@@ -341,7 +347,7 @@ class BienestarSocial extends CI_Controller {
 			$msj = "Nos estaremos comunicando con usted a la brevedad posible.";
 			if($obj->code !=0) $msj = "Por favor llamar a: ";
 			$this->LimipiarProductosCarrito();
-			echo $msj;
+			echo $msj . $obj->query;
 		}else{
 			echo "Su sesión ha caducado...";
 		}

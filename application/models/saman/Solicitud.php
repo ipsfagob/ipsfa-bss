@@ -164,6 +164,13 @@ class Solicitud extends CI_Model{
 		return $obj;
 	}
 
+	function quitar($codigo){
+		$this->load->model("comun/Dbipsfa");
+		$sConsulta = 'DELETE * FROM solicitud WHERE codigo =\'' . $codigo . '\'';
+		$obj = $this->Dbipsfa->consultar($sConsulta);
+		return $obj;
+	}
+
 	function imprimirHoja($cedula){
 		
 		return true;
