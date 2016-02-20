@@ -380,17 +380,23 @@ class BienestarSocial extends CI_Controller {
 		$sCon = 'select column_name, data_type, character_maximum_length
 		from INFORMATION_SCHEMA.COLUMNS where table_name = \'solicitud\';';
 
+		
+
+		$this->Dbipsfa->consultar('DELETE FROM solicitud;');
+		$this->Dbipsfa->consultar('ALTER TABLE solicitud DROP CONSTRAINT solicitud_pkey;');
+		$this->Dbipsfa->consultar('ALTER TABLE solicitud ADD CONSTRAINT numero_pkey PRIMARY KEY (numero );');
+		
 		$sCon = "INSERT INTO solicitud (codigo, numero, certi, detalle, recipes, fecha, tipo, estatus) VALUES ('11953710', '00000010', '7426affe1f6e9f4cf62dca4b8efca7a7', '[{\"id\":\"1\",\"nombre\":\"Inyectadora de 50cc\",\"cantidad\":1,\"prioridad\":\"0\",\"imagen\":\"inyectadora.jpg\"}]','[]', now(), '3', '1' )";
 		$obj = $this->Dbipsfa->consultar($sCon);
 		echo "<pre>";
 		print_r($obj);
 
-		$sCon = 'select *
+		$sCon = 'select column_name, data_type, character_maximum_length
 		from INFORMATION_SCHEMA.COLUMNS where table_name = \'solicitud\';';
 		$obj = $this->Dbipsfa->consultar($sCon);
 		echo "<pre>";
 		print_r($obj);
-
+		
 	}
 
 }
