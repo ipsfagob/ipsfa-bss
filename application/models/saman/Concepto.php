@@ -32,7 +32,7 @@ class Concepto extends CI_Model{
 
 
 	function listar(){
-		$sConsulta = 'SELECT reembconccod codigo, reembconcnombre nombre FROM ci_reembolso_concep 
+		$sConsulta = 'SELECT reembconccod AS codigo, reembconcnombre AS nombre FROM ci_reembolso_concep 
 					  WHERE reembconcnombre != \'REEMBOLSO\' AND reembconcnombre != \'Concepto 1\'';
 		
 		
