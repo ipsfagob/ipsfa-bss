@@ -12,7 +12,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
   <?php 
     $continuar = 'continuarReembolso';
     if($url == 2){
-      $this->load->view('bienestarsocial/imp/detApoyo');
+      $this->load->view('bienestarsocial/comun/apoyo/doc/leeme');
       $continuar = 'continuarApoyo';
     }else{
        $this->load->view('bienestarsocial/comun/reembolso/doc/leeme');

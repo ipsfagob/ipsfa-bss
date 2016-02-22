@@ -143,6 +143,17 @@ class Solicitud extends CI_Model{
 		return $obj;
 	}
 
+	/**
+	* Listar Solicitudes por Cedula
+	*
+	*/
+	function listarPorCodigo($codigo){
+		$this->load->model("comun/Dbipsfa");
+		$sConsulta = 'SELECT * FROM solicitud WHERE codigo=\'' . $codigo . '\' AND estatus=0';
+		$obj = $this->Dbipsfa->consultar($sConsulta);
+		return $obj;
+	}
+
 	function listarSolicitudes($numero){
 		$this->load->model("comun/Dbipsfa");
 		$sConsulta = 'SELECT * FROM solicitud WHERE numero=\'' . $numero . '\' AND estatus=0';

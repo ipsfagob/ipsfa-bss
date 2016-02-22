@@ -103,7 +103,7 @@ class BienestarSocial extends CI_Controller {
 	function ayudas() {
 		$this->load->model('saman/Solicitud', 'Solicitud');	
 		
-		$data['data'] = $this->Solicitud->listarSolicitudes($_SESSION['oid']);
+		$data['data'] = $this->Solicitud->listarPorCodigo($_SESSION['cedula']);
 
 		$this->load->view ( 'bienestarsocial/ayuda', $data);
 	}
@@ -293,6 +293,8 @@ class BienestarSocial extends CI_Controller {
 		$this->load->view ( 'bienestarsocial/comun/reembolso/inicio', $data);
 	}
 
+
+
 	function salvarReembolso(){
 		$this->load->model('saman/Solicitud', 'Solicitud');
 
@@ -306,6 +308,40 @@ class BienestarSocial extends CI_Controller {
 			'recipes' => '',
 			'fecha' => 'now()', 
 			'tipo' => 1, 
+			'estatus' => 0			
+		);
+		
+		$this->Solicitud->crear($arg);
+		
+	}
+
+	function continuarApoyo(){
+		$this->load->model('saman/Militar', 'Militar');
+		$this->load->model('saman/CodigoArea', 'CodigoArea');
+		$this->load->model('saman/Concepto', 'Concepto');	
+
+		$this->Militar->consultar($_SESSION['cedula']);
+		$data['CodigoArea'] = $this->CodigoArea->listar()->rs;
+		$data['Militar'] = $this->Militar;
+		$data['Concepto'] = $this->Concepto->listar()->rs;
+		$data['Codigo'] = $this->generarCodigo($_POST['codigo'], $_POST['obs']);
+
+		
+		$this->load->view ( 'bienestarsocial/comun/apoyo/inicio', $data);
+	}
+	function salvarApoyo(){
+		$this->load->model('saman/Solicitud', 'Solicitud');
+
+		//$imagen = $this->Imagen->Salvar();
+		$imagen = array(); //Listado de Imagenes Subidas
+		$arg = array(
+			'codigo' => $_SESSION['oid'],
+			'numero' => $_POST['Codigo'], 
+			'certi' => md5($_SESSION['oid']), 
+			'detalle' => json_encode($_POST['Solicitud']), //Esquema Json Opcional
+			'recipes' => '',
+			'fecha' => 'now()', 
+			'tipo' => 2, 
 			'estatus' => 0			
 		);
 		
@@ -329,7 +365,7 @@ class BienestarSocial extends CI_Controller {
 		if($codigo == 1){			
 			$this->load->view('bienestarsocial/comun/reembolso/imp/plantilla', $arr);
 		}else{
-			$this->load->view('bienestarsocial/imp/solApoyo', $arr);
+			$this->load->view('bienestarsocial/comun/apoyo/imp/plantilla', $arr);
 		}
 	}
 

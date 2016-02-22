@@ -48,7 +48,7 @@
 	</style>
 </head>
 <body>
-
+<center>
 <div class="contenedor" >
 
 	<table class="tcontenedor" border=0>
@@ -223,5 +223,6 @@
 	<p style="color:red;width:100%" class"textoCenter">GERENCIA DE FINANZAS DPTO. DE CONTABILIDAD</p>
 
 </div>
+</center>
 </body>
 </html>
