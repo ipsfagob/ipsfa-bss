@@ -7,15 +7,22 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 
  <div class="row">
  <div class="col s12">
+
+
   <?php 
+    $continuar = 'continuarReembolso';
     if($url == 2){
       $this->load->view('bienestarsocial/imp/detApoyo');
+      $continuar = 'continuarApoyo';
     }else{
-       $this->load->view('bienestarsocial/imp/detReembolso');
+       $this->load->view('bienestarsocial/comun/reembolso/doc/leeme');
+       
+      //$this->load->view('bienestarsocial/imp/formReembolso');
     }
+ 
   ?>
   <form class="col s12" 
-      action="<?php echo base_url(); ?>index.php/BienestarSocial/imprimirHoja"  method="post">
+      action="<?php echo base_url() . 'index.php/BienestarSocial/' . $continuar ?>"  method="post">
       <input type="hidden" name="codigo" value="<?php echo $url; ?>"> </input>
       <div class="row">
         <div class="input-field col s12">
@@ -26,7 +33,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       
       <div class="row">
       	<div class="col s12">
-    			<button class="btn-large waves-effect waves-light blue darken-1" type="submit">Notificar
+    			<button class="btn-large waves-effect waves-light blue darken-1" type="submit">Continuar
     			    <i class="material-icons right">send</i>
     			</button>
       	</div>

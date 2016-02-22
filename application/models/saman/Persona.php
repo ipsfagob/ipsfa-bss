@@ -84,12 +84,6 @@ class Persona extends CI_Model{
 	*/
 	var $direccion = '';
 
-
-	/**
-	* @var Telefono
-	*/
-	var $Telefonos = array();
-
 	/**
 	* @var string
 	*/
@@ -99,6 +93,21 @@ class Persona extends CI_Model{
 	* @var string
 	*/
 	var $cuenta = '';
+
+	/**
+	* @var string
+	*/
+	var $tipoCuenta = '';
+
+	/**
+	* @var Telefono
+	*/
+	var $Telefonos = array();
+
+	/**
+	* @var Denpendiente
+	*/
+	var $Familiares = array();
 
 	/**
 	* Iniciando la clase, Cargando Elementos BD SAMAN
@@ -153,8 +162,11 @@ class Persona extends CI_Model{
 				//$this->telefono = $val->telefononumero;
 				$this->banco = $val->instfinannombre;
 				$this->cuenta = $val->nrocuenta;
+				$this->tipoCuenta = $val->tipcuentacod;
 			}
 			$this->cargarTelefonos();
+			$this->cargarFamiliares();
+
 		}
 		return $obj;
 	}
@@ -184,11 +196,16 @@ class Persona extends CI_Model{
 		return $sConsulta;
 	}
 
+
+	/**
+	* Concatenar primer y segundo nombre para devolverlo en Mayuscula
+	* 
+	* @access public
+	* @return string
+	*/
 	function cargarTelefonos(){
 		$this->load->model('saman/Telefono', 'Telefono');
 		$sConsulta = 'SELECT * from telefono_correo WHERE nropersona=' . $this->oid;
-		
-
 		$obj = $this->Dbsaman->consultar($sConsulta);
 		if($obj->code == 0){
 			foreach ($obj->rs as $c => $v) {
@@ -200,6 +217,45 @@ class Persona extends CI_Model{
 				$this->Telefonos[] = $Telefono; 
 			}
 		}
+	}
+
+	/**
+	* Concatenar primer y segundo nombre para devolverlo en Mayuscula
+	* 
+	* @access public
+	* @return string
+	*/
+	function cargarFamiliares(){
+		$this->load->model('saman/Persona', 'Persona');
+		$sConsulta = 'SELECT * FROM pers_relaciones 
+		INNER JOIN pers_relacs_tipo ON pers_relaciones.persrelstipcod=pers_relacs_tipo.persrelstipcod
+		INNER JOIN personas ON pers_relaciones.nropersonarel=personas.nropersona
+		LEFT JOIN edo_civil ON personas.edocivilcod=edo_civil.edocivilcod
+		LEFT JOIN direcciones ON personas.nropersona=direcciones.nropersona 
+		WHERE pers_relaciones.nropersona= ' . $this->oid;		
+		$obj = $this->Dbsaman->consultar($sConsulta);
+		
+		if($obj->code == 0){
+			foreach ($obj->rs as $key => $val) {					
+				$Persona = new $this->Persona();
+				
+				$Persona->oid = $val->nropersonarel;
+				$Persona->nacionalidad = $val->tipnip;
+				$Persona->cedula = $val->codnip;				
+				$Persona->sexo = $val->sexocod;
+				$Persona->estadoCivil = $val->edocivilnombre;
+				$Persona->primerNombre = $val->nombreprimero;
+				$Persona->segundoNombre = $val->nombresegundo;
+				$Persona->primerApellido = $val->apellidoprimero;
+				$Persona->segundoApellido = $val->apellidosegundo;
+				$Persona->fechaNacimiento = $val->fechanacimiento;
+				$Persona->correoElectronico = $val->email1;
+				$Persona->codigoDireccion = $val->direccioncod;
+				$Persona->direccion = $val->direccion1;
+				$Persona->parentesco = strtoupper($val->persrelstipnombre);
+				$this->Familiares[] = $Persona;
+			}
+		}	
 	}
 
 
@@ -246,6 +302,21 @@ class Persona extends CI_Model{
 			return 'FEMENINO';
 		}
 	}
+	
+	/**
+	* Evalua el tipo de Cuenta
+	* 
+	* @access public
+	* @return string
+	*/
+	public function obtenerTipoCuenta(){
+		if($this->tipoCuenta == 'CC'){
+			return 'CUENTA CORRIENTE';
+		}else{
+			return 'CUENTA DE AHORRO';
+		}
+	}
+
 	/**
 	* Actualizar Objeto Persona en las tablas 
 	* Direccion | Telefonos | Correos

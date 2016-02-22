@@ -19,6 +19,7 @@ class Dependiente extends CI_Model{
 
 	}
 
+
 	/**
 	* Codigo : nropersona | personas	
 	* @var string

@@ -76,6 +76,7 @@ class BienestarSocial extends CI_Controller {
 	 */
 	
 	function bienestar($url = '') {
+
 		$data['url'] = $url; 
 		$this->load->view ( 'bienestarsocial/bienestar', $data);
 	}
@@ -101,7 +102,9 @@ class BienestarSocial extends CI_Controller {
 	 */
 	function ayudas() {
 		$this->load->model('saman/Solicitud', 'Solicitud');	
+		
 		$data['data'] = $this->Solicitud->listarSolicitudes($_SESSION['oid']);
+
 		$this->load->view ( 'bienestarsocial/ayuda', $data);
 	}
 
@@ -270,32 +273,62 @@ class BienestarSocial extends CI_Controller {
 
 	}
 
-	function imprimirHoja(){
+	/**
+	* Continuar Bienestar Ayuda o Reembolso
+	*
+	*
+	*/
+	function continuarReembolso(){
+		$this->load->model('saman/Militar', 'Militar');
+		$this->load->model('saman/CodigoArea', 'CodigoArea');
+		$this->load->model('saman/Concepto', 'Concepto');	
+
+		$this->Militar->consultar($_SESSION['cedula']);
+		$data['CodigoArea'] = $this->CodigoArea->listar()->rs;
+		$data['Militar'] = $this->Militar;
+		$data['Concepto'] = $this->Concepto->listar()->rs;
+		$data['Codigo'] = $this->generarCodigo($_POST['codigo'], $_POST['obs']);
+
+		
+		$this->load->view ( 'bienestarsocial/comun/reembolso/inicio', $data);
+	}
+
+	function salvarReembolso(){
+		$this->load->model('saman/Solicitud', 'Solicitud');
+
+		//$imagen = $this->Imagen->Salvar();
+		$imagen = array(); //Listado de Imagenes Subidas
+		$arg = array(
+			'codigo' => $_SESSION['oid'],
+			'numero' => $_POST['Codigo'], 
+			'certi' => md5($_SESSION['oid']), 
+			'detalle' => json_encode($_POST['Solicitud']), //Esquema Json Opcional
+			'recipes' => '',
+			'fecha' => 'now()', 
+			'tipo' => 1, 
+			'estatus' => 0			
+		);
+		
+		$this->Solicitud->crear($arg);
+		
+	}
+
+	/**
+	 * Permite imprimir hojas de reembolso y apoyo
+	 * @return string
+	 */	
+	function imprimirHoja($codigo){
 		$this->load->model('saman/Solicitud', 'Solicitud');
 		$this->load->model('saman/Militar', 'Militar');
-		$this->Militar->consultar($_SESSION['cedula']);		
+		$this->Militar->consultar($_SESSION['cedula']);	
+
 		$arr['Militar'] = $this->Militar;
-		$arr['Codigo'] = $this->generarCodigo($_POST['codigo'], $_POST['obs']);
-
-
-			//$imagen = $this->Imagen->Salvar();
-			$imagen = array(); //Listado de Imagenes Subidas
-			$arg = array(
-				'codigo' => $_SESSION['oid'],
-				'numero' => $arr['Codigo'], 
-				'certi' => md5($_SESSION['oid']), 
-				'detalle' => $_POST['codigo'], //Esquema Json Opcional
-				'recipes' => $_POST['codigo'],
-				'fecha' => 'now()', 
-				'tipo' => 0, 
-				'estatus' => 0			
-			);
-
-		if($_POST['codigo'] == 1){			
-			$this->Solicitud->crear($arg);
-			$this->load->view('bienestarsocial/imp/solReembolso', $arr);
+		$arr['Codigo'] = $this->generarCodigo($codigo, '');
+		$arr['Solicitud'] = $this->Solicitud->listarSolicitudes($arr['Codigo']);
+		
+		if($codigo == 1){			
+			$this->load->view('bienestarsocial/comun/reembolso/imp/plantilla', $arr);
 		}else{
-			$this->Solicitud->crear($arg);	
 			$this->load->view('bienestarsocial/imp/solApoyo', $arr);
 		}
 	}
