@@ -33,11 +33,8 @@ class Concepto extends CI_Model{
 
 	function listar(){
 		$sConsulta = 'SELECT reembconccod AS codigo, reembconcnombre AS nombre FROM ci_reembolso_concep 
-					  WHERE reembconcnombre != \'REEMBOLSO\' AND reembconcnombre != \'Concepto 1\'';
-		
-		
-		$arr = $this->Dbsaman->consultar($sConsulta);
-		print_r($arr);
+					  WHERE reembconcnombre != \'REEMBOLSO\' AND reembconcnombre != \'Concepto 1\'';		
+		$arr = $this->Dbsaman->consultar($sConsulta);		
 		return $arr;
 
 	}
