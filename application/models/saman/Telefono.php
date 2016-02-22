@@ -5,7 +5,7 @@ if (!defined('BASEPATH'))
 /**
  * IPSFA Bienestar y Seguridad Social 
  * 
- * Persona 
+ * Telefono 
  *
  *
  * @package ipsfa-bss\application\model

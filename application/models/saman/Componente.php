@@ -1,17 +1,53 @@
 <?php
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
 
+/**
+ * IPSFA Bienestar y Seguridad Social 
+ * 
+ * Componente 
+ *
+ *
+ * @package ipsfa-bss\application\model
+ * @subpackage saman
+ * @author Carlos Peña
+ * @copyright Derechos Reservados (c) 2015 - 2016, MamonSoft C.A.
+ * @link http://www.mamonsoft.com.ve
+ * @since version 1.0
+ */
 class Componente extends CI_Model{
 
+	/**
+	* @var string
+	*/
 	var $codigo = '';
 
+	/**
+	* @var string
+	*/
 	var $nombre = '';
 
+	/**
+	* @var string
+	*/
 	var $siglas = '';
 
+	/**
+	* @var string
+	*/
 	var $rango = '';
 
+	/**
+	* @var string
+	*/
 	var $codigoRango = '';
 
+	/**
+	* Iniciando la clase
+	*
+	* @access public
+	* @return void
+	*/
 	function __construct(){
 		parent::__construct();
 
@@ -28,6 +64,8 @@ class Componente extends CI_Model{
 	/**
 	* Cargar un componente y un rango
 	*
+	* @var string
+	* @return mixed
 	*/
 	function cargar($oid){
 		$sConsulta = 'SELECT * FROM ipsfa_grado_x_pers 

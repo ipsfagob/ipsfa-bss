@@ -3,15 +3,17 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 /**
- * Carrito de Compra
+ * IPSFA Bienestar y Seguridad Social 
+ * 
+ * Dbsaman 
  *
- * @package mamonsoft
- * @subpackage comun
+ *
+ * @package ipsfa-bss\application\model
+ * @subpackage saman
  * @author Carlos Peña
- * @copyright	Derechos Reservados (c) 2014 - 2015, MamonSoft C.A.
- * @link		http://www.mamonsoft.com.ve
- * @since Version 1.0
- *
+ * @copyright Derechos Reservados (c) 2015 - 2016, MamonSoft C.A.
+ * @link http://www.mamonsoft.com.ve
+ * @since version 1.0
  */
 class Dbsaman extends CI_Model {
 	

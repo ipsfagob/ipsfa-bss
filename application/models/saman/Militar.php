@@ -1,11 +1,28 @@
 <?php
 
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
+
+/**
+ * IPSFA Bienestar y Seguridad Social 
+ * 
+ * Militar 
+ *
+ *
+ * @package ipsfa-bss\application\model
+ * @subpackage saman
+ * @author Carlos Peña
+ * @copyright Derechos Reservados (c) 2015 - 2016, MamonSoft C.A.
+ * @link http://www.mamonsoft.com.ve
+ * @since version 1.0
+ */
 class Militar extends CI_Model{
 	
 	/**
 	* @var Persona
 	*/
 	var $Persona;	
+
 
 	var $situacion = '';
 

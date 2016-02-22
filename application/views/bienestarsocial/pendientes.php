@@ -6,7 +6,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 <div class="container">
 
 <h4>Casos generales</h4>
-<ul class="collapsible"  data-collapsible="accordion">
+<ul class="collapsible popout"  data-collapsible="accordion">
   <?php
     foreach ($Militar as $key => $val) {
     	foreach ($val as $c => $v) {
