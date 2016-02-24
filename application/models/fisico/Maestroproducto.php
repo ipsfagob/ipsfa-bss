@@ -103,8 +103,10 @@ class MaestroProducto extends CI_Model {
 	 * @return JsonSerializable
 	 */
 	function listarExistenciaProductos($pr = ''){
-		$rs = $this->db->query('SELECT * FROM productos WHERE nomb ~* \'' . $pr . '\'');
-		return json_encode($rs->result());
+		$this->load->model('saman/Dbsaman', 'Dbsaman');
+		$obj = $this->Dbsaman->consultar('SELECT suministrocod AS oid, suministronombre AS nomb, suministronmbrcomercial AS obse FROM ci_suministros_med WHERE suministronombre ~* \'' . $pr . '\'');
+		
+		return json_encode($obj->rs);
 	}
 	
 	/**

@@ -2,6 +2,8 @@
 $this->load->view("bienestarsocial/inc/cabecera.php");
 ?>
 
+<script type="text/javascript"
+  src="<?php echo base_url(); ?>application/views/bienestarsocial/js/solicitud.js"></script>
 <br><br>
 <?php //echo $codigo?>
 <div class="container .hide-on-small-only">
@@ -9,12 +11,12 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
  
  
 
-    <form class="col s12" action="solicitud" method="post">
+    <form class="col s12" action="<?php echo base_url();?>index.php/BienestarSocial/imprimirHoja/1" method="post">
       <!--  1.- CARTA EXPOSICION DE MOTIVOS -->
       <div class="row">
         <div class="col s12">
           <div class="file-field input-field">
-            <div class="btn">
+            <div class="btn"  style="background-color:#00345A">
               <span>Exposición de Motivos</span>
               <input type="file">
             </div>
@@ -30,7 +32,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       <div class="row">
         <div class="col s12">
           <div class="file-field input-field">
-            <div class="btn">
+            <div class="btn"  style="background-color:#00345A">
               <span>Carta Aval</span>
               <input type="file">
             </div>
@@ -46,7 +48,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       <div class="row">
         <div class="col s12">
           <div class="file-field input-field">
-            <div class="btn">
+            <div class="btn"  style="background-color:#00345A">
               <span>Agotamiento de Cobertura</span>
               <input type="file">
             </div>
@@ -62,7 +64,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       <div class="row">
         <div class="col s12">
           <div class="file-field input-field">
-            <div class="btn">
+            <div class="btn"  style="background-color:#00345A">
               <span>Deuda Contraida</span>
               <input type="file">
             </div>
@@ -77,7 +79,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       <div class="row">
         <div class="col s12">
           <div class="file-field input-field">
-            <div class="btn">
+            <div class="btn"  style="background-color:#00345A">
               <span>Presupuesto de gastos</span>
               <input type="file">
             </div>
@@ -93,7 +95,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       <div class="row">
         <div class="col s12">
           <div class="file-field input-field">
-            <div class="btn">
+            <div class="btn"  style="background-color:#00345A">
               <span>Informe Medico</span>
               <input type="file">
             </div>
@@ -107,7 +109,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       
       <div class="row">
       	<div class="col s12">
-			<button class="btn-large waves-effect waves-light" type="submit" name="action">Enviar Documentos
+			<button class="btn-large waves-effect waves-light" style="background-color:#00345A"  name="action">Enviar Documentos
 			    <i class="material-icons right">send</i>
 			</button>
       	</div>

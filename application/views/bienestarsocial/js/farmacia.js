@@ -6,14 +6,19 @@ function listarProductos(val) {
 	$.getJSON(sUrlP + "listarMedicamentosBADAN/" + val, function(data) {
 		var cadena = '';
 		$(".collection-item").remove();
-		$.each(data, function(key, val) {
+		if(data == ""){
+			Materialize.toast("Disculpe el medicamento seleccionado no se encuentra disponible", 5000, 'rounded');
+		}else{
+			$.each(data, function(key, val) {
 			cadena = '<li class="collection-item avatar">' + '<img src="' + sUrl +  '/public/img/productos/' + val.imag + 
 			'" alt="" class="materialboxed circle">' + '<span class="title">' + val.nomb + '</span><p>' + val.obse + 
 			'<a href="javascript:Modal(\'' + val.nomb + '\',\'' + val.obse + '\',\'' + val.imag +	'\',\'' + val.oid + '\');"' +
-			'class="secondary-content btn-floating btn-small waves-effect waves-light  modal-trigger blue"><i class="mdi-action-add-shopping-cart"></i></a>';		
+			'class="secondary-content btn-floating btn-small waves-effect waves-light  modal-trigger" ><i class="mdi-action-add-shopping-cart"></i></a>';		
 			$(".collection").append(cadena);
 
 		});
+		}
+		
 	}
 
 	).done(function(msg) {

@@ -4,7 +4,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 
 <br>
 <div class="container">
-
+adjuntos
 <?php //print_r($data->rs); ?>
 <h4>Solicitudes </h4>
 <ul class="collapsible popout"  data-collapsible="accordion">
@@ -15,7 +15,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 			$monto = 0;
 			foreach ($data->rs as $k => $val) {
 				$arr = json_decode($val->detalle);
-				$icon = '<i class="mdi-content-link right amber-text text-darken-4"></i>';
+				$icon = '<i class="material-icons right amber-text text-darken-4">attach_file</i>';
 				$cadena .= '<li>
 		      	<div class="collapsible-header"><i class="material-icons grey-text">playlist_add</i>
 			      ' . tipo($val->tipo)  . ' - 
@@ -66,5 +66,5 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 </div>
 
 <?php 
-$this->load->view("bienestarsocial/inc/pie.php");
+	$this->load->view("bienestarsocial/inc/pie.php");
 ?>

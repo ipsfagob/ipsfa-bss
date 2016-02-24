@@ -6,7 +6,25 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 
 
 <div class="container">
-		<div class="row center">  		
+		<div class="row center">  	
+
+      <div class="col s12 m3 13">   
+        <div class="card small hoverable">
+              <div class="card-image">
+                <img src="<?php echo base_url(); ?>public/img/farmaipsfa.jpg" class="materialboxed">
+                
+              </div>
+              <div class="card-content">
+                <p>Tratamiento Prolongado.</p>
+              </div>
+              <div class="card-action" style="background-color:#00345A">
+                <a href="<?php echo base_url(); ?>index.php/BienestarSocial/tratamiento" style="color:white">Tratamiento</a>
+              </div>
+            </div>
+          
+      </div>
+
+
   		<div class="col s12 m3 13" >
   		 <div class="card small hoverable">
               <div class="card-image">
@@ -16,8 +34,11 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
               <div class="card-content">
                 <p>Consultar Medicamentos</p>
               </div>
-              <div class="card-action">
-                <a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia/me">Medicamentos</a>
+              <div class="card-action" style="background-color:#00345A">
+                
+
+                <a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia/me" style="color:white">Consultar</a>
+
               </div>
             </div>
   		</div>
@@ -31,8 +52,8 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
               <div class="card-content">
                 <p>Notificar Reembolsos.</p>
               </div>
-              <div class="card-action">
-                <a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/1">Reembolso</a>
+              <div class="card-action" style="background-color:#00345A">
+                <a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/1" style="color:white">Reembolso</a>
               </div>
             </div>
       </div>
@@ -46,29 +67,15 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
               <div class="card-content">
                 <p>Notificar Ayuda.</p>
               </div>
-              <div class="card-action">
-                <a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/2">Ayuda</a>
+              <div class="card-action" style="background-color:#00345A">
+                <a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/2" style="color:white">Ayuda</a>
               </div>
             </div>
       </div>
 
 
 
-      <div class="col s12 m3 13">   
-        <div class="card small hoverable">
-              <div class="card-image">
-                <img src="<?php echo base_url(); ?>public/img/farmaipsfa.jpg" class="materialboxed">
-                
-              </div>
-              <div class="card-content">
-                <p>Farmacia y Drogueria.</p>
-              </div>
-              <div class="card-action">
-                <a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia">Solicita Aquí</a>
-              </div>
-            </div>
-          
-      </div>
+
 
 		</div> <!-- //Fin de la Fila -->
 

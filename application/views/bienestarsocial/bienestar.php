@@ -33,8 +33,8 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       
       <div class="row">
       	<div class="col s12">
-    			<button class="btn-large waves-effect waves-light blue darken-1" type="submit">Continuar
-    			    <i class="material-icons right">send</i>
+    			<button class="btn-large waves-effect waves-light"  style="background-color:#00345A" type="submit">Transcribir Planilla
+    			    <i class="material-icons right">description</i>
     			</button>
       	</div>
       </div>       

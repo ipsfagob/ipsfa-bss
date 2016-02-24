@@ -1,3 +1,4 @@
+
 <?php
 $this->load->view ( "bienestarsocial/inc/cabecera.php" );
 ?>
@@ -7,10 +8,20 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
 <br>
 
 <div class="row">
+  
+  <div class="col s12">
+    <h5>Ingrese nombre del medicamento a solicitar</h5>
+  </div>
+
+</div>
+<div class="row">
+
 	<div class="col s12 ">
 	<nav>
+
     <div class="nav-wrapper white ">      
         <div class="input-field col s10">
+
           <input id="search" type="text" required placeholder='Buscar...' class="grey-text">
           <label for="search"><i class="mdi-action-search grey-text "></i></label>
           

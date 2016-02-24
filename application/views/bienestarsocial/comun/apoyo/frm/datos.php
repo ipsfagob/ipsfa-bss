@@ -31,7 +31,7 @@
           <label for="concepto">Seleccione un concepto</label>
      </div>
      <div class="input-field col s9 m2 l2">
-            <input id="monto" type="text" class="validate" value="" placeholder="Introduzca un Monto">
+            <input id="monto" type="text" class="validate" value="0" placeholder="Introduzca un Monto">
 
           <label for="monto">Monto Solicitado</label>
      </div>
