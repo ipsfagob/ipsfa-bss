@@ -22,12 +22,26 @@ class CodigoArea extends CI_Model{
 	*/
 	var $codigo;
 
+
+	/**
+	* Iniciando la clase, Cargando Elementos BD Ipsfa
+	*
+	* @access public
+	* @return void
+	*/
 	function __construct(){
 		parent::__construct();
 		$this->load->model('saman/Dbsaman');
 	}
 
-	function listar(){
+
+	/**
+	* Listar todos los codigos de Areas del país
+	*
+	* @access public
+	* @return array
+	*/
+	public function listar(){
 		$sConsulta = 'SELECT codarea FROM codarea';
 		$lst = array();
 		$arr = $this->Dbsaman->consultar($sConsulta);

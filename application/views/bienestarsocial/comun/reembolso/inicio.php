@@ -31,7 +31,7 @@
   <div id="modal1" class="modal">
     <div class="modal-content">
       <h4>Mensaje!!!</h4>
-      <p>¿Está seguro que desea realizar la siguiente solicitud?</p>
+      <p>¿Está seguro que sus datos son correctos?, una vez realizada la solicitud no podrá realizar cambios</p>
     </div>
     <div class="modal-footer">
       <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat"  onclick="salvarR('<?php echo $Codigo?>')">Si</a>

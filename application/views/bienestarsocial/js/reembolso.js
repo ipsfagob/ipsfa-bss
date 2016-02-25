@@ -36,8 +36,8 @@ function agregarR(){
 	
 	$('#htotal').html('Total ' + $('#total').val() + ' Bs.');
 	
-	cadena = '<i class="material-icons red circle tooltipped waves-effect waves-light" ' + 
-	'"data-position="top" data-delay="10" data-tooltip="Agregar Pedido" onclick="eliminarR(' + i + ')">delete</i>';
+	cadena = '<i class="material-icons red circle tooltipped waves-effect waves-light"' + 
+	' onclick="eliminarR(' + i + ')" title="Eliminar Pedido">delete</i>';
 	cadena += '<span class="title">' + $('#concepto option:selected').text();
 	cadena += '</sapn><p>' + $('#familiar option:selected').text() ;
 	cadena += '<br>MONTO: ' + $('#monto').val() + '</p>';
@@ -60,9 +60,8 @@ function salvarR(codigo){
 
 	$.post( sUrlP + "salvarReembolso/", Reembolso)
 		.done(function(data) {			
-			Materialize.toast(data, 5000, 'rounded');
-
-			//$(location).attr('href', sUrlP + "adjuntos/" + codigo);			
+			Materialize.toast(data, 3000, 'rounded');
+			$(location).attr('href', sUrlP + "adjuntos/" + codigo + "/" + 1);	
 		})
 		.fail(function(jqXHR, textStatus) {
 	    	alert(jqXHR.responseText);

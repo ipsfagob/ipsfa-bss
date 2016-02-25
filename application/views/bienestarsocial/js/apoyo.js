@@ -2,8 +2,9 @@
 *
 *
 */
-var Solicitud = {};
+var Solicitud = [];
 var i = 0;
+
 
 function agregarA(){
 	var Pedido = {};
@@ -26,26 +27,50 @@ function agregarA(){
 
 
 	Solicitud[i++] = Pedido;
-
+	//numero = formatNumber.new($('#monto').val());
 	
 	$('#htotal').html('Total ' + $('#total').val() + ' Bs.');
-	cadena = '<i class="material-icons green circle">description</i>';
+	
+	cadena = '<i class="material-icons red circle tooltipped waves-effect waves-light"' + 
+	' onclick="eliminarR(' + i + ')" title="Eliminar Pedido">delete</i>';
 	cadena += '<span class="title">' + $('#concepto option:selected').text();
 	cadena += '</sapn><p>' + $('#familiar option:selected').text() ;
-	cadena += '<br>MONTO: ' + $('#monto').val() + '</p>';	
-	$('#dtReembolso').append('<li class="collection-item avatar">' + cadena + '</li>');	
+	cadena += '<br>MONTO: ' + $('#monto').val() + '</p>';
+	
+	$('#dtReembolso').append('<li class="collection-item avatar" id="' + i + '">' + cadena + '</li>');
+	$('#monto').val('0.00');
+	
 }
+
+function mensaje(){
+	$('#modal1').openModal();
+}
+
+
 
 function salvarA(codigo){
 	var Reembolso = {};
 	Reembolso['Solicitud'] = Solicitud;
 	Reembolso['Codigo'] = codigo;
+
 	$.post( sUrlP + "salvarApoyo/", Reembolso)
 		.done(function(data) {			
 			Materialize.toast(data, 3000, 'rounded');
-			$(location).attr('href', sUrlP + "imprimirHoja/2");			
+			$(location).attr('href', sUrlP + "adjuntos/" + codigo + "/" + 2);	
 		})
 		.fail(function(jqXHR, textStatus) {
 	    	alert(jqXHR.responseText);
 	});		
+}
+
+function atras(){
+	$(location).attr('href', sUrlP + "bienestar/2");
+}
+
+function eliminarR(id){	
+	$('#' + id).remove();
+	pos = parseInt(id) - 1;
+	Solicitud.splice(pos,1);
+	i--;
+	Materialize.toast('Se ha eliminado un elemento de la lista', 4000, 'rounded');
 }

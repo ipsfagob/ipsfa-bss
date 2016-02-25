@@ -8,20 +8,27 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 <?php //echo $codigo?>
 <div class="container .hide-on-small-only">
 	
- 
+  <div class="row">
+        <div class="col s12">
+          <h5>Nota:</h5>
+          <p><font color="red" >* Los archivos adjuntos para el informe medico debe ser en extensión PDF</font></p>
+        </div>
+  </div>
  
 
-    <form class="col s12" action="<?php echo base_url();?>index.php/BienestarSocial/imprimirHoja/1" method="post">
+    <form class="col s12" action="<?php echo base_url() . "index.php/BienestarSocial/subirArchivos";?>"  method="post" enctype="multipart/form-data">
       <!--  1.- CARTA EXPOSICION DE MOTIVOS -->
+      <input type="hidden" value="<?php echo $codigo; ?>" name="codigo">
+       <input type="hidden" value="<?php echo $url; ?>" name="url">
       <div class="row">
         <div class="col s12">
           <div class="file-field input-field">
             <div class="btn"  style="background-color:#00345A">
               <span>Exposición de Motivos</span>
-              <input type="file">
+              <input type="file" accept=".pdf" name="exposicion">
             </div>
             <div class="file-path-wrapper">
-              <input class="file-path validate" type="text" placeholder="Adjuntar Carta de Exposión de Motivos">
+              <input class="file-path validate" type="text" placeholder="Adjuntar Carta de Exposión de Motivos" >
             </div>
           </div>
 		</div>
@@ -34,7 +41,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
           <div class="file-field input-field">
             <div class="btn"  style="background-color:#00345A">
               <span>Carta Aval</span>
-              <input type="file">
+              <input type="file" name="carta">
             </div>
             <div class="file-path-wrapper">
               <input class="file-path validate" type="text" placeholder="Adjuntar Carta Aval de Seguros Horizontes">
@@ -50,7 +57,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
           <div class="file-field input-field">
             <div class="btn"  style="background-color:#00345A">
               <span>Agotamiento de Cobertura</span>
-              <input type="file">
+              <input type="file" name="cobertura">
             </div>
             <div class="file-path-wrapper">
               <input class="file-path validate" type="text" placeholder="Adjuntar Agotamiento de Cobertura">
@@ -66,7 +73,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
           <div class="file-field input-field">
             <div class="btn"  style="background-color:#00345A">
               <span>Deuda Contraida</span>
-              <input type="file">
+              <input type="file" name="deuda">
             </div>
             <div class="file-path-wrapper">
               <input class="file-path validate" type="text" placeholder="Adjuntar Constancia de la deuda contraida">
@@ -81,7 +88,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
           <div class="file-field input-field">
             <div class="btn"  style="background-color:#00345A">
               <span>Presupuesto de gastos</span>
-              <input type="file">
+              <input type="file" name="presupuesto">
             </div>
             <div class="file-path-wrapper">
               <input class="file-path validate" type="text" placeholder="Adjuntar Presupuesto de Gastos">
@@ -97,7 +104,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
           <div class="file-field input-field">
             <div class="btn"  style="background-color:#00345A">
               <span>Informe Medico</span>
-              <input type="file">
+              <input type="file" accept=".pdf" name="informe">
             </div>
             <div class="file-path-wrapper">
               <input class="file-path validate" type="text" placeholder="Adjuntar Informe Medico Firmado y Sellado">
@@ -109,7 +116,8 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       
       <div class="row">
       	<div class="col s12">
-			<button class="btn-large waves-effect waves-light" style="background-color:#00345A"  name="action">Enviar Documentos
+			<button class="btn-large waves-effect waves-light" style="background-color:#00345A"  
+      name="action" onclick="enviar(<?php echo $url?>)" type="submit">Enviar Documentos
 			    <i class="material-icons right">send</i>
 			</button>
       	</div>

@@ -48,16 +48,23 @@ class Dbsaman extends CI_Model {
 	function consultar($consulta){
 		$this->err = array(
 				'message' => 'Bien',
-				'query' => $consulta
+				'query' => $consulta,
+				'cant' => 0
 				);
 		if ( ! (@$rs = $this->__DB->query($consulta))){
 			$this->err = $this->__DB->error();
 			$this->err['query'] = $consulta;		
 			$this->err['code'] = 1;
+			$this->err['cant'] = 0;
 			//En el caso de un error se genera $err['message']
 		}else{
 			$this->err['code'] = 0;
-			$this->err['rs'] =  $rs->result();
+			$this->err['rs'] = array();
+
+			if(is_object($rs)){
+				$this->err['rs'] =  $rs->result();
+				$this->err['cant'] =  $rs->num_rows();
+			}
 		}
 		return (object)$this->err;
 	}
