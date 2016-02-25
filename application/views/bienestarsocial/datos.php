@@ -281,8 +281,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
     </div>
     <div class="modal-footer">
       <a href="#!" class="modal-action modal-close waves-effect waves-blue btn-flat">Cancelar</a>
-      <a class="modal-action modal-close waves-effect waves-blue btn-flat" onclick="Salvar()">Reportar</a>
-      
+      <a class="modal-action modal-close waves-effect waves-blue btn-flat" onclick="Salvar()">Reportar</a>  
     </div>
   </div>
           

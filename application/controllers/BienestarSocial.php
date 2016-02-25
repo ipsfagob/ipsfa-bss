@@ -216,7 +216,14 @@ class BienestarSocial extends CI_Controller {
 	}
 
 	public function adjuntarProlongado(){
-		$this->load->view ( 'bienestarsocial/comun/tratamiento/frm/datos' );
+		if(isset($_SESSION['cedula'])){
+			$this->load->model('saman/Tratamiento');
+			$data['data'] = $this->Tratamiento->consultarProlongado($_SESSION['cedula']);
+			$this->load->view ( 'bienestarsocial/comun/tratamiento/frm/datos',$data);
+		}else{
+			echo "Debe iniciar session";
+			exit;
+		}	
 	}
 
 	/**

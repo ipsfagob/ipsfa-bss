@@ -19,14 +19,14 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
         echo "<h5>Usted actualmente ya posee tratamiento prolongado por: </h5>";
         echo "<ol>";
         foreach ($data->rs as $k => $v) {
-          echo "<li>" . $v->nombre . "</li>";
+          echo "<li>" . $v->nombre . " Y VENCE EL " . $v->vencimiento . "</li>";
         }
         echo "</ol>";
         echo "<h5>Nota: </h5>";
-        echo "En caso de presentar otra patologia por favor concertar otra cita";
+        echo "En caso de presentar otra patologia por favor concertar cita con Droguería y Farmacia";
         $this->load->view('bienestarsocial/comun/tratamiento/frm/pcaso');
       }else{
-       $this->load->view('bienestarsocial/comun/tratamiento/doc/leeme'); 
+        $this->load->view('bienestarsocial/comun/tratamiento/doc/leeme'); 
         $this->load->view('bienestarsocial/comun/tratamiento/frm/scaso');
       }
 

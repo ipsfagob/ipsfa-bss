@@ -54,8 +54,8 @@ class Tratamiento extends CI_Model{
 	* @return Dbsaman
 	*/
 	public function consultarProlongado($codigo){
-		$sConsulta = 'SELECT diagnosticonombre AS nombre, casofchinicio, casodiagnosttexto, 
-		fchiniciotrat, fchinformemedico, fchvencinformemed FROM ci_casos 
+		$sConsulta = 'SELECT diagnosticonombre AS nombre, casofchinicio As inico, casodiagnosttexto, 
+		fchiniciotrat, fchinformemedico, fchvencinformemed AS vencimiento FROM ci_casos 
 		INNER JOIN ci_diagnosticos ON ci_casos.diagnosticocod=ci_diagnosticos.diagnosticocod
 		INNER JOIN personas ON ci_casos.nropersona=personas.nropersona
 		WHERE codnip=\'' . $codigo . '\'';;

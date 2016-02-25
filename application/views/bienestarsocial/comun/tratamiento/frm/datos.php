@@ -7,6 +7,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 
 <div class="container">
 
+
 <br><br>
  <div class="row">
         <div class="col s12">
@@ -15,6 +16,25 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
         </div>
   </div>
   <form class="col s12">
+
+      <div class="row">
+        <div class="col s12">
+           <select id="patologia" name="patologia">
+
+            <?php 
+
+              foreach ($data->rs as $k => $v) {
+                echo '<option value="' . $v->nombre . '">' . $v->nombre . '</option>';
+              }
+            ?>
+          </select>
+          <label for="familiar">Seleccioné patología</label>
+          
+
+
+        </div>
+      </div>
+
       <div class="row">
         <div class="col s12">
           <div class="file-field input-field">
