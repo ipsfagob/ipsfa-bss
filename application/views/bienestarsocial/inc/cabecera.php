@@ -62,7 +62,7 @@
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/pendientes">
 						Solicitudes<i class="mdi-action-alarm-add left blue-text"></i></a>							
 					</li>
-					<li><a href="#">Promociones<i class="mdi-action-lock left blue-text"></i></a></li>			
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/citas">Citas<i class="mdi-action-lock left blue-text"></i></a></li>				
 					<li><a href="#">Configurar<i class="mdi-action-settings left blue-text"></i> </a></li>
 				</ul>
 				
@@ -88,7 +88,7 @@
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/pendientes">
 						Solicitudes<i class="mdi-action-alarm-add left blue-text"></i></a>							
 					</li>
-					<li><a href="#">Promociones<i class="mdi-action-lock left blue-text"></i></a></li>			
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/citas">Citas<i class="mdi-action-lock left blue-text"></i></a></li>			
 					<li><a href="#">Configurar<i class="mdi-action-settings left blue-text"></i> </a></li>
 					<li><a href="#">Salir<i class="mdi-action-settings-power left blue-text"></i> </a></li>
 				</ul>

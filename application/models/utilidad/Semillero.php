@@ -62,14 +62,7 @@ class Semillero extends CI_Model{
 	}
 
 
-	private function generarConsultaSQL($sConsulta){
-		$obj = $this->Dbipsfa->consultar($sConsulta);
-		foreach ($obj->rs as $clave => $valor) {
-			$this->codigo = $valor->codigo;
-		}
 
-		return $obj;
-	}
 	/**
 	* Generar Codigo Unico
 	*
@@ -88,6 +81,16 @@ class Semillero extends CI_Model{
 		return $obj;
 	}
 
+
+	private function generarConsultaSQL($sConsulta){
+		$obj = $this->Dbipsfa->consultar($sConsulta);
+		foreach ($obj->rs as $clave => $valor) {
+			$this->codigo = $valor->codigo;
+		}
+
+		return $obj;
+	}
+	
 	/**
 	* Obtener Codigo Automatico
 	*

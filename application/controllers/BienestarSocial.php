@@ -35,7 +35,7 @@ class BienestarSocial extends CI_Controller {
 	|	Control de Vistas en la WEB
 	| -----------------------------------------------------------
 	*/
-
+	
 	/**
 	 * Vista Datos Basicos del Personal
 	 * @return mixed
@@ -133,6 +133,21 @@ class BienestarSocial extends CI_Controller {
 	function farmacia() {
 		if(isset($_SESSION['cedula'])){
 			$this->load->view ( 'bienestarsocial/farmacia' );
+		}else{
+			echo "Debe iniciar session";
+			exit;
+		}
+	}
+
+	/**
+	 * Vista Pagina Farmacia
+	 * @return html
+	 */
+	function citas() {
+		if(isset($_SESSION['cedula'])){
+			$this->load->model('comun/Cita');	
+			$data['cita'] = $this->Cita->consultar($_SESSION['cedula']);
+			$this->load->view ( 'bienestarsocial/citas', $data );
 		}else{
 			echo "Debe iniciar session";
 			exit;
@@ -238,29 +253,6 @@ class BienestarSocial extends CI_Controller {
 		$this->load->view ( 'bienestarsocial/medicamentos', $data );
 	}
 
-	/**
-	 * 
-	 *
-	 * @access  public
-	 * @return html
-	 */
-	function medica(){
-		$this->load->model('saman/Solicitud');
-		echo "<pre>";
-		print_r($this->Solicitud->listarTodo());		
-	}
-
-	/**
-	 * Quitar solicitudes pendientes
-	 *
-	 * @access  public
-	 * @return html
-	 */
-	public function quitar(){
-		$this->load->model('saman/Solicitud');
-		$this->Solicitud->quitar($_SESSION['cedula']);
-		echo "BIEN";
-	}
 
 	/**
 	 * Salir del Sistema
@@ -319,7 +311,19 @@ class BienestarSocial extends CI_Controller {
 	public function listarMedicamentosBADAN($pr = ''){		
 		$this->load->model("fisico/maestroproducto", "Producto");
 		print($this->Producto->listarExistenciaProductos($pr));
-		
+	}
+
+
+	/**
+	 * Listar un producto o medicamento según lo declare un usuario
+	 *
+	 * @access  public
+	 * @param string
+	 * @return json 
+	 */
+	public function listarMedicamentosSidroFan($pr = ''){		
+		$this->load->model("fisico/maestroproducto", "Producto");
+		print($this->Producto->listarExistenciaProductosSidroFan($pr));
 	}
 
 	/**
@@ -538,8 +542,26 @@ class BienestarSocial extends CI_Controller {
 	public function generarCodigo($tipo = "", $obs = ""){
 		if(isset($_SESSION['cedula'])){
 			$this->load->model('utilidad/Semillero', 'Semillero');
-			$this->Semillero->obtener($tipo, $_SESSION['oid'], $obs);
+			$this->Semillero->obtener($tipo, $_SESSION['cedula'], $obs);
 			return $this->Semillero->codigo;
+		}else{
+			echo "Debe iniciar session";
+			exit;
+		}	
+	}
+
+
+	/**
+	 * Permite generar un codigo de planillas
+	 *
+	 * @access public
+	 * @return string
+	 */	
+	public function generarCita(){
+		if(isset($_SESSION['cedula'])){
+			$this->load->model('comun/Cita');
+			$this->Cita->generar();
+			$this->citas();
 		}else{
 			echo "Debe iniciar session";
 			exit;

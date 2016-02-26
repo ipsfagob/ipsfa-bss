@@ -16,9 +16,7 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
     foreach ($data as $key => $val) {
       
 
-      $cadena = '<li class="collection-item avatar" id="' . $val['rowid'] . '">' . 
-        '<img src="' . base_url() .  '/public/img/productos/' . $val['imagen'] . '" 
-        alt="" class="materialboxed circle">' .
+      $cadena = '<li class="collection-item avatar" id="' . $val['rowid'] . '">' .
         '<span class="title truncate">' . $val['name'] . 
         '</span><p class="truncate"> Cantidad: ' . $val['qty'] . ' <br> Prioridad: ' . prioridad($val['prioridad']) .
         '<a href="javascript:Eliminar(\'' . $val['rowid'] .  '\');" class="secondary-content">

@@ -1,19 +1,22 @@
 
+function listarProductos1(val) {
+	getRecords();
+}
+
 /**
 *
 */
 function listarProductos(val) {
-	$.getJSON(sUrlP + "listarMedicamentosBADAN/" + val, function(data) {
+	$.getJSON(sUrlP + "listarMedicamentosSidroFan/" + val, function(data) {
 		var cadena = '';
 		$(".collection-item").remove();
 		if(data == ""){
 			Materialize.toast("Disculpe el medicamento seleccionado no se encuentra disponible", 5000, 'rounded');
 		}else{
 			$.each(data, function(key, val) {
-			cadena = '<li class="collection-item avatar">' + '<img src="' + sUrl +  '/public/img/productos/' + val.imag + 
-			'" alt="" class="materialboxed circle">' + '<span class="title">' + val.nomb + '</span><p>' + val.obse + 
-			'<a href="javascript:Modal(\'' + val.nomb + '\',\'' + val.obse + '\',\'' + val.imag +	'\',\'' + val.oid + '\');"' +
-			'class="secondary-content btn-floating btn-small waves-effect waves-light  modal-trigger" ><i class="mdi-action-add-shopping-cart"></i></a>';		
+			cadena = '<li class="collection-item avatar">'  + '<span class="title">' + val.nomb + '</span><p>' + val.obse + 
+			'<a href="javascript:Modal(\'' + val.obse + '\',\'' + val.nomb + '\',\'' + val.imag +	'\',\'' + val.oid + '\');"' +
+			'class="secondary-content btn-floating btn-small waves-effect waves-light modal-trigger" style="background-color:#00345A"><i class="mdi-action-add-shopping-cart"></i></a>';		
 			$(".collection").append(cadena);
 
 		});
@@ -89,3 +92,33 @@ function Salvar(){
 	
 }
 
+
+
+
+  function getRecords() {
+
+   	alert(1);
+
+    $.ajax({
+      type: "POST",
+      contentType: "application/json",
+      dataType: "json",
+      data: JSON.stringify({
+        ApiKey: "D9909F32-D003-4D7F-A82D-F8843E2FD046",
+        Count: 2000,
+        Search: "Acetaminofen",
+        StartIndex: 1
+      }),
+      url: "https://api.locatel.com.ve/Rest/PublicService.svc/FindProducts",
+      success: function (data) {
+      	alert(2);
+        
+      },
+      error: function(jqXHR, textStatus, errorThrown){
+      	alert(jqXHR);
+        /*$("#data_loading").hide();
+        $( "#prod_desc" ).html('<i class="fa fa-warning text-danger fa-3x"></i> <h6>Error de comunicación!</h6>');
+        $( "#prod_desc" ).show();*/
+      }
+    });
+    }

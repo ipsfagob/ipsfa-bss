@@ -15,23 +15,20 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
           <p><font color="red" >* Los archivos adjuntos para el informe medico debe ser en extensión PDF</font></p>
         </div>
   </div>
-  <form class="col s12">
-
+  <form class="col s12" action="<?php echo base_url() . "index.php/BienestarSocial/subirArchivos";?>"  method="post" 
+  enctype="multipart/form-data">
+      <input type="hidden" value="4" name="codigo">
+       <input type="hidden" value="4" name="url">
       <div class="row">
         <div class="col s12">
            <select id="patologia" name="patologia">
-
             <?php 
-
               foreach ($data->rs as $k => $v) {
                 echo '<option value="' . $v->nombre . '">' . $v->nombre . '</option>';
               }
             ?>
           </select>
           <label for="familiar">Seleccioné patología</label>
-          
-
-
         </div>
       </div>
 
@@ -77,14 +74,14 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
         </div>
       </div> 
       
-<div class="row">
+      <div class="row">
         <div class="col s12">
-          <button class="btn-large medium waves-effect waves-light" onclick="enviar()"  style="background-color:#00345A">Enviar Documentos
+          <button class="btn-large medium waves-effect waves-light" type="submit"  style="background-color:#00345A">Enviar Documentos
             <i class="material-icons right">send</i>
           </button>
         </div>
       </div>
-
+    </form>
 </div>
 <?php
 $this->load->view ( "bienestarsocial/inc/pie.php" );

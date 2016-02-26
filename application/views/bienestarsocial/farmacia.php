@@ -10,7 +10,7 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
 <div class="row">
   
   <div class="col s12">
-    <h5>Ingrese nombre del medicamento a solicitar</h5>
+    <h5>Ingrese nombre del medicamento a consultar</h5>
   </div>
 
 </div>
@@ -26,11 +26,16 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
           <label for="search"><i class="mdi-action-search grey-text "></i></label>
           
         </div>
-    </div>
+
+        </div>
   </nav>	
 	</div>
 </div>
 
+
+        <div class="tabla">
+          Hola
+        </div>
 
 
 <ul class="collection" >

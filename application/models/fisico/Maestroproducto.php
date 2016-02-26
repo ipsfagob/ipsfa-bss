@@ -102,12 +102,29 @@ class MaestroProducto extends CI_Model {
 	 * @var string|cod, nomb, obse, imag
 	 * @return JsonSerializable
 	 */
-	function listarExistenciaProductos($pr = ''){
+	function listarExistenciaProductosSaman($pr = ''){
 		$this->load->model('saman/Dbsaman', 'Dbsaman');
 		$obj = $this->Dbsaman->consultar('SELECT suministrocod AS oid, suministronombre AS nomb, suministronmbrcomercial AS obse FROM ci_suministros_med WHERE suministronombre ~* \'' . $pr . '\'');
 		
 		return json_encode($obj->rs);
 	}
+
+
+	/**
+	 * Listar Existencia de los productos
+	 * 
+	 * @access public
+	 * @var string|cod, nomb, obse, imag
+	 * @return JsonSerializable
+	 */
+	function listarExistenciaProductosSidroFan($pr = ''){
+		$this->load->model('comun/Dbipsfa');
+		$obj = $this->Dbipsfa->consultar('SELECT codigo AS oid, nombre AS nomb, contenido AS obse, zpreprd AS imag FROM sidrofan WHERE nombre ~* \'' . $pr . '\'');
+		
+		return json_encode($obj->rs);
+	}
+
+
 	
 	/**
 	 * Listar Productos por Categoria
