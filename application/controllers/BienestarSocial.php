@@ -47,8 +47,7 @@ class BienestarSocial extends CI_Controller {
 			if(isset($cedula)){
 				$this->validarUsuario($cedula);	
 			}else{
-				session_destroy();
-				//header('Location: http://www.ipsfa.gob.ve/web/css/style/vista/vmenu.php');
+				$this->salir();
 				echo "Debe iniciar session";
 				exit;
 			}
@@ -69,6 +68,7 @@ class BienestarSocial extends CI_Controller {
 			$data['Militar'] = $this->Militar;
 			$this->load->view ( 'bienestarsocial/datos', $data );
 		}else{
+			$this->salir();
 			echo "Debe iniciar session";
 			exit;
 		}
@@ -85,6 +85,7 @@ class BienestarSocial extends CI_Controller {
 			$data['url'] = $url; 
 			$this->load->view ( 'bienestarsocial/bienestar', $data);
 		}else{
+			$this->salir();
 			echo "Debe iniciar session";
 			exit;
 		}
@@ -105,6 +106,7 @@ class BienestarSocial extends CI_Controller {
 			$data['Militar'] = $Militar->Solicitudes;
 			$this->load->view ( 'bienestarsocial/pendientes', $data );
 		}else{
+			$this->salir();
 			echo "Debe iniciar session";
 			exit;
 		}
@@ -120,6 +122,7 @@ class BienestarSocial extends CI_Controller {
 			$data['data'] = $this->Solicitud->listarPorCodigo($_SESSION['cedula']);
 			$this->load->view ( 'bienestarsocial/ayuda', $data);
 		}else{
+			$this->salir();
 			echo "Debe iniciar session";
 			exit;
 		}
@@ -134,6 +137,7 @@ class BienestarSocial extends CI_Controller {
 		if(isset($_SESSION['cedula'])){
 			$this->load->view ( 'bienestarsocial/farmacia' );
 		}else{
+			$this->salir();
 			echo "Debe iniciar session";
 			exit;
 		}
@@ -149,6 +153,7 @@ class BienestarSocial extends CI_Controller {
 			$data['cita'] = $this->Cita->consultar($_SESSION['cedula']);
 			$this->load->view ( 'bienestarsocial/citas', $data );
 		}else{
+			$this->salir();
 			echo "Debe iniciar session";
 			exit;
 		}
@@ -174,6 +179,7 @@ class BienestarSocial extends CI_Controller {
 		//$data['data'] = $this->Carro->listar();pendientes
 			$this->load->view ( 'bienestarsocial/reportar' );
 		}else{
+			$this->salir();
 			echo "Debe iniciar session";
 			exit;
 		}
@@ -191,6 +197,7 @@ class BienestarSocial extends CI_Controller {
 			$data['url'] = $url;			
 			$this->load->view ( 'bienestarsocial/solicitud', $data );
 		}else{
+			$this->salir();
 			echo "Debe iniciar session";
 			exit;
 		}
@@ -208,6 +215,7 @@ class BienestarSocial extends CI_Controller {
 			$this->Archivo->salvar($_POST['url'], $_FILES, $_POST['codigo']);
 			$this->load->view ( 'bienestarsocial/principal');
 		}else{
+			$this->salir();
 			echo "Debe iniciar session";
 			exit;
 		}		
@@ -225,6 +233,7 @@ class BienestarSocial extends CI_Controller {
 			$data['data'] = $this->Tratamiento->consultarProlongado($_SESSION['cedula']);
 			$this->load->view ( 'bienestarsocial/comun/tratamiento/inicio', $data );
 		}else{
+			$this->salir();
 			echo "Debe iniciar session";
 			exit;
 		}	
@@ -237,6 +246,7 @@ class BienestarSocial extends CI_Controller {
 			$this->load->view ( 'bienestarsocial/comun/tratamiento/frm/datos',$data);
 		}else{
 			echo "Debe iniciar session";
+			$this->salir();
 			exit;
 		}	
 	}
