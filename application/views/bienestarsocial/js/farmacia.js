@@ -8,7 +8,7 @@ function listarProductos1(val) {
 			'class="secondary-content btn-floating btn-small waves-effect waves-light modal-trigger" style="background-color:#00345A"><i class="mdi-action-add-shopping-cart"></i></a>
 */
 function listarProductos(val) {
-	$.getJSON(sUrlP + "listarMedicamentosBADAN/" + val, function(data) {
+	$.getJSON(sUrlP + "listarMedicamentosSidroFan/" + val, function(data) {
 		var cadena = '';
 		$(".collection-item").remove();
 		if(data == ""){

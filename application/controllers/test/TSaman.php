@@ -247,7 +247,15 @@ class TSaman extends CI_Controller{
 		$this->unit->run($arr->code, 0, 'Existe (ipsfa_pers_clase) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
 
 
-		
+		/*
+		* ---------------------------------------
+		* ci_suministros_med
+		* ---------------------------------------
+		*/
+		$sCon = "SELECT * FROM ci_suministros_med LIMIT 1";
+		$arr = $this->Dbsaman->consultar($sCon);
+		$this->unit->run($arr->code, 0, 'Existe (ci_suministros_med) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
+
 
 
 	
