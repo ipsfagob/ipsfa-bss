@@ -23,17 +23,34 @@ class Militar extends CI_Model{
 	*/
 	var $Persona;	
 
-
+	/**
+	* @var Persona
+	*/
 	var $situacion = '';
 
+	/**
+	* @var Persona
+	*/
 	var $fechaIngreso = '';
 
+	/**
+	* @var Persona
+	*/
 	var $fechaAscenso = '';
 
+	/**
+	* @var Persona
+	*/
 	var $fechaPromocion = '';
 
+	/**
+	* @var Persona
+	*/
 	var $categoria = '';
-
+	
+	/**
+	* @var Persona
+	*/
 	var $clase = '';
 
 	/**

@@ -4,19 +4,23 @@ function listarProductos1(val) {
 }
 
 /**
-*
+*<a href="javascript:Modal(\'' + val.obse + '\',\'' + val.nomb + '\',\'' + val.imag +	'\',\'' + val.oid + '\');"' +
+			'class="secondary-content btn-floating btn-small waves-effect waves-light modal-trigger" style="background-color:#00345A"><i class="mdi-action-add-shopping-cart"></i></a>
 */
 function listarProductos(val) {
-	$.getJSON(sUrlP + "listarMedicamentosSidroFan/" + val, function(data) {
+	$.getJSON(sUrlP + "listarMedicamentosBADAN/" + val, function(data) {
 		var cadena = '';
 		$(".collection-item").remove();
 		if(data == ""){
 			Materialize.toast("Disculpe el medicamento seleccionado no se encuentra disponible", 5000, 'rounded');
 		}else{
 			$.each(data, function(key, val) {
-			cadena = '<li class="collection-item avatar">'  + '<span class="title">' + val.nomb + '</span><p>' + val.obse + 
+			cadena = '<li class="collection-item avatar">'  + '<span class="title">' + val.nomb + 
 			'<a href="javascript:Modal(\'' + val.obse + '\',\'' + val.nomb + '\',\'' + val.imag +	'\',\'' + val.oid + '\');"' +
-			'class="secondary-content btn-floating btn-small waves-effect waves-light modal-trigger" style="background-color:#00345A"><i class="mdi-action-add-shopping-cart"></i></a>';		
+			'class="secondary-content btn-floating btn-small waves-effect waves-light modal-trigger" style="background-color:#00345A"><i class="mdi-action-add-shopping-cart"></i></a></span><p>UNIDAD DE MEDIDA: ' + val.obse + 
+			'<br>UBICACION: DROGRERIA / FARMACIA';		
+
+
 			$(".collection").append(cadena);
 
 		});

@@ -263,7 +263,7 @@ class BienestarSocial extends CI_Controller {
 	public function salir() {
 		session_destroy();
 		//$this->index();
-		//header('Location: http://www.ipsfa.gob.ve/web/css/style/vista/vmenu.php');
+		header('Location: http://192.168.12.195/html/web/web/ipsfaNet/vista/vmenu.php');
 		echo "Debe iniciar session";
 		exit;
 	}
@@ -310,7 +310,7 @@ class BienestarSocial extends CI_Controller {
 	 */
 	public function listarMedicamentosBADAN($pr = ''){		
 		$this->load->model("fisico/maestroproducto", "Producto");
-		print($this->Producto->listarExistenciaProductos($pr));
+		print($this->Producto->listarExistenciaProductosSaman($pr));
 	}
 
 

@@ -34,7 +34,7 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
 
 
         <div class="tabla">
-          Hola
+         
         </div>
 
 

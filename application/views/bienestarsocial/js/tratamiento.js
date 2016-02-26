@@ -1,7 +1,7 @@
 
 
 function solicitarCita(){
-	Materialize.toast('Su cita ha sido creado...!', 5000, 'rounded');
+	Materialize.toast('Su cita ha sido creada...!', 5000, 'rounded');
 	$(location).attr('href', sUrlP + "generarCita");	
 }
 
