@@ -149,10 +149,10 @@ class Persona extends CI_Model{
 				$this->cedula = $val->codnip;				
 				$this->sexo = $val->sexocod;
 				$this->estadoCivil = $val->edocivilnombre;
-				$this->primerNombre = $val->nombreprimero;
-				$this->segundoNombre = $val->nombresegundo;
-				$this->primerApellido = $val->apellidoprimero;
-				$this->segundoApellido = $val->apellidosegundo;
+				$this->primerNombre = strtoupper($val->nombreprimero);
+				$this->segundoNombre = strtoupper($val->nombresegundo);
+				$this->primerApellido = strtoupper($val->apellidoprimero);
+				$this->segundoApellido = strtoupper($val->apellidosegundo);
 				$this->fechaNacimiento = $val->fechanacimiento;
 				$this->correoElectronico = $val->email1;
 				$this->codigoDireccion = $val->direccioncod;

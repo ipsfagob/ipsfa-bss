@@ -6,8 +6,17 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 
 
 <div class="container">
-<div class="row" style="text-align: left;"> BIENVENIDO, 
-<?php echo $Militar->Componente->rango . " " . $Militar->Persona->primerNombre . " " . $Militar->Persona->primerApellido ?></div>
+<div class="row" style="text-align: left;">
+  <?php 
+    if($Militar->Persona->sexo == "F"){
+      echo "BIENVENIDA, ";
+    }else{
+      echo "BIENVENIDO, ";
+    }
+
+    echo $Militar->Componente->codigoRango . ". " . $Militar->Persona->primerNombre . " " . $Militar->Persona->primerApellido 
+  ?>
+</div>
 		<div class="row center">  	
 
       <div class="col s12 m3 13">   
