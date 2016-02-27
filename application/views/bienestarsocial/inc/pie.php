@@ -74,7 +74,7 @@
 				<ul>
 					<li><a class="grey-text text-lighten-3" href="#!">Mi Casa bien
 							Equipada</a></li>
-					<li><a class="grey-text text-lighten-3" href="#!">Instuto
+					<li><a class="grey-text text-lighten-3" href="#!">Instituto
 							Venezolano de los Seguros Sociales</a></li>
 				</ul>
 			</div>
