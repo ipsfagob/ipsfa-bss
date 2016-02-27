@@ -48,24 +48,27 @@
 				<a href="#" data-activates="nav-mobile" class="button-collapse" id="menuprincipal">
 				<i class="mdi-image-dehaze"></i></a>
 								
-				<ul id="solicitudes1" class="dropdown-content">				  			 
+				<ul id="solicitudes1" class="dropdown-content " >				  			 
 				  <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia/me">
-						Medicamentos<i class="mdi-maps-local-hospital left red-text "></i></a>
+						<font class="black-text" >Medicamentos</font><i class="mdi-maps-local-hospital left red-text "></i></a>
 					</li>
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/1">
-					  	Notificar Reembolso<i class="mdi-action-assignment left blue-text "></i></a>
+					  	<font class="black-text" >Notificar Reembolso</font><i class="mdi-action-assignment left blue-text text-darken-3"></i></a>
 					</li>
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/2">
-					  	Notificar Apoyo<i class="mdi-action-assignment-late left blue-text"></i></a>
+					  	<font class="black-text" >Notificar Apoyo</font><i class="mdi-action-assignment-late left blue-text text-darken-3"></i></a>
 					</li>	
 					
 							
 					<li class="divider"></li>				
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/pendientes">
-						Solicitudes<i class="mdi-action-alarm-add left blue-text"></i></a>							
+						<font class="black-text" >Solicitudes</font><i class="mdi-action-alarm-add left blue-text text-darken-3"></i></a>							
 					</li>
-					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/citas">Citas<i class="mdi-action-lock left blue-text"></i></a></li>				
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/citas">
+					<font class="black-text" >Citas</font><i class="mdi-action-lock left blue-text text-darken-3">
+					</i></a></li>				
 					
+
 				</ul>
 				
 				<ul id="nav-mobile" class="side-nav">
