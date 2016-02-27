@@ -22,8 +22,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 			      <a href="' . base_url() . 'index.php/BienestarSocial/adjuntos/' . $val->numero . '">' . $icon . '</a>
 			    </div>
 			   	<div class="collapsible-body" style="padding:10px">	
-			   	<table>
-			   	';	
+			   	<table>';	
 
 				foreach ($arr as $c => $v) {
 					$cadena .=  '<tr><td>' . $v->parentesco . '</td>

@@ -25,7 +25,8 @@
           	<?php 
           		
           		foreach ($Concepto as $key => $val) {
-          			$cadena = '<option value="' . $val->codigo . '">' .  strtoupper($val->nombre) . '</option>';
+          			$cadena = '<option value="' . $val->codigo . '">' .   
+                         html_entity_decode(utf8_decode(utf8_encode(strtoupper($val->nombre))), ENT_COMPAT, 'UTF-8') . '</option>';
           			echo $cadena;
           		}
 
@@ -42,6 +43,6 @@
 
      <div class="input-field col s3 m2 l1">
            <a class="btn-floating tooltipped waves-effect waves-light green" 
-           data-position="top" data-delay="10" data-tooltip="Eliminar Pedido" onclick="agregarR()"><i class="material-icons">add</i></a>
+           data-position="top" data-delay="10" data-tooltip="Agregar Pedido" onclick="agregarR()"><i class="material-icons">add</i></a>
      </div>
 </div>

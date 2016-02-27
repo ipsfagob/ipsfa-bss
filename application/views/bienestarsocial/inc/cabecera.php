@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
   <html>
     <head>
       <!--Import Google Icon Font
@@ -12,7 +13,7 @@
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <style>
     
       body {
