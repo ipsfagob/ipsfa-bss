@@ -48,22 +48,23 @@
 				<i class="mdi-image-dehaze"></i></a>
 								
 				<ul id="solicitudes1" class="dropdown-content">				  			 
-				  <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia">
-						Medicamentos<i class="mdi-maps-local-hospital left blue-text "></i></a>
+				  <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia/me">
+						Medicamentos<i class="mdi-maps-local-hospital left red-text "></i></a>
+					</li>
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/1">
+					  	Notificar Reembolso<i class="mdi-action-assignment left blue-text "></i></a>
 					</li>
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/2">
 					  	Notificar Apoyo<i class="mdi-action-assignment-late left blue-text"></i></a>
 					</li>	
-					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/1">
-					  	Notificar Reembolso<i class="mdi-action-assignment left blue-text "></i></a>
-					</li>
+					
 							
 					<li class="divider"></li>				
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/pendientes">
 						Solicitudes<i class="mdi-action-alarm-add left blue-text"></i></a>							
 					</li>
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/citas">Citas<i class="mdi-action-lock left blue-text"></i></a></li>				
-					<li><a href="#">Configurar<i class="mdi-action-settings left blue-text"></i> </a></li>
+					
 				</ul>
 				
 				<ul id="nav-mobile" class="side-nav">
@@ -88,8 +89,7 @@
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/pendientes">
 						Solicitudes<i class="mdi-action-alarm-add left blue-text"></i></a>							
 					</li>
-					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/citas">Citas<i class="mdi-action-lock left blue-text"></i></a></li>			
-					<li><a href="#">Configurar<i class="mdi-action-settings left blue-text"></i> </a></li>
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/citas">Citas<i class="mdi-action-lock left blue-text"></i></a></li>	x
 					<li><a href="#">Salir<i class="mdi-action-settings-power left blue-text"></i> </a></li>
 				</ul>
 				

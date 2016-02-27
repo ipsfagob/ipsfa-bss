@@ -73,11 +73,53 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
             </div>
       </div>
 
+      <div class="col s12 m3 13" >
+       <div class="card small hoverable">
+              <div class="card-image">
+                <img src="<?php echo base_url(); ?>public/img/badan.png">
+                
+              </div>
+              <div class="card-content">
+                <p>Medicamentos BADAN.</p>
+              </div>
+              <div class="card-action" style="background-color:#00345A">
+                <a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia/ba" style="color:white">Badan</a>
+              </div>
+            </div>
+      </div>
+<!-- 
 
+     <div class="col s12 m3 13" >
+       <div class="card small hoverable">
+              <div class="card-image">
+                <img src="<?php echo base_url(); ?>public/img/aval.jpg">
+                
+              </div>
+              <div class="card-content">
+                <p>Carta Aval.</p>
+              </div>
+              <div class="card-action" style="background-color:#00345A">
+                <a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/2" style="color:white">Carta Aval</a>
+              </div>
+            </div>
+      </div>
 
+   <div class="col s12 m3 13" >
+       <div class="card small hoverable">
+              <div class="card-image">
+                <img src="<?php echo base_url(); ?>public/img/locatel.jpg">
+                
+              </div>
+              <div class="card-content">
+                <p>Carta Aval.</p>
+              </div>
+              <div class="card-action" style="background-color:#00345A">
+                <a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/2" style="color:white">Locatel</a>
+              </div>
+            </div>
+      </div>
 
-
-		</div> <!-- //Fin de la Fila -->
+		</div> 
 
     <div class="row center">
       <div class="col s12 m3 13" >
@@ -88,7 +130,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       </div>
 
     </div>
-
+ -->
 
 	</div>
 

@@ -133,9 +133,14 @@ class BienestarSocial extends CI_Controller {
 	 * Vista Pagina Farmacia
 	 * @return html
 	 */
-	function farmacia() {
+	function farmacia($id) {
 		if(isset($_SESSION['cedula'])){
-			$this->load->view ( 'bienestarsocial/farmacia' );
+			if($id == "me"){
+				$this->load->view ( 'bienestarsocial/sidrofan' );
+			}else{				
+				$this->load->view ( 'bienestarsocial/badan' );
+			}
+
 		}else{
 			$this->salir();
 			echo "Debe iniciar session";
