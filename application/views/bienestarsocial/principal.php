@@ -22,8 +22,9 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       <div class="col s12 m3 13">   
         <div class="card small hoverable">
               <div class="card-image">
-                <img src="<?php echo base_url(); ?>public/img/farmaipsfa.jpg" class="materialboxed">
-                
+                <a href="<?php echo base_url(); ?>index.php/BienestarSocial/tratamiento" style="color:white">
+                  <img src="<?php echo base_url(); ?>public/img/farmaipsfa.jpg" >
+                </a>
               </div>
               <div class="card-content">
                 <p>Tratamiento Prolongado</p>
@@ -39,8 +40,9 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
   		<div class="col s12 m3 13" >
   		 <div class="card small hoverable">
               <div class="card-image">
-                <img src="<?php echo base_url(); ?>public/img/medicamentos.jpg">
-                
+                <a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia/me" style="color:white">
+                  <img src="<?php echo base_url(); ?>public/img/medicamentos.jpg">
+                </a>
               </div>
               <div class="card-content">
                 <p>Consultar Medicamentos</p>
@@ -57,8 +59,9 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       <div class="col s12 m3 13" >
        <div class="card small hoverable">
               <div class="card-image">
-                <img src="<?php echo base_url(); ?>/public/img/reembolsos.jpg">
-                
+              <a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/1" style="color:white">
+                  <img src="<?php echo base_url(); ?>/public/img/reembolsos.jpg">
+                </a>
               </div>
               <div class="card-content">
                 <p>Notificar Reembolsos</p>
@@ -72,8 +75,9 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       <div class="col s12 m3 13" >
        <div class="card small hoverable">
               <div class="card-image">
-                <img src="<?php echo base_url(); ?>public/img/ayudasocial.jpg">
-                
+                <a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/2" style="color:white">
+                  <img src="<?php echo base_url(); ?>public/img/ayudasocial.jpg">
+                </a>
               </div>
               <div class="card-content">
                 <p>Notificar Ayuda</p>
@@ -87,8 +91,9 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       <div class="col s12 m3 13" >
        <div class="card small hoverable">
               <div class="card-image">
-                <img src="<?php echo base_url(); ?>public/img/badan.png">
-                
+                <a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia/ba" style="color:white">
+                  <img src="<?php echo base_url(); ?>public/img/badan.png">
+                </a>
               </div>
               <div class="card-content">
                 <p>Medicamentos Badan</p>
