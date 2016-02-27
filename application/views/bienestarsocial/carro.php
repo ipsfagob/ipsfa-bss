@@ -50,7 +50,7 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
       <div class="row">
         <div class="col s12">
           <div class="file-field input-field">
-            <div class="btn">
+            <div class="btn" style="background-color:#00345A">
               <span>Archivo</span>
               <input type="file" multiple>
             </div>
@@ -80,7 +80,7 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
     </form>
     <div class="row">
         <div class="col s12">
-          <button class="btn-large medium waves-effect waves-light" onclick="Salvar()">Solicitar
+          <button class="btn-large medium waves-effect waves-light "  style="background-color:#00345A" onclick="Salvar()">Solicitar
             <i class="material-icons right">send</i>
           </button>
         </div>

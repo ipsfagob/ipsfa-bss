@@ -72,10 +72,8 @@
 			<div class="col l4 offset-l2 s12">
 				<h5 class="white-text">Enlaces de interes</h5>
 				<ul>
-					<li><a class="grey-text text-lighten-3" href="#!">Mi Casa bien
-							Equipada</a></li>
-					<li><a class="grey-text text-lighten-3" href="#!">Instituto
-							Venezolano de los Seguros Sociales</a></li>
+					<li><a class="grey-text text-lighten-3" href="#!"></a></li>
+					<li><a class="grey-text text-lighten-3" href="#!"></a></li>
 				</ul>
 			</div>
 		</div>

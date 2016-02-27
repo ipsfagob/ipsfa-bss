@@ -302,7 +302,10 @@ class BienestarSocial extends CI_Controller {
 		$valores["cedula"] = $cedula;
 		$resultado = $this->Iniciar->validarCuenta($valores); 
 		if ( $resultado == 1){
-			$this->load->view ( 'bienestarsocial/principal');
+			$this->load->model('saman/Militar', 'Militar');
+			$this->Militar->consultar($_SESSION['cedula']);			
+			$datos['Militar'] = $this->Militar;
+			$this->load->view ( 'bienestarsocial/principal', $datos);
 		}else{
 			echo "Error en el usuario con la base de datos";
 		}		

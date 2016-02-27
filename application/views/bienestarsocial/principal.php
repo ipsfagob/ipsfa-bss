@@ -6,6 +6,8 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 
 
 <div class="container">
+<div class="row" style="text-align: left;"> BIENVENIDO, 
+<?php echo $Militar->Componente->rango . " " . $Militar->Persona->primerNombre . " " . $Militar->Persona->primerApellido ?></div>
 		<div class="row center">  	
 
       <div class="col s12 m3 13">   
@@ -15,7 +17,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
                 
               </div>
               <div class="card-content">
-                <p>Tratamiento Prolongado.</p>
+                <p>Tratamiento Prolongado</p>
               </div>
               <div class="card-action" style="background-color:#00345A">
                 <a href="<?php echo base_url(); ?>index.php/BienestarSocial/tratamiento" style="color:white">Tratamiento</a>
@@ -50,7 +52,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
                 
               </div>
               <div class="card-content">
-                <p>Notificar Reembolsos.</p>
+                <p>Notificar Reembolsos</p>
               </div>
               <div class="card-action" style="background-color:#00345A">
                 <a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/1" style="color:white">Reembolso</a>
@@ -65,10 +67,10 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
                 
               </div>
               <div class="card-content">
-                <p>Notificar Ayuda.</p>
+                <p>Notificar Ayuda</p>
               </div>
               <div class="card-action" style="background-color:#00345A">
-                <a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/2" style="color:white">Ayuda</a>
+                <a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/2" style="color:white">Ayuda Medica</a>
               </div>
             </div>
       </div>
@@ -80,7 +82,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
                 
               </div>
               <div class="card-content">
-                <p>Medicamentos BADAN.</p>
+                <p>Medicamentos Badan</p>
               </div>
               <div class="card-action" style="background-color:#00345A">
                 <a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia/ba" style="color:white">Badan</a>
