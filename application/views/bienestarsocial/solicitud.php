@@ -23,7 +23,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       <div class="row">
         <div class="col s12">
           <div class="file-field input-field">
-            <div class="btn col s1 m1 l1 btns-add"  style="background-color:#00345A">
+            <div class="btn col s1 m1 l1 btns-add" >
               <i class="small material-icons">attach_file</i>
               <input type="file" accept=".pdf" name="exposicion">
             </div>
@@ -39,7 +39,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       <div class="row">
         <div class="col s12">
           <div class="file-field input-field">
-            <div class="btn col s1 m1 l1 btns-add"  style="background-color:#00345A">
+            <div class="btn col s1 m1 l1 btns-add">
               <i class="small material-icons">attach_file</i>
               <input type="file" name="carta">
             </div>
@@ -55,7 +55,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       <div class="row">
         <div class="col s12">
           <div class="file-field input-field">
-            <div class="btn col s1 m1 l1 btns-add"  style="background-color:#00345A">
+            <div class="btn col s1 m1 l1 btns-add">
               <i class="small material-icons">attach_file</i>
               <input type="file" name="cobertura">
             </div>
@@ -71,7 +71,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       <div class="row">
         <div class="col s12">
           <div class="file-field input-field">
-            <div class="btn col s1 m1 l1 btns-add"  style="background-color:#00345A">
+            <div class="btn col s1 m1 l1 btns-add">
               <i class="small material-icons">attach_file</i>
               <input type="file" name="deuda">
             </div>
@@ -86,7 +86,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       <div class="row">
         <div class="col s12">
           <div class="file-field input-field">
-            <div class="btn col s1 m1 l1 btns-add"  style="background-color:#00345A">
+            <div class="btn col s1 m1 l1 btns-add">
               <i class="small material-icons">attach_file</i>
               <input type="file" name="presupuesto">
             </div>
@@ -102,7 +102,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       <div class="row">
         <div class="col s12">
           <div class="file-field input-field">
-            <div class="btn col s1 m1 l1 btns-add"  style="background-color:#00345A">
+            <div class="btn col s1 m1 l1 btns-add">
               <i class="small material-icons">attach_file</i>
               <input type="file" accept=".pdf" name="informe">
             </div>

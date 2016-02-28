@@ -34,15 +34,17 @@
 	     box-shadow: 0 0px 0 0 #000;
 	  }
 	  
-      
+      	
       .btns-add{background-color:#00345A;color:#FFF;font-size:14px;text-align:center;font-weight:bold;}
 	  .btns{border:1px #E1E1E1 solid;padding:3px;background:#FEFBD3;color:#56000F;}
-	  .btns:hover{background:#FFFFFF;cursor:pointer;}
-	  .btn-buscar{border:1px #56000F solid;background:#FEFBD3;color:#56000F;padding:3px;width:35px;font-weight:bold;}
-	  .btn-buscar:hover{background:#FFFFFF;cursor:pointer;}  
 	
 	  .input-field .btn {background-color:#00345A;}
 	  .input-field .btn:hover { background-color:#990000;}
+
+	  .file-path::-webkit-input-placeholder { color: #828282;; }
+	  .file-path:-moz-placeholder { color: #828282;; }
+	  .file-path::-moz-placeholder { color: #828282;; }
+      .file-path:-ms-input-placeholder { color: #828282;; }
   </style>
   
     </head>
