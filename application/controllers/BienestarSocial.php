@@ -305,7 +305,9 @@ class BienestarSocial extends CI_Controller {
 			$this->load->model('saman/Militar', 'Militar');
 			$this->Militar->consultar($_SESSION['cedula']);			
 			$datos['Militar'] = $this->Militar;
-			$this->load->view ( 'bienestarsocial/principal', $datos);
+			$_SESSION['nombreRango'] = $this->Militar->Componente->codigoRango . ". " . 
+				$this->Militar->Persona->primerNombre . " " . $this->Militar->Persona->primerApellido;
+			$this->load->view ( 'bienestarsocial/principal');
 		}else{
 			echo "Error en el usuario con la base de datos";
 		}		

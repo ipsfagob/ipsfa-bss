@@ -23,8 +23,8 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       <div class="row">
         <div class="col s12">
           <div class="file-field input-field">
-            <div class="btn"  style="background-color:#00345A">
-              <span>Exposición de Motivos</span>
+            <div class="btn col s1 m1 l1 btns-add"  style="background-color:#00345A">
+              <i class="small material-icons">attach_file</i>
               <input type="file" accept=".pdf" name="exposicion">
             </div>
             <div class="file-path-wrapper">
@@ -39,8 +39,8 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       <div class="row">
         <div class="col s12">
           <div class="file-field input-field">
-            <div class="btn"  style="background-color:#00345A">
-              <span>Carta Aval</span>
+            <div class="btn col s1 m1 l1 btns-add"  style="background-color:#00345A">
+              <i class="small material-icons">attach_file</i>
               <input type="file" name="carta">
             </div>
             <div class="file-path-wrapper">
@@ -55,8 +55,8 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       <div class="row">
         <div class="col s12">
           <div class="file-field input-field">
-            <div class="btn"  style="background-color:#00345A">
-              <span>Agotamiento de Cobertura</span>
+            <div class="btn col s1 m1 l1 btns-add"  style="background-color:#00345A">
+              <i class="small material-icons">attach_file</i>
               <input type="file" name="cobertura">
             </div>
             <div class="file-path-wrapper">
@@ -71,8 +71,8 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       <div class="row">
         <div class="col s12">
           <div class="file-field input-field">
-            <div class="btn"  style="background-color:#00345A">
-              <span>Deuda Contraida</span>
+            <div class="btn col s1 m1 l1 btns-add"  style="background-color:#00345A">
+              <i class="small material-icons">attach_file</i>
               <input type="file" name="deuda">
             </div>
             <div class="file-path-wrapper">
@@ -86,8 +86,8 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       <div class="row">
         <div class="col s12">
           <div class="file-field input-field">
-            <div class="btn"  style="background-color:#00345A">
-              <span>Presupuesto de gastos</span>
+            <div class="btn col s1 m1 l1 btns-add"  style="background-color:#00345A">
+              <i class="small material-icons">attach_file</i>
               <input type="file" name="presupuesto">
             </div>
             <div class="file-path-wrapper">
@@ -102,8 +102,8 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       <div class="row">
         <div class="col s12">
           <div class="file-field input-field">
-            <div class="btn"  style="background-color:#00345A">
-              <span>Informe Medico</span>
+            <div class="btn col s1 m1 l1 btns-add"  style="background-color:#00345A">
+              <i class="small material-icons">attach_file</i>
               <input type="file" accept=".pdf" name="informe">
             </div>
             <div class="file-path-wrapper">
