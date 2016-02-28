@@ -144,7 +144,7 @@ class Persona extends CI_Model{
 		$obj = $this->Dbsaman->consultar($this->generarSelectPersonas($cedula,$codigo));
 		if($obj->code == 0){
 			foreach ($obj->rs as $clv => $val) {
-				$this->oid = $val->nropersona;
+				$this->oid = $val->oid;				
 				$this->nacionalidad = $val->tipnip;
 				$this->cedula = $val->codnip;				
 				$this->sexo = $val->sexocod;
@@ -157,17 +157,14 @@ class Persona extends CI_Model{
 				$this->correoElectronico = $val->email1;
 				$this->codigoDireccion = $val->direccioncod;
 				$this->direccion = $val->direccion1;
-				//$this->tipoTelefono = $val->telefonotipcod;
-				//$this->codigoTelefono = $val->telefonocodigoarea;
-				//$this->telefono = $val->telefononumero;
 				$this->banco = $val->instfinannombre;
 				$this->cuenta = $val->nrocuenta;
 				$this->tipoCuenta = $val->tipcuentacod;
 			}
 			$this->cargarTelefonos();
 			$this->cargarFamiliares();
-
 		}
+
 		return $obj;
 	}
 
@@ -180,7 +177,7 @@ class Persona extends CI_Model{
 	* @return string
 	*/
 	protected function generarSelectPersonas($cedula, $codigo = null){
-		$sConsulta = 'SELECT * FROM personas
+		$sConsulta = 'SELECT personas.nropersona AS oid, * FROM personas
 		LEFT JOIN telefono_correo ON personas.nropersona=telefono_correo.nropersona
 		LEFT JOIN edo_civil ON personas.edocivilcod=edo_civil.edocivilcod
 		LEFT JOIN direcciones ON personas.nropersona=direcciones.nropersona 

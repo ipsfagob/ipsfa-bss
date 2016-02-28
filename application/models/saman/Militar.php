@@ -105,7 +105,7 @@ class Militar extends CI_Model{
 			INNER JOIN ipsfa_pers_clase ON pers_dat_militares.persclasecod=ipsfa_pers_clase.persclasecod
 			INNER JOIN ipsfa_pers_categ ON pers_dat_militares.perscategcod=ipsfa_pers_categ.perscategcod
 			WHERE pers_dat_militares.nropersona=' . $this->Persona->oid . ' LIMIT 1';
-		
+
 		$arr = $this->Dbsaman->consultar($sConsulta);
 		if($arr->code == 0){
 			foreach ($arr->rs as $clv => $val) {		
