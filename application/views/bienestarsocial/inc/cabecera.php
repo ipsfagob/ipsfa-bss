@@ -45,6 +45,9 @@
 	  .file-path:-moz-placeholder { color: #828282;; }
 	  .file-path::-moz-placeholder { color: #828282;; }
       .file-path:-ms-input-placeholder { color: #828282;; }
+
+      .botones-solicitud{height:auto;width:100%;box-shadow: 0 0 13px 1px #00345A;cursor:pointer;padding:1px;}
+	  .botones-solicitud:hover{height:auto;width:100%;box-shadow: 0 0 25px 1px #FFB59F;cursor:pointer;padding:1px;}
   </style>
   
     </head>
@@ -61,7 +64,7 @@
 
 				</a>
 				<a href="#" data-activates="nav-mobile" class="button-collapse" id="menuprincipal">
-				<i class="mdi-image-dehaze"></i></a>
+				<i class="material-icons">reorder</i></a>
 								
 				<ul id="solicitudes1" class="dropdown-content " >				  			 
 				  <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia/me">
@@ -72,9 +75,7 @@
 					</li>
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/2">
 					  	<font class="black-text" >Notificar Apoyo</font><i class="mdi-action-assignment-late left blue-text text-darken-3"></i></a>
-					</li>	
-					
-							
+					</li>							
 					<li class="divider"></li>				
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/pendientes">
 						<font class="black-text" >Solicitudes</font><i class="mdi-action-alarm-add left blue-text text-darken-3"></i></a>							
@@ -102,14 +103,14 @@
 					</li>	
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/1">
 					  	Notificar Reembolso<i class="mdi-action-assignment left blue-text"></i></a>
-					</li>
-							
+					</li>							
 					<li class="divider"></li>				
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/pendientes">
 						Solicitudes<i class="mdi-action-alarm-add left blue-text"></i></a>							
 					</li>
-					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/citas">Citas<i class="mdi-action-lock left blue-text"></i></a></li>	x
-					<li><a href="#">Salir<i class="mdi-action-settings-power left blue-text"></i> </a></li>
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/citas">
+					Citas<i class="mdi-action-lock left blue-text"></i></a></li>
+					<li><a href="#">Salir<i class="mdi-action-settings-power left red-text"></i> </a></li>
 				</ul>
 				
 				<ul class="right hide-off-med-and-down">

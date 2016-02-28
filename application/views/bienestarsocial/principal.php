@@ -12,7 +12,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 		<div class="row center">  	
 
       <div class="col s12 m3 13">   
-        <div class="card hoverable">
+        <div class="card hoverable botones-solicitud">
               <div class="card-image">
                 <a href="<?php echo base_url(); ?>index.php/BienestarSocial/tratamiento" style="color:white">
                   <img src="<?php echo base_url(); ?>public/img/farmaipsfa.jpg" >
@@ -28,7 +28,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 
 
   		<div class="col s12 m3 13" >
-  		 <div class="card hoverable">
+  		 <div class="card hoverable botones-solicitud">
               <div class="card-image">
                 <a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia/me" style="color:white">
                   <img src="<?php echo base_url(); ?>public/img/medicamentos.jpg">
@@ -41,7 +41,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
   		</div>
 
       <div class="col s12 m3 13" >
-       <div class="card hoverable">
+       <div class="card hoverable botones-solicitud">
               <div class="card-image">
               <a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/1" style="color:white">
                   <img src="<?php echo base_url(); ?>/public/img/reembolsos.jpg">
@@ -54,7 +54,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       </div>
 
       <div class="col s12 m3 13" >
-       <div class="card hoverable">
+       <div class="card hoverable botones-solicitud">
               <div class="card-image">
                 <a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/2" style="color:white">
                   <img src="<?php echo base_url(); ?>public/img/ayudasocial.jpg">
@@ -67,7 +67,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       </div>
 
       <div class="col s12 m3 13" >
-       <div class="card hoverable">
+       <div class="card hoverable botones-solicitud">
               <div class="card-image">
                 <a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia/ba" style="color:white">
                   <img src="<?php echo base_url(); ?>public/img/badan.png">
