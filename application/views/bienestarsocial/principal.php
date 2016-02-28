@@ -15,7 +15,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
         <div class="card hoverable botones-solicitud">
               <div class="card-image">
                 <a href="<?php echo base_url(); ?>index.php/BienestarSocial/tratamiento" style="color:white">
-                  <img src="<?php echo base_url(); ?>public/img/farmaipsfa.jpg" >
+                  <img src="<?php echo base_url(); ?>public/img/farmaipsfa.jpg" class="responsive-img circle" >
                 </a>
               </div>
               <div class="card-content">
