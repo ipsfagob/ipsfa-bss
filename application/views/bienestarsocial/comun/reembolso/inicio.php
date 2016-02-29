@@ -5,7 +5,7 @@
   <br><br>
   <div class="container .hide-on-small-only">
 
-  <h5>Reembolsé (<?php echo $Codigo?>)</h5>
+  <h5>Reembolso (<?php echo $Codigo?>)</h5>
 
   <?php      
      $this->load->view('bienestarsocial/comun/reembolso/frm/datos'); 
