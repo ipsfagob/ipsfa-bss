@@ -17,6 +17,11 @@ $this->load->view("afiliacion/inc/cabecera.php");
 
 <h4>Datos básicos</h4>
 <li class="divider"></li><br>
+<div class="row">
+  <div class="col s12 m6 l6">
+    <img src="http://172.17.2.5/SAEMI/xmlsHtmlsImgs/imgs.afiliados/pers.mil.act/<?php echo $Militar->Persona->cedula?>.jpg">
+  </div>
+</div>
  <div class="row">
 	 	<div class="input-field col s12 m6 l6">
           <input disabled id="cedula" type="text" class="validate" 
