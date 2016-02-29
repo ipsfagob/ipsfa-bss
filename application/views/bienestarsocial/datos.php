@@ -29,7 +29,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
             value="<?php echo $Militar->Persona->nacionalidad . '-' . $Militar->Persona->cedula?>">
           <label for="disabled">Documento de Identidad</label>
         </div>
-    <div class="input-field col s12">
+    <div class="input-field col s12 m6 l6">
           <input  disabled  id="edocivil" type="text" class="validate" value="<?php echo $Militar->Persona->estadoCivil;?>">
           <label for=" disabled">Estado Civil</label>
         </div>
