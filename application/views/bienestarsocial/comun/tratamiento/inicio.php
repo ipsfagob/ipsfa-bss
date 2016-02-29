@@ -19,7 +19,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
         echo "<h5>Usted actualmente ya posee tratamiento prolongado por: </h5>";
         echo "<ol>";
         foreach ($data->rs as $k => $v) {
-          echo "<li>" . $v->nombre . " Y VENCE EL " . $v->vencimiento . "</li>";
+          echo "<li>" . $v->nombre . " Y <b>VENCE</b> EL " . $v->vencimiento . "</li>";
         }
         echo "</ol>";
         echo "<h5>Nota: </h5>";
