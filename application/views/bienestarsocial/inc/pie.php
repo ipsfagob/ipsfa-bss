@@ -8,7 +8,7 @@
 
 
 <script type="text/javascript">
-    var sUrl = 'http://' + window.location.hostname + '/web/web/ipsfaNet/ipsfa-bss';
+    var sUrl = 'http://' + window.location.hostname + '/ipsfa-bss';
 	var sUrlP = sUrl + '/index.php/BienestarSocial/';
 
     $(document).ready(function(){
