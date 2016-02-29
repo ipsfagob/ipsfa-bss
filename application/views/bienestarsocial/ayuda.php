@@ -19,7 +19,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 		      	<div class="collapsible-header"><i class="material-icons grey-text">playlist_add</i>
 			      ' . tipo($val->tipo)  . ' - 
 			      ' . substr($val->fecha,0,10 ). ' ( <b><font color="green">' . $val->numero . '</font></b> )
-			      <a href="' . base_url() . 'index.php/BienestarSocial/adjuntos/' . $val->numero . '">' . $icon . '</a>
+			      <a href="' . base_url() . 'index.php/BienestarSocial/adjuntos/' . $val->numero . '"></a>
 			    </div>
 			   	<div class="collapsible-body" style="padding:10px">	
 			   	<table>';	
