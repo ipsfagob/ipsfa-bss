@@ -15,7 +15,7 @@ $this->load->view("afiliacion/inc/cabecera.php");
    </div>
 </div>
 
-<h4>Datos básicos</h4>
+<h4>Datos Básicos</h4>
 <li class="divider"></li><br>
 <div class="row center">
   <div class="col s12 m12 l12">
@@ -161,7 +161,7 @@ $this->load->view("afiliacion/inc/cabecera.php");
 
 
 
-      <h4>Datos de la dirección</h4>
+      <h4>Datos de la Dirección</h4>
       <li class="divider"></li><br>
      <div class="row">
         <div class="input-field col s12 m6 l6">
