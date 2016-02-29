@@ -62,12 +62,6 @@
 </main>
 <footer class="page-footer" style="background-color:#00345A">
 	<div class="container white-text">
-		<?php 
-		    
-		    echo "SALUDOS, ";
-		    
-		    echo $_SESSION['nombreRango'];
-		  ?><br>
 		© 2016 MamonSoft C.A
 	</div>	
 </footer>
