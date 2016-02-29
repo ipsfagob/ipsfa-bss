@@ -22,13 +22,14 @@ $this->load->view("afiliacion/inc/cabecera.php");
     <img width="100px" class="responsive-img circle" src="http://www.ipsfa.gob.ve/SAEMI/xmlsHtmlsImgs/imgs.afiliados/pers.mil.act/<?php echo $Militar->Persona->cedula?>.jpg">
   </div>
 </div>
+
  <div class="row">
 	 	<div class="input-field col s12 m6 l6">
           <input disabled id="cedula" type="text" class="validate" 
             value="<?php echo $Militar->Persona->nacionalidad . '-' . $Militar->Persona->cedula?>">
           <label for="disabled">Documento de Identidad</label>
         </div>
-    <div class="input-field col s12">
+    <div class="input-field col s12  m6 l6">
           <input  disabled  id="edocivil" type="text" class="validate" value="<?php echo $Militar->Persona->estadoCivil;?>">
           <label for=" disabled">Estado Civil</label>
         </div>
