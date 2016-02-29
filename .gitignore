@@ -4,5 +4,6 @@
 */cache/*
 */cache/!index.html
 */cache/!.htaccess
-*application/config/*
+# Ignorando Configuracion 
+application/config/*
 *public/doc/reembolso/*
