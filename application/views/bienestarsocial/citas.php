@@ -19,7 +19,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 		$icon = '';
 		$cadena .= '<li>
       	<div class="collapsible-header">
-	      Pendiente ( <b><font color="green">' . $val->numero . ' </font></b> ) y vence : ' . substr($arr->hasta,0,10 ). '
+	      Su cita número ( <b><font color="green">' . $val->numero . ' </font></b> ) ha sido programada para el día : ' . substr($arr->hasta,0,10 ). '
 	      <a href="' . base_url() . 'index.php/BienestarSocial/adjuntos/' . $val->numero . '">' . $icon . '</a>
 	    </div>
 	   	<div class="collapsible-body" style="padding:10px">
