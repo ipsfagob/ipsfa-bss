@@ -19,7 +19,7 @@ $this->load->view("afiliacion/inc/cabecera.php");
 <li class="divider"></li><br>
 <div class="row">
   <div class="col s12 m6 l6">
-    <img class="responsive-img circle" src="http://www.ipsfa.gob.ve/SAEMI/xmlsHtmlsImgs/imgs.afiliados/pers.mil.act/<?php echo $Militar->Persona->cedula?>.jpg">
+    <img width="100px" class="responsive-img circle" src="http://www.ipsfa.gob.ve/SAEMI/xmlsHtmlsImgs/imgs.afiliados/pers.mil.act/<?php echo $Militar->Persona->cedula?>.jpg">
   </div>
 </div>
  <div class="row">
