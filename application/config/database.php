@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'gesaodin',
-	'password' => 'za63qj2p',
+	'hostname' => '192.168.12.195',
+	'username' => 'postgre',
+	'password' => '123456',
 	'database' => 'ipsfa-bss',
 	'dbdriver' => 'postgre',
 	'dbprefix' => '',
@@ -92,7 +92,8 @@ $db['default'] = array(
 	'compress' => FALSE,
 	'stricton' => FALSE,
 	'failover' => array(),
-	'save_queries' => TRUE
+	'save_queries' => TRUE,
+	'port' => 5437
 );
 
 $db['saman-localhost'] = array(
@@ -119,10 +120,10 @@ $db['saman-localhost'] = array(
 
 $db['saman'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'gesaodin',
-	'password' => 'za63qj2p',
-	'database' => 'saman',
+	'hostname' => '192.168.12.195',
+	'username' => 'postgre',
+	'password' => '123456',
+	'database' => 'bs_saman',
 	'dbdriver' => 'postgre',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
@@ -136,5 +137,6 @@ $db['saman'] = array(
 	'compress' => FALSE,
 	'stricton' => FALSE,
 	'failover' => array(),
-	'save_queries' => TRUE
+	'save_queries' => TRUE,
+	'port' => 5437
 );
