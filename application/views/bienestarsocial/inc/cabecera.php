@@ -118,7 +118,7 @@
 					</li>
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/citas">
 					Citas<i class="mdi-action-lock left blue-text"></i></a></li>
-					<li><a href="#" class="tooltipped" data-position="top" data-delay="10" data-tooltip="Volver al menu">
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/salir" class="tooltipped" data-position="top" data-delay="10" data-tooltip="Volver al menu">
 						Salir<i class="mdi-action-settings-power left red-text"></i> </a>
 					</li>
 				</ul>

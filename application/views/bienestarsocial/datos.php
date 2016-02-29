@@ -17,9 +17,9 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 
 <h4>Datos básicos</h4>
 <li class="divider"></li><br>
-<div class="row">
-  <div class="col s12 m6 l6">
-    <img src="http://172.17.2.5/SAEMI/xmlsHtmlsImgs/imgs.afiliados/pers.mil.act/<?php echo $Militar->Persona->cedula?>.jpg">
+<div class="row center">
+  <div class="col s12 m12 l12">
+    <img width="100px" class="responsive-img circle" src="http://www.ipsfa.gob.ve/SAEMI/xmlsHtmlsImgs/imgs.afiliados/pers.mil.act/<?php echo $Militar->Persona->cedula?>.jpg">
   </div>
 </div>
 
