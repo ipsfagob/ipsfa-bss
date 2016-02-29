@@ -73,6 +73,38 @@ class BienestarSocial extends CI_Controller {
 			exit;
 		}
 	}
+
+	function actualizarDatos($cedula = null){
+
+		if(isset($_SESSION['cedula'])){			
+			$this->load->model('saman/Militar', 'Militar');
+			$this->load->model('saman/CodigoArea', 'CodigoArea');
+			$this->Militar->consultar($_SESSION['cedula']);
+			$data['CodigoArea'] = $this->CodigoArea->listar()->rs;
+			$data['Militar'] = $this->Militar;
+			//print_r($this->Militar);
+			$this->load->view ( 'afiliacion/inicio', $data );
+		}else{
+			if(isset($cedula)){				
+				$this->load->model('usuario/Iniciar', 'Iniciar');
+				$valores["txtUsuario"] = "MamonSoft";
+				$valores["txtClave"] = "za63qj2p";
+				$valores["cedula"] = $cedula;
+				$resultado = $this->Iniciar->validarCuenta($valores); 
+								
+				$this->load->model('saman/Militar', 'Militar');
+				$this->load->model('saman/CodigoArea', 'CodigoArea');
+				$this->Militar->consultar($_SESSION['cedula']);
+				$data['CodigoArea'] = $this->CodigoArea->listar()->rs;
+				$data['Militar'] = $this->Militar;
+				$this->load->view ( 'afiliacion/inicio', $data );
+			}else{
+				$this->salir();
+				echo "Debe iniciar session";
+				exit;
+			}
+		}
+	}
 	
 	/**
 	 * Vista de las Bienestar Ayudas

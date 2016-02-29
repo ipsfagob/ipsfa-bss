@@ -46,8 +46,16 @@
 	  .file-path::-moz-placeholder { color: #828282;; }
       .file-path:-ms-input-placeholder { color: #828282;; }
 
+      .input-field input[type=text]:focus + label {color: #00345A;} 
+	  .input-field input[type=text]:focus { border-bottom: #FF0000;box-shadow: 0 1px 0 0 #00345A;}
+	  .input-field input[type=select]:focus { border-bottom: #FF0000;box-shadow: 0 1px 0 0 #00345A;}
+	  .input-field label {color: #828282;}
+	  .input-field input[type=text] {border-bottom: 1px solid #00345A;box-shadow: 0 1px 0 0 #00345A;color:#828282;}
+	  .input-field input[type=select] {border-bottom: 1px solid #00345A;box-shadow: 0 1px 0 0 #00345A;color:#828282;}
+
       .botones-solicitud{height:auto;width:100%;box-shadow: 0 0 13px 1px #00345A;cursor:pointer;padding:1px;}
 	  .botones-solicitud:hover{height:auto;width:100%;box-shadow: 0 0 25px 1px #FFB59F;cursor:pointer;padding:1px;}
+	  .email-unread .email-title {font-weight: 500;}
   </style>
   
     </head>
@@ -63,8 +71,8 @@
 					<img src="<?php echo base_url(); ?>public/img/logo-ipsfa.png" >
 
 				</a>
-				<a href="#" data-activates="nav-mobile" class="button-collapse" id="menuprincipal">
-				<i class="material-icons">reorder</i></a>
+				<a href="#" data-activates="nav-mobile" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only" style="background-color:#00345A" id="menuprincipal"><i class="mdi-navigation-menu"></i></a>
+				
 								
 				<ul id="solicitudes1" class="dropdown-content " >				  			 
 				  <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia/me">
@@ -110,7 +118,9 @@
 					</li>
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/citas">
 					Citas<i class="mdi-action-lock left blue-text"></i></a></li>
-					<li><a href="#">Salir<i class="mdi-action-settings-power left red-text"></i> </a></li>
+					<li><a href="#" class="tooltipped" data-position="top" data-delay="10" data-tooltip="Volver al menu">
+						Salir<i class="mdi-action-settings-power left red-text"></i> </a>
+					</li>
 				</ul>
 				
 				<ul class="right hide-off-med-and-down">
@@ -118,7 +128,8 @@
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/carro">
 						<i class="mdi-action-shopping-cart"></i></a>
 					</li>
-					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/salir">
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/salir"
+					class="tooltipped" data-position="bottom" data-delay="10" data-tooltip="Volver al menu">
 						<i class="mdi-action-settings-power"></i></a>
 					</li>
 				</ul>

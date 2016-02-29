@@ -78,9 +78,9 @@ class Componente extends CI_Model{
 			foreach ($obj->rs as $key => $val) {			
 				$this->codigo = $val->componentecod; 			
 				$this->siglas = $val->componentesiglas; 					
-				$this->nombre = $val->componentenombre;
-				$this->codigoRango = $val->gradocod;
-				$this->rango = $val->gradonombrelargo;
+				$this->nombre = strtoupper($val->componentenombre);
+				$this->codigoRango = strtoupper($val->gradocod);
+				$this->rango = strtoupper($val->gradonombrelargo);
 			}
 		}	
 	}

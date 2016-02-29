@@ -322,6 +322,8 @@ class Persona extends CI_Model{
 	* @return bool
 	*/
 	public function actualizar($arg = array()){
+
+		
 		$this->consultar($arg['cedula']);
 
 		$sConsulta = 'UPDATE direcciones SET direccion1=\'' . $arg['direccion'] . '\' WHERE direccioncod=\'' . $this->codigoDireccion . '\';';

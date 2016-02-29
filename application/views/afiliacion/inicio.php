@@ -1,5 +1,5 @@
 <?php 
-$this->load->view("bienestarsocial/inc/cabecera.php");
+$this->load->view("afiliacion/inc/cabecera.php");
 ?>
 <script type="text/javascript"
   src="<?php echo base_url(); ?>application/views/bienestarsocial/js/datos.js"></script>
@@ -333,5 +333,5 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 
 
 <?php 
-$this->load->view("bienestarsocial/inc/pie.php");
+$this->load->view("afiliacion/inc/pie.php");
 ?>
