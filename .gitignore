@@ -4,7 +4,5 @@
 */cache/*
 */cache/!index.html
 */cache/!.htaccess
-application/config/config.php
-application/config/database.php
-application/views/bienestarsocial/inc/pie.php
+*application/config/*
 *public/doc/reembolso/*
