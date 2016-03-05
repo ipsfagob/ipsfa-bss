@@ -5,7 +5,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 <br>
 <div class="container">
 
-<h4>Resumen de Solicitudes</h4>
+<h5>Resumen de Solicitudes.</h5>
 
 <ul class="collapsible popout"  data-collapsible="accordion">
   <?php
