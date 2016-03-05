@@ -27,15 +27,14 @@
     
 
 
-     <!-- Modal Structure -->
+  <!-- Modal Structure -->
   <div id="modal1" class="modal">
     <div class="modal-content">
       <h4>Mensaje!!!</h4>
-      <p>¿Está seguro que sus datos son correctos?, una vez realizada la solicitud no podrá realizar cambios</p>
+      <p id="msj"></p>
     </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" onclick="salvarA('<?php echo $Codigo?>')">Si</a>
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">No</a>
+    <div class="modal-footer" id="acciones">
+      
     </div>
   </div>
 
@@ -45,10 +44,10 @@
     <div class="row">
     <div class="col s12">
       <input type="hidden" value=0 id="total"></input>
-      <button class="btn-large waves-effect waves-light"  style="background-color:#00345A" onclick="atras('<?php echo $Codigo?>','2')">Atrás
+      <button class="btn-large waves-effect waves-light"  style="background-color:#00345A" onclick="mensaje('<?php echo $Codigo?>','0')">Atrás
           <i class="material-icons left">skip_previous</i>
       </button>
-      <button class="btn-large waves-effect waves-light"  style="background-color:#00345A" onclick="mensaje('<?php echo $Codigo?>','2')">Adjuntar Requisitos
+      <button class="btn-large waves-effect waves-light"  style="background-color:#00345A" onclick="mensaje('<?php echo $Codigo?>','1')">Adjuntar Requisitos
           <i class="material-icons right">attach_file</i>
       </button>
       

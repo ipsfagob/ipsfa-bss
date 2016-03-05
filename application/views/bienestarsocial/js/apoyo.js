@@ -6,6 +6,11 @@ var Solicitud = [];
 var i = 0;
 
 
+/**
+* Agregando selección de productos a una lista virtual
+*
+* @return mixed
+*/
 function agregarA(){
 	var Pedido = {};
 	var familiar = $('#familiar').val();
@@ -14,6 +19,7 @@ function agregarA(){
 
 	if(monto == "0.00" || concepto == "0"){
 		Materialize.toast("Debe introducir un monto o seleccionar un concepto", 3000, 'rounded');
+		iniciarElementos();
 	}else{
 		$('#total').val(parseFloat($('#total').val()) + parseFloat($('#monto').val()));
 		var linea = $('#concepto option:selected').text() + '|' + $('#monto').val();		
@@ -25,11 +31,7 @@ function agregarA(){
 		Pedido['nombre'] = $('#familiar option:selected').text();
 		Pedido['concepto'] = $('#concepto option:selected').text();
 		Pedido['monto'] = $('#monto').val();
-
-
 		Solicitud[i++] = Pedido;
-		//numero = formatNumber.new($('#monto').val());
-		
 		$('#htotal').html('Total ' + $('#total').val() + ' Bs.');
 		
 		cadena = '<i class="material-icons red circle tooltipped waves-effect waves-light"' + 
@@ -39,13 +41,58 @@ function agregarA(){
 		cadena += '<br>MONTO: ' + $('#monto').val() + '</p>';
 		
 		$('#dtReembolso').append('<li class="collection-item avatar" id="' + i + '">' + cadena + '</li>');
-		$('#monto').val('0.00');
+		iniciarElementos();
 	}
 }
 
-function mensaje(){
+/**
+* Iniciar elementos en cero
+*
+* @return mixed
+*/
+function iniciarElementos(){
+	$('#monto').val('0.00');
+	$('#concepto').val("0");
+	$('select').material_select();
+}
+
+/**
+* Enviar un mensaje por pantalla en caso de ir atras o al adjuntar documentos
+*
+* @return mixed
+*/
+function mensaje(codigo, tipo){
+	if(tipo == 0){
+		if(i > 0){
+			$("#msj").html('Tiene productos seleccionados, ¿Desea eliminarlos e ir atras?');
+			cadena = '<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat "' +  
+				'onclick="atras()">Si</a><a href="#!" class="modal-action ' + 
+				'modal-close waves-effect waves-green btn-flat">No</a>';	
+		}else{
+			atras();
+			return true;
+		}		
+	}else{
+		$("#msj").html('¿Está seguro que sus datos son correctos?, una vez realizada la solicitud no podrá realizar cambios');
+		cadena = '<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat "' +  
+		'onclick="salvarA(\'' + codigo + '\')">Si</a><a href="#!" class="modal-action ' + 
+		'modal-close waves-effect waves-green btn-flat">No</a>';
+	}
+	
+	$("#acciones").html(cadena);
 	$('#modal1').openModal();
 }
+
+
+/**
+* volver a la pagina anterior
+*
+* @return mixed
+*/
+function atras(){	
+	$(location).attr('href', sUrlP + "bienestar/2");
+}
+
 
 
 
@@ -62,10 +109,6 @@ function salvarA(codigo){
 		.fail(function(jqXHR, textStatus) {
 	    	alert(jqXHR.responseText);
 	});		
-}
-
-function atras(){
-	$(location).attr('href', sUrlP + "bienestar/2");
 }
 
 function eliminarR(id){	

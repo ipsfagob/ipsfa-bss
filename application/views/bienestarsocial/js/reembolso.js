@@ -22,7 +22,7 @@ function agregarR(){
 
 	if(monto == "0.00" || concepto == "0"){				
 		Materialize.toast("Debe introducir un monto o seleccionar un concepto", 3000, 'rounded');
-		iniciarCombos();
+		iniciarElementos();
 	}else{
 		$('#total').val(parseFloat($('#total').val()) + parseFloat($('#monto').val()));
 		var linea = $('#concepto option:selected').text() + '|' + $('#monto').val();		
@@ -43,17 +43,61 @@ function agregarR(){
 		cadena += '<br>MONTO: ' + $('#monto').val() + '</p>';
 		
 		$('#dtReembolso').append('<li class="collection-item avatar" id="' + i + '">' + cadena + '</li>');		
-		iniciarCombos();
+		iniciarElementos();
 	}
 }
 
-
+/**
+* Iniciar elementos en cero
+*
+* @return mixed
+*/
 function iniciarElementos(){
 	$('#monto').val('0.00');
 	$('#concepto').val("0");
 	$('select').material_select();
 }
 
+/**
+* Enviar un mensaje por pantalla en caso de ir atras o al adjuntar documentos
+*
+* @return mixed
+*/
+function mensaje(codigo, tipo){
+	if(tipo == 0){
+		if(i > 0){
+			$("#msj").html('Tiene productos seleccionados, ¿Desea eliminarlos e ir atras?');
+			cadena = '<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat "' +  
+				'onclick="atras()">Si</a><a href="#!" class="modal-action ' + 
+				'modal-close waves-effect waves-green btn-flat">No</a>';	
+		}else{
+			atras();
+			return true;
+		}		
+	}else{
+		$("#msj").html('¿Está seguro que sus datos son correctos?, una vez realizada la solicitud no podrá realizar cambios');
+		cadena = '<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat "' +  
+		'onclick="salvarR(\'' + codigo + '\')">Si</a><a href="#!" class="modal-action ' + 
+		'modal-close waves-effect waves-green btn-flat">No</a>';
+	}	
+	$("#acciones").html(cadena);
+	$('#modal1').openModal();
+}
+
+/**
+* volver a la pagina anterior
+*
+* @return mixed
+*/
+function atras(){	
+	$(location).attr('href', sUrlP + "bienestar/1");	
+}
+
+/**
+* volver a la pagina anterior
+*
+* @return mixed
+*/
 function salvarR(codigo){
 	var Reembolso = {};
 	Reembolso['Solicitud'] = Solicitud;
@@ -69,14 +113,10 @@ function salvarR(codigo){
 	});		
 }
 
-function atras(){
-	$(location).attr('href', sUrlP + "bienestar/1");
-}
 
 function eliminarR(id){	
 	$('#' + id).remove();
 	pos = parseInt(id) - 1;
-	alert(pos + ' ID: ' + id + ' NOMBRE: ' + Solicitud[pos].nombre);
 	Solicitud.splice(pos,1);
 	i--;
 	Materialize.toast('Se ha eliminado un elemento de la lista', 4000, 'rounded');
