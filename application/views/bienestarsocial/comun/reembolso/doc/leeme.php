@@ -1,7 +1,16 @@
 
 <div class="row">
 
-		
+<h5>RECAUDOS A ANEXAR PARA TODOS LOS CONCEPTOS:</h5>
+	<ol>
+		<li>COPIA DEL CARNET Y CEDULA DEL MILITAR Y DEL FAMILIAR VIGENTE Y AMPLIADA.</li>
+		<li>FORMULARIO “REEMBOLSO POR SERVICIOS MEDICOS” FIRMADO POR EL MILITAR Y/O SOBREVIVIENTE.</li>
+		<li>COPIA DE LA LIBRETA DE AHORRO O CHEQUE PERSONALIZADO (MILITAR O SOBREVIVIENTE)</li>
+		<li>LAS FACTURAS DEBEN ESTAR INDENTIFICADAS CON EL NOMBRE DEL MILITAR O FAMILIAR INMEDIATO (BENEFICIARIO) A QUIEN SE LE PRESTO EL SERVICIO.</li>
+		<li>SOLO EL AFILIADO QUE RESIDA EN LAS LOCALIDADES DONDE NO EXISTA SUCURSALES DEL IPSFA, DEBERAN DIRIGIR CARTA AL PRESIDENTE DE LA JUNTA ADMINISTRADORA Y ENVIAR TODOS LOS RECAUDOS POR CORREO, INDICANDO DATOS TALES COMO: DIRECCION DE HABITACION, CORREO ELECTRONICO, NUMEROS TELEFONICOS Y DATOS DE LA CUENTA DONDE DESEE QUE SE LE REALIZE EL DEPOSITO DEL REEMBOLSO (NUMERO, TIPO DE CTA. Y BANCO).</li>
+	</ol>
+
+		<!--
 		<h5>RECAUDOS A ANEXAR PARA TODOS LOS CONCEPTOS:</h5>
 		<ol>
 			<li>Solo el afiliado que resida en localidades no exista sucursales del IPSFA, deberá dirigir carta al Presidente de la Junta Administradora y enviar todos los recaudos por correo anexando datos tales como: Dirección de Habitación, Numeros Telefonicos, Nombre del Banco, Números y Tipo  de Cuenta  Bancaria.</li>
@@ -82,3 +91,4 @@ Las facturas tendrán vigencia  de treinta (30) a partir de su emisión.<br>
 No se reembolsan Medicinas.<br>
 El instituto se reserva el derecho de realizar cualquier investigación social a los casos que de acuerdo a su situación se considere pertinente.<br>
 </p>
+-->

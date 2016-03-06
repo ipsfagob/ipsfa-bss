@@ -58,7 +58,6 @@ function maximoValor(concepto, monto){
 	return val;
 }
 
-
 /**
 * Crear Elementos generales
 *

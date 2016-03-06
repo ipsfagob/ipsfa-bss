@@ -177,7 +177,7 @@ class Persona extends CI_Model{
 	* @return string
 	*/
 	protected function generarSelectPersonas($cedula, $codigo = null){
-		$sConsulta = 'SELECT personas.nropersonaa AS oid, * FROM personas
+		$sConsulta = 'SELECT personas.nropersona AS oid, * FROM personas
 		LEFT JOIN telefono_correo ON personas.nropersona=telefono_correo.nropersona
 		LEFT JOIN edo_civil ON personas.edocivilcod=edo_civil.edocivilcod
 		LEFT JOIN direcciones ON personas.nropersona=direcciones.nropersona 
