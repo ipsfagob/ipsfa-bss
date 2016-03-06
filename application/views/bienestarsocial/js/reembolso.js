@@ -1,13 +1,10 @@
 /**
-*
+* Establecer las variables del modulo
 *
 */
 var Solicitud = [];
 var i = 0;
-
-
-
-
+var pubMsj = '';
 
 /**
 * Agregando selección de productos a una lista virtual
@@ -20,13 +17,10 @@ function agregarR(){
 	var concepto = $('#concepto').val();
 	var monto = $('#monto').val();
 	monto = monto.replace(/\./g,'').replace(',','.');
-
 	if($('#monto').val() == "0,00" || concepto == "0"){				
 		Materialize.toast("Debe introducir un monto o seleccionar un concepto", 3000, 'rounded');
 		iniciarElementos();
-	}else{
-		$('#total').val(parseFloat($('#total').val()) + parseFloat(monto));
-		var linea = $('#concepto option:selected').text() + '|' + monto;
+	}else if(maximoValor($('#concepto option:selected').text(), monto) == true){
 		var arr = familiar.split('|');
 		Pedido['codigo'] = arr[0];
 		Pedido['parentesco'] = arr[1];
@@ -34,15 +28,55 @@ function agregarR(){
 		Pedido['concepto'] = $('#concepto option:selected').text();
 		Pedido['monto'] = monto;
 		Solicitud[i++] = Pedido;
-		$('#htotal').html('Total ' + $('#total').val() + ' Bs.');		
-		cadena = '<i class="material-icons red circle tooltipped waves-effect waves-light"' + 
-		' onclick="eliminarR(' + i + ')" title="Eliminar Pedido">delete</i>';
-		cadena += '<span class="title">' + $('#concepto option:selected').text();
-		cadena += '</sapn><p>' + $('#familiar option:selected').text() ;
-		cadena += '<br>MONTO: ' + $('#monto').val() + '</p>';		
-		$('#dtReembolso').append('<li class="collection-item avatar" id="' + i + '">' + cadena + '</li>');		
+		crearElementos();		
 		iniciarElementos();
+	}else{
+		msjMaximo();
 	}
+}
+
+/**
+* Establecer el mensaje en caso de que un concepto exceda el limite
+*
+* @return mixed
+*/
+function maximoValor(concepto, monto){
+	val = false;
+	switch (concepto){
+		case 'LENTES':
+			val = true;
+			if(monto > 50000) {	
+				val = false;
+				iniciarElementos();
+				pubMsj = 'El monto maximo permitido por lentes es de 50.000,00 Bs.';
+			}
+			break;
+
+		default:
+			val = true;
+	} 
+	return val;
+}
+
+
+/**
+* Crear Elementos generales
+*
+* @return mixed
+*/
+function crearElementos(){	
+	$('#total').val('0');
+	$('#dtReembolso').html('<li class="collection-header"><h5>Datos de selección</h5></li>');
+	for(j=0; j<i; j++){	
+		$('#total').val(parseFloat($('#total').val()) + parseFloat(Solicitud[j].monto));		
+		cadena = '<i class="material-icons red circle tooltipped waves-effect waves-light"';
+		cadena += ' onclick="eliminarR(' + j + ')" title="Eliminar Pedido">delete</i>';		
+		cadena += '<span class="title">' + Solicitud[j].concepto;
+		cadena += '</sapn><p>' + Solicitud[j].nombre;		
+		cadena += '<br>MONTO: ' + Solicitud[j].monto + '</p>';		
+		$('#dtReembolso').append('<li class="collection-item avatar" id="' + j + '">' + cadena + '</li>');
+	}	
+	$('#htotal').html('Total ' + $('#total').val() + ' Bs.');
 }
 
 /**
@@ -66,8 +100,7 @@ function mensaje(codigo, tipo){
 		if(i > 0){
 			$("#msj").html('Tiene productos seleccionados, ¿Desea eliminarlos e ir atras?');
 			cadena = '<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat "' +  
-				'onclick="atras()">Si</a><a href="#!" class="modal-action ' + 
-				'modal-close waves-effect waves-green btn-flat">No</a>';	
+				'onclick="atras()">Si</a><a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">No</a>';	
 		}else{
 			atras();
 			return true;
@@ -82,6 +115,17 @@ function mensaje(codigo, tipo){
 	$('#modal1').openModal();
 }
 
+/**
+* Mensaje en el caso de que un concepto exceda su limite
+*
+* @return mixed
+*/
+function msjMaximo(){
+	$("#msj").html(pubMsj);
+	$("#acciones").html('<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Ok</a>');
+	$('#modal1').openModal();
+	return true;
+}
 /**
 * volver a la pagina anterior
 *
@@ -116,17 +160,6 @@ function eliminarR(id){
 	$('#' + id).remove();
 	Solicitud.splice(id,1);
 	i--;
-	$('#total').val('0');
-	$('#dtReembolso').html('<li class="collection-header"><h5>Datos de selección</h5></li>');
-	for(j=1; j<=i; j++){	
-		$('#total').val(parseFloat($('#total').val()) + parseFloat(Solicitud[j].monto));		
-		cadena = '<i class="material-icons red circle tooltipped waves-effect waves-light"';
-		cadena += ' onclick="eliminarR(' + j + ')" title="Eliminar Pedido">delete</i>';		
-		cadena += '<span class="title">' + Solicitud[j].concepto;
-		cadena += '</sapn><p>' + Solicitud[j].nombre;		
-		cadena += '<br>MONTO: ' + Solicitud[j].monto + '</p>';		
-		$('#dtReembolso').append('<li class="collection-item avatar" id="' + j + '">' + cadena + '</li>');		
-	}
-	$('#htotal').html('Total ' + $('#total').val() + ' Bs.');
+	crearElementos();
 	Materialize.toast('Se ha eliminado un elemento de la lista', 4000, 'rounded');	
 }
