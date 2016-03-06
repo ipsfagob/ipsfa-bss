@@ -32,7 +32,7 @@
      </div>
      <div class="input-field col s9 m2 l2">
             <input id="monto" type="text" class="validate" value="0" placeholder="Introduzca un Monto"
-               maxlength="11" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+               maxlength="13" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
 
           <label for="monto">Monto Solicitado</label>
      </div>

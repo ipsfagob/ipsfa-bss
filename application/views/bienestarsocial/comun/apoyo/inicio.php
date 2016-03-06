@@ -18,7 +18,7 @@
   
   <br>
 
-  <ul class="collection with-header" id='dtReembolso'>
+  <ul class="collection with-header" id='dtTotal'>
     <li class="collection-header"><h5 id="htotal">Total 0 Bs.</h5></li>
     
   </ul>
