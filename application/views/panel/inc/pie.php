@@ -8,7 +8,7 @@
 
 <script type="text/javascript">
     var sUrl = 'http://' + window.location.hostname + '/ipsfa-bss';
-	var sUrlP = sUrl + '/index.php/BienestarSocial/';
+	var sUrlP = sUrl + '/index.php/Panel/';
 
     $(document).ready(function(){
 
@@ -26,6 +26,18 @@
 			alignment: 'left' // Displays dropdown with edge aligned to the left of button
 			}
 		);
+
+		$('.dropdown-panel').dropdown({
+			inDuration: 400,
+			outDuration: 225,
+			constrain_width: false, // Does not change width of dropdown to that of the activator
+			hover: false, // Activate on hover
+			gutter: 0, // Spacing from edge
+			belowOrigin: true, // Displays dropdown below the button
+			alignment: 'left' // Displays dropdown with edge aligned to the left of button
+			}
+		);
+
 
     	$(".sidebar-collapse").sideNav({
 	      menuWidth: 300, // Default is 240
@@ -61,14 +73,8 @@
     </script>
 </main>
 <footer class="page-footer" style="background-color:#00345A">
-	<div class="container white-text">
-		<?php 
-		    
-		    echo "SALUDOS, ADMINISTRADOR DEL SISTEMA";
-		    
-		    
-		  ?><br>
-		© 2016 MamonSoft C.A
+	<div class="container white-text">		
+		© 2016 IpsfaNet<br>
 	</div>	
 </footer>
 

@@ -6,4 +6,4 @@
 */cache/!.htaccess
 # Ignorando Configuracion 
 application/config/*
-*public/doc/reembolso/*
+*public/doc/*

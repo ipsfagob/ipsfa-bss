@@ -487,12 +487,13 @@ class BienestarSocial extends CI_Controller {
 		if(isset($_SESSION['cedula'])){
 			$this->load->model('saman/Solicitud', 'Solicitud');
 			//$imagen = $this->Imagen->Salvar();
+			$Solicitud = array('solicitud' => $_POST['Solicitud'], 'responsable' => $_SESSION['nombreRango']);
 			$imagen = array(); //Listado de Imagenes Subidas
 			$arg = array(
 				'codigo' => $_SESSION['oid'],
 				'numero' => $_POST['Codigo'], 
 				'certi' => md5($_SESSION['oid']), 
-				'detalle' => json_encode($_POST['Solicitud']), //Esquema Json Opcional
+				'detalle' => json_encode($Solicitud), //Esquema Json Opcional
 				'recipes' => '',
 				'fecha' => 'now()', 
 				'tipo' => 1, 
@@ -542,12 +543,13 @@ class BienestarSocial extends CI_Controller {
 		if(isset($_SESSION['cedula'])){
 			$this->load->model('saman/Solicitud', 'Solicitud');
 			//$imagen = $this->Imagen->Salvar();
+			$Solicitud = array('solicitud' => $_POST['Solicitud'], 'responsable' => $_SESSION['nombreRango']);
 			$imagen = array(); //Listado de Imagenes Subidas
 			$arg = array(
 				'codigo' => $_SESSION['oid'],
 				'numero' => $_POST['Codigo'], 
 				'certi' => md5($_SESSION['oid']), 
-				'detalle' => json_encode($_POST['Solicitud']), //Esquema Json Opcional
+				'detalle' => json_encode($Solicitud), //Esquema Json Opcional
 				'recipes' => '',
 				'fecha' => 'now()', 
 				'tipo' => 2, 

@@ -145,5 +145,64 @@ class Archivo extends CI_Model{
 		return $cod;
 	}
 
+	/**
+	* Listar los tipos de Documentos del sistema
+	*
+	*/
+	function listarTipoDocumento(){
+		$sConsulta = 'SELECT * FROM tdocumento';
+		$obj = $this->Dbipsfa->consultar($sConsulta);
+		return $obj;
+
+	}
+
+	function listarDirectorio($codigo, $tipo){
+		$doc = array();
+		$carpeta = 'public/doc/' . $tipo . '/' . $codigo;
+	    if(is_dir($carpeta)){
+	        if($dir = opendir($carpeta)){
+	            while(($archivo = readdir($dir)) !== false){
+	                if($archivo != '.' && $archivo != '..' && $archivo != '.htaccess'){
+	                	$archivoTipo = explode('.', $archivo);
+	                    $doc[] = array(
+	                    	'nombre' => $archivo ,
+	                    	'ruta' => base_url() . $carpeta . '/' . $archivo,
+	                    	'tipo' => $archivoTipo[1]
+	                    );
+	                }
+	            }
+	            closedir($dir);
+	        }
+	    }
+ 		return $doc;
+
+	}
+
+	function _obtenerTipoCarpeta($iTipo){
+		$sTipo = '';
+		switch ($iTipo) {
+			case 1:
+				$sTipo = "reembolso";
+				break;
+			case 2:
+				$sTipo = "ayuda";
+				break;
+			default:
+				$sTipo = 'tratamiento';
+				break;
+		}
+		return $sTipo;
+	}
+
+	function listarDocumentos($codigo){
+		$sConsulta = 'SELECT numero, solicitud.tipo, coddoc, archivo.oid, archivo.nombre AS archivo, tdocumento.nombre AS doc FROM solicitud 
+		INNER JOIN archivo ON solicitud.numero=archivo.codigo 
+		INNER JOIN tdocumento ON tdocumento.oid=archivo.coddoc
+		WHERE solicitud.numero=\'' . $codigo . '\'';
+		$obj = $this->Dbipsfa->consultar($sConsulta);
+		return $obj;
+		
+	}
+
 	
 }

@@ -56,11 +56,29 @@
       .botones-solicitud{height:auto;width:100%;box-shadow: 0 0 13px 1px #00345A;cursor:pointer;padding:1px;}
 	  .botones-solicitud:hover{height:auto;width:100%;box-shadow: 0 0 25px 1px #FFB59F;cursor:pointer;padding:1px;}
 	  .email-unread .email-title {font-weight: 500;}
+
+	  /* Rules for sizing the icon. */
+	  .material-icons.md-18 { font-size: 18px; }
+	  .material-icons.md-24 { font-size: 24px; }
+	  .material-icons.md-36 { font-size: 36px; }
+	  .material-icons.md-48 { font-size: 48px; }
+	  .material-icons.md-64 { font-size: 64px; }
+	  .material-icons.md-128 { font-size: 128px; }
+	  .material-icons.md-200 { font-size: 200px; }
+	  .material-icons.md-254 { font-size: 254px; }
+
+		/* Rules for using icons as black on a light background. */
+		.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+		.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+		/* Rules for using icons as white on a dark background. */
+		.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+		.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
   </style>
   
     </head>
 
-    <body>
+    <body class=" grey lighten-4">
 	<main>
 
 	<div class="navbar-fixed">
@@ -78,17 +96,13 @@
 				  <li><a href="<?php echo base_url(); ?>index.php/Panel/farmacia/me">
 						<font class="black-text" >Medicamentos</font><i class="mdi-maps-local-hospital left red-text "></i></a>
 					</li>
-					<li><a href="<?php echo base_url(); ?>index.php/Panel/bienestar/1">
-					  	<font class="black-text" >Reembolsos</font><i class="mdi-action-assignment left blue-text text-darken-3"></i></a>
-					</li>
-					<li><a href="<?php echo base_url(); ?>index.php/Panel/bienestar/2">
-					  	<font class="black-text" >Apoyos</font><i class="mdi-action-assignment-late left blue-text text-darken-3"></i></a>
-					</li>							
+											
 					<li class="divider"></li>				
-					<li><a href="<?php echo base_url(); ?>index.php/PanelPanel/pendientes">
+					<li><a href="<?php echo base_url(); ?>index.php/Panel
+					/solicitudes">
 						<font class="black-text" >Solicitudes</font><i class="mdi-action-alarm-add left blue-text text-darken-3"></i></a>							
 					</li>
-					<li><a href="<?php echo base_url(); ?>index.php/PanelPanel/citas">
+					<li><a href="<?php echo base_url(); ?>index.php/Panel/citas">
 					<font class="black-text" >Citas</font><i class="mdi-action-lock left blue-text text-darken-3">
 					</i></a></li>				
 					
@@ -105,12 +119,7 @@
 					<li><a href="<?php echo base_url(); ?>index.php/Panel/medicamentos">
 						Medicamentos<i class="mdi-maps-local-hospital left blue-text"></i></a>
 					</li>
-					<li><a href="<?php echo base_url(); ?>index.php/Panel/apoyos">
-					  	Apoyos<i class="mdi-action-assignment-late left blue-text"></i></a>
-					</li>	
-					<li><a href="<?php echo base_url(); ?>index.php/Panel/reembolsos">
-					  	Reembolsos<i class="mdi-action-assignment left blue-text"></i></a>
-					</li>							
+											
 					<li class="divider"></li>				
 					<li><a href="<?php echo base_url(); ?>index.php/Panel/solicitudes">
 						Solicitudes<i class="mdi-action-alarm-add left blue-text"></i></a>							
@@ -122,19 +131,23 @@
 					</li>
 				</ul>
 				
-				<ul class="right hide-off-med-and-down">
-
-					
-					<li><a href="<?php echo base_url(); ?>index.php/Panel/salir"
-					class="tooltipped" data-position="bottom" data-delay="10" data-tooltip="Volver al menu">
-						<i class="mdi-action-settings-power"></i></a>
+				<ul class="right hide-off-med-and-down">					
+					<li><a href="<?php echo base_url(); ?>index.php/Afiliacion/actualizarDatos" >
+						<i class="material-icons left">account_circle</i></a>
 					</li>
 				</ul>
 
 				<ul class="right hide-on-med-and-down">
-					<li><a href="<?php echo base_url(); ?>index.php/Panel/index">
-					<i class="mdi-action-home"></i></a></li>
-					<li><a class="dropdown-button" href="#!" data-activates="solicitudes1">
+					<li><a href="<?php echo base_url(); ?>index.php/Panel/index" >
+						<i class="right"></i>Carlos Peña</a>
+					</li>
+					<li><a href="<?php echo base_url(); ?>index.php/Panel/index" >
+						<i class="mdi-action-home"></i></a>
+					</li>
+					<li><a href="<?php echo base_url(); ?>index.php/Panel/index" >
+						<i class="material-icons">notifications</i></a>
+					</li>
+					<li><a class="dropdown-panel" href="#!" data-activates="panelControl">
 						<i class="mdi-navigation-apps"></i></a>
 					</li>
 									
@@ -148,22 +161,44 @@
 
 
 
-	<div class="fixed-action-btn horizontal" style="bottom: 45px; right: 24px;">
-	    <a class="btn-floating btn-large blue darken-3">
-	      <i class="large mdi-action-view-module"></i>
-	    </a>
-	    <ul>
-	      <li><a href="<?php echo base_url(); ?>index.php/Panel/pendientes"  
-	      	class="btn-floating blue tooltipped" data-position="top" data-delay="10" data-tooltip="Solicitud">
-	      	<i class="material-icons">library_books</i></a>
-	      </li>
+	
 
-	      <li><a href="<?php echo base_url(); ?>index.php/Panel/ayudas" 
-	      		class="btn-floating tooltipped blue"  data-position="top" data-delay="10" data-tooltip="Reembolsos y Apoyos"><i class="mdi-action-description"></i></a>
-	      </li>
-	      
-	      <li><a href="<?php echo base_url(); ?>index.php/Panel/medicamentos" 
-	      		class="btn-floating blue tooltipped" data-position="top" data-delay="10" data-tooltip="Solicitud Medicamentos"><i class="mdi-editor-publish"></i></a>
-	      </li>
-	    </ul>
-	  </div>
+	<div id="datos" class="dropdown-content" style="width: 400px">
+		<div class="row">
+			<div class="col s4">Nombre</div>
+			<div class="col s4">Apellido</div>
+		</div>
+	</div>
+
+			<ul id="panelControl" class="dropdown-content">
+		    <li>
+		      <a>
+		      	<i class="material-icons light-blue-text text-darken-4 left">account_circle</i>Actualización de Datos
+		      </a>
+		    </li>
+		    <li>
+		      <a>
+		      	<i class="material-icons lime-text text-darken-2 left">group</i>Afiliación
+		      </a>
+		    </li>
+		    <li>
+		      <a>
+		      	<i class="material-icons red-text text-lighten-1 left">local_convenience_store</i>Bienestar Social
+		      </a>
+		    </li>
+		    <li>
+		    	<a>
+		      		<i class="material-icons amber-text left">credit_card</i>Crédito
+		      	</a>
+		    </li>
+		    <li>
+		      <a>
+		      	<i class="material-icons md-36 green-text left">access_alarms</i>Citas Automatizadas
+		      </a>
+		    </li>
+		    <li>
+		      <a>
+		      	<i class="material-icons md-36 brown-text left">local_printshop</i>Impresión de Planillas y Netos
+		      </a>
+		    </li>
+		 </ul>

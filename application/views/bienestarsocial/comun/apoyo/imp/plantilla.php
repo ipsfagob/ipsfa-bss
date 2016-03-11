@@ -162,7 +162,7 @@
 			$monto = 0;
 			foreach ($Solicitud->rs as $k => $val) {
 				$arr = json_decode($val->detalle);		
-				foreach ($arr as $c => $v) {
+				foreach ($arr->solicitud as $c => $v) {
 					echo '<tr class="doble">
 							<td>' . $v->parentesco . '</td>
 							<td>' . $v->nombre . '</td>

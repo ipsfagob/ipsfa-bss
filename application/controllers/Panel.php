@@ -25,10 +25,21 @@ class Panel extends CI_Controller{
 	function __construct(){
 		parent::__construct();
 		$this->load->helper('url');
+		$this->load->model('panel/Mpanel');
+	}
+
+	function validarUsuario(){
+		
+		$this->index();
 	}
 
 	function index(){
+		
 		$this->load->view('panel/inicio');
+	}
+
+	function login(){
+		$this->load->view('afiliacion/login');
 	}
 
 	function tratamientos(){
@@ -37,6 +48,11 @@ class Panel extends CI_Controller{
 
 	function medicamentos(){
 
+	}
+
+	function solicitudes(){
+		$data['Solicitudes'] = $this->Mpanel->cosultarSolicitudes();
+		$this->load->view('panel/solicitudes', $data);	
 	}
 
 
@@ -55,6 +71,42 @@ class Panel extends CI_Controller{
 	function salir(){
 
 	}
+
+	function solicitudesConfigurar($id, $tipo = ""){
+		$this->load->model('comun/Archivo');
+
+		$data['detalles'] = $this->listarDocumentos($id);
+		$data['combo'] = $this->listarTipoDocumento();
+		$data['ruta'] = base_url() . "public/doc/" . $this->Archivo->_obtenerTipoCarpeta($tipo) . "/" . $id . '/';
+		$data['codigo'] = $id;
+		$this->load->view('panel/config_solicitudes', $data);
+	}
+
+
+	function listarDirectorio(){
+		
+		print (json_encode($this->Archivo->listarDirectorio('00000000', 'reembolso')));
+	}
+	
+	/**
+	* Listar los combos de selección
+	*
+	*/
+	function listarTipoDocumento(){
+		
+		return $this->Archivo->listarTipoDocumento()->rs;
+	}
+
+
+	/**
+	* Listar los documentos adjuntos segun sea el caso
+	*
+	*/
+	function listarDocumentos($codigo){
+		$this->load->model('comun/Archivo');
+		return $this->Archivo->listarDocumentos($codigo)->rs;
+	}
+
 
 	function __destruct(){
 
