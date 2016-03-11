@@ -24,7 +24,7 @@ $this->load->view("panel/inc/cabecera.php");
 					      ' . tipo($val->tipo) . '
 					      <span class="title">CODIGO: <b>' . $val->numero . '</b></span>
 					      <p>FECHA: ' . substr($val->fecha,0,10 ). '
-					         RESPONSABLE: ' . $arr->responsable . '
+					         AFILIADO: ' . $arr->responsable . '
 					      </p>				       
 					      	<a href="' . base_url() . 'index.php/Panel/solicitudesConfigurar/' . $val->numero . '/' . $val->tipo . '" class="secondary-content  waves-effect waves-light" >' . $icon . '</a>
 					    </li>
