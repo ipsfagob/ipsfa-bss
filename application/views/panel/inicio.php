@@ -12,8 +12,10 @@ $this->load->view("panel/inc/cabecera.php");
 	<div class="col s12 m12 l12">
 		 <ul class="collapsible" data-collapsible="accordion">
 		    <li>
-		      <div class="collapsible-header"> 
-		      	<i class="material-icons md-36 light-blue-text text-darken-4">account_circle</i>Actualización de Datos
+		      <div class="collapsible-header">
+		      	<a href="<?php echo base_url(); ?>index.php/Afiliacion/actualizacionDatos">
+		      		<i class="material-icons md-36 light-blue-text text-darken-4">account_circle</i>Actualización de Datos
+		      	</a>
 		      </div>		      
 		    </li>
 		    <li>

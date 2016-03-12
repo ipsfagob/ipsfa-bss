@@ -93,6 +93,7 @@ class Login extends CI_Controller {
 	}
   	
   	function salir(){
+  		session_destroy();
   		$this->index();
   	}
 
