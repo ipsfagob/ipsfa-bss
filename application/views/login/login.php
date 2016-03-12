@@ -29,8 +29,6 @@
 		  }
 
 		  .material-icons.md-128 { font-size: 128px; }
-	  .material-icons.md-200 { font-size: 200px; }
-	  .material-icons.md-254 { font-size: 254px; }
       </style>
     </head>
 
@@ -41,31 +39,34 @@
 				<div class="row center">
 					<div class="col s1 m3 l3">&nbsp;</div>
 					<div class="col s10 m5 l5 ">
-						<h4>IpsfaNet</h4><br>
+						<h4>IpsfaNet</h4>
 						<a href="#!">Si es primera vez que accede a este sitio has click aquí</a>
 						<div class="card grey lighten-4" style="padding: 15px">
-						    <div class="card-image waves-effect waves-block waves-light center">
-						      <i class="material-icons md-128 grey-text">account_circle</i>
+						    <div class="card-image waves-effect waves-block waves-light">
+						      <i class="material-icons md-128 grey-text" style="padding: 0px" >account_circle</i>
 						       <p> 
-						        <div class="input-field col s12">							       
-							          <input id="icon_prefix" type="text" class="validate">
-							          <label for="icon_prefix">Usuario</label>
+						       	  <form action="validarUsuario" method="POST">
+						        	<div class="input-field col s12">							       
+							          <input id="usuario" name="usuario" type="text" class="validate">
+							          <label for="usuario">Usuario</label>
 							        </div>
 							        <div class="input-field col s12">
 							          
-							          <input id="icon_telephone" type="tel" class="validate">
-							          <label for="icon_telephone">Contraseña</label>
+							          <input id="password" name="password" type="password" class="validate">
+							          <label for="password">Contraseña</label>
 							        </div>
 							        <div class="col s12" style="text-align: right;">
-							        	<button class="btn waves-effect waves-light blue" type="button"  
-							        	onclick="validarUsuario()">Aceptar
-									</button><br><br>
+							        	<button class="btn waves-effect waves-light blue" type="submit">Entrar
+									</button>
 							        </div>
+							        </form>
 						      </p>
 						    </div>
 						   
 			  			</div>
 			  			<a>¿Olvido su contraseña?</a>
+			  			<br>
+			  			Una sola cuenta IpsfaNet para todos los servicios del IPSFA 
 					</div>
 					<div class="col s1 m3 l3">&nbsp;</div>
 				</div>						
@@ -76,6 +77,13 @@
 		<script type="text/javascript" src="<?php echo base_url(); ?>public/js/materialize.min.js"></script>
 
 		<script type="text/javascript" src="<?php echo base_url(); ?>application/views/afiliacion/js/login.js"></script>
+		<footer class="page-footer grey lighten-4">
+	<div class="container brown-text center">
 		
+		<a>Acerca de IpsfaNet</a> | <a>Privacidad</a>  | <a>Condiciones</a> 
+	
+	</div>
 	</body>
+
+</footer>
 </html>

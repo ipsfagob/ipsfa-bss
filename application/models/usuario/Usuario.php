@@ -156,9 +156,10 @@ class Usuario extends CI_Model {
   
   function conectar() {
     $this -> load -> database();
-    $consulta = 'SELECT usuario.oid, usuario.nomb AS nombre, apel AS apellido, corr AS correo, perf AS perfil 
-    FROM usuario 
-				 WHERE seud=\'' . $this -> sobreNombre . '\' AND clav=\'' . $this -> _claveEncriptada() . '\' LIMIT 1;';
+    $consulta = 'SELECT *  
+    FROM claves_personales
+    INNER JOIN personas ON claves_personales.nropersona=personas.nropersona	 
+    WHERE seud=\'' . $this -> sobreNombre . '\' AND clav=\'' . $this -> _claveEncriptada() . '\' LIMIT 1;';
     $rs = $this -> db -> query($consulta);
     $this -> db -> close();
     unset($this -> db);

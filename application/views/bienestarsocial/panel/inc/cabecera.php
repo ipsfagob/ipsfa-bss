@@ -63,7 +63,6 @@
 	  .material-icons.md-36 { font-size: 36px; }
 	  .material-icons.md-48 { font-size: 48px; }
 	  .material-icons.md-64 { font-size: 64px; }
-	  .material-icons.md-100 { font-size: 100px; }
 	  .material-icons.md-128 { font-size: 128px; }
 	  .material-icons.md-200 { font-size: 200px; }
 	  .material-icons.md-254 { font-size: 254px; }
@@ -75,33 +74,6 @@
 		/* Rules for using icons as white on a dark background. */
 		.material-icons.md-light { color: rgba(255, 255, 255, 1); }
 		.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
-
-
-		.button { /* clase general */
-		  border: 1px solid #dedede;
-		  border-radius: 3px;
-		  color: #555;
-		  font: 12px/12px HelveticaNeue, Arial;
-		  padding: 8px 11px;
-		  text-decoration: none;
-		}
-
-		.ContactoDetalle{
-			font-size: 12px;
-			color: #ccc;
-			overflow: hidden; height: 24px;
-		}
-		.ContactoDetalle span{
-			float: left; 
-			margin-top: -1.2em;
-		}
-		.ContactoDetalle a{
-			font-size: 11px;
-			color: blue;
-		}
-
-
-
   </style>
   
     </head>
@@ -154,44 +126,32 @@
 					</li>
 					<li><a href="<?php echo base_url(); ?>index.php/Panel/tratamientos">
 					Citas<i class="mdi-action-lock left blue-text"></i></a></li>
-					<li><a href="<?php echo base_url(); ?>index.php/Panel/salir" class="tooltipped" data-position="top" data-delay="10" data-tooltip="Cerrar Sesión">
+					<li><a href="<?php echo base_url(); ?>index.php/Panel/salir" class="tooltipped" data-position="top" data-delay="10" data-tooltip="Volver al menu">
 						Salir<i class="mdi-action-settings-power left red-text"></i> </a>
 					</li>
 				</ul>
 				
-				<ul class="right hide-off-med-and-down">
-
-					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/salir"
-					class="tooltipped hide-on-large-only" data-position="bottom" data-delay="10" data-tooltip="Salir">
-						<i class="mdi-action-settings-power"></i></a>
+				<ul class="right hide-off-med-and-down">					
+					<li><a href="<?php echo base_url(); ?>index.php/Afiliacion/actualizarDatos" >
+						<i class="material-icons left">account_circle</i></a>
 					</li>
-					
 				</ul>
 
 				<ul class="right hide-on-med-and-down">
-					<li>
-						<i class="right"></i><?php echo $_SESSION['nombreRango'];?>
+					<li><a href="<?php echo base_url(); ?>index.php/Panel/index" >
+						<i class="right"></i>Carlos Peña</a>
 					</li>
-					
-					<li><a class="dropdown-panel" 
-						   data-activates="notificaciones">						
-						<i class="material-icons">notifications</i>
-
-						</a>
+					<li><a href="<?php echo base_url(); ?>index.php/Panel/index" >
+						<i class="mdi-action-home"></i></a>
 					</li>
-					
+					<li><a href="<?php echo base_url(); ?>index.php/Panel/index" >
+						<i class="material-icons">notifications</i></a>
+					</li>
 					<li><a class="dropdown-panel" href="#!" data-activates="panelControl">
 						<i class="mdi-navigation-apps"></i></a>
 					</li>
-					<li><a  
-					class="dropdown-panel btn-medium waves-effect waves-light" 
-						   data-activates="datos" >
-						<i class="material-icons">account_circle</i></a>
-					</li>
-
-
+									
 				</ul>
-
 				
 				
 				
@@ -203,69 +163,42 @@
 
 	
 
-	<div id="datos" class="dropdown-content" style="width: 350px; padding-top: 15px; padding-bottom: 0px;">
-		
-			<div style="padding: 1em; padding-left: 0px; float: left;  margin-bottom: 10px; overflow: hidden;">
-				<i class="material-icons md-100  brown-text text-lighten-4">account_circle</i>
-			</div>
-			<div  class="ContactoDetalle">
-				<span>Teniente Coronel</span>
-			</div>
-			<div  class="ContactoDetalle">
-				<span>Telefono: XXXX-XXXXXXX</span></div>
-			
-			<div class="ContactoDetalle">
-			<span>Correo: a@gmail.com</span></div>
-		
-			<div class="ContactoDetalle" style="height: 48px">
-			<span style="float: right; padding-right: 30px"><a href="#!">+ Acerca de IpsfaNet</a></span></div>
-			
-			<div class="grey lighten-5" style="height: 48px; border: 1px solid #CCC">
-				<span style="float: right; padding: 7px; padding-top: 9px; padding-right: 20px">
-				<a class="button " href="#">Salir del Sistema</a></span>
-				
-			</div>
-		
-	</div>
-
-	<div id="notificaciones" class="dropdown-content" style="width: 350px; padding-top: 15px; padding-bottom: 0px;">
-
-		<div class="ContactoDetalle grey lighten-5" style="height: 36px; border: 1px solid #CCC">
-				<span style="float: right; padding: 5px; padding-top: 6px; padding-right: 20px">
-				<a href="#">+ ver más</a></span>			
+	<div id="datos" class="dropdown-content" style="width: 400px">
+		<div class="row">
+			<div class="col s4">Nombre</div>
+			<div class="col s4">Apellido</div>
 		</div>
 	</div>
 
-
-	<ul id="panelControl" class="dropdown-content">
-		<li>
-			<a>
-		    	<i class="material-icons light-blue-text text-darken-4 left">account_circle</i>Actualización de Datos
-		    </a>
-		</li>
-		<li>
-	      <a>
-	      	<i class="material-icons lime-text text-darken-2 left">group</i>Afiliación
-	      </a>
-	    </li>
-	    <li>
-	      <a>
-	      	<i class="material-icons red-text text-lighten-1 left">local_convenience_store</i>Bienestar Social
-	      </a>
-	    </li>
-	    <li>
-	    	<a>
-	      		<i class="material-icons amber-text left">credit_card</i>Crédito
-	      	</a>
-	    </li>
-	    <li>
-	      <a>
-	      	<i class="material-icons md-36 green-text left">access_alarms</i>Citas Automatizadas
-	      </a>
-	    </li>
-	    <li>
-	      <a>
-	      	<i class="material-icons md-36 brown-text left">local_printshop</i>Impresión de Planillas y Netos
-	      </a>
-	    </li>
-	 </ul>
+			<ul id="panelControl" class="dropdown-content">
+		    <li>
+		      <a>
+		      	<i class="material-icons light-blue-text text-darken-4 left">account_circle</i>Actualización de Datos
+		      </a>
+		    </li>
+		    <li>
+		      <a>
+		      	<i class="material-icons lime-text text-darken-2 left">group</i>Afiliación
+		      </a>
+		    </li>
+		    <li>
+		      <a>
+		      	<i class="material-icons red-text text-lighten-1 left">local_convenience_store</i>Bienestar Social
+		      </a>
+		    </li>
+		    <li>
+		    	<a>
+		      		<i class="material-icons amber-text left">credit_card</i>Crédito
+		      	</a>
+		    </li>
+		    <li>
+		      <a>
+		      	<i class="material-icons md-36 green-text left">access_alarms</i>Citas Automatizadas
+		      </a>
+		    </li>
+		    <li>
+		      <a>
+		      	<i class="material-icons md-36 brown-text left">local_printshop</i>Impresión de Planillas y Netos
+		      </a>
+		    </li>
+		 </ul>
