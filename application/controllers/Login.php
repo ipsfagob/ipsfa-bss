@@ -30,7 +30,6 @@ class Login extends CI_Controller {
   	function ingresar() {
 		$this->load->view ( 'login/login');
 	}
-
 	protected function inicio(){
 		$this->load->view ('panel/inicio');
 	}
@@ -71,7 +70,32 @@ class Login extends CI_Controller {
 			}
 		}
 	}
+
+	/**
+	*
+	*
+	*/
+	function identificacion(){
+		$this->load->view('login/afiliacion/frmIdentificacion');
+	}
 	
+	/**
+	*
+	*
+	*/
+	function confirmar(){
+		$this->load->view('login/afiliacion/frmConfirmar');
+	}
+
+	
+	/**
+	*
+	*
+	*/	
+	function crear(){
+		$this->load->view('login/afiliacion/frmCrear');
+	}
+
 	public function registrarUsuario(){
 		$this -> load -> model("usuario/usuario","usuario");
 		$usuario = new $this -> usuario;
