@@ -25,6 +25,7 @@ class Panel extends CI_Controller{
 	function __construct(){
 		parent::__construct();
 		$this->load->helper('url');
+		$this->load->library('session');
 		$this->load->model('panel/Mpanel');
 	}
 
@@ -34,18 +35,23 @@ class Panel extends CI_Controller{
 	}
 
 	function index(){
+		if(isset($_SESSION['cedula'])){
+			$this->load->view('panel/inicio');	
+		}else{
+			$this->salir();			
+		}
 		
-		$this->load->view('panel/inicio');
 	}
 
 	function login(){
-		$this->load->view('afiliacion/login');
+		$this->load->view('login/login');
 	}
 
 
 
 	function salir(){
-
+		session_destroy();
+		$this->login();
 	}
 
 

@@ -68,6 +68,17 @@ class Dbipsfa extends CI_Model {
 		}
 		return (object)$this->err;
 	}
+	
+
+	/**
+	* Permite Insertar Datos por arreglos
+	*
+	* @param string
+	* @return array
+	*/
+	function insertarArreglo($tabla, $datos){
+		$this->__DBipsfa->insert($tabla, $datos);
+	}
 
 	function __destruct(){
 		unset($this->__DBipsfa);

@@ -169,13 +169,16 @@
 				<i class="material-icons md-100  brown-text text-lighten-4">account_circle</i>
 			</div>
 			<div  class="ContactoDetalle">
-				<span>Teniente Coronel</span>
+				<span>Ultima Conexión: </span>
 			</div>
 			<div  class="ContactoDetalle">
 				<span>Telefono: XXXX-XXXXXXX</span></div>
 			
 			<div class="ContactoDetalle">
-			<span>Correo: a@gmail.com</span></div>
+			<span>
+				<?php if($_SESSION['estatus'] == 0){
+					echo '<i class="material-icons red-text md-18 left">warning</i>';
+				};?><?php echo $_SESSION['correo'];?></span></div>
 		
 			<div class="ContactoDetalle" style="height: 48px">
 			<span style="float: right; padding-right: 30px"><a href="#!">+ Acerca de IpsfaNet</a></span></div>

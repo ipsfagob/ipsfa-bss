@@ -50,8 +50,8 @@
 					            </div>
 					            <div class="card-content" style="padding: 0px">	              		
 			                      <div class="input-field col s12">
-			                        <input id="cedula" name="cedula" type="text" class="validate" required>
-			                        <label for="cedula">Usuario o Correo</label>
+			                        <input id="usuario" name="usuario" type="text" class="validate" required>
+			                        <label for="usuario">Cédula o Usuario</label>
 			                      </div>
 			                      <div class="input-field col s12">                        
 			                        <input id="clave" name="clave" type="password" class="validate" required>

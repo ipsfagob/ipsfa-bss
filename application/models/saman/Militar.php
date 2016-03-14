@@ -93,6 +93,8 @@ class Militar extends CI_Model{
 
 	/**
 	* Consultar y Mapear un objeto (personas) de la BD SAMAN
+	*
+	* @access public
 	* @param string
 	* @return Persona
 	*/
@@ -117,6 +119,32 @@ class Militar extends CI_Model{
 			}
 		}		
 		return $arr;
+	}
+
+	/**
+	* Obtener un objeto de tipo Militar
+	*
+	* @access public
+	* @param string
+	* @return Persona
+	*/
+	public function obtener($codigo){
+		$sConsulta = 'SELECT * FROM pers_dat_militares WHERE nropersona = \'' . $codigo . '\' LIMIT 1';
+		$arr = $this->Dbsaman->consultar($sConsulta);
+		if($arr->code == 0){
+			foreach ($arr->rs as $clv => $val) {
+				$Componente = new $this->MComponente;
+				$Componente->codigo = $val->componentecod;
+				$Componente->codigoRango = strtoupper($val->gradocod);
+
+				$this->Componente = $Componente;	
+				
+				$this->fechaIngreso = $val->fchingcomponente;
+				$this->fechaAscenso = $val->fchultimoascenso;
+				$this->fechaPromocion = $val->fchpromocion;
+			}
+		}		
+		return $this;
 	}
 
 }

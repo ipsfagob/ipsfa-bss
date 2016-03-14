@@ -25,7 +25,7 @@ $(document).ready(function(){
 		close: 'Aceptar',
     	selectMonths: true, // Creates a dropdown to control month
     	selectYears: 90, // Creates a dropdown of 15 years to control year
-    	format: 'dd/mm/yyyy',
+    	format: 'yyyy/mm/dd',
     	formatSubmit: 'yyyy/mm/dd',
     	min: new Date(1910,01,01),
   		max: new Date(2016,12,31)
@@ -34,4 +34,12 @@ $(document).ready(function(){
 
 function validarUsuario(){	
 	
+}
+
+function validarCorreo(){
+
+}
+
+function validarClave(){
+
 }

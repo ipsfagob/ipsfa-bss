@@ -18,11 +18,11 @@ $this->load->view("login/afiliacion/inc/cabecera.php");
 			            </div>
 			            <div class="card-content" style="padding: 0px">	              		
 	                      <div class="input-field col s12">
-	                        <input id="cedula" name="cedula" type="text" class="validate">
+	                        <input id="cedula" name="cedula" type="text" class="validate" required>
 	                        <label for="cedula">Cédula de Identidad</label>
 	                      </div>
 	                      <div class="input-field col s12">                        
-	                        <input id="fecha" name="fecha" type="date" class="datepicker" >
+	                        <input id="fecha" name="fecha" type="date" class="datepicker" required>
 	                        <label for="fecha">Fecha de Nacimiento</label>
 	                      </div>
 	                    

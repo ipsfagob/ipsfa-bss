@@ -39,7 +39,7 @@ class Usuario extends CI_Model {
 
   var $correo = '';
 
-  var $celular = '';
+  var $respuesta = '';
 
   var $telefono = '';
 
@@ -49,7 +49,9 @@ class Usuario extends CI_Model {
 
   var $clave;
 
-  var $perfil;
+  var $estatus = 0;
+
+  var $perfil = '';
 
   var $listaPrivilegios = array();
 
@@ -57,23 +59,23 @@ class Usuario extends CI_Model {
 
   function __construct() {
     parent::__construct();
+    $this->load->model('comun/Dbipsfa');
   }
 
   /**
    *
    */
   function registrar() {
-    $this -> load -> database();
     $data = $this -> mapearObjeto();
-    $this -> db -> insert('usuario', $data);
-    $arr[] = array('err' => $this -> db -> _error_number(), 'msj' => $this -> db -> _error_message());
-    $codigo = $this -> existe($this -> cedula, $this -> db);
-    if ($codigo > 0)
-      $this -> db -> insert('_usuarioperfil', array('oidu' => $codigo, 'oidp' => 2));
-    $arr[] = array('err' => $this -> db -> _error_number(), 'msj' => $this -> db -> _error_message());
-    $this -> db -> close();
-    unset($this -> db);
-    return $arr;
+    $this->Dbipsfa->insertarArreglo('usuario', $data);
+    
+    $val = FALSE;
+    $codigo = $this -> existe();
+    if ($codigo > 0){
+      $this->Dbipsfa->insertarArreglo('_usuarioperfil', array('oidu' => $codigo, 'oidp' => 2));
+      $val = TRUE;
+    }
+    return $val;
   }
 
   /**
@@ -83,20 +85,18 @@ class Usuario extends CI_Model {
    */
   private function mapearObjeto() {
     $data = array( //
-    'oid' => $this -> identificador, //
-    'tipo' => $this -> tipo, //
-    'cedu' => $this -> cedula, //
-    'nomb' => $this -> nombre, //
-    'apel' => $this -> apellido, //
-    'dire' => $this -> direccion, //
-    'seud' => $this -> sobreNombre, //
-    'clav' => md5($this -> clave), //
-    'corr' => $this -> correo, //
-    'celu' => $this -> celular, //
-    'telf' => $this -> telefono, //
-    'empr' => $this -> empresa, //
-    'perf' => $this -> perfil, //
-    'pagi' => $this -> pagina, //
+      //'oid' => $this -> identificador, //
+      'tipo' => $this->tipo, //
+      'cedu' => $this->cedula, //
+      'nomb' => $this->nombre, //
+      'seud' => $this->sobreNombre, //
+      'clav' => md5($this->clave), //
+      'corr' => $this->correo,
+      'resp' => $this->respuesta,
+      'empr' => $this->empresa, //
+      'perf' => $this->perfil, //
+      'pagi' => $this->pagina, //
+      'esta' => $this->estatus
     );
     return $data;
   }
@@ -108,11 +108,11 @@ class Usuario extends CI_Model {
    * @param CI_DB
    * @return int
    */
-  function existe($cedula, $db) {
+  public function existe() {
     $codigo = -1;
-    $consulta = 'SELECT oid FROM usuario WHERE cedu =\'' . $cedula . ' \' LIMIT 1';
-    $rs = $db -> query($consulta) -> result();
-    foreach ($rs as $clv => $val) {
+    $consulta = 'SELECT oid FROM usuario WHERE cedu =\'' . $this -> cedula . ' \' LIMIT 1';
+    $obj = $this->Dbipsfa->consultar($consulta);
+    foreach ($obj->rs as $clv => $val) {
       $codigo = $val -> oid;
     }
     return $codigo;
@@ -123,12 +123,12 @@ class Usuario extends CI_Model {
     $valor = FALSE;
     if ($this -> _evaluarSobreNombre() == TRUE && $this -> clave != '') {
       $rs = $this -> conectar();
-      if (count($rs) > 0) {
-        foreach ($rs as $fila => $valor) {
-          $this -> perfil = $valor -> perfil;
-          $this -> nombre = $valor -> nombre;
-          $this -> correo = $valor -> correo;
-          $this -> identificador = $valor -> oid;
+      if ($rs->cant != 0) {
+        foreach ($rs->rs as $fila => $valor) {
+          $this->nombre = $valor->nomb;
+          $this->cedula = $valor->cedu;
+          $this->correo = $valor->corr;
+          $this->estatus = $valor->esta;
         }
         $valor = TRUE;
       }
@@ -155,15 +155,14 @@ class Usuario extends CI_Model {
   }
   
   function conectar() {
-    $this -> load -> database();
+    
     $consulta = 'SELECT *  
-    FROM claves_personales
-    INNER JOIN personas ON claves_personales.nropersona=personas.nropersona	 
-    WHERE seud=\'' . $this -> sobreNombre . '\' AND clav=\'' . $this -> _claveEncriptada() . '\' LIMIT 1;';
-    $rs = $this -> db -> query($consulta);
-    $this -> db -> close();
-    unset($this -> db);
-    return $rs -> result();
+    FROM usuario
+    WHERE (seud=\'' . $this -> sobreNombre . '\' OR corr=\'' . $this -> sobreNombre . '\' OR cedu=\'' . $this -> sobreNombre . '\') AND clav=\'' . $this -> _claveEncriptada() . '\' LIMIT 1;';
+   
+    $obj = $this->Dbipsfa->consultar($consulta);
+    
+    return $obj;
   }
 
   function cargarPrivilegios() {
