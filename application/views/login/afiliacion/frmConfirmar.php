@@ -19,7 +19,7 @@ $this->load->view("login/afiliacion/inc/cabecera.php");
 			              <p>
 	                      <div class="input-field col s12" style="padding-top: 0px">
 	                        <input id="promocion" name="promocion" type="text" class="validate">
-	                        <label for="promocion">Año de promoción (1830)</label>
+	                        <label for="promocion">AÑO DE PROMOCION (1830)</label>
 	                      </div>
 	                      <div class="input-field col s12">                        
 	                        <select id="componente"  name="componente">
@@ -28,7 +28,7 @@ $this->load->view("login/afiliacion/inc/cabecera.php");
 	                        	<option value="AV">AVIACION</option>
 	                        	<option value="GN">GUARDIA NACIONAL</option>
 	                        </select>
-	                        <label>Seleccione su componente</label>
+	                        <label>SELECCIONE SU COMPONENTE</label>
 	                      </div>
 	                      <div class="input-field col s12">                        
 	                        <select id="apellido"  name="apellido">
