@@ -136,8 +136,11 @@ class Login extends CI_Controller {
 		
 	}
 
+	/**
+	*
+	*
+	*/	
 	public function registrarUsuario(){
-
 		$this -> load -> model("usuario/usuario","usuario");
 		$usuario = new $this -> usuario;
 		$usuario->cedula = $_SESSION['cedula'];
@@ -167,7 +170,33 @@ class Login extends CI_Controller {
 			$this->identificacion($msj);
 		}
 	}
-  	
+
+	/**
+	* Enviar Correo Electronico para certificar una cuenta
+	*
+	* @access protected
+	*/	
+  	protected function enviarCorreoCertificacion(){
+
+  	}
+
+  	/**
+	* Permite validar y comprobar la existencia de un correo
+	*
+	* @access public
+	*/
+	public function validarCorreo(){
+
+	}
+
+	/**
+	*
+	*
+	*/
+	function ultimaConexion(){
+
+	}
+
   	function salir(){
   		session_destroy();
   		$this->index();
