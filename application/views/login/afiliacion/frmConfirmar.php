@@ -23,10 +23,10 @@ $this->load->view("login/afiliacion/inc/cabecera.php");
 	                      </div>
 	                      <div class="input-field col s12">                        
 	                        <select id="componente"  name="componente">
-	                        	<option value="AV">Aviación</option>
-	                        	<option value="AR">Marina</option>
-	                        	<option value="EJ">Ejercito</option>
-	                        	<option value="GN">Guardia Nacional</option>
+	                        	<option value="EJ">EJERCITO</option>
+	                        	<option value="AR">ARMADA</option>
+	                        	<option value="AV">AVIACION</option>
+	                        	<option value="GN">GUARDIA NACIONAL</option>
 	                        </select>
 	                        <label>Seleccione su componente</label>
 	                      </div>
