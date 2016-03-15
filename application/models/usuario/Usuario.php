@@ -173,6 +173,12 @@ class Usuario extends CI_Model {
     return $this -> listaDependientes;
   }
 
+  function validarCorreo($sha){
+    $sConsulta = "UPDATE usuario SET esta=1 WHERE resp='" . $sha . "';";
+    $obj = $this->Dbipsfa->consultar($sConsulta);
+    return TRUE;
+  }
+
   function __destruct() {
 
   }

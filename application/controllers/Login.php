@@ -164,6 +164,7 @@ class Login extends CI_Controller {
     		$this->Dbipsfa->insertarArreglo('traza', $arr);
 			$_SESSION['correo'] = $_POST['correo'];
 			$_SESSION['estatus'] = 0;
+    		$this->enviarCorreoCertificacion();
 			$this->load->view('login/afiliacion/frmOk');
 		}else{
 			$msj = "El usuario se encuentra registrado, intente recuperar la contraseña";
@@ -176,16 +177,63 @@ class Login extends CI_Controller {
 	*
 	* @access protected
 	*/	
-  	protected function enviarCorreoCertificacion(){
+  	public function enviarCorreoCertificacion(){
+  		/**
+  		$this->load->library('email');
+
+		$subject = 'Certificación IpsfaNet';
+        $message = '<a href="">Correo de certificación de cuenta IpsfaNet</a>';
+
+        // Get full html:
+        $body =
+			'<!DOCTYPE html>
+			<html>
+			<head>
+			    <meta http-equiv="Content-Type" content="text/html; charset='.strtolower(config_item('charset')).'" />
+			    <title>'.html_escape($subject).'</title>
+			    <style type="text/css">
+			        body {
+			            font-family: Arial, Verdana, Helvetica, sans-serif;
+			            font-size: 16px;
+			        }
+			    </style>
+			</head>
+			<body>
+			'.$message.'
+			</body>
+			</html>';
+
+            $result = $this->email
+                ->from('ipsfanet.noresponder@gmail.com')             
+                ->to($_SESSION['correo'])
+                ->subject($subject)
+                ->message($body)
+                ->send();
+            echo "<pre>";
+            print_r($this->email);
+            var_dump($result);
+            echo '<br />';
+            echo $this->email->print_debugger();
+            echo 'Prueba de Correo';
+		**/
 
   	}
 
   	/**
 	* Permite validar y comprobar la existencia de un correo
+	* Falta validar la funcion para el retorno de verdadero
 	*
 	* @access public
 	*/
-	public function validarCorreo(){
+	public function validarCorreo($sha = ""){
+		$this -> load -> model("usuario/usuario","usuario");
+
+		if ($this->usuario->validarCorreo($sha) == TRUE){
+			if(isset($_SESSION['estatus'])){
+				$_SESSION['estatus'] = 1;
+			}
+			$this->load->view('login/afiliacion/frmCertificado');
+		}
 
 	}
 
@@ -194,7 +242,7 @@ class Login extends CI_Controller {
 	*
 	*/
 	function ultimaConexion(){
-
+		
 	}
 
   	function salir(){
