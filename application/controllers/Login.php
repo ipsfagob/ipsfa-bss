@@ -49,7 +49,6 @@ class Login extends CI_Controller {
 		if(isset($_SESSION['cedula'])){
 			$this->inicio();				
 		}else{
-			//print_r($_POST);
 			if(isset($_POST['usuario']) && $_POST['usuario'] != ""){
 				$this->load->model('usuario/Iniciar', 'Iniciar');
 				$valores["usuario"] = $_POST['usuario'];
@@ -64,7 +63,7 @@ class Login extends CI_Controller {
 				}
 			}else{
 
-				//$this->salir();
+				$this->salir();
 			}
 		}
 	}
@@ -149,7 +148,17 @@ class Login extends CI_Controller {
 		$usuario->clave = $_POST['clave'];
 		$usuario->respuesta = $_SESSION['APIkey'];
 		if($usuario->existe() == -1){
-			$usuario->registrar();	
+			$usuario->registrar();
+			$this->load->model('comun/Dbipsfa');
+			$arr = array(
+		      'cedu' => $usuario->cedula,
+		      'obse' => 'Creación de Usuario',
+		      'fech' => 'now()',
+		      'app' => 'Login',
+		      'tipo' => 0
+			);
+
+    		$this->Dbipsfa->insertarArreglo('traza', $arr);
 			$_SESSION['correo'] = $_POST['correo'];
 			$_SESSION['estatus'] = 0;
 			$this->load->view('login/afiliacion/frmOk');

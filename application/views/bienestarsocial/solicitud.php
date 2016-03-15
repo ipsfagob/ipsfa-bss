@@ -11,7 +11,10 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
   <div class="row">
         <div class="col s12">
           <h5>Nota:</h5>
-          <p><font color="red" >* Los archivos adjuntos para el informe medico debe ser en extensión PDF</font></p>
+          <p><font color="red" >* Los archivos adjuntos para el informe medico debe ser en extensión PDF</font>
+          <br>Deben estar en un orden correlativo acorde al Informe Médico, de igual forma los documentos deben estar legibles,
+              asimismo el Informe medico deberá estar vigente.
+          </p>
         </div>
   </div>
  
