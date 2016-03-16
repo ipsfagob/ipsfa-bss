@@ -19,7 +19,8 @@ $this->load->view("afiliacion/inc/cabecera.php");
 <li class="divider"></li><br>
 <div class="row center">
   <div class="col s12 m12 l12">
-    <img width="100px" class="responsive-img circle" src="http://www.ipsfa.gob.ve/SAEMI/xmlsHtmlsImgs/imgs.afiliados/pers.mil.act/<?php echo $Militar->Persona->cedula?>.jpg">
+    <!-- 
+    <img width="100px" class="responsive-img circle" src="http://www.ipsfa.gob.ve/SAEMI/xmlsHtmlsImgs/imgs.afiliados/pers.mil.act/<?php echo $Militar->Persona->cedula?>.jpg"> -->
   </div>
 </div>
 
@@ -114,44 +115,6 @@ $this->load->view("afiliacion/inc/cabecera.php");
           }
         ?>
       </div>
-      <!--
-
-      <div class="row">
-
-        <div class="input-field col s4 m4 l2">
-          <select id="codTelefono">
-
-            <?php 
-               echo '<option value="' . $Militar->Persona->codigoTelefono . '">' . $Militar->Persona->codigoTelefono . '</option>';
-              foreach ($CodigoArea as $key => $val) {
-                echo '<option value="' . $val->codarea . '">' . $val->codarea . '</option>';
-              }
-            ?>
-          </select>
-          <label>Código</label>
-        </div>
-        <div class="input-field col s8 m8 l4">
-          <input id="telefono" type="text" class="validate" value="<?php echo $Militar->Persona->telefono?>">
-          <label>Teléfono</label>
-        </div>
-        <div class="input-field col s4 m4 l2">
-           <select id="codCelular">
-            <option value="0412">0412</option>
-            <option value="0416">0416</option>
-            <option value="0426">0426</option>
-            <option value="0414">0414</option>
-            <option value="0424">0424</option>
-          </select>
-          <label>Código</label>
-        </div>
-        <div class="input-field col s8 m8 l4">
-          <input id="celular" type="text" class="validate" value="<?php echo $Militar->Persona->celular?>">
-          <label>Celular</label>
-        </div>
-        
-      </div>
-
-      -->
 
 
 
@@ -335,7 +298,8 @@ $this->load->view("afiliacion/inc/cabecera.php");
       <a class="modal-action modal-close waves-effect waves-blue btn-flat" onclick="Salvar()">Reportar</a>  
     </div>
   </div>
-          
+    
+      
 
 
 <?php 

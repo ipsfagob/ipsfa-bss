@@ -81,40 +81,18 @@
 				</a>
 				<a href="#" data-activates="nav-mobile" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only" style="background-color:#00345A" id="menuprincipal"><i class="mdi-navigation-menu"></i></a>
 				
-								
-				<ul id="solicitudes1" class="dropdown-content " >				  			 
-				  <li><a href="<?php echo base_url(); ?>index.php/Panel/farmacia/me">
-						<font class="black-text" >Medicamentos</font><i class="mdi-maps-local-hospital left red-text "></i></a>
-					</li>
-											
-					<li class="divider"></li>				
-					<li><a href="<?php echo base_url(); ?>index.php/Panel
-					/solicitudes">
-						<font class="black-text" >Solicitudes</font><i class="mdi-action-alarm-add left blue-text text-darken-3"></i></a>							
-					</li>
-					<li><a href="<?php echo base_url(); ?>index.php/Panel/citas">
-					<font class="black-text" >Citas</font><i class="mdi-action-lock left blue-text text-darken-3">
-					</i></a></li>				
-					
 
 				</ul>
 				
 				<ul id="nav-mobile" class="side-nav">
 					<br>	
-					<!-- <img src="<?php echo base_url(); ?>public/img/ipsfa.png" class="responsive-img"> -->
-					<li><a href="<?php echo base_url(); ?>index.php/Panel/index/">Principal
-					<i class="mdi-action-home left blue-text"></i></a></li>
 					
-					
-					<li><a href="<?php echo base_url(); ?>index.php/Panel/medicamentos">
-						Medicamentos<i class="mdi-maps-local-hospital left blue-text"></i></a>
-					</li>
 											
 					<li class="divider"></li>				
-					<li><a href="<?php echo base_url(); ?>index.php/Panel/solicitudes">
+					<li><a href="<?php echo base_url(); ?>index.php/Panel/">
 						Solicitudes<i class="mdi-action-alarm-add left blue-text"></i></a>							
 					</li>
-					<li><a href="<?php echo base_url(); ?>index.php/Panel/tratamientos">
+					<li><a href="<?php echo base_url(); ?>index.php/Panel/">
 					Citas<i class="mdi-action-lock left blue-text"></i></a></li>
 					<li><a href="<?php echo base_url(); ?>index.php/Panel/salir" class="tooltipped" data-position="top" data-delay="10" data-tooltip="Cerrar Sesión">
 						Salir<i class="mdi-action-settings-power left red-text"></i> </a>

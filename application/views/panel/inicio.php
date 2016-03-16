@@ -13,7 +13,7 @@ $this->load->view("panel/inc/cabecera.php");
 		 <ul class="collapsible" data-collapsible="accordion">
 		    <li>
 		      <div class="collapsible-header">
-		      	<a href="<?php echo base_url(); ?>index.php/Afiliacion/actualizacionDatos">
+		      	<a href="<?php echo base_url(); ?>index.php/Afiliacion/actualizarDatos">
 		      		<i class="material-icons md-36 light-blue-text text-darken-4">account_circle</i>Actualización de Datos
 		      	</a>
 		      </div>		      
@@ -25,8 +25,9 @@ $this->load->view("panel/inc/cabecera.php");
 		    </li>
 		    <li>
 		      <div class="collapsible-header">
-		      	<i class="material-icons md-36 red-text text-lighten-1">local_convenience_store</i>Bienestar Social</div>
-		      
+		      	<a href="<?php echo base_url(); ?>index.php/BienestarSocial/index">
+		      		<i class="material-icons md-36 red-text text-lighten-1">local_convenience_store</i>Bienestar Social</div>
+		      	</a>
 		    </li>
 		    <li>
 		      <div class="collapsible-header">

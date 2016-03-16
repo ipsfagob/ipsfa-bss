@@ -56,6 +56,39 @@
       .botones-solicitud{height:auto;width:100%;box-shadow: 0 0 13px 1px #00345A;cursor:pointer;padding:1px;}
 	  .botones-solicitud:hover{height:auto;width:100%;box-shadow: 0 0 25px 1px #FFB59F;cursor:pointer;padding:1px;}
 	  .email-unread .email-title {font-weight: 500;}
+	  	  /* Rules for sizing the icon. */
+	  .material-icons.md-18 { font-size: 18px; }
+	  .material-icons.md-24 { font-size: 24px; }
+	  .material-icons.md-36 { font-size: 36px; }
+	  .material-icons.md-48 { font-size: 48px; }
+	  .material-icons.md-64 { font-size: 64px; }
+	  .material-icons.md-100 { font-size: 100px; }
+	  .material-icons.md-128 { font-size: 128px; }
+	  .material-icons.md-200 { font-size: 200px; }
+	  .material-icons.md-254 { font-size: 254px; }
+		
+		.button { /* clase general */
+		  border: 1px solid #dedede;
+		  border-radius: 3px;
+		  color: #555;
+		  font: 12px/12px HelveticaNeue, Arial;
+		  padding: 8px 11px;
+		  text-decoration: none;
+		}
+
+		.ContactoDetalle{
+			font-size: 12px;
+			color: #ccc;
+			overflow: hidden; height: 24px;
+		}
+		.ContactoDetalle span{
+			float: left; 
+			margin-top: -1.2em;
+		}
+		.ContactoDetalle a{
+			font-size: 11px;
+			color: blue;
+		}
   </style>
   
     </head>
@@ -76,10 +109,10 @@
 								
 				<ul id="solicitudes1" class="dropdown-content " >				  			 
 				  <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia/me">
-						<font class="black-text" >Medicamentos</font><i class="mdi-maps-local-hospital left red-text "></i></a>
+						<i class="material-icons left red-text">local_hospital</i><font class="black-text" >Medicamentos</font></a>
 					</li>
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/1">
-					  	<font class="black-text" >Notificar Reembolso</font><i class="mdi-action-assignment left blue-text text-darken-3"></i></a>
+					  	<i class="material-icons left blue-text text-darken-3">assignment</i><font class="black-text" >Notificar Reembolso</font></a>
 					</li>
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/2">
 					  	<font class="black-text" >Notificar Apoyo</font><i class="mdi-action-assignment-late left blue-text text-darken-3"></i></a>
@@ -98,7 +131,7 @@
 				<ul id="nav-mobile" class="side-nav">
 					<br>	
 					<!-- <img src="<?php echo base_url(); ?>public/img/ipsfa.png" class="responsive-img"> -->
-					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/index/<?php echo $_SESSION['cedula']; ?>">Principal
+					<li><a href="<?php echo base_url(); ?>index.php/Panel/index/">Principal
 					<i class="mdi-action-home left blue-text"></i></a></li>
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/datos">Datos Personales
 					<i class="mdi-action-account-circle left blue-text"></i></a></li>
@@ -122,28 +155,73 @@
 						Salir<i class="mdi-action-settings-power left red-text"></i> </a>
 					</li>
 				</ul>
+
+				<ul id="control" class="dropdown-content">
+				<li>
+					<a href="<?php echo base_url(); ?>index.php/Afiliacion/index">
+				    	<i class="material-icons light-blue-text text-darken-4 left">account_circle</i>Actualización de Datos
+				    </a>
+				</li>
+				<li>
+				  <a>
+				  	<i class="material-icons lime-text text-darken-2 left">group</i>Afiliación
+				  </a>
+				</li>
+				<li>
+					<a>
+				  		<i class="material-icons amber-text left">credit_card</i>Crédito
+				  	</a>
+				</li>
+				<li>
+				  <a>
+				  	<i class="material-icons md-36 green-text left">access_alarms</i>Citas Automatizadas
+				  </a>
+				</li>
+				<li>
+				  <a>
+				  	<i class="material-icons md-36 brown-text left">local_printshop</i>Impresión de Planillas y Netos
+				  </a>
+				</li>
+				</ul>
 				
 				<ul class="right hide-off-med-and-down">
-
-					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/carro">
-						<i class="mdi-action-shopping-cart"></i></a>
-					</li>
-					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/salir"
-					class="tooltipped" data-position="bottom" data-delay="10" data-tooltip="Volver al menu">
-						<i class="mdi-action-settings-power"></i></a>
-					</li>
+				<!-- Pendientes por crear-->
 				</ul>
 
 				<ul class="right hide-on-med-and-down">
-					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/index">
-					<i class="mdi-action-home"></i></a></li>
-					<li><a class="dropdown-button" href="#!" data-activates="solicitudes1">
+					<li>
+						<a href="<?php echo base_url(); ?>index.php/Panel/index">
+							<i class="mdi-action-home"></i>
+						</a>
+					</li>
+					<li>
+						<i class="right"></i><?php echo $_SESSION['nombreRango'];?>
+					</li>
+					
+					<li><a class="dropdown-panel" 
+						   data-activates="notificaciones">						
+						<i class="material-icons">notifications</i>
+
+						</a>
+					</li>
+					
+					<li><a class="dropdown-panel" href="#!" data-activates="control">
 						<i class="mdi-navigation-apps"></i></a>
 					</li>
-					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/datos">
-					<i class="mdi-action-account-circle"></i></a></li>					
+
+					
+					<li><a class="dropdown-panel" href="#!" data-activates="solicitudes1">
+						<i class="material-icons">more_vert</i></a>
+					</li>
+					
+					<li><a  
+					class="dropdown-panel btn-medium waves-effect waves-light" 
+						   data-activates="datos" >
+						<i class="material-icons">account_circle</i></a>
+					</li>				
 				</ul>
 				
+
 				
 				
 			</div>
@@ -171,3 +249,7 @@
 	      </li>
 	    </ul>
 	  </div>
+
+<?php 
+$this->load->view("panel/inc/mnu_tarjetas.php");
+?>

@@ -40,17 +40,11 @@ class BienestarSocial extends CI_Controller {
 	 * Vista Datos Basicos del Personal
 	 * @return mixed
 	 */
-	function index($cedula = null) {
+	function index() {
 		if(isset($_SESSION['cedula'])){
-			$this->validarUsuario($_SESSION['cedula']);	
+			$this->load->view ( 'bienestarsocial/principal');
 		}else{
-			if(isset($cedula)){
-				$this->validarUsuario($cedula);	
-			}else{
-				$this->salir();
-				echo "Debe iniciar session";
-				exit;
-			}
+			$this->salir();
 		}
 
 	}
@@ -310,7 +304,7 @@ class BienestarSocial extends CI_Controller {
 	public function salir() {
 		session_destroy();
 		//$this->index();
-		header('Location: http://192.168.12.195/html/web/web/ipsfaNet/vista/vmenu.php');
+		//header('Location: http://192.168.12.195/html/web/web/ipsfaNet/vista/vmenu.php');
 		echo "Debe iniciar session";
 		exit;
 	}
@@ -321,29 +315,6 @@ class BienestarSocial extends CI_Controller {
 	| ------------------------------------------------------------
 	*/
 
-	/**
-	 * Validar y sincronizar el usuario de conexión
-	 *
-	 * @access  public
-	 * @return mixed
-	 */	
-	protected function validarUsuario($cedula){
-		$this->load->model('usuario/Iniciar', 'Iniciar');
-		$valores["txtUsuario"] = "MamonSoft";
-		$valores["txtClave"] = "za63qj2p";
-		$valores["cedula"] = $cedula;
-		$resultado = $this->Iniciar->validarCuenta($valores); 
-		if ( $resultado == 1){
-			$this->load->model('saman/Militar', 'Militar');
-			$this->Militar->consultar($_SESSION['cedula']);			
-			$datos['Militar'] = $this->Militar;
-			$_SESSION['nombreRango'] = $this->Militar->Componente->codigoRango . ". " . 
-				$this->Militar->Persona->primerNombre . " " . $this->Militar->Persona->primerApellido;
-			$this->load->view ( 'bienestarsocial/principal');
-		}else{
-			echo "Error en el usuario con la base de datos";
-		}		
-	}
 
 
 	

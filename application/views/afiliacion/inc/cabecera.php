@@ -56,6 +56,31 @@
       .botones-solicitud{height:auto;width:100%;box-shadow: 0 0 13px 1px #00345A;cursor:pointer;padding:1px;}
 	  .botones-solicitud:hover{height:auto;width:100%;box-shadow: 0 0 25px 1px #FFB59F;cursor:pointer;padding:1px;}
 	  .email-unread .email-title {font-weight: 500;}
+	  .material-icons.md-100 { font-size: 100px; }
+
+	  	.button { /* clase general */
+		  border: 1px solid #dedede;
+		  border-radius: 3px;
+		  color: #555;
+		  font: 12px/12px HelveticaNeue, Arial;
+		  padding: 8px 11px;
+		  text-decoration: none;
+		}
+
+		.ContactoDetalle{
+			font-size: 12px;
+			color: #ccc;
+			overflow: hidden; height: 24px;
+		}
+		.ContactoDetalle span{
+			float: left; 
+			margin-top: -1.2em;
+		}
+		.ContactoDetalle a{
+			font-size: 11px;
+			color: blue;
+		}
+
   </style>
   
     </head>
@@ -74,30 +99,76 @@
 				<a href="#" data-activates="nav-mobile" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only" style="background-color:#00345A" id="menuprincipal"><i class="mdi-navigation-menu"></i></a>
 				
 								
-				<ul id="solicitudes1" class="dropdown-content " >				  			 
-				  			
-					
 
+				<ul id="control" class="dropdown-content">
+				
+					<li>
+					  <a>
+					  	<i class="material-icons lime-text text-darken-2 left">group</i>Afiliación
+					  </a>
+					</li>
+					<li>
+					  <a href="<?php echo base_url(); ?>index.php/BienestarSocial/index">
+					  	<i class="material-icons red-text text-lighten-1 left">local_convenience_store</i>Bienestar Social
+					  </a>
+					</li>
+					<li>
+						<a>
+					  		<i class="material-icons amber-text left">credit_card</i>Crédito
+					  	</a>
+					</li>
+					<li>
+					  <a>
+					  	<i class="material-icons md-36 green-text left">access_alarms</i>Citas Automatizadas
+					  </a>
+					</li>
+					<li>
+					  <a>
+					  	<i class="material-icons md-36 brown-text left">local_printshop</i>Planillas y Netos
+					  </a>
+					</li>
 				</ul>
 				
 				<ul class="right hide-off-med-and-down">
-					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/salir"
-					class="tooltipped" data-position="bottom" data-delay="10" data-tooltip="Volver al menu">
-						<i class="mdi-action-settings-power"></i></a>
+					<li><a class="dropdown-panel" href="<?php echo base_url(); ?>index.php/Panel/index">
+						<i class="material-icons">home</i></a>
 					</li>
+
+					<li>
+						<i class="right"></i><?php echo $_SESSION['nombreRango'];?>
+					</li>
+					<li><a class="dropdown-panel" 
+						   data-activates="notificaciones">						
+						<i class="material-icons">notifications</i>
+
+						</a>
+					</li>
+					
+					
+					
+					
+					<li><a class="dropdown-panel" href="#!" data-activates="control">
+						<i class="mdi-navigation-apps"></i></a>
+					</li>
+					<li><a class="dropdown-panel" href="#!" data-activates="menu">
+						<i class="material-icons">more_vert</i></a>
+					</li>
+					<li><a  
+					class="dropdown-panel btn-medium waves-effect waves-light" 
+						   data-activates="datos" >
+						<i class="material-icons">account_circle</i></a>
+					</li>
+
 				</ul>
 
 				<ul id="nav-mobile" class="side-nav">
 					<br>	
 					<!-- <img src="<?php echo base_url(); ?>public/img/ipsfa.png" class="responsive-img"> -->
-					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/index/<?php echo $_SESSION['cedula']; ?>">Principal
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/index">Principal
 					<i class="mdi-action-home left blue-text"></i></a></li>
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/datos">Datos Personales
 					<i class="mdi-action-account-circle left blue-text"></i></a></li>
 					
-					<li><a href="#" class="tooltipped" data-position="top" data-delay="10" data-tooltip="Volver al menu">
-						Salir<i class="mdi-action-settings-power left red-text"></i> </a>
-					</li>
 				</ul>
 				
 			
@@ -105,4 +176,8 @@
 		</nav>
 	</div>
 
+
+<?php 
+$this->load->view("panel/inc/mnu_tarjetas.php");
+?>
 
