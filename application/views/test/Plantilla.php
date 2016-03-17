@@ -16,7 +16,7 @@
 
       <style type="text/css">
         th, td {
-            padding: 15px;
+            padding: 20px;
             text-align: left;
         }
       </style>
