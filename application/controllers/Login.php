@@ -10,6 +10,7 @@
  * @since Version 1.0
  *
  */
+date_default_timezone_set ( 'America/Caracas' );
 define ('__CONTROLADOR', 'Login');
 class Login extends CI_Controller {
 	function __construct(){
@@ -176,7 +177,7 @@ class Login extends CI_Controller {
 	* @access protected
 	*/	
   	public function enviarCorreoCertificacion(){
-  		/*
+ 
   		$this->load->library('email');
 
 		$subject = 'Certificación IpsfaNet';
@@ -203,17 +204,18 @@ class Login extends CI_Controller {
 
             $result = $this->email
                 ->from('ipsfanet.noresponder@gmail.com')             
-                ->to($_SESSION['correo'])
+                //->to($_SESSION['correo'])
+                ->to('gesaodin@gmail.com')
                 ->subject($subject)
                 ->message($body)
                 ->send();
             echo "<pre>";
-            print_r($this->email);
+            //print_r($this->email);
             var_dump($result);
             echo '<br />';
             echo $this->email->print_debugger();
             echo 'Prueba de Correo';
-		**/
+		
 
   	}
 

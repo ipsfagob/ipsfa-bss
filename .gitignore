@@ -6,4 +6,5 @@
 */cache/!.htaccess
 # Ignorando Configuracion 
 application/config/*
+*/application/config/*
 *public/doc/*
