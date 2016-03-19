@@ -252,6 +252,7 @@ class Login extends CI_Controller {
   		echo "<pre>";
   		$this -> load -> model("usuario/usuario","usuario");
   		print_r($this->usuario->listar());
+  		
   	}
 
 	function __destruct(){

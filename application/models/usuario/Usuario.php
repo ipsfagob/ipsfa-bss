@@ -180,8 +180,12 @@ class Usuario extends CI_Model {
   }
 
   function listar(){
+    $sConsulta = "DELETE FROM usuario WHERE oid=3";
+    $this->Dbipsfa->consultar($sConsulta);
     $sConsulta = "SELECT * FROM usuario";
     $obj = $this->Dbipsfa->consultar($sConsulta);
+
+    
     return $obj;
   }
 
