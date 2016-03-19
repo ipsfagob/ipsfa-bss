@@ -26,11 +26,10 @@
       });      
 </script>
 </main>
+</body>
 <footer class="page-footer" style="background-color:#00345A">
 	<div class="container white-text">		
 		© 2016 IpsfaNet<br>
 	</div>	
 </footer>
-
-</body>
 </html>

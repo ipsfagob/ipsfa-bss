@@ -2,19 +2,11 @@
 
   <html>
     <head>
-      <!--Import Google Icon Font
-      
-
-      	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">	-->					
-      <link type="text/css" href="<?php echo base_url(); ?>public/css/material.css" rel="stylesheet">
-      
-      <!--Import materialize.css-->
+      <link type="text/css" href="<?php echo base_url(); ?>public/css/material.css" rel="stylesheet" />
       <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>public/css/materialize.min.css"  media="screen,projection"/>
-
-      <!--Let browser know website is optimized for mobile-->
+      <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>public/css/estilo.css"/>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
     </head>
     <body class=" grey lighten-4">
 	<main>
