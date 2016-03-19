@@ -16,9 +16,7 @@
  * #00345A Azul Oscuro
  * #990000
  */
-//24775075 | 11953710 | 9348067 | 6547344 | 2664801 | 2615359 | 10156786 | 12633177 | 9241417 | 7829589 |17328217
-define('_CEDULA', '11400652');
-
+define ('__CONTROLADOR', 'BienestarSocial');
 class BienestarSocial extends CI_Controller {
 
 	var $_PRIVADO = TRUE;

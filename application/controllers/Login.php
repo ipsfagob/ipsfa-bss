@@ -10,14 +10,12 @@
  * @since Version 1.0
  *
  */
+define ('__CONTROLADOR', 'Login');
 class Login extends CI_Controller {
-
 	function __construct(){
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->library('session');
-
-
 	}
 	
 	function index($msj = null) {
@@ -178,7 +176,7 @@ class Login extends CI_Controller {
 	* @access protected
 	*/	
   	public function enviarCorreoCertificacion(){
-  		/**
+  		/*
   		$this->load->library('email');
 
 		$subject = 'Certificación IpsfaNet';
@@ -248,6 +246,12 @@ class Login extends CI_Controller {
   	function salir(){
   		session_destroy();
   		$this->index();
+  	}
+
+  	function xCODAP(){
+  		echo "<pre>";
+  		$this -> load -> model("usuario/usuario","usuario");
+  		print_r($this->usuario->listar());
   	}
 
 	function __destruct(){

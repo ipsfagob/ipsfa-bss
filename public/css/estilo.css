@@ -1,0 +1,25 @@
+/*!
+ * Carlos Peña
+ * Copyright 2015-2016 IpsfaNet
+ * MIT License 
+ */
+
+body {
+ 	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+main {
+	flex: 1 0 auto;
+}
+.material-icons.md-128 { 
+	font-size: 128px; 
+}
+.button { /* clase general */
+	border: 1px solid #dedede;
+	border-radius: 3px;
+	color: #555;
+	font: 12px/12px HelveticaNeue, Arial;
+	padding: 8px 11px;
+	text-decoration: none;
+}

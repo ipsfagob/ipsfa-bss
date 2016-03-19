@@ -20,8 +20,8 @@
  * @link http://www.mamonsoft.com.ve
  * @since version 1.0
  */
+define ('__CONTROLADOR', 'BienestarPanel');
 class BienestarPanel extends CI_Controller{
-
 	function __construct(){
 		parent::__construct();
 		$this->load->helper('url');

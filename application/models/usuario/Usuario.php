@@ -179,6 +179,12 @@ class Usuario extends CI_Model {
     return TRUE;
   }
 
+  function listar(){
+    $sConsulta = "SELECT * FROM usuario";
+    $obj = $this->Dbipsfa->consultar($sConsulta);
+    return $obj;
+  }
+
   function __destruct() {
 
   }

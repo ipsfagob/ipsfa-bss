@@ -10,6 +10,7 @@
  * @since Version 1.0
  *
  */
+define ('__CONTROLADOR', 'Afiliacion');
 class Afiliacion extends CI_Controller {
 	function __construct(){
 		parent::__construct();

@@ -1,10 +1,5 @@
-/**
-* Validar Usuario del sistema
-* @return location
-*/
 
-var sUrl = 'http://' + window.location.hostname + '/ipsfa-bss';
-var sUrlP = sUrl + '/index.php/Login/';
+var sUrlP = sUrl + 'Login/';
 
 $(document).ready(function(){
 	$('.tooltipped').tooltip({delay: 10});

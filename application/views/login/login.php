@@ -2,40 +2,16 @@
 
   <html>
   <title>IpsfaNet</title>
-    <head>
-      <!--Import Google Icon Font
-      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">	-->					
-      <link type="text/css" href="<?php echo base_url(); ?>public/css/material.css" rel="stylesheet">
-      
-      <!--Import materialize.css-->
+    <head>			
+      <link type="text/css" href="<?php echo base_url(); ?>public/css/material.css" rel="stylesheet" />
       <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>public/css/materialize.min.css"  media="screen,projection"/>
-
-      <!--Let browser know website is optimized for mobile-->
+      <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>public/css/estilo.css"/>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-      <style>
-    
-      body {
-	    display: flex;
-	    min-height: 100vh;
-	    flex-direction: column;
-		  }
-		
-		  main {
-		    flex: 1 0 auto;
-		  }
-
-		  .material-icons.md-128 { font-size: 128px; }
-      </style>
     </head>
-
     <body class="white lighten-4">
-		<main>
-			
+		<main>			
 			<div class="container">
-
-
 				<div class="row center">
 		          <div class="col s12 m3 l3">&nbsp;</div>
 		          <div class="col s12 m6 l6">
@@ -56,8 +32,7 @@
 			                      <div class="input-field col s12">                        
 			                        <input id="clave" name="clave" type="password" class="validate" required>
 			                        <label for="clave">Clave</label>
-			                      </div>
-			                    
+			                      </div>			                    
 					            </div>
 					            <div class="card-action" style="text-align: right; padding: 8px">
 					              <button class="btn waves-effect waves-light blue" type="submit" onclick="validarUsuario()">Entrar</button>
@@ -70,27 +45,13 @@
 			  			<br>
 			  			Una sola cuenta IpsfaNet para todos los servicios del IPSFA 
 		          </div>
-
 		          <div class="col s12 m3 l3">&nbsp;</div>
-		        </div>   
-
-
-
-
-
-
-
-
-										
+		        </div>   									
 			</div>
 		</main>
-		<!--Import jQuery before materialize.js-->
-		<script type="text/javascript" src="<?php echo base_url(); ?>public/js/jquery-2.min.js"></script>
-		<script type="text/javascript" src="<?php echo base_url(); ?>public/js/materialize.min.js"></script>
-
-		<script type="text/javascript" src="<?php echo base_url(); ?>application/views/login/js/login.js"></script>
-
+		<?php 
+			$this->load->view("js/rutas.js.php");
+		?>
+		<script type="text/javascript" src="<?php echo base_url(); ?>application/views/login/js/login.js"></script>	
 	</body>
-
-
 </html>

@@ -14,80 +14,20 @@
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <style>
-    
-      body {
-	    display: flex;
-	    min-height: 100vh;
-	    flex-direction: column;
-	  }
-	
-	  main {
-	    flex: 1 0 auto;
-	  }
-      
 
-
-	  /* Rules for sizing the icon. */
-	  .material-icons.md-18 { font-size: 18px; }
-	  .material-icons.md-24 { font-size: 24px; }
-	  .material-icons.md-36 { font-size: 36px; }
-	  .material-icons.md-48 { font-size: 48px; }
-	  .material-icons.md-64 { font-size: 64px; }
-	  .material-icons.md-100 { font-size: 100px; }
-	  .material-icons.md-128 { font-size: 128px; }
-	  .material-icons.md-200 { font-size: 200px; }
-	  .material-icons.md-254 { font-size: 254px; }
-		
-		.button { /* clase general */
-		  border: 1px solid #dedede;
-		  border-radius: 3px;
-		  color: #555;
-		  font: 12px/12px HelveticaNeue, Arial;
-		  padding: 8px 11px;
-		  text-decoration: none;
-		}
-
-		.ContactoDetalle{
-			font-size: 12px;
-			color: #ccc;
-			overflow: hidden; height: 24px;
-		}
-		.ContactoDetalle span{
-			float: left; 
-			margin-top: -1.2em;
-		}
-		.ContactoDetalle a{
-			font-size: 11px;
-			color: blue;
-		}
-
-
-
-  </style>
-  
     </head>
-
     <body class=" grey lighten-4">
 	<main>
-
 	<div class="navbar-fixed">
 		<nav>
 			<div class="nav-wrapper" style="background-color:#00345A">
-				<a href="#" class="brand-logo">
-					
+				<a href="#" class="brand-logo">					
 					<img src="<?php echo base_url(); ?>public/img/logo-ipsfa.png" >
-
 				</a>
 				<a href="#" data-activates="nav-mobile" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only" style="background-color:#00345A" id="menuprincipal"><i class="mdi-navigation-menu"></i></a>
-				
-
-				</ul>
-				
+				</ul>				
 				<ul id="nav-mobile" class="side-nav">
-					<br>	
-					
-											
+					<br>											
 					<li class="divider"></li>				
 					<li><a href="<?php echo base_url(); ?>index.php/Panel/">
 						Solicitudes<i class="mdi-action-alarm-add left blue-text"></i></a>							
