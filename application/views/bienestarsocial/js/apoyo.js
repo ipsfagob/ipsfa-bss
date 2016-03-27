@@ -26,6 +26,7 @@ function agregarA(){
 		Pedido['parentesco'] = arr[1];
 		Pedido['nombre'] = $('#familiar option:selected').text();
 		Pedido['concepto'] = $('#concepto option:selected').text();
+		Pedido['codigoconcepto'] = $('#concepto option:selected').val();
 		Pedido['monto'] = monto;
 		Solicitud[i++] = Pedido;
 		crearElementos();

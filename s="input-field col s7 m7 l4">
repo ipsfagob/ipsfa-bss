@@ -1,0 +1,1127 @@
+[33mcommit 1e161e5312f8ae595ba88d85fc5e4823f96a021a[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sun Mar 27 08:06:46 2016 -0430
+
+    Asignacion de dato telefonico auxiliar, y correo auxiliar
+
+[33mcommit 9b7decdc74b6f7637cc2af3b6b690d6d4ea2b3ca[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sun Mar 27 07:53:18 2016 -0430
+
+    Configuracion del Controller, asignacion de Estado, Municipio, Parroquia
+
+[33mcommit c29ae41db19aea9cfccac08b27d9690b42ca13a1[m
+Author: Carlos Peña <Carlos Peña>
+Date:   Fri Mar 18 21:42:37 2016 -0430
+
+    Configuracion de Correo, Ignorar Config/
+
+[33mcommit dfb06f24e486f848d947e64ab0e1345ac36c04eb[m
+Author: Carlos Peña <Carlos Peña>
+Date:   Fri Mar 18 21:04:24 2016 -0430
+
+    Control de Estilo Generales
+
+[33mcommit 0aa7d4c189179e6f0f5c039fa6086897c80f2914[m
+Author: Carlos Peña <Carlos Peña>
+Date:   Fri Mar 18 20:58:39 2016 -0430
+
+    Control del Ancho de Pagina
+
+[33mcommit 28f34e12421a7c0f96c1c0502cb990dd0196bcd1[m
+Author: Carlos Peña <Carlos Peña>
+Date:   Fri Mar 18 20:30:49 2016 -0430
+
+    Configuracion usuario
+
+[33mcommit 1dbe36acdfe41cae8cfb33c458dc855d325f40ce[m
+Author: Carlos Peña <Carlos Peña>
+Date:   Fri Mar 18 20:17:28 2016 -0430
+
+    Configuracion de rutas, eliminar config e inculir css y js
+
+[33mcommit 62884e4e699bc08a511197472b2915d3e136a7b7[m
+Author: Carlos Peña <Carlos Peña>
+Date:   Thu Mar 17 11:32:49 2016 -0430
+
+    Configuracion de Test
+
+[33mcommit d582785368b008d81d548b9a0d3aa037de914265[m
+Author: Programador <programador@localhost.localdomain>
+Date:   Thu Mar 17 10:38:13 2016 -0430
+
+    Cambio de Ruta
+
+[33mcommit cd91879298689cf3a6dae34388a4dadb9917b88a[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Tue Mar 15 19:52:21 2016 -0430
+
+    Creación de menu, tarjetas y enlaces de todos los menu
+
+[33mcommit 88bafe4fb9c98e05946dc5faa305f215de166398[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Tue Mar 15 18:04:01 2016 -0430
+
+    PHPMail envio y certificación de correos
+
+[33mcommit 1d50611769b3a5e29ffef726a1bc71876d8dd8c6[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Tue Mar 15 12:25:28 2016 -0430
+
+    Descripcion de los nombre en los componentes
+
+[33mcommit 5d2dc0ca034e77ebf634ce59f2dee9a3fc728256[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Tue Mar 15 12:21:45 2016 -0430
+
+    Orden de los componentes
+
+[33mcommit 0bfbeef12e80b9b844d003f99f98fd8d08bb6d37[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Tue Mar 15 11:33:41 2016 -0430
+
+    Arquitectura Correos
+
+[33mcommit 0e3ec3947e5a2ce40416a785d182916909ecfb0f[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Tue Mar 15 09:58:16 2016 -0430
+
+    Nota de los infromes medicos
+
+[33mcommit 26d57900b730f6125a2cf40100cf8a77180cd640[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Mar 14 17:49:20 2016 -0430
+
+    Login, Confirmacion, Traza Doc
+
+[33mcommit 4362dbe02e7cb120ad37ed39abfc46538b9ed082[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sun Mar 13 20:15:27 2016 -0430
+
+    Login, Crear Usuario
+
+[33mcommit e4c693bcd5850773352cfd726b9d2cba121b61f2[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sat Mar 12 18:07:50 2016 -0430
+
+    Tarjeta Datos Básicos, Notificaciones
+
+[33mcommit 8f0bc9edb587e7e49345562746b345156aba70e1[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sat Mar 12 15:46:11 2016 -0430
+
+    Tarjeta Datos Básicos, Notificaciones
+
+[33mcommit 3e95588cc47be89e90109a2e34308af9ecf6dbd2[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Thu Mar 10 20:36:03 2016 -0430
+
+    Descripcion de Responsable a Afiliado: Analista
+    
+    	modified:   application/views/panel/solicitudes.php
+
+[33mcommit e48107c7d1267e15be970320e444605c167e9aaf[m
+Author: root <root@Goku>
+Date:   Thu Mar 10 20:30:48 2016 -0430
+
+    Modulo de Analista, Actualizacion de datos, Login y Password
+
+[33mcommit 4e1c8c3d38a2e8e848be04775aa3b047f36f29f8[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Mar 7 08:33:03 2016 -0430
+
+    Panel de Control
+
+[33mcommit ca7a562352b1434b1878a962685a714263779b4b[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sun Mar 6 18:29:13 2016 -0430
+
+    Actualizar campos de ejemplos
+
+[33mcommit 91597c3263e2125b029b419697fe9b619d412333[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sun Mar 6 17:19:54 2016 -0430
+
+    Establecer el monto máximo permitido por conceptos, modificación de los metodos agregar (R y A)
+
+[33mcommit 45aa86dba001313839218057227e93cc4d8fa921[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sun Mar 6 13:42:13 2016 -0430
+
+    Validación en formato moneda de los campos de monto, correción del modulo de eliminar
+
+[33mcommit 8e0c026a6b28513b61e3de8a8b67b898b0674f0b[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sat Mar 5 19:09:16 2016 -0430
+
+    Asignación de h5 y punto final
+
+[33mcommit 214490952e4bbb3e3512cf559a256a61533ca1ac[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sat Mar 5 19:03:16 2016 -0430
+
+    Validación del boton atras en (Reembolso y Ayuda)
+
+[33mcommit efbdfcf508e8320267699fbd93b6a69348b1659c[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sat Mar 5 18:00:01 2016 -0430
+
+    Reembolso: Iniciar combo de concepto
+    
+    	modified:   application/views/bienestarsocial/js/reembolso.js
+
+[33mcommit 35738f473f106f9ffe552d73de66f08202a2a2c1[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Tue Mar 1 09:43:52 2016 -0430
+
+    Menu Caso Generales #4
+
+[33mcommit 8fe626c4d7e585129a06ee1746eac63166a24c41[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 29 15:29:39 2016 -0430
+
+    Mayuscula en direccion, y basico
+
+[33mcommit bb54837444516e00e1950c65965f10f33c2544ff[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 29 15:19:24 2016 -0430
+
+    Organizar datos basicos
+
+[33mcommit 2afe2ddb0693dccce664043dfb80a1c9f008caa9[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 29 14:59:00 2016 -0430
+
+    Texto del control de citas
+
+[33mcommit a1332e37bb6c40ba61c3218b4ab412c79b6dbcd0[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 29 14:50:07 2016 -0430
+
+    Fotos: center
+
+[33mcommit 1aade3fd4ff61d3aad285b807a9dbc71ae02c430[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 29 14:19:54 2016 -0430
+
+    Fotos: center
+
+[33mcommit 10aba31169ec164b03c921a4d45c142d8615fe48[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 29 14:16:53 2016 -0430
+
+    Fotos: center
+
+[33mcommit 511940b11f6563d326f4221cc6ce0cd1fa520e69[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 29 14:00:50 2016 -0430
+
+    Fotos: center
+
+[33mcommit 8ae3f22cf5a9e65cfd15f0ee98c4068f06d1536e[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 29 13:58:03 2016 -0430
+
+    Fotos: center
+
+[33mcommit c29037ae50bc39c59b32317cb63ea345d56f45e8[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 29 13:56:26 2016 -0430
+
+    Fotos
+
+[33mcommit 9d7233a85d27ecc83e7b63c7cd90a77178df0108[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 29 13:53:57 2016 -0430
+
+    Fotos
+
+[33mcommit 5932c786713a2da5e93262c6b5316a1bf166c6ab[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 29 13:52:15 2016 -0430
+
+    Fotos
+
+[33mcommit 3b308dd3dd3bb1404950212d311386fdb2193466[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 29 13:46:57 2016 -0430
+
+    Fotos
+
+[33mcommit 6a494f73bd0e392245ef852f60a93fb6bc757a44[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 29 13:43:44 2016 -0430
+
+    Fotos
+
+[33mcommit b6f814973e524f09f235c9b030c5ffe3d9eb036d[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 29 13:42:27 2016 -0430
+
+    Fotos
+
+[33mcommit 5b7fd3b138ede79bad523793ba0f9772f0e9f258[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 29 13:31:09 2016 -0430
+
+    Control DB
+
+[33mcommit 07d14135b88ba929cdcfeb6e402f0b9af4f58960[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 29 13:18:03 2016 -0430
+
+    Config
+
+[33mcommit 68c024e75e3995e107a0a49deda8dada19062a7a[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 29 13:13:29 2016 -0430
+
+    Config
+
+[33mcommit fec871ac59a47a08b645c6d6c1216a9ad3259af4[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 29 13:05:12 2016 -0430
+
+    Config
+
+[33mcommit 0e9dde0507c0b5d83e5331683bd2382614f0209c[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 29 13:03:33 2016 -0430
+
+    Config
+
+[33mcommit bf9e2dfa0ef01d7d1fb0a829d99b4d33d718c415[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 29 13:00:04 2016 -0430
+
+    Config
+
+[33mcommit ddd4ae0e5a06700134d43105f23dfea3d6e92dc4[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 29 12:56:50 2016 -0430
+
+    Config
+
+[33mcommit 54a2cf61f31ad765511600362a172ad75482798e[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 29 12:53:44 2016 -0430
+
+    Config
+
+[33mcommit 79bb8f493c966a7346f63f4c84d9c9aa01ac1449[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 29 12:51:53 2016 -0430
+
+    Config
+
+[33mcommit 6f0f042a393c14ab7c7d954f2dda0267d764516e[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 29 12:49:14 2016 -0430
+
+    Config
+
+[33mcommit 0212fcbcdcbd1fdce154d1fa98bb44dc3c2c2af5[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 29 12:46:59 2016 -0430
+
+    Config
+
+[33mcommit cfe14c023628927ec6eaccefb2335cb09bf7f3b6[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 29 12:46:06 2016 -0430
+
+    Cambio del config
+
+[33mcommit 7b5094e8f2295f1ca1a50c21a533ad95cb1aac77[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 29 12:44:25 2016 -0430
+
+    Cambio del config
+
+[33mcommit 45dfe5514aa0e8aa193d972e2595b11ac7afeebc[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 29 12:40:00 2016 -0430
+
+    Cambio del config
+
+[33mcommit 6670ad008f2e47bdae8b22aba7620847b7d8cd32[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 29 12:38:02 2016 -0430
+
+    Cambio del config
+
+[33mcommit ea04510d592b95149a468cdc1a122e1c24f0fbb4[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 29 12:36:51 2016 -0430
+
+    Cambio del config
+
+[33mcommit 16c16bb2d27b3b0521793a7e3ce9ab8d2be1fdff[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 29 12:35:07 2016 -0430
+
+    Cambio de Calves
+
+[33mcommit 3d780f87930ded816cf8612a7ba353800d54c111[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 29 11:30:00 2016 -0430
+
+    Cambio, de js, creacion de actalizar datos, imagenes
+
+[33mcommit 4608bea77a38708b9d86fb3f4bbb4c2295163396[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sun Feb 28 22:11:33 2016 -0430
+
+    Archivo Demo
+
+[33mcommit e7e29507f0e36b88004f98bcd3f8b35ed35aa8ee[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sun Feb 28 21:48:33 2016 -0430
+
+    Elimminando el icono de clip de las solicitudes
+
+[33mcommit 3f8ad9da9f91151ef58053424fad28ac6b7a0eed[m
+Author: root <root@canaima-popular.(none)>
+Date:   Sun Feb 28 16:17:21 2016 -0430
+
+    Control de versiones
+
+[33mcommit 5cd3bc52d7ef3516f8bbd514ef5b4baec1c1b592[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sun Feb 28 15:44:47 2016 -0430
+
+    Brodes en los div cards de principal
+
+[33mcommit ec5fab6de8cbbfc7adc617bbeed829da177d81f5[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sun Feb 28 15:08:47 2016 -0430
+
+    Error en casos de los asimilados, por nropersona
+
+[33mcommit 583f67773aa369bb64efd1a65d1d26afc983a076[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sun Feb 28 14:30:53 2016 -0430
+
+    Cambio de colores en el file-path
+
+[33mcommit 9ef6534aeda8eed0db0725c1a39f693636138bf2[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sun Feb 28 13:14:24 2016 -0430
+
+    Control de Principal
+
+[33mcommit 2d6827b6e366203952bce07fb32e9e7a6d3c3394[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sat Feb 27 15:29:12 2016 -0430
+
+    Enlaces simbolicos #href: principal
+
+[33mcommit 97952125fdd071b247ae76037a3ee7c762d9104f[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sat Feb 27 15:07:06 2016 -0430
+
+    Bienvenido, Validaciones en Reembolso y apoyo, control cero y conceptos
+
+[33mcommit e35847eb2fa8b06174edf9ff616744e48cb6c5c3[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sat Feb 27 14:44:19 2016 -0430
+
+    Cambios de enlaces
+
+[33mcommit 8aaf7bf3ab21b2a58d8370d5b203abe430bbf9cf[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sat Feb 27 13:48:13 2016 -0430
+
+    Cambios de enlaces
+
+[33mcommit b3beef6b6a6f66d5c3e5dd6a20a1176e9e356547[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sat Feb 27 13:27:13 2016 -0430
+
+    Cambios de colores
+
+[33mcommit 86abb4008c9a64365dc7588652e345efc81153c4[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sat Feb 27 13:11:45 2016 -0430
+
+    Cambios de titulos
+
+[33mcommit 1cb167d38346fd579916fff7553a09d4e020450d[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sat Feb 27 13:09:16 2016 -0430
+
+    Cambios en el estilo
+
+[33mcommit 2abe55bc753f33ea283a21d3b0b30baaeebba9d8[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Fri Feb 26 19:59:20 2016 -0430
+
+    Control Medicamentos y Badan
+
+[33mcommit 3cf6aa75c20b0a2ee0ccc1c8af6c0fbd74ff2f2f[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Fri Feb 26 16:17:45 2016 -0430
+
+    Listar SidroFan
+
+[33mcommit 18474da657cf088af7f040903a38139153c63ea8[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Fri Feb 26 15:10:58 2016 -0430
+
+    Salir del sistema
+
+[33mcommit 83372448aa0cd80e7e28099a10efb0359c5bb69e[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Fri Feb 26 14:42:14 2016 -0430
+
+    Campo
+
+[33mcommit b8c2abe4ae68e8e55dcf50664af81c441c0ace08[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Fri Feb 26 09:32:21 2016 -0430
+
+    Control de espacio y rutas
+
+[33mcommit d8ac63cfac1449547377321721bd01c99971a3d0[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Thu Feb 25 14:42:35 2016 -0430
+
+    Control de imagenes
+
+[33mcommit e1549654ef1e2a34cedaabee92f25d20b7bfd62f[m
+Author: root <root@canaima-popular.(none)>
+Date:   Thu Feb 25 00:36:35 2016 -0430
+
+    Tratamientos Prologados
+
+[33mcommit 685b03fbb112f82088926df90aa13878b2da86e8[m
+Author: root <root@canaima-popular.(none)>
+Date:   Thu Feb 25 00:15:04 2016 -0430
+
+    Cambio Interfaz, Inclusion de Tratamientos, Cambios en Reembolso
+
+[33mcommit 62e46e2e11c6560d410c954e150cd83efceeb049[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Wed Feb 24 15:07:34 2016 -0430
+
+    Control del Reembolsos, Ayudas, Formato numero, Tratamientos
+
+[33mcommit 86817e8c5f26226b409cc5de106f1981ffae8e10[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 22 15:00:34 2016 -0430
+
+    Documentacion de Clases
+
+[33mcommit 5602c626d35212b08c44073f917ec36fc827658c[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 22 09:12:50 2016 -0430
+
+    Buzon de Solicitudes
+
+[33mcommit 519c23bdfe4563df0f22debc7b6e807dc58ed86e[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sun Feb 21 22:09:33 2016 -0430
+
+    Reembolso e impresion
+
+[33mcommit bd2d441345ccd4ea81cd681c9d6253cea8ed6eba[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sun Feb 21 22:07:29 2016 -0430
+
+    Reembolso e impresion
+
+[33mcommit 217162436f374e0257bf38afaec0318c26a6ee43[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sun Feb 21 22:05:38 2016 -0430
+
+    Reembolso e impresion
+
+[33mcommit 76c91d4eff2f5eafd1a8f2d22dc9d35270459a20[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sun Feb 21 21:55:53 2016 -0430
+
+    deleted:    application/views/bienestarsocial/imp/detReembolso.php
+    	deleted:    application/views/bienestarsocial/imp/reeembolso.php
+    	deleted:    application/views/bienestarsocial/imp/solReembolso.php
+
+[33mcommit e1a8c0bfdfd4b29f0ee7e35b981e627bdf1bf836[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sun Feb 21 21:54:39 2016 -0430
+
+    Reembolso e impresion
+
+[33mcommit ef7c91985b8a819b8ac9290139306fa54ddc18d4[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sat Feb 20 09:47:37 2016 -0430
+
+    Arquitectura de las Tablas
+
+[33mcommit 6a851d6849d7b79c51f987e407ce9decaea5bc5c[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sat Feb 20 09:45:21 2016 -0430
+
+    Arquitectura de las Tablas
+
+[33mcommit 5a5709f477c64578d080bb5a5d20c56cf39af26b[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sat Feb 20 09:29:35 2016 -0430
+
+    Arquitectura de las Tablas
+
+[33mcommit 3e4b4dc5a63bf5ac6fc43f349773e758c26c472c[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sat Feb 20 09:21:29 2016 -0430
+
+    Arquitectura de las Tablas
+
+[33mcommit ad2197aa04833d4d1f55af19ec5f7cefabc20c7c[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sat Feb 20 09:19:45 2016 -0430
+
+    Arquitectura de las Tablas
+
+[33mcommit ab953deb2e502f9b37ee87c1e98c8cbf0a2bfe49[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sat Feb 20 09:15:15 2016 -0430
+
+    Arquitectura de las Tablas
+
+[33mcommit 930c43da2fe294efe2401a76bacd2d5c69d00d19[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sat Feb 20 09:07:57 2016 -0430
+
+    Medicamentos ACtualizando
+
+[33mcommit e772f1f4a5bd571f0816265776580f027aaa0ac6[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sat Feb 20 09:04:17 2016 -0430
+
+    Medicamentos ACtualizando
+
+[33mcommit d8e05e919b3098e1d78bf72fb0f28b6d4f14a061[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sat Feb 20 09:02:14 2016 -0430
+
+    Medicamentos ACtualizando
+
+[33mcommit 5f62b14f14c76bac3f1d0cb61622040b8b7f76cb[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sat Feb 20 08:43:58 2016 -0430
+
+    Cambios Planillas de Reembolso y Ayuda
+
+[33mcommit 787caedefc45bda30deff1a164d3349a704479ad[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Sat Feb 20 08:07:39 2016 -0430
+
+    Cambios Datos Personales (Campos Bancarios)
+
+[33mcommit 6ca6b9db803b126570e8f60560d33a4e804a6277[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Fri Feb 19 19:11:52 2016 -0430
+
+    Actualizando Carro
+
+[33mcommit fcb715e4066070bccc24b25fe5a55aba57980b99[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Fri Feb 19 19:09:41 2016 -0430
+
+    Actualizando Carro
+
+[33mcommit 49a78693c4f5720310acf1d2cfb5c025bd4006d9[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Fri Feb 19 18:55:16 2016 -0430
+
+    Actualizando Carro
+
+[33mcommit cd2538821cfa05bad5485cce57b1a3c18316c5d2[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Fri Feb 19 18:52:44 2016 -0430
+
+    Actualizando Carro
+
+[33mcommit f0c59d54c06adc7d63cffa9d187f7230744945b6[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Fri Feb 19 18:51:15 2016 -0430
+
+    Actualizando Carro
+
+[33mcommit 1073e9b4f19d6461501959be1e016625b69b5667[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Fri Feb 19 18:44:33 2016 -0430
+
+    Solicitud Agregar Objetos
+
+[33mcommit 255c284b0268c6e0f558d39cd4b874bd0408d74e[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Fri Feb 19 18:41:09 2016 -0430
+
+    Solicitud Agregar Objetos
+
+[33mcommit da3bacd52f85a55abbfceef587267af3f73e0190[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Fri Feb 19 18:38:57 2016 -0430
+
+    Dbipsfa Solicitudes
+
+[33mcommit bf0d265a8da37a784b5173234710613934fd623d[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Fri Feb 19 18:34:29 2016 -0430
+
+    Dbipsfa Solicitudes
+
+[33mcommit caf43a9d4053ca8c01b4d2d4d10f57ce55efaf11[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Fri Feb 19 18:33:10 2016 -0430
+
+    Dbipsfa Solicitudes
+
+[33mcommit 1e58e0e24dd2d426fb3137c55859e32a7c31f0e8[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Fri Feb 19 18:29:10 2016 -0430
+
+    Dbipsfa Solicitudes
+
+[33mcommit f0a58b898592e3fa72aaa1351590b2c21ccaee6d[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Fri Feb 19 18:28:14 2016 -0430
+
+    Dbipsfa Solicitudes
+
+[33mcommit 8b8fe909cb75a3ff500e916e5f5fdb01a1a73fc2[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Fri Feb 19 18:26:26 2016 -0430
+
+    Dbipsfa Solicitudes
+
+[33mcommit c00b5c4b863326d71d9c61d12cf0486970584be1[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Fri Feb 19 18:19:15 2016 -0430
+
+    Detalles, Reembolso y Ayuda (html) Contenido
+
+[33mcommit 3dc96bbdc164e3f3a27b5e17222fe27a5a6ce555[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Fri Feb 19 17:57:43 2016 -0430
+
+    Notificar Ayuda
+
+[33mcommit 3096d7860ffe104f3530d474dea9e58a61f9689b[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Fri Feb 19 17:43:39 2016 -0430
+
+    Materialize Css Iconos
+
+[33mcommit ad301b9274cd1275c3a6a4c53ace019ce8e26d09[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Fri Feb 19 17:41:23 2016 -0430
+
+    Session Destroy()
+
+[33mcommit 6afb392e9c4aeae93148f5f5c185e70d80bf5823[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Fri Feb 19 17:39:08 2016 -0430
+
+    Cambio telefono
+
+[33mcommit 8c3ff470044115905fda458dc28323569ef8a889[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Fri Feb 19 17:04:04 2016 -0430
+
+    Cambio telefono
+
+[33mcommit f584be6e483acf6c3dd10a1dd8136bdcc32f386d[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Fri Feb 19 16:59:15 2016 -0430
+
+    Cambio al formato de fecha
+
+[33mcommit 744bb20bfb4e57529ec0aa0ee75c467791bb1d4f[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Fri Feb 19 16:49:48 2016 -0430
+
+    Cambio al formato de fecha
+
+[33mcommit 03a4fd7d864149c3d2f36581df1d6751ced08f12[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Fri Feb 19 16:29:15 2016 -0430
+
+    Test Saman
+
+[33mcommit 658a1bb89ff9e4f9fc2ce4a61abb1207b266298e[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Fri Feb 19 15:46:56 2016 -0430
+
+    Test Saman
+
+[33mcommit bed807db38d47d296f9843cad9cff78d9eadd487[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Fri Feb 19 15:33:11 2016 -0430
+
+    Test Saman
+
+[33mcommit c0f9c1ca11264351e376ecbbc36976fcbaac4cbc[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Fri Feb 19 15:29:06 2016 -0430
+
+    Test Saman
+
+[33mcommit d40e1846bf9f3d85e711758e155f04a200f3a025[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Fri Feb 19 15:18:28 2016 -0430
+
+    Test Saman
+
+[33mcommit ce92a5efdd4c79e048a73286a487534c3fdc8d69[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Thu Feb 18 15:48:49 2016 -0430
+
+    Test Session
+
+[33mcommit 14c746a7a3e1a3116aae0bdf4c5fb8b28169bf5b[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Thu Feb 18 15:38:48 2016 -0430
+
+    Test Session
+
+[33mcommit 600bcb376571356c21f07dc97581f26704b71794[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Thu Feb 18 15:37:11 2016 -0430
+
+    Test Session
+
+[33mcommit fa3d3dc45908965fcb7c69b936f1212c084f4502[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Thu Feb 18 15:28:11 2016 -0430
+
+    Test Session
+
+[33mcommit cc3821852b4c791fd2903466828886b92bd5e077[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Thu Feb 18 15:25:58 2016 -0430
+
+    Test Session
+
+[33mcommit 661df4315e7ca220c3839efd030f9d778d2e2b19[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Thu Feb 18 15:14:44 2016 -0430
+
+    Cambio de Rutas
+
+[33mcommit 33014be55eb194147922cecc58f76276a61080fd[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Thu Feb 18 14:58:06 2016 -0430
+
+    Cambio de Rutas
+
+[33mcommit c09db3e9dbc8a3d1464631ba3707ee8d3778c645[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Thu Feb 18 14:52:52 2016 -0430
+
+    Cambio de Rutas
+
+[33mcommit 09fc75c1775d8266d72fcba88e12828a5effd5af[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Thu Feb 18 13:05:04 2016 -0430
+
+    Test de Carga
+
+[33mcommit 49f8adcf5c773dd578192e9663499104af20bfda[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Thu Feb 18 13:03:15 2016 -0430
+
+    	modified:   application/controllers/BienestarSocial.php
+
+[33mcommit 5452c133dd69d31b90e48de0cf8f0fd31115e817[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Thu Feb 18 09:55:04 2016 -0430
+
+    Cambio de tono de Colores gama Azul #1070B7 Azul claro
+
+[33mcommit 72a2ef729b6b623ec602f01012eaeea8ba25dcf4[m
+Author: Carlos Peña & Jean Rivas <gesaodin@gmail.com>
+Date:   Thu Feb 18 09:39:27 2016 -0430
+
+    Cambio de tono de Colores gama Azul #1070B7 Azul claro
+
+[33mcommit 43011129f19b3ce0fc89f4f1b94b04379510aff8[m
+Author: Carlos Peña & Jean Rivas <gesaodin@gmail.com>
+Date:   Tue Feb 16 14:33:44 2016 -0430
+
+    listar Solicitudes de Ayudas y/o Apoyos
+
+[33mcommit 5132667bedf025d685533354a8cb88019eefda98[m
+Author: Carlos Peña & Jean Rivas <gesaodin@gmail.com>
+Date:   Mon Feb 15 23:34:17 2016 -0430
+
+    Archivo SQL Data, CAmbios del Modelo Persona en: Telefonos a Object
+
+[33mcommit bef5984bdea5d6a8e1aef97aac87c2bcd2b3a213[m
+Author: Carlos Peña & Jean Rivas <gesaodin@gmail.com>
+Date:   Mon Feb 15 21:04:09 2016 -0430
+
+    Documentación UML
+
+[33mcommit bbe3fec3d06669b3d63c3f513a96c1fbef2b54cb[m
+Author: Carlos Peña & Jean Rivas <gesaodin@gmail.com>
+Date:   Mon Feb 15 20:59:54 2016 -0430
+
+    Documentación UML
+
+[33mcommit c3942a126b8287ee8eb00ecdbe11f5bd1ea9c18e[m
+Author: Carlos Peña & Jean Rivas <gesaodin@gmail.com>
+Date:   Mon Feb 15 20:57:43 2016 -0430
+
+    Documentación UML
+
+[33mcommit 752de271e1c0da8f21badc718e02a7a411693e4c[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 15 11:49:05 2016 -0430
+
+    Diagrama IPSFA
+
+[33mcommit 2d5d9e89f60f160bade1a422dece9617a97d77ae[m
+Author: Carlos Peña <gesaodin@users.noreply.github.com>
+Date:   Mon Feb 15 10:18:13 2016 -0430
+
+    Update README.md
+
+[33mcommit acc035e2246577d0ecbdca6811553b8570290ed9[m
+Author: Carlos Peña <gesaodin@users.noreply.github.com>
+Date:   Mon Feb 15 10:14:46 2016 -0430
+
+    Update README.md
+
+[33mcommit 03cd674fb30eff68502e80de7e19a6c51ae6d0bf[m
+Merge: a281aa9 d6f1ce3
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 15 10:10:05 2016 -0430
+
+    Merge branch 'master' of https://github.com/gesaodin/ipsfa-bss
+
+[33mcommit a281aa904e6b988d3c6144397dba770d2d436223[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 15 10:05:06 2016 -0430
+
+    Readme: Documentación e imagenes
+
+[33mcommit aa440cbc9f1dfff1b8c097307cc1d42af3003a0f[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 15 09:53:49 2016 -0430
+
+    Readme: Documentación e imagenes
+
+[33mcommit d6f1ce33be24c1998f15fbf6264e96792ccb6668[m
+Author: Carlos Peña <gesaodin@users.noreply.github.com>
+Date:   Mon Feb 15 09:49:41 2016 -0430
+
+    Update README.md
+
+[33mcommit 9cbed2f67208e4c629151dc5dfd7d6a1486cdd47[m
+Merge: 0c02a04 c0362d3
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 15 09:48:28 2016 -0430
+
+    Merge branch 'master' of https://github.com/gesaodin/ipsfa-bss
+
+[33mcommit 0c02a04c3c8c098eca3f3c2b87a90852cd5974f2[m
+Author: Carlos Peña <gesaodin@gmail.com>
+Date:   Mon Feb 15 09:42:34 2016 -0430
+
+    Readme: Documentación e imagenes
+
+[33mcommit c0362d3a5ed1177ab68e8c5173e526580bfe8c94[m
+Author: Carlos Peña <gesaodin@users.noreply.github.com>
+Date:   Mon Feb 15 09:26:29 2016 -0430
+
+    Update README.md
+
+[33mcommit 824e133aadf40a720e80f8991bf7a3702d525e4e[m
+Author: Carlos Peña <gesaodin@users.noreply.github.com>
+Date:   Mon Feb 15 08:54:35 2016 -0430
+
+    Update README.md
+
+[33mcommit d72eda70048ae9bd2fb525875341f1aeb99f9f12[m
+Author: Carlos Peña & Jean Rivas <gesaodin@gmail.com>
+Date:   Sun Feb 14 23:39:03 2016 -0430
+
+    Actualización: Semillero, Solicitud, Reportes, Interfaz, BD
+
+[33mcommit 2b217422ad927f7880b311d6e8e020281ea3654b[m
+Author: Carlos Peña & Jean Rivas <gesaodin@gmail.com>
+Date:   Sat Feb 13 17:21:41 2016 -0430
+
+    	deleted:    application/controllers/carro/principal.php
+    	deleted:    application/models/carro/mcarro.php
+    	deleted:    application/models/comun/Dbsaman.php
+    	deleted:    application/models/comun/Persona.php
+    	deleted:    application/models/comun/Reembolso.php
+    	deleted:    application/models/comun/Solicitud.php
+     	deleted:    application/models/usuario/iniciar.php
+    	deleted:    application/models/usuario/perfil.php
+    	deleted:    application/models/usuario/usuario.php
+    	deleted:    application/models/utilidades/Anomalia.php
+    	deleted:    application/models/utilidades/Semillero.php
+
+[33mcommit 724061b26f2aac7f2a126a9b314a3be5756c28de[m
+Author: Carlos Peña & Jean Rivas <gesaodin@gmail.com>
+Date:   Sat Feb 13 17:16:14 2016 -0430
+
+    Cambios BD, Actualizacion (Solicitud, Pedidos, Carro)
+
+[33mcommit 73fbf0f3e6e13e39f3ec184221e370c6b4cb1678[m
+Author: Carlos Peña & Jean Rivas <gesaodin@gmail.com>
+Date:   Fri Feb 12 19:46:19 2016 -0430
+
+    UML saman
+
+[33mcommit 806e4511cbaa271a58a1a58499481d83b185f5c5[m
+Author: Carlos Peña & Jean Rivas <gesaodin@gmail.com>
+Date:   Fri Feb 12 19:44:18 2016 -0430
+
+    Metodos Serializacion Reportar Anomalia
+
+[33mcommit 113f5ac3ab167d1109f7cd6df0bc1b14a8534e47[m
+Author: Carlos Peña & Jean Rivas <gesaodin@gmail.com>
+Date:   Thu Feb 11 15:29:25 2016 -0430
+
+    Vista detalles Apoyo
+
+[33mcommit fcd58f97ab113db2ebb8534a1ef06bf4e0ae7d88[m
+Author: Carlos Peña & Jean Rivas <gesaodin@gmail.com>
+Date:   Thu Feb 11 15:24:56 2016 -0430
+
+    Elaboración de Componentes y Rangos
+
+[33mcommit f9c6f8587fd56226e2dea429a7c1ff61963a5514[m
+Author: Carlos Peña & Jean Rivas <gesaodin@gmail.com>
+Date:   Wed Feb 10 01:06:38 2016 -0430
+
+    Control General de Clases Saman; UML
+
+[33mcommit f2c134281c506ecad4954a767f3d56804cf23f5d[m
+Author: Carlos Peña & Jean Rivas <gesaodin@gmail.com>
+Date:   Sun Feb 7 16:40:56 2016 -0430
+
+    Metodos para Importa Saman y codigo PHPUnit
+
+[33mcommit 7d7b336ee950fc66949a4d7faea5bf8942cc08b9[m
+Author: Carlos Peña & Jean Rivas <gesaodin@gmail.com>
+Date:   Sat Feb 6 11:00:18 2016 -0430
+
+    Actualización de la BD
+
+[33mcommit 1333a66e9e660e87c0b107be63d2e62670f28b30[m
+Author: Carlos Peña & Jean Rivas <gesaodin@gmail.com>
+Date:   Fri Feb 5 12:32:42 2016 -0430
+
+    Inclusión de Solicitudes
+
+[33mcommit 3395ccf4fc3351995128531b9e73e7a989cb7279[m
+Author: Carlos Peña & Jean Rivas <gesaodin@gmail.com>
+Date:   Thu Feb 4 16:57:16 2016 -0430
+
+    Cambio y diseño de clases Reembolso y Apoyo
+
+[33mcommit 5428d8c4513b7816cdbd844b8bbf095584378972[m
+Author: judelvis <jud.prog@gmail.com>
+Date:   Thu Feb 4 16:22:30 2016 -0430
+
+    Agregando formato de solcitud de apoyo economico
+
+[33mcommit ec5e60bb35084fbc42bd7a45958d328e22ec24a5[m
+Author: judelvis <jud.prog@gmail.com>
+Date:   Thu Feb 4 14:30:32 2016 -0430
+
+    Ajuste de tamaño para que el formato se pueda imprimir en tamaño carta
+
+[33mcommit fcb795025b34e24c2ef45dd2353a16af696afa3d[m
+Author: judelvis <jud.prog@gmail.com>
+Date:   Thu Feb 4 14:09:30 2016 -0430
+
+    Agregado formato de solicitud de reembolso
+
+[33mcommit 578ad3a128b220f2d6a8a867c3602745edc77b11[m
+Author: Carlos Peña & Jean Rivas <gesaodin@gmail.com>
+Date:   Thu Feb 4 12:22:39 2016 -0430
+
+    Creacón de Reembolsos y Apoyo
+
+[33mcommit 03bffa36ba9bdadd2ef6e90bac8f8f040b35e599[m
+Author: Carlos Peña & Jean Rivas <gesaodin@gmail.com>
+Date:   Wed Feb 3 18:16:32 2016 -0430
+
+    Inclusión Objeto Persona SAMAN
+
+[33mcommit 22eb29fb0e2e17242a7a5b9315aeb0a98b17f824[m
+Author: Carlos Peña <carlos@canaima-popular>
+Date:   Thu Jan 28 19:22:36 2016 -0430
+
+    Locatel y Badan
+
+[33mcommit c29a7efdfd884a3744d0bd8d9959513a56740570[m
+Author: Carlos Peña <carlos@canaima-popular>
+Date:   Thu Jan 28 18:56:21 2016 -0430
+
+    Maqueta Bicentenario
+
+[33mcommit f73d67f64cb52ae8f45a7f460fd149eb822b7e0e[m
+Author: Carlos Peña <carlos@canaima-popular>
+Date:   Tue Jan 12 11:01:39 2016 -0430
+
+    Tar Postgres
+
+[33mcommit 9bf8d8b4e280098d77549b792454b67da78f4723[m
+Author: Carlos Peña <carlos@canaima-popular>
+Date:   Sun Jan 10 12:22:25 2016 -0430
+
+    E-Commerce
+
+[33mcommit 65a6465c3c9435a1a9b8607400527e62d3a1090f[m
+Author: Carlos Peña <carlos@canaima-popular>
+Date:   Sat Jan 9 16:45:32 2016 -0430
+
+    E-Commerce
+
+[33mcommit 2b9ed0b315b15189c7a55f6d99ea2249ca308c9d[m
+Author: Carlos Peña <carlos@canaima-popular>
+Date:   Fri Jan 8 15:36:51 2016 -0430
+
+    Style
+
+[33mcommit a779e991327496bd2b7856a68bce0f1c4107ea07[m
+Author: Carlos Peña <carlos@canaima-popular>
+Date:   Wed Jan 6 18:41:47 2016 -0430
+
+    Conexion a Postgre
+
+[33mcommit 459bf5eb321ebdcedfcbaa1fb8ad1899061b27c1[m
+Author: Carlos Peña <carlos@canaima-popular>
+Date:   Tue Jan 5 19:53:42 2016 -0430
+
+    Archivos Datados
+
+[33mcommit 31796c306b174ffec71309651d65baf9a5d106f9[m
+Author: Carlos Peña <carlos@canaima-popular>
+Date:   Tue Jan 5 19:27:44 2016 -0430
+
+    Archivos Datados
+
+[33mcommit f410060c8f39386d719e3f137871e7cb473885c6[m
+Author: Carlos Peña <carlos@canaima-popular>
+Date:   Tue Jan 5 09:53:10 2016 -0430
+
+    Inventario
+
+[33mcommit ccd216944174db50e24e1fd2b0aa045494dd2ca3[m
+Author: carlos enrique peña <carlos@canaima-popular.(none)>
+Date:   Tue Jan 5 09:11:04 2016 -0430
+
+    Cargando el Sistema Inicialmente
+
+[33mcommit ddca41d6624488c86d709467a52ef82db4cd5132[m
+Author: Carlos Peña <gesaodin@users.noreply.github.com>
+Date:   Tue Jan 5 09:05:20 2016 -0430
+
+    Initial commit

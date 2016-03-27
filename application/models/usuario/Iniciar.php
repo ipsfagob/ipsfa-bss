@@ -39,12 +39,15 @@ class Iniciar extends CI_Model {
   }
 
   private function _entrar($usuario) {
-
+    
+    
+  
     $this->session->set_userdata(array(
         'cedula' => $usuario->cedula,
         'nombreRango' => $usuario->nombre,
         'correo' => $usuario->correo,
         'estatus' => $usuario->estatus,
+        'ultimaConexion' => $usuario->ultimaConexion()
       )
     );
     $this->load->model('comun/Dbipsfa');

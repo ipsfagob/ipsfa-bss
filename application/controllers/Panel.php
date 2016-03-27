@@ -35,7 +35,7 @@ class Panel extends CI_Controller{
 	}
 
 	function index(){
-		if(isset($_SESSION['cedula'])){
+		if(isset($_SESSION['cedula'])){			
 			$this->load->view('panel/inicio');	
 		}else{
 			$this->salir();			

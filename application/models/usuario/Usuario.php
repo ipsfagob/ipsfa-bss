@@ -189,6 +189,21 @@ class Usuario extends CI_Model {
     return $obj;
   }
 
+  /**
+  * Ver la ultima conexion de un usuario
+  *
+  * @access public
+  * @return string
+  */
+  function ultimaConexion(){
+    $sConsulta = 'SELECT * FROM traza WHERE cedu=\'' . $this->cedula . '\' ORDER BY fech  DESC LIMIT 1;';
+    $obj = $this->Dbipsfa->consultar($sConsulta);
+    foreach ($obj->rs as $c => $v) {
+      $fecha = $v->fech;
+    }
+    return substr($fecha, 0 ,19);
+  }
+
   function __destruct() {
 
   }

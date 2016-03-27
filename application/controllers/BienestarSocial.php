@@ -401,7 +401,12 @@ class BienestarSocial extends CI_Controller {
 		}	
 	}
 
-
+	/**
+	 * Consultar Persona
+	 *
+	 * @access  public
+	 * @return Militar
+	 */
 	function ConsultarPersona(){
 		if(isset($_SESSION['cedula'])){
 			$this->load->model('saman/Militar', 'Militar');
@@ -592,9 +597,11 @@ class BienestarSocial extends CI_Controller {
 	}
 
 	/**
-	 * 
+	 * Salvar Anomalia Media
+	 *
+	 * @access public
 	 * @return string
-	 */	
+	 */
 	function SalvarAnomaliaMedia(){	
 
 		if(isset($_SESSION['cedula'])){
@@ -609,7 +616,12 @@ class BienestarSocial extends CI_Controller {
 		}	
 	}
 
-
+	/**
+	 * Guardar Solicitud de Medicamentos
+	 *
+	 * @access  public
+	 * @return mixed 
+	 */
 	function SalvarSolicitudMedicamentos(){
 		if(isset($_SESSION['cedula'])){
 			$this->load->model('saman/Solicitud');

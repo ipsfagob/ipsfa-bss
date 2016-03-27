@@ -20,12 +20,7 @@
 				</ul>				
 				<ul id="nav-mobile" class="side-nav">
 					<br>											
-					<li class="divider"></li>				
-					<li><a href="<?php echo base_url(); ?>index.php/Panel/">
-						Solicitudes<i class="mdi-action-alarm-add left blue-text"></i></a>							
-					</li>
-					<li><a href="<?php echo base_url(); ?>index.php/Panel/">
-					Citas<i class="mdi-action-lock left blue-text"></i></a></li>
+					
 					<li><a href="<?php echo base_url(); ?>index.php/Panel/salir" class="tooltipped" data-position="top" data-delay="10" data-tooltip="Cerrar Sesión">
 						Salir<i class="mdi-action-settings-power left red-text"></i> </a>
 					</li>
@@ -79,16 +74,22 @@
 				<i class="material-icons md-100  brown-text text-lighten-4">account_circle</i>
 			</div>
 			<div  class="ContactoDetalle">
-				<span>Ultima Conexión: </span>
+				<span>Ultima Conexión: <?php echo $_SESSION['ultimaConexion'];?></span>
 			</div>
 			<div  class="ContactoDetalle">
 				<span>Telefono: XXXX-XXXXXXX</span></div>
 			
 			<div class="ContactoDetalle">
-			<span>
-				<?php if($_SESSION['estatus'] == 0){
-					echo '<i class="material-icons red-text md-18 left">warning</i>';
-				};?><?php echo $_SESSION['correo'];?></span></div>
+				<span>
+				<?php 
+					$validar = '<i class="material-icons green-text md-18 left">done</i>';
+					if($_SESSION['estatus'] == 0){
+						$validar = '<i class="material-icons red-text md-18 left">warning</i>';
+					}
+					echo $validar . $_SESSION['correo'];
+				?>
+				</span>
+			</div>
 		
 			<div class="ContactoDetalle" style="height: 48px">
 			<span style="float: right; padding-right: 30px"><a href="#!">+ Acerca de IpsfaNet</a></span></div>

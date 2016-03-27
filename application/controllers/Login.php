@@ -253,11 +253,13 @@ class Login extends CI_Controller {
 	}
 
 	/**
+	* Permite validar la ultima conexion
 	*
-	*
+	* @access public
+	* @return mixed
 	*/
-	function ultimaConexion(){
-		
+	public function ultimaConexion(){
+		print_r($_SESSION);
 	}
 
   	function salir(){
