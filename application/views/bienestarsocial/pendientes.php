@@ -5,7 +5,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 <br>
 <div class="container">
 
-<h5>Resumen de Solicitudes.</h5>
+<h5>Casos Generales.</h5>
 <div class="row">
 	<div class="col s6 m4 l4"><i class="material-icons left amber-text text-darken-4">alarm_on</i>Pendiente</div>
 	<div class="col s6 m4 l4"><i class="material-icons left green-text text-darken-4">done</i>Procesado</div>
