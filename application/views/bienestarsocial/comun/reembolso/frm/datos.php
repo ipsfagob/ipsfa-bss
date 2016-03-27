@@ -26,7 +26,7 @@
           		
           		foreach ($Concepto as $key => $val) {
           			$cadena = '<option value="' . $val->codigo . '">' .   
-                         html_entity_decode(utf8_decode(utf8_encode(strtoupper($val->nombre))), ENT_COMPAT, 'UTF-8') . '</option>';
+                         strtoupper($val->nombre) . '</option>';
           			echo $cadena;
           		}
 

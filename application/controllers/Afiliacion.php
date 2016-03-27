@@ -24,16 +24,38 @@ class Afiliacion extends CI_Controller {
 
 
 	function actualizarDatos(){
-		if(isset($_SESSION['cedula'])){			
+		if(isset($_SESSION['cedula'])){
 			$this->load->model('saman/Militar', 'Militar');
 			$this->load->model('saman/CodigoArea', 'CodigoArea');
+			$this->load->model('saman/Estado', 'Estado');
 			$this->Militar->consultar($_SESSION['cedula']);
 			$data['CodigoArea'] = $this->CodigoArea->listar()->rs;
 			$data['Militar'] = $this->Militar;
+			$data['Estado'] = $this->Estado->listar()->rs;
 			$this->load->view ( 'afiliacion/inicio', $data );
 		}else{			
-			$this->salir();
-			echo "Debe iniciar session";
+			$this->salir("Debe iniciar session");
+		}
+	}
+
+	
+	public function listarMunicipio(){
+		if(isset($_SESSION['cedula'])){
+			$this->load->model('saman/Municipio', 'Municipio');
+			echo json_encode($this->Municipio->listar($_GET['codigo'])->rs);
+			
+
+		}else{			
+			$this->salir("Debe iniciar session");			
+		}
+	}
+
+		public function listarParroquia(){
+		if(isset($_SESSION['cedula'])){
+			$this->load->model('saman/Parroquia', 'Parroquia');
+			echo json_encode($this->Parroquia->listar($_GET['codigoEstado'], $_GET['codigoMunicipio'])->rs);
+		}else{			
+			$this->salir("Debe iniciar session");			
 		}
 	}
 
@@ -45,7 +67,17 @@ class Afiliacion extends CI_Controller {
 	}
 
 
-
+	/**
+	 * Salir del sistema
+	 *
+	 * @access public
+	 * @return mixed
+	 */
+  	public function salir($msj = '') {
+  		session_destroy();
+  		$data['msj'] = $msj;
+		$this->load->view ( 'login/login');
+	}
   
 	function __destruct(){
 	}

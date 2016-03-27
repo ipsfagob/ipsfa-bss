@@ -35,11 +35,11 @@ class BienestarPanel extends CI_Controller{
 
 	function index(){
 		
-		$this->load->view('panel/inicio');
+		$this->load->view('bienestarsocial/panel/inicio');
 	}
 
 	function login(){
-		$this->load->view('afiliacion/login');
+		$this->load->view('login/login');
 	}
 
 	function tratamientos(){

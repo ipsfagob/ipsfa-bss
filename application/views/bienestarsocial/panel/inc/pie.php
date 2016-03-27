@@ -1,14 +1,13 @@
 
 
 <!--Import jQuery before materialize.js-->
-<script type="text/javascript" src="<?php echo base_url(); ?>public/js/jquery-2.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url(); ?>public/js/materialize.min.js"></script>
+<?php 
+    $this->load->view("js/rutas.js.php");
+?> 
 <script type="text/javascript" src="<?php echo base_url(); ?>public/js/price_format.2.0.min.js"></script>
 
 
 <script type="text/javascript">
-    var sUrl = 'http://' + window.location.hostname + '/ipsfa-bss';
-	var sUrlP = sUrl + '/index.php/Panel/';
 
     $(document).ready(function(){
 
@@ -23,7 +22,7 @@
 			hover: false, // Activate on hover
 			gutter: 0, // Spacing from edge
 			belowOrigin: true, // Displays dropdown below the button
-			alignment: 'left' // Displays dropdown with edge aligned to the left of button
+			alignment: 'right' // Displays dropdown with edge aligned to the left of button
 			}
 		);
 
@@ -31,10 +30,10 @@
 			inDuration: 400,
 			outDuration: 225,
 			constrain_width: false, // Does not change width of dropdown to that of the activator
-			hover: false, // Activate on hover
+			hover: true, // Activate on hover
 			gutter: 0, // Spacing from edge
 			belowOrigin: true, // Displays dropdown below the button
-			alignment: 'left' // Displays dropdown with edge aligned to the left of button
+			alignment: 'right' // Displays dropdown with edge aligned to the left of button
 			}
 		);
 

@@ -3,10 +3,10 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 /**
- * IPSFA Bienestar y Seguridad Social 
- * 
- * Codigo de Area 
+ * Parroquia
  *
+ * Del griego παροικία, paroikía, ‘cerca de la vivienda’ es la 
+ * denominación de algunas entidades subnacionales en diferentes países.
  *
  * @package ipsfa-bss\application\model
  * @subpackage saman
@@ -36,14 +36,13 @@ class Parroquia extends CI_Model{
 
 
 	/**
-	* Listar todos los codigos de Areas del país
-	*
+	* Listar todas las parroquias asociadas al municipio
+	* @param string
 	* @access public
 	* @return array
 	*/
-	public function listar(){
-		$sConsulta = 'SELECT codarea FROM codarea';
-		$lst = array();
+	public function listar($codigoEstado = '', $codigoMunicipio = ''){
+		$sConsulta = 'SELECT codpar AS codigo, denpar AS nombre FROM parroquia WHERE id_estado = \'' . $codigoEstado . '\' AND codmun=\'' . $codigoMunicipio . '\'';
 		$arr = $this->Dbsaman->consultar($sConsulta);
 		return $arr;
 	}

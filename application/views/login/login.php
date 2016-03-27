@@ -41,7 +41,7 @@
 					        </div>
 					      </div>
 						</form>
-						<a>¿Olvido su contraseña?</a>
+						<a href="<?php echo base_url(); ?>index.php/Login/recuperar">¿Olvido su contraseña?</a>
 			  			<br>
 			  			Una sola cuenta IpsfaNet para todos los servicios del IPSFA 
 		          </div>

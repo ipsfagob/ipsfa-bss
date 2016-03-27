@@ -2,17 +2,14 @@
 
 
 <!--Import jQuery before materialize.js-->
-<script type="text/javascript" src="<?php echo base_url(); ?>public/js/jquery-2.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url(); ?>public/js/materialize.min.js"></script>
+<?php 
+    $this->load->view("js/rutas.js.php");
+?> 
 <script type="text/javascript" src="<?php echo base_url(); ?>public/js/price_format.2.0.min.js"></script>
 
 
 <script type="text/javascript">
-    var sUrl = 'http://' + window.location.hostname + '/ipsfa-bss';
-	var sUrlP = sUrl + '/index.php/BienestarSocial/';
-
     $(document).ready(function(){
-
     	$('.tooltipped').tooltip({delay: 10});
 		$('.materialboxed').materialbox();
   		$('select').material_select();  

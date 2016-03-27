@@ -2,7 +2,7 @@
 $this->load->view("afiliacion/inc/cabecera.php");
 ?>
 <script type="text/javascript"
-  src="<?php echo base_url(); ?>application/views/bienestarsocial/js/datos.js"></script>
+  src="<?php echo base_url(); ?>application/views/afiliacion/js/datos.js"></script>
 <br><br>
 <div class="container .hide-on-small-only">
 
@@ -23,7 +23,7 @@ $this->load->view("afiliacion/inc/cabecera.php");
     <img width="100px" class="responsive-img circle" src="http://www.ipsfa.gob.ve/SAEMI/xmlsHtmlsImgs/imgs.afiliados/pers.mil.act/<?php echo $Militar->Persona->cedula?>.jpg"> -->
   </div>
 </div>
-
+  
  <div class="row">
 	 	<div class="input-field col s12 m6 l6">
           <input disabled id="cedula" type="text" class="validate" 
@@ -128,28 +128,29 @@ $this->load->view("afiliacion/inc/cabecera.php");
       <li class="divider"></li><br>
      <div class="row">
         <div class="input-field col s12 m6 l6">
-        <select id="estado" >
-            <option value=""></option>
-            
-            
+        <select id="estado" name='estado' onchange="listarMunicipio();">
+        <option value="0">-------------</option>
+          <?php
+            $sEstado = '';
+            foreach ($Estado as $key => $val) {
+              $sEstado .= '<option value="' . $val->codigo . '">' . $val->nombre . '</option>';
+            }
+            echo $sEstado;
+          ?>
           </select>
           <label>Estado</label>
         </div>
 
-        <div class="input-field col  s12 m6 l6">
-        <select id="municipio">
-            <option value=""></option>
-            
-            
+        <div class="input-field col s12 m6 l6">
+          <select id="municipio" onchange="listarParroquia();">
+            <option value="0">----------</option>  
           </select>
           <label>Municipio</label>
         </div>
 
-        <div class="input-field col  s12 m12 l12">
+        <div class="input-field col s12 m12 l12">
         <select id="parroquia">
-            <option value=""></option>
-            
-            
+            <option value="0">----------</option>           
           </select>
           <label>Parroquia</label>
         </div>

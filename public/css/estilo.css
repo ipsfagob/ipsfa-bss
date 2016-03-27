@@ -13,7 +13,36 @@ main {
 	flex: 1 0 auto;
 }
 
-.button { /* clase general */
+.input-field input[id="search"]:focus {
+ border-bottom: 0px solid #000;
+ box-shadow: 0 0px 0 0 #000;
+}
+
+	
+.btns-add{background-color:#00345A;color:#FFF;font-size:14px;text-align:center;font-weight:bold;}
+.btns{border:1px #E1E1E1 solid;padding:3px;background:#FEFBD3;color:#56000F;}
+
+.input-field .btn {background-color:#00345A;}
+.input-field .btn:hover { background-color:#990000;}
+
+.file-path::-webkit-input-placeholder { color: #828282;; }
+.file-path:-moz-placeholder { color: #828282;; }
+.file-path::-moz-placeholder { color: #828282;; }
+.file-path:-ms-input-placeholder { color: #828282;; }
+
+.input-field input[type=text]:focus + label {color: #00345A;} 
+.input-field input[type=text]:focus { border-bottom: #FF0000;box-shadow: 0 1px 0 0 #00345A;}
+.input-field input[type=select]:focus { border-bottom: #FF0000;box-shadow: 0 1px 0 0 #00345A;}
+.input-field label {color: #828282;}
+.input-field input[type=text] {border-bottom: 1px solid #00345A;box-shadow: 0 1px 0 0 #00345A;color:#828282;}
+.input-field input[type=select] {border-bottom: 1px solid #00345A;box-shadow: 0 1px 0 0 #00345A;color:#828282;}
+
+.botones-solicitud{height:auto;width:100%;box-shadow: 0 0 13px 1px #00345A;cursor:pointer;padding:1px;}
+.botones-solicitud:hover{height:auto;width:100%;box-shadow: 0 0 25px 1px #FFB59F;cursor:pointer;padding:1px;}
+.email-unread .email-title {font-weight: 500;}
+
+
+.button { 
 	border: 1px solid #dedede;
 	border-radius: 3px;
 	color: #555;
@@ -45,3 +74,6 @@ main {
     font-size: 11px;
     color: blue;
 }
+
+    
+

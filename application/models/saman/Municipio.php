@@ -3,10 +3,11 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 /**
- * IPSFA Bienestar y Seguridad Social 
+ * Municipio
  * 
- * Codigo de Area 
- *
+ * Es una entidad administrativa que puede agrupar una sola 
+ * localidad o varias y que puede hacer referencia a una ciudad, un pueblo o 
+ * una aldea.
  *
  * @package ipsfa-bss\application\model
  * @subpackage saman
@@ -36,14 +37,14 @@ class Municipio extends CI_Model{
 
 
 	/**
-	* Listar todos los codigos de Areas del país
+	* Listar los municipios por codigo
 	*
+	* @param string
 	* @access public
 	* @return array
 	*/
-	public function listar(){
-		$sConsulta = 'SELECT codarea FROM codarea';
-		$lst = array();
+	public function listar($codigoEstado = '') {
+		$sConsulta = 'SELECT codmun AS codigo, denmun AS nombre FROM municipio WHERE id_estado=\'' . $codigoEstado . '\'';
 		$arr = $this->Dbsaman->consultar($sConsulta);
 		return $arr;
 	}

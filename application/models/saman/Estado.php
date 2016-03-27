@@ -3,10 +3,14 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 /**
- * IPSFA Bienestar y Seguridad Social 
+ * Estado
  * 
- * Codigo de Area 
- *
+ * Es un concepto político que se refiere a una forma de organización social, 
+ * económica, política soberana y coercitiva, conformada por un conjunto de instituciones, 
+ * que tienen el poder de regular la vida comunitaria nacional, generalmente solo en un 
+ * territorio determinado o territorio nacional; aunque no siempre, como en el caso del 
+ * imperialismo. Suele incluirse en la definición de Estado el reconocimiento por parte 
+ * de la comunidad internacional como sujeto de derecho internacional.
  *
  * @package ipsfa-bss\application\model
  * @subpackage saman
@@ -42,8 +46,7 @@ class Estado extends CI_Model{
 	* @return array
 	*/
 	public function listar(){
-		$sConsulta = 'SELECT codarea FROM codarea';
-		$lst = array();
+		$sConsulta = 'SELECT id_estado AS codigo, estado AS nombre FROM estados';
 		$arr = $this->Dbsaman->consultar($sConsulta);
 		return $arr;
 	}

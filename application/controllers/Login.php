@@ -136,8 +136,21 @@ class Login extends CI_Controller {
 	}
 
 	/**
+	* Establecer politicas para la recuperacion de clave
 	*
+	* @access public
+	* @return mixed
+	*/	
+	public function recuperar($msj = ''){
+		$data['msj'] = $msj;
+		$this->load->view('login/afiliacion/frmRecuperar', $data);	
+	}
+
+	/**
+	* Registar y asignar tipo al usuario
 	*
+	* @access public
+	* @return mixed
 	*/	
 	public function registrarUsuario(){
 		$this -> load -> model("usuario/usuario","usuario");
@@ -175,8 +188,9 @@ class Login extends CI_Controller {
 	* Enviar Correo Electronico para certificar una cuenta
 	*
 	* @access protected
+	* @return mixed
 	*/	
-  	public function enviarCorreoCertificacion(){
+  	protected function enviarCorreoCertificacion(){
  
   		$this->load->library('email');
 
@@ -224,6 +238,7 @@ class Login extends CI_Controller {
 	* Falta validar la funcion para el retorno de verdadero
 	*
 	* @access public
+	* @return mixed
 	*/
 	public function validarCorreo($sha = ""){
 		$this -> load -> model("usuario/usuario","usuario");
