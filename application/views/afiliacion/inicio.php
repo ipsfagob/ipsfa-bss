@@ -114,6 +114,24 @@ $this->load->view("afiliacion/inc/cabecera.php");
             return $sArea;
           }
         ?>
+        <div class="input-field col s2 m2 l1">
+            <select id="codTipoAux">
+              <option value="HAB">HAB</option> 
+              <option value="CEL">CEL</option> 
+              <option value="PRIN">PRIN</option>    
+            </select>
+            <label>Tipo</label>
+        </div>
+        <div class="input-field col s3 m3 l1">
+          <select id="codTelefonoAux">
+              <?php echo generarCodigos($CodigoArea);?>
+          </select>                
+          <label>Código</label>
+        </div>
+        <div class="input-field col s7 m7 l4">                      
+          <input id="telefonoAux" type="text" class="validate" value="">
+          <label>Teléfono Auxiliar</label>
+        </div>
       </div>
 
 
@@ -165,6 +183,10 @@ $this->load->view("afiliacion/inc/cabecera.php");
         <div class="input-field col s12">
           <input id="email" type="email" class="validate" value="<?php echo $Militar->Persona->correoElectronico?>">
           <label for="email" data-error="Invalido" data-success="right">Correo Electronico</label>
+        </div>
+        <div class="input-field col s12">
+          <input id="emailAux" type="email" class="validate" value="<?php echo ''?>">
+          <label for="emailAux" data-error="Invalido" data-success="right">Correo Electronico Alternativo</label>
         </div>
       </div> 
 
