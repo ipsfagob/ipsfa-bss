@@ -4,7 +4,7 @@
 
 -- Dumped from database version 9.4.5
 -- Dumped by pg_dump version 9.4.5
--- Started on 2016-03-28 06:41:52 VET
+-- Started on 2016-03-28 07:11:27 VET
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -14,8 +14,8 @@ SET check_function_bodies = false;
 SET client_min_messages = warning;
 
 --
--- TOC entry 3061 (class 1262 OID 33254)
--- Dependencies: 3060
+-- TOC entry 3063 (class 1262 OID 33254)
+-- Dependencies: 3062
 -- Name: ipsfa-bss; Type: COMMENT; Schema: -; Owner: gesaodin
 --
 
@@ -31,7 +31,7 @@ CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 
 
 --
--- TOC entry 3064 (class 0 OID 0)
+-- TOC entry 3066 (class 0 OID 0)
 -- Dependencies: 195
 -- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
 --
@@ -92,7 +92,7 @@ CREATE SEQUENCE anomalia_oid_seq
 ALTER TABLE anomalia_oid_seq OWNER TO gesaodin;
 
 --
--- TOC entry 3065 (class 0 OID 0)
+-- TOC entry 3067 (class 0 OID 0)
 -- Dependencies: 174
 -- Name: anomalia_oid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gesaodin
 --
@@ -131,7 +131,7 @@ CREATE SEQUENCE archivo_oid_seq
 ALTER TABLE archivo_oid_seq OWNER TO gesaodin;
 
 --
--- TOC entry 3066 (class 0 OID 0)
+-- TOC entry 3068 (class 0 OID 0)
 -- Dependencies: 176
 -- Name: archivo_oid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gesaodin
 --
@@ -140,7 +140,7 @@ ALTER SEQUENCE archivo_oid_seq OWNED BY archivo.oid;
 
 
 --
--- TOC entry 190 (class 1259 OID 41448)
+-- TOC entry 188 (class 1259 OID 41448)
 -- Name: concepto_archivo; Type: TABLE; Schema: public; Owner: gesaodin; Tablespace: 
 --
 
@@ -157,7 +157,7 @@ CREATE TABLE concepto_archivo (
 ALTER TABLE concepto_archivo OWNER TO gesaodin;
 
 --
--- TOC entry 189 (class 1259 OID 41446)
+-- TOC entry 187 (class 1259 OID 41446)
 -- Name: concepto_archivo_oid_seq; Type: SEQUENCE; Schema: public; Owner: gesaodin
 --
 
@@ -172,8 +172,8 @@ CREATE SEQUENCE concepto_archivo_oid_seq
 ALTER TABLE concepto_archivo_oid_seq OWNER TO gesaodin;
 
 --
--- TOC entry 3067 (class 0 OID 0)
--- Dependencies: 189
+-- TOC entry 3069 (class 0 OID 0)
+-- Dependencies: 187
 -- Name: concepto_archivo_oid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gesaodin
 --
 
@@ -181,7 +181,7 @@ ALTER SEQUENCE concepto_archivo_oid_seq OWNED BY concepto_archivo.oid;
 
 
 --
--- TOC entry 194 (class 1259 OID 41470)
+-- TOC entry 190 (class 1259 OID 41470)
 -- Name: notificaciones; Type: TABLE; Schema: public; Owner: gesaodin; Tablespace: 
 --
 
@@ -200,7 +200,7 @@ CREATE TABLE notificaciones (
 ALTER TABLE notificaciones OWNER TO gesaodin;
 
 --
--- TOC entry 193 (class 1259 OID 41468)
+-- TOC entry 189 (class 1259 OID 41468)
 -- Name: notificaciones_oid_seq; Type: SEQUENCE; Schema: public; Owner: gesaodin
 --
 
@@ -215,8 +215,8 @@ CREATE SEQUENCE notificaciones_oid_seq
 ALTER TABLE notificaciones_oid_seq OWNER TO gesaodin;
 
 --
--- TOC entry 3068 (class 0 OID 0)
--- Dependencies: 193
+-- TOC entry 3070 (class 0 OID 0)
+-- Dependencies: 189
 -- Name: notificaciones_oid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gesaodin
 --
 
@@ -255,7 +255,7 @@ CREATE SEQUENCE productos_oid_seq
 ALTER TABLE productos_oid_seq OWNER TO gesaodin;
 
 --
--- TOC entry 3069 (class 0 OID 0)
+-- TOC entry 3071 (class 0 OID 0)
 -- Dependencies: 178
 -- Name: productos_oid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gesaodin
 --
@@ -264,7 +264,7 @@ ALTER SEQUENCE productos_oid_seq OWNED BY productos.oid;
 
 
 --
--- TOC entry 179 (class 1259 OID 33287)
+-- TOC entry 192 (class 1259 OID 41479)
 -- Name: semillero; Type: TABLE; Schema: public; Owner: gesaodin; Tablespace: 
 --
 
@@ -282,7 +282,7 @@ CREATE TABLE semillero (
 ALTER TABLE semillero OWNER TO gesaodin;
 
 --
--- TOC entry 180 (class 1259 OID 33290)
+-- TOC entry 191 (class 1259 OID 41477)
 -- Name: semillero_oid_seq; Type: SEQUENCE; Schema: public; Owner: gesaodin
 --
 
@@ -297,8 +297,8 @@ CREATE SEQUENCE semillero_oid_seq
 ALTER TABLE semillero_oid_seq OWNER TO gesaodin;
 
 --
--- TOC entry 3070 (class 0 OID 0)
--- Dependencies: 180
+-- TOC entry 3072 (class 0 OID 0)
+-- Dependencies: 191
 -- Name: semillero_oid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gesaodin
 --
 
@@ -306,7 +306,7 @@ ALTER SEQUENCE semillero_oid_seq OWNED BY semillero.oid;
 
 
 --
--- TOC entry 181 (class 1259 OID 33292)
+-- TOC entry 179 (class 1259 OID 33292)
 -- Name: sidrofan; Type: TABLE; Schema: public; Owner: gesaodin; Tablespace: 
 --
 
@@ -326,7 +326,7 @@ CREATE TABLE sidrofan (
 ALTER TABLE sidrofan OWNER TO gesaodin;
 
 --
--- TOC entry 182 (class 1259 OID 33298)
+-- TOC entry 180 (class 1259 OID 33298)
 -- Name: sidrofan_oid_seq; Type: SEQUENCE; Schema: public; Owner: gesaodin
 --
 
@@ -341,8 +341,8 @@ CREATE SEQUENCE sidrofan_oid_seq
 ALTER TABLE sidrofan_oid_seq OWNER TO gesaodin;
 
 --
--- TOC entry 3071 (class 0 OID 0)
--- Dependencies: 182
+-- TOC entry 3073 (class 0 OID 0)
+-- Dependencies: 180
 -- Name: sidrofan_oid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gesaodin
 --
 
@@ -350,7 +350,7 @@ ALTER SEQUENCE sidrofan_oid_seq OWNED BY sidrofan.oid;
 
 
 --
--- TOC entry 192 (class 1259 OID 41459)
+-- TOC entry 194 (class 1259 OID 41487)
 -- Name: solicitud; Type: TABLE; Schema: public; Owner: gesaodin; Tablespace: 
 --
 
@@ -371,7 +371,7 @@ CREATE TABLE solicitud (
 ALTER TABLE solicitud OWNER TO gesaodin;
 
 --
--- TOC entry 191 (class 1259 OID 41457)
+-- TOC entry 193 (class 1259 OID 41485)
 -- Name: solicitud_oid_seq; Type: SEQUENCE; Schema: public; Owner: gesaodin
 --
 
@@ -386,8 +386,8 @@ CREATE SEQUENCE solicitud_oid_seq
 ALTER TABLE solicitud_oid_seq OWNER TO gesaodin;
 
 --
--- TOC entry 3072 (class 0 OID 0)
--- Dependencies: 191
+-- TOC entry 3074 (class 0 OID 0)
+-- Dependencies: 193
 -- Name: solicitud_oid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gesaodin
 --
 
@@ -395,7 +395,7 @@ ALTER SEQUENCE solicitud_oid_seq OWNED BY solicitud.oid;
 
 
 --
--- TOC entry 183 (class 1259 OID 33308)
+-- TOC entry 181 (class 1259 OID 33308)
 -- Name: tdocumento; Type: TABLE; Schema: public; Owner: gesaodin; Tablespace: 
 --
 
@@ -408,7 +408,7 @@ CREATE TABLE tdocumento (
 ALTER TABLE tdocumento OWNER TO gesaodin;
 
 --
--- TOC entry 184 (class 1259 OID 33311)
+-- TOC entry 182 (class 1259 OID 33311)
 -- Name: tdocumento_oid_seq; Type: SEQUENCE; Schema: public; Owner: gesaodin
 --
 
@@ -423,8 +423,8 @@ CREATE SEQUENCE tdocumento_oid_seq
 ALTER TABLE tdocumento_oid_seq OWNER TO gesaodin;
 
 --
--- TOC entry 3073 (class 0 OID 0)
--- Dependencies: 184
+-- TOC entry 3075 (class 0 OID 0)
+-- Dependencies: 182
 -- Name: tdocumento_oid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gesaodin
 --
 
@@ -432,7 +432,7 @@ ALTER SEQUENCE tdocumento_oid_seq OWNED BY tdocumento.oid;
 
 
 --
--- TOC entry 185 (class 1259 OID 33313)
+-- TOC entry 183 (class 1259 OID 33313)
 -- Name: traza; Type: TABLE; Schema: public; Owner: gesaodin; Tablespace: 
 --
 
@@ -449,7 +449,7 @@ CREATE TABLE traza (
 ALTER TABLE traza OWNER TO gesaodin;
 
 --
--- TOC entry 186 (class 1259 OID 33319)
+-- TOC entry 184 (class 1259 OID 33319)
 -- Name: traza_oid_seq; Type: SEQUENCE; Schema: public; Owner: gesaodin
 --
 
@@ -464,8 +464,8 @@ CREATE SEQUENCE traza_oid_seq
 ALTER TABLE traza_oid_seq OWNER TO gesaodin;
 
 --
--- TOC entry 3074 (class 0 OID 0)
--- Dependencies: 186
+-- TOC entry 3076 (class 0 OID 0)
+-- Dependencies: 184
 -- Name: traza_oid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gesaodin
 --
 
@@ -473,7 +473,7 @@ ALTER SEQUENCE traza_oid_seq OWNED BY traza.oid;
 
 
 --
--- TOC entry 187 (class 1259 OID 33321)
+-- TOC entry 185 (class 1259 OID 33321)
 -- Name: usuario; Type: TABLE; Schema: public; Owner: gesaodin; Tablespace: 
 --
 
@@ -496,7 +496,7 @@ CREATE TABLE usuario (
 ALTER TABLE usuario OWNER TO gesaodin;
 
 --
--- TOC entry 188 (class 1259 OID 33327)
+-- TOC entry 186 (class 1259 OID 33327)
 -- Name: usuario_oid_seq; Type: SEQUENCE; Schema: public; Owner: gesaodin
 --
 
@@ -511,8 +511,8 @@ CREATE SEQUENCE usuario_oid_seq
 ALTER TABLE usuario_oid_seq OWNER TO gesaodin;
 
 --
--- TOC entry 3075 (class 0 OID 0)
--- Dependencies: 188
+-- TOC entry 3077 (class 0 OID 0)
+-- Dependencies: 186
 -- Name: usuario_oid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: gesaodin
 --
 
@@ -536,7 +536,7 @@ ALTER TABLE ONLY archivo ALTER COLUMN oid SET DEFAULT nextval('archivo_oid_seq':
 
 
 --
--- TOC entry 2913 (class 2604 OID 41451)
+-- TOC entry 2912 (class 2604 OID 41451)
 -- Name: oid; Type: DEFAULT; Schema: public; Owner: gesaodin
 --
 
@@ -544,7 +544,7 @@ ALTER TABLE ONLY concepto_archivo ALTER COLUMN oid SET DEFAULT nextval('concepto
 
 
 --
--- TOC entry 2915 (class 2604 OID 41473)
+-- TOC entry 2913 (class 2604 OID 41473)
 -- Name: oid; Type: DEFAULT; Schema: public; Owner: gesaodin
 --
 
@@ -560,7 +560,7 @@ ALTER TABLE ONLY productos ALTER COLUMN oid SET DEFAULT nextval('productos_oid_s
 
 
 --
--- TOC entry 2908 (class 2604 OID 33333)
+-- TOC entry 2914 (class 2604 OID 41482)
 -- Name: oid; Type: DEFAULT; Schema: public; Owner: gesaodin
 --
 
@@ -568,7 +568,7 @@ ALTER TABLE ONLY semillero ALTER COLUMN oid SET DEFAULT nextval('semillero_oid_s
 
 
 --
--- TOC entry 2909 (class 2604 OID 33334)
+-- TOC entry 2908 (class 2604 OID 33334)
 -- Name: oid; Type: DEFAULT; Schema: public; Owner: gesaodin
 --
 
@@ -576,7 +576,7 @@ ALTER TABLE ONLY sidrofan ALTER COLUMN oid SET DEFAULT nextval('sidrofan_oid_seq
 
 
 --
--- TOC entry 2914 (class 2604 OID 41462)
+-- TOC entry 2915 (class 2604 OID 41490)
 -- Name: oid; Type: DEFAULT; Schema: public; Owner: gesaodin
 --
 
@@ -584,7 +584,7 @@ ALTER TABLE ONLY solicitud ALTER COLUMN oid SET DEFAULT nextval('solicitud_oid_s
 
 
 --
--- TOC entry 2910 (class 2604 OID 33336)
+-- TOC entry 2909 (class 2604 OID 33336)
 -- Name: oid; Type: DEFAULT; Schema: public; Owner: gesaodin
 --
 
@@ -592,7 +592,7 @@ ALTER TABLE ONLY tdocumento ALTER COLUMN oid SET DEFAULT nextval('tdocumento_oid
 
 
 --
--- TOC entry 2911 (class 2604 OID 33337)
+-- TOC entry 2910 (class 2604 OID 33337)
 -- Name: oid; Type: DEFAULT; Schema: public; Owner: gesaodin
 --
 
@@ -600,7 +600,7 @@ ALTER TABLE ONLY traza ALTER COLUMN oid SET DEFAULT nextval('traza_oid_seq'::reg
 
 
 --
--- TOC entry 2912 (class 2604 OID 33338)
+-- TOC entry 2911 (class 2604 OID 33338)
 -- Name: oid; Type: DEFAULT; Schema: public; Owner: gesaodin
 --
 
@@ -608,7 +608,7 @@ ALTER TABLE ONLY usuario ALTER COLUMN oid SET DEFAULT nextval('usuario_oid_seq':
 
 
 --
--- TOC entry 3033 (class 0 OID 33255)
+-- TOC entry 3035 (class 0 OID 33255)
 -- Dependencies: 172
 -- Data for Name: _usuarioperfil; Type: TABLE DATA; Schema: public; Owner: gesaodin
 --
@@ -618,7 +618,7 @@ COPY _usuarioperfil (oidu, oidp) FROM stdin;
 
 
 --
--- TOC entry 3034 (class 0 OID 33258)
+-- TOC entry 3036 (class 0 OID 33258)
 -- Dependencies: 173
 -- Data for Name: anomalia; Type: TABLE DATA; Schema: public; Owner: gesaodin
 --
@@ -628,7 +628,7 @@ COPY anomalia (oid, codigo, detalle, fecha, tipo, prioridad, estatus) FROM stdin
 
 
 --
--- TOC entry 3076 (class 0 OID 0)
+-- TOC entry 3078 (class 0 OID 0)
 -- Dependencies: 174
 -- Name: anomalia_oid_seq; Type: SEQUENCE SET; Schema: public; Owner: gesaodin
 --
@@ -637,7 +637,7 @@ SELECT pg_catalog.setval('anomalia_oid_seq', 2, true);
 
 
 --
--- TOC entry 3036 (class 0 OID 33266)
+-- TOC entry 3038 (class 0 OID 33266)
 -- Dependencies: 175
 -- Data for Name: archivo; Type: TABLE DATA; Schema: public; Owner: gesaodin
 --
@@ -647,7 +647,7 @@ COPY archivo (oid, codigo, nombre, coddoc) FROM stdin;
 
 
 --
--- TOC entry 3077 (class 0 OID 0)
+-- TOC entry 3079 (class 0 OID 0)
 -- Dependencies: 176
 -- Name: archivo_oid_seq; Type: SEQUENCE SET; Schema: public; Owner: gesaodin
 --
@@ -657,7 +657,7 @@ SELECT pg_catalog.setval('archivo_oid_seq', 30, true);
 
 --
 -- TOC entry 3051 (class 0 OID 41448)
--- Dependencies: 190
+-- Dependencies: 188
 -- Data for Name: concepto_archivo; Type: TABLE DATA; Schema: public; Owner: gesaodin
 --
 
@@ -669,8 +669,8 @@ COPY concepto_archivo (oid, codi, tipo, valo, nomb, esta) FROM stdin;
 
 
 --
--- TOC entry 3078 (class 0 OID 0)
--- Dependencies: 189
+-- TOC entry 3080 (class 0 OID 0)
+-- Dependencies: 187
 -- Name: concepto_archivo_oid_seq; Type: SEQUENCE SET; Schema: public; Owner: gesaodin
 --
 
@@ -678,8 +678,8 @@ SELECT pg_catalog.setval('concepto_archivo_oid_seq', 3, true);
 
 
 --
--- TOC entry 3055 (class 0 OID 41470)
--- Dependencies: 194
+-- TOC entry 3053 (class 0 OID 41470)
+-- Dependencies: 190
 -- Data for Name: notificaciones; Type: TABLE DATA; Schema: public; Owner: gesaodin
 --
 
@@ -688,8 +688,8 @@ COPY notificaciones (oid, cedula, codigo, resumen, descripcion, app, fecha, esta
 
 
 --
--- TOC entry 3079 (class 0 OID 0)
--- Dependencies: 193
+-- TOC entry 3081 (class 0 OID 0)
+-- Dependencies: 189
 -- Name: notificaciones_oid_seq; Type: SEQUENCE SET; Schema: public; Owner: gesaodin
 --
 
@@ -697,7 +697,7 @@ SELECT pg_catalog.setval('notificaciones_oid_seq', 1, false);
 
 
 --
--- TOC entry 3038 (class 0 OID 33279)
+-- TOC entry 3040 (class 0 OID 33279)
 -- Dependencies: 177
 -- Data for Name: productos; Type: TABLE DATA; Schema: public; Owner: gesaodin
 --
@@ -825,7 +825,7 @@ Eyectores para s	Eyectores para saliva nacionalx 100 Uds	Eyectores para saliva n
 
 
 --
--- TOC entry 3080 (class 0 OID 0)
+-- TOC entry 3082 (class 0 OID 0)
 -- Dependencies: 178
 -- Name: productos_oid_seq; Type: SEQUENCE SET; Schema: public; Owner: gesaodin
 --
@@ -834,29 +834,28 @@ SELECT pg_catalog.setval('productos_oid_seq', 118, true);
 
 
 --
--- TOC entry 3040 (class 0 OID 33287)
--- Dependencies: 179
+-- TOC entry 3055 (class 0 OID 41479)
+-- Dependencies: 192
 -- Data for Name: semillero; Type: TABLE DATA; Schema: public; Owner: gesaodin
 --
 
 COPY semillero (oid, codigo, certi, fecha, tipo, observacion, estatus) FROM stdin;
-1	00000000	7426affe1f6e9f4cf62dca4b8efca7a7	2016-03-12 16:08:19.263551	1		0
-2	00000002	7426affe1f6e9f4cf62dca4b8efca7a7	2016-03-27 19:05:28.492662	4	Cita	0
+1	00000000	7426affe1f6e9f4cf62dca4b8efca7a7	2016-03-28 07:02:34.523033	4	Cita	0
 \.
 
 
 --
--- TOC entry 3081 (class 0 OID 0)
--- Dependencies: 180
+-- TOC entry 3083 (class 0 OID 0)
+-- Dependencies: 191
 -- Name: semillero_oid_seq; Type: SEQUENCE SET; Schema: public; Owner: gesaodin
 --
 
-SELECT pg_catalog.setval('semillero_oid_seq', 2, true);
+SELECT pg_catalog.setval('semillero_oid_seq', 1, true);
 
 
 --
 -- TOC entry 3042 (class 0 OID 33292)
--- Dependencies: 181
+-- Dependencies: 179
 -- Data for Name: sidrofan; Type: TABLE DATA; Schema: public; Owner: gesaodin
 --
 
@@ -2572,8 +2571,8 @@ ZYRTEC03	ZYRTEC SOLUCION ORAL GOTAS 10MG/ML X 10 ML	10MG/ML   	SOLUCION  	SOLI	N
 
 
 --
--- TOC entry 3082 (class 0 OID 0)
--- Dependencies: 182
+-- TOC entry 3084 (class 0 OID 0)
+-- Dependencies: 180
 -- Name: sidrofan_oid_seq; Type: SEQUENCE SET; Schema: public; Owner: gesaodin
 --
 
@@ -2581,19 +2580,19 @@ SELECT pg_catalog.setval('sidrofan_oid_seq', 1707, true);
 
 
 --
--- TOC entry 3053 (class 0 OID 41459)
--- Dependencies: 192
+-- TOC entry 3057 (class 0 OID 41487)
+-- Dependencies: 194
 -- Data for Name: solicitud; Type: TABLE DATA; Schema: public; Owner: gesaodin
 --
 
 COPY solicitud (oid, codigo, numero, certi, detalle, recipes, fecha, tipo, estatus, fcita) FROM stdin;
-1	11953710	00000002	7426affe1f6e9f4cf62dca4b8efca7a7	{"desde":"2016-03-28","hasta":"2016-04-17"}	2016-03-28	2016-03-28 06:32:50.453706	4	1	2016-03-28
+1	11953710	00000000	7426affe1f6e9f4cf62dca4b8efca7a7	{"desde":"2016-03-28","hasta":"2016-03-28"}	[]	2016-03-28 07:02:34.540269	4	1	2016-03-28
 \.
 
 
 --
--- TOC entry 3083 (class 0 OID 0)
--- Dependencies: 191
+-- TOC entry 3085 (class 0 OID 0)
+-- Dependencies: 193
 -- Name: solicitud_oid_seq; Type: SEQUENCE SET; Schema: public; Owner: gesaodin
 --
 
@@ -2602,7 +2601,7 @@ SELECT pg_catalog.setval('solicitud_oid_seq', 1, true);
 
 --
 -- TOC entry 3044 (class 0 OID 33308)
--- Dependencies: 183
+-- Dependencies: 181
 -- Data for Name: tdocumento; Type: TABLE DATA; Schema: public; Owner: gesaodin
 --
 
@@ -2618,8 +2617,8 @@ COPY tdocumento (oid, nombre) FROM stdin;
 
 
 --
--- TOC entry 3084 (class 0 OID 0)
--- Dependencies: 184
+-- TOC entry 3086 (class 0 OID 0)
+-- Dependencies: 182
 -- Name: tdocumento_oid_seq; Type: SEQUENCE SET; Schema: public; Owner: gesaodin
 --
 
@@ -2628,7 +2627,7 @@ SELECT pg_catalog.setval('tdocumento_oid_seq', 7, true);
 
 --
 -- TOC entry 3046 (class 0 OID 33313)
--- Dependencies: 185
+-- Dependencies: 183
 -- Data for Name: traza; Type: TABLE DATA; Schema: public; Owner: gesaodin
 --
 
@@ -2649,8 +2648,8 @@ COPY traza (oid, cedu, obse, app, fech, tipo) FROM stdin;
 
 
 --
--- TOC entry 3085 (class 0 OID 0)
--- Dependencies: 186
+-- TOC entry 3087 (class 0 OID 0)
+-- Dependencies: 184
 -- Name: traza_oid_seq; Type: SEQUENCE SET; Schema: public; Owner: gesaodin
 --
 
@@ -2659,7 +2658,7 @@ SELECT pg_catalog.setval('traza_oid_seq', 12, true);
 
 --
 -- TOC entry 3048 (class 0 OID 33321)
--- Dependencies: 187
+-- Dependencies: 185
 -- Data for Name: usuario; Type: TABLE DATA; Schema: public; Owner: gesaodin
 --
 
@@ -2669,8 +2668,8 @@ COPY usuario (oid, tipo, cedu, nomb, seud, clav, corr, resp, empr, perf, pagi, e
 
 
 --
--- TOC entry 3086 (class 0 OID 0)
--- Dependencies: 188
+-- TOC entry 3088 (class 0 OID 0)
+-- Dependencies: 186
 -- Name: usuario_oid_seq; Type: SEQUENCE SET; Schema: public; Owner: gesaodin
 --
 
@@ -2687,12 +2686,21 @@ ALTER TABLE ONLY concepto_archivo
 
 
 --
--- TOC entry 2923 (class 2606 OID 41467)
+-- TOC entry 2925 (class 2606 OID 41495)
 -- Name: numero_pkey; Type: CONSTRAINT; Schema: public; Owner: gesaodin; Tablespace: 
 --
 
 ALTER TABLE ONLY solicitud
     ADD CONSTRAINT numero_pkey PRIMARY KEY (numero);
+
+
+--
+-- TOC entry 2923 (class 2606 OID 41484)
+-- Name: semillero_pkey; Type: CONSTRAINT; Schema: public; Owner: gesaodin; Tablespace: 
+--
+
+ALTER TABLE ONLY semillero
+    ADD CONSTRAINT semillero_pkey PRIMARY KEY (oid);
 
 
 --
@@ -2714,7 +2722,7 @@ ALTER TABLE ONLY usuario
 
 
 --
--- TOC entry 3063 (class 0 OID 0)
+-- TOC entry 3065 (class 0 OID 0)
 -- Dependencies: 6
 -- Name: public; Type: ACL; Schema: -; Owner: postgres
 --
@@ -2725,7 +2733,7 @@ GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
 
--- Completed on 2016-03-28 06:41:52 VET
+-- Completed on 2016-03-28 07:11:27 VET
 
 --
 -- PostgreSQL database dump complete
