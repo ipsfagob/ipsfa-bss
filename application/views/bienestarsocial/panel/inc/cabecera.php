@@ -30,16 +30,16 @@
 				
 								
 				<ul id="solicitudes1" class="dropdown-content " >				  			 
-				  <li><a href="<?php echo base_url(); ?>index.php/Panel/farmacia/me">
+				  <li><a href="<?php echo base_url(); ?>index.php/BienestarPanel/farmacia/me">
 						<font class="black-text" >Medicamentos</font><i class="mdi-maps-local-hospital left red-text "></i></a>
 					</li>
 											
 					<li class="divider"></li>				
-					<li><a href="<?php echo base_url(); ?>index.php/Panel
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarPanel
 					/solicitudes">
 						<font class="black-text" >Solicitudes</font><i class="mdi-action-alarm-add left blue-text text-darken-3"></i></a>							
 					</li>
-					<li><a href="<?php echo base_url(); ?>index.php/Panel/citas">
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarPanel/citas">
 					<font class="black-text" >Citas</font><i class="mdi-action-lock left blue-text text-darken-3">
 					</i></a></li>				
 					
@@ -49,21 +49,21 @@
 				<ul id="nav-mobile" class="side-nav">
 					<br>	
 					<!-- <img src="<?php echo base_url(); ?>public/img/ipsfa.png" class="responsive-img"> -->
-					<li><a href="<?php echo base_url(); ?>index.php/Panel/index/">Principal
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarPanel/index/">Principal
 					<i class="mdi-action-home left blue-text"></i></a></li>
 					
 					
-					<li><a href="<?php echo base_url(); ?>index.php/Panel/medicamentos">
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarPanel/medicamentos">
 						Medicamentos<i class="mdi-maps-local-hospital left blue-text"></i></a>
 					</li>
 											
 					<li class="divider"></li>				
-					<li><a href="<?php echo base_url(); ?>index.php/Panel/solicitudes">
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarPanel/solicitudes">
 						Solicitudes<i class="mdi-action-alarm-add left blue-text"></i></a>							
 					</li>
-					<li><a href="<?php echo base_url(); ?>index.php/Panel/tratamientos">
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarPanel/tratamientos">
 					Citas<i class="mdi-action-lock left blue-text"></i></a></li>
-					<li><a href="<?php echo base_url(); ?>index.php/Panel/salir" class="tooltipped" data-position="top" data-delay="10" data-tooltip="Volver al menu">
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarPanel/salir" class="tooltipped" data-position="top" data-delay="10" data-tooltip="Volver al menu">
 						Salir<i class="mdi-action-settings-power left red-text"></i> </a>
 					</li>
 				</ul>
@@ -73,17 +73,14 @@
 				</ul>
 
 				<ul class="right hide-on-med-and-down">
-					<li><a href="<?php echo base_url(); ?>index.php/Panel/index" >
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarPanel/index" >
 						<i class="right"></i>ANALISTA</a>
 					</li>
-					<li><a href="<?php echo base_url(); ?>index.php/Panel/index" >
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarPanel/index" >
 						<i class="mdi-action-home"></i></a>
 					</li>
-					<li><a href="<?php echo base_url(); ?>index.php/Panel/index" >
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarPanel/index" >
 						<i class="material-icons">notifications</i></a>
-					</li>
-					<li><a class="dropdown-panel" href="#!" data-activates="panelControl">
-						<i class="material-icons">more_vert</i></a>
 					</li>
 									
 				</ul>

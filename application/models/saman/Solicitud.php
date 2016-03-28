@@ -55,10 +55,13 @@ class Solicitud extends CI_Model{
 	}
 
 	function listarMedicamentos($codigo = ''){
-		$sConsulta = "SELECT * FROM solicitud WHERE tipo=3 AND estatus=1 AND codigo= '" . $codigo . "'";
+		$sConsulta = "SELECT * FROM solicitud WHERE tipo=3 AND estatus=1";
+		if($codigo != '') $sConsulta = "SELECT * FROM solicitud WHERE tipo=3 AND estatus=1 AND codigo= '" . $codigo . "'";
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		return $obj;
 	}
+
+
 
 	function exportarSAMAN(){
 
@@ -93,6 +96,14 @@ class Solicitud extends CI_Model{
 		return $obj;
 	}
 
+	/**
+	* Importar los detalles de una solicitud en Saman
+	*
+	* @access public
+	* @var string
+	* @var Persona
+	* @return object
+	*/
 	function importarDetalleSolicitudSaman($codigo, Persona $Persona){
 		$this->load->model('saman/Dbsaman');
 		$detalleSolicitud = array();
@@ -122,14 +133,16 @@ class Solicitud extends CI_Model{
 	}
 
 	/**
+	* Validar titularidad de una persona en saman
+	*
+	* @access public
 	* @var string
 	* @var Persona
 	* @var DbSaman
 	* @return Dependiente
 	*/
-	function validarTitular($oid, Persona $Persona, Dbsaman $Dbsaman){
-		$this->load->model('saman/Dependiente', 'Dependiente');
-		
+	public function validarTitular($oid, Persona $Persona, Dbsaman $Dbsaman){
+		$this->load->model('saman/Dependiente', 'Dependiente');		
 		$obj = $Dbsaman;
 		if($oid == $Persona->oid){
 			$this->Dependiente->Persona = $Persona;
@@ -143,44 +156,64 @@ class Solicitud extends CI_Model{
 
 	/**
 	* Listar Solicitudes por Cedula
-	*
+	* 
+	* @var string
+	* @access public
+	* @return object
 	*/
-	function listarPorCodigo($codigo){
-		$sConsulta = 'SELECT * FROM solicitud WHERE codigo=\'' . $codigo . '\' AND estatus=0';
+	public function listarPorCodigo($codigo = ''){
+		$sConsulta = 'SELECT * FROM solicitud WHERE codigo=\'' . $codigo . '\' AND estatus=0  LIMIT 1';
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		return $obj;
 	}
 
-	function listarSolicitudes($numero){
-		$sConsulta = 'SELECT * FROM solicitud WHERE numero=\'' . $numero . '\' AND estatus=0';
+	/**
+	* Listar Solicitudes por Numero de Semillero
+	* 
+	* @var string
+	* @access public
+	* @return object
+	*/
+	public function listarSolicitudes($numero = ''){
+		$sConsulta = 'SELECT * FROM solicitud WHERE numero=\'' . $numero . '\' AND estatus=0 LIMIT 1';
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		
 		return $obj;
 	}
 
+	/**
+	* Listar Solicitudes en General
+	* 
+	* @access public
+	* @return object
+	*/
 	function listarTodo(){
 		$sConsulta = 'SELECT * FROM solicitud';
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		return $obj;
 	}
 
-	function salir(){
-		$sConsulta = 'SELECT * FROM solicitud';
+
+	/**
+	* Eliminar un codigo de solicitud
+	*
+	* @access public
+	* @return object
+	*/	
+	public function quitar($codigo){		
+		$sConsulta = 'DELETE * FROM solicitud WHERE codigo =\'' . $codigo . '\' LIMIT 1';
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		return $obj;
 	}
 
-	function quitar($codigo){		
-		$sConsulta = 'DELETE * FROM solicitud WHERE codigo =\'' . $codigo . '\'';
-		$obj = $this->Dbipsfa->consultar($sConsulta);
-		return $obj;
-	}
 
-	function imprimirHoja($cedula){		
-		return true;
-	}
-
-	function generarCitaTratamientoProlongado(){
+	/**
+	* Generar Citas para tratamiento prolangado
+	*
+	* @access public
+	* @return date
+	*/
+	public function generarCitaTratamientoProlongado(){
 		$fecha = $this->seleccionarUltimoDia();
 		if($this->contarCitas($fecha) >= 50 ){
 			$fecha = $this->sumarDias($fecha);
@@ -189,8 +222,13 @@ class Solicitud extends CI_Model{
 	}
 	
 
-
-	function seleccionarUltimoDia(){
+	/**
+	* Seleccionar el último día de una lista de pendiente
+	*
+	* @access private
+	* @return date
+	*/
+	private function seleccionarUltimoDia(){
 		$sConsulta = 'SELECT * FROM solicitud WHERE tipo = 4 ORDER BY fcita DESC LIMIT 1;';
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		if($obj->code != 0){
@@ -202,7 +240,13 @@ class Solicitud extends CI_Model{
 		return substr($fecha, 0, 10);
 	}
 
-	function contarCitas($fecha){
+	/**
+	* Contar la cantidad de citas emitidas para cierto dia
+	*
+	* @access private
+	* @return integer
+	*/
+	private function contarCitas($fecha){
 		$sConsulta = 'SELECT count(codigo) AS cantidad FROM solicitud WHERE fcita > \'' . $fecha . '\'::DATE;';
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		return $obj->rs[0]->cantidad;
@@ -212,5 +256,28 @@ class Solicitud extends CI_Model{
 		$nuevafecha = strtotime ( '+1 day' , strtotime ( $fecha ) ) ;
 		$nuevafecha = date ( 'Y-m-j' , $nuevafecha );		 
 		return $nuevafecha;
+	}
+	/**
+	* Permite seleccionar los documentos especipicos
+	*
+	* @access public
+	* @return mixed
+	*/
+	public function seleccionarDocumentos($codigo){
+		$arr = array();
+		$obj = $this->listarSolicitudes($codigo);
+		$solicitud = json_decode($obj->rs[0]->detalle)->solicitud;
+		$solicitud[0]->codigoconcepto;		
+		return $obj;
+	}
+
+	/**
+	* Permite seleccionar los documentos especipicos
+	*
+	* @access private
+	* @return mixed
+	*/
+	private function listarDocumentosConceptos($codigo = ''){
+		$sConsulta = 'SELECT * FROM concepto_archivo WHERE codi =\'' . $codigo  . '\'';
 	}
 }

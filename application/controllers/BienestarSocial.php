@@ -224,7 +224,9 @@ class BienestarSocial extends CI_Controller {
 	public function adjuntos($codigo, $url){
 		if(isset($_SESSION['cedula'])){
 			$data['codigo'] = $codigo;
-			$data['url'] = $url;			
+			$data['url'] = $url;
+			$this->load->model('saman/Solicitud');
+			$data['data'] = $this->Solicitud->seleccionarDocumentos($codigo);
 			$this->load->view ( 'bienestarsocial/solicitud', $data );
 		}else{
 			$this->salir();
@@ -465,9 +467,9 @@ class BienestarSocial extends CI_Controller {
 			$Solicitud = array('solicitud' => $_POST['Solicitud'], 'responsable' => $_SESSION['nombreRango']);
 			$imagen = array(); //Listado de Imagenes Subidas
 			$arg = array(
-				'codigo' => $_SESSION['oid'],
+				'codigo' => $_SESSION['cedula'],
 				'numero' => $_POST['Codigo'], 
-				'certi' => md5($_SESSION['oid']), 
+				'certi' => md5($_SESSION['cedula']), 
 				'detalle' => json_encode($Solicitud), //Esquema Json Opcional
 				'recipes' => '',
 				'fecha' => 'now()', 
@@ -522,9 +524,9 @@ class BienestarSocial extends CI_Controller {
 			$Solicitud = array('solicitud' => $_POST['Solicitud'], 'responsable' => $_SESSION['nombreRango']);
 			$imagen = array(); //Listado de Imagenes Subidas
 			$arg = array(
-				'codigo' => $_SESSION['oid'],
+				'codigo' => $_SESSION['cedula'],
 				'numero' => $_POST['Codigo'], 
-				'certi' => md5($_SESSION['oid']), 
+				'certi' => md5($_SESSION['cedula']), 
 				'detalle' => json_encode($Solicitud), //Esquema Json Opcional
 				'recipes' => '',
 				'fecha' => 'now()', 

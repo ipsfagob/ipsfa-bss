@@ -42,31 +42,43 @@ class BienestarPanel extends CI_Controller{
 		$this->load->view('login/login');
 	}
 
-	function tratamientos(){
-
+	/**
+	 * Generar solicitud de medicamentos
+	 *
+	 * @access  public
+	 * @return html
+	 */
+	public function tratamiento(){
+		$this->load->model('comun/Cita');	
+			$data['cita'] = $this->Cita->listar();
+			$this->load->view ( 'bienestarsocial/panel/citas', $data );
 	}
 
-	function medicamentos(){
-
-	}
-
-	function solicitudes(){
+	/**
+	* Permite listar Reembolso y Ayudas ver estatus
+	*
+	* @access public
+	* @return html
+	*/
+	public function solicitudes(){
 		$data['Solicitudes'] = $this->Mpanel->cosultarSolicitudes();
 		$this->load->view('bienestarsocial/panel/solicitudes', $data);	
 	}
 
 
-	function reembolsos(){
-
+	/**
+	 * Generar listado de medicamentos pedidos
+	 *
+	 * @access  public
+	 * @return html
+	 */
+	public function medicamentos(){
+		$this->load->model('saman/Solicitud');
+		$data['data'] = $this->Solicitud->listarMedicamentos();
+		$this->load->view ( 'bienestarsocial/panel/medicamentos', $data );
 	}
 
-	function apoyos(){
 
-	}
-
-	function badan(){
-
-	}
 
 	function salir(){
 

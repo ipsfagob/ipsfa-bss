@@ -1,5 +1,5 @@
 <?php 
-$this->load->view("bienestarsocial/inc/cabecera.php");
+$this->load->view("bienestarsocial/panel/inc/cabecera.php");
 ?>
 
 <br>
@@ -17,8 +17,9 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 		$valor = json_decode($v->detalle);
 		$cadena .= '<li>
 	      	<div class="collapsible-header"><i class="material-icons grey-text">playlist_add</i>
-		      ' . substr($v->fecha,0,10 ). ' ( <b><font color="green">' . $v->numero . '</font></b> )
-		      <a href="' . base_url() . 'index.php/BienestarSocial/adjuntos/' . $v->numero . '">' . $icon . '</a>
+		      ' . substr($v->fecha,0,10 ). ' ( <b><font color="green">' . $v->numero . '</font></b> ) POR CEDULA 
+		      ( <b><font color="green">' . $v->codigo . '</font></b> )
+		      <a href="' . base_url() . 'index.php/bienestarsocial/panel/adjuntos/' . $v->numero . '">' . $icon . '</a>
 		    </div>
 		   	<div class="collapsible-body" style="padding:10px">	';
 		if(is_array($valor)){	
@@ -40,5 +41,5 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 </div>
 
 <?php 
-$this->load->view("bienestarsocial/inc/pie.php");
+$this->load->view("bienestarsocial/panel/inc/pie.php");
 ?>

@@ -1,6 +1,6 @@
 
 <?php 
-$this->load->view("panel/inc/cabecera.php");
+$this->load->view("bienestarsocial/panel/inc/cabecera.php");
 ?>
 
 
@@ -74,5 +74,5 @@ $this->load->view("panel/inc/cabecera.php");
   </div>
 
 <?php 
-$this->load->view("panel/inc/pie.php");
+$this->load->view("bienestarsocial/panel/inc/pie.php");
 ?>

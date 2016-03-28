@@ -5,8 +5,8 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 <br>
 <div class="container">
 <?php //print_r($data->rs); ?>
-<h5>Ayudas solicitadas </h5>
-<ul class="collapsible popout"  data-collapsible="accordion">
+<h5>Reembolsos y Ayudas Solicitadas</h5>
+<ul class="collapsible"  data-collapsible="accordion">
 
 
   <?php
@@ -24,7 +24,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 			   	<div class="collapsible-body" style="padding:10px">	
 			   	<table>';	
 
-				foreach ($arr as $c => $v) {
+				foreach ($arr->solicitud as $c => $v) {
 					$cadena .=  '<tr><td>' . $v->parentesco . '</td>
 							<td>' . $v->nombre . '</td>
 							<td>' . $v->concepto . '</td>

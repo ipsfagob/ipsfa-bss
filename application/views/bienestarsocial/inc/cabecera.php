@@ -28,11 +28,7 @@
       
 
     
-	  /* label underline focus color */
-	  .input-field input[id="search"]:focus {
-	     border-bottom: 0px solid #000;
-	     box-shadow: 0 0px 0 0 #000;
-	  }
+	
 	  
       	
       .btns-add{background-color:#00345A;color:#FFF;font-size:14px;text-align:center;font-weight:bold;}
@@ -89,6 +85,12 @@
 			font-size: 11px;
 			color: blue;
 		}
+		  /* label underline focus color */
+	  .input-field input[id="search"]:focus {
+	     border-bottom: 0px solid #000;
+	     box-shadow: 0 0px 0 0 #000;
+	  }
+	  .input-field input[id="search"] {border-bottom: 0px solid #00345A;box-shadow: 0 0px 0 0 #00345A;color:#828282;}
   </style>
   
     </head>
@@ -109,7 +111,7 @@
 								
 				<ul id="solicitudes1" class="dropdown-content " >				  			 
 				  <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia/me">
-						<i class="material-icons left red-text">local_hospital</i><font class="black-text" >Medicamentos</font></a>
+						<i class="material-icons left red-text">search</i><font class="black-text" >Medicamentos</font></a>
 					</li>
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/1">
 					  	<i class="material-icons left blue-text text-darken-3">assignment</i><font class="black-text" >Notificar Reembolso</font></a>
@@ -117,9 +119,12 @@
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/2">
 					  	<font class="black-text" >Notificar Apoyo</font><i class="mdi-action-assignment-late left blue-text text-darken-3"></i></a>
 					</li>							
-					<li class="divider"></li>				
+					<li class="divider"></li>
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia/ba">
+						<i class="material-icons left red-text">local_hospital</i><font class="black-text" >Badan</font></a>
+					</li>			
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/pendientes">
-						<font class="black-text" >Solicitudes</font><i class="mdi-action-alarm-add left blue-text text-darken-3"></i></a>							
+						<font class="black-text" >Casos Generales</font><i class="mdi-action-alarm-add left blue-text text-darken-3"></i></a>							
 					</li>
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/citas">
 					<font class="black-text" >Citas</font><i class="mdi-action-lock left blue-text text-darken-3">
@@ -133,11 +138,11 @@
 					<!-- <img src="<?php echo base_url(); ?>public/img/ipsfa.png" class="responsive-img"> -->
 					<li><a href="<?php echo base_url(); ?>index.php/Panel/index/">Principal
 					<i class="mdi-action-home left blue-text"></i></a></li>
-					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/datos">Datos Personales
+					<li><a href="<?php echo base_url(); ?>index.php/Afiliacion/index">Datos Personales
 					<i class="mdi-action-account-circle left blue-text"></i></a></li>
 					
-					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia">
-						Medicamentos<i class="mdi-maps-local-hospital left blue-text"></i></a>
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia/me">
+						Medicamentos<i class="mdi-action-search left red-text"></i></a>
 					</li>
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/2">
 					  	Notificar Apoyo<i class="mdi-action-assignment-late left blue-text"></i></a>
@@ -145,9 +150,12 @@
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/1">
 					  	Notificar Reembolso<i class="mdi-action-assignment left blue-text"></i></a>
 					</li>							
-					<li class="divider"></li>				
+					<li class="divider"></li>
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia/me">
+						Badan<i class="mdi-maps-local-hospital left red-text"></i></a>
+					</li>			
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/pendientes">
-						Solicitudes<i class="mdi-action-alarm-add left blue-text"></i></a>							
+						Casos Generales<i class="mdi-action-alarm-add left blue-text"></i></a>							
 					</li>
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/citas">
 					Citas<i class="mdi-action-lock left blue-text"></i></a></li>
@@ -236,7 +244,7 @@
 	    </a>
 	    <ul>
 	      <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/pendientes"  
-	      	class="btn-floating blue tooltipped" data-position="top" data-delay="10" data-tooltip="Solicitud">
+	      	class="btn-floating blue tooltipped" data-position="top" data-delay="10" data-tooltip="Casos Generales">
 	      	<i class="material-icons">library_books</i></a>
 	      </li>
 
@@ -246,6 +254,10 @@
 	      
 	      <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/medicamentos" 
 	      		class="btn-floating blue tooltipped" data-position="top" data-delay="10" data-tooltip="Solicitud Medicamentos"><i class="mdi-editor-publish"></i></a>
+	      </li>
+	      <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/carro" 
+	      		class="btn-floating blue tooltipped" data-position="top" data-delay="10" data-tooltip="Pendientes Badan">
+	      		<i class="material-icons">shopping_cart</i></a>
 	      </li>
 	    </ul>
 	  </div>
