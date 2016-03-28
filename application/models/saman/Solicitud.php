@@ -267,17 +267,26 @@ class Solicitud extends CI_Model{
 		$arr = array();
 		$obj = $this->listarSolicitudes($codigo);
 		$solicitud = json_decode($obj->rs[0]->detalle)->solicitud;
-		$solicitud[0]->codigoconcepto;		
-		return $obj;
+		foreach ($solicitud as $c => $v) {
+			$arr[$v->codigoconcepto] = $this->listarDocumentosConceptos($v->codigoconcepto);
+		}
+		print_r($arr);
+		return $arr;
 	}
 
 	/**
-	* Permite seleccionar los documentos especipicos
+	* Permite seleccionar los documentos especificos
 	*
 	* @access private
 	* @return mixed
 	*/
 	private function listarDocumentosConceptos($codigo = ''){
+		$arr = array();
 		$sConsulta = 'SELECT * FROM concepto_archivo WHERE codi =\'' . $codigo  . '\'';
+		$obj = $this->Dbipsfa->consultar($sConsulta);
+		foreach ($obj->rs as $k=> $v) {
+			$arr[] = array('nombre' => $v->valo,  'descripcion' => $v->nomb);  
+		}
+		return $arr;
 	}
 }
