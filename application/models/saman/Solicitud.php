@@ -261,7 +261,7 @@ class Solicitud extends CI_Model{
 	* Permite seleccionar los documentos especipicos
 	*
 	* @access public
-	* @return mixed
+	* @return array
 	*/
 	public function seleccionarDocumentos($codigo){
 		$arr = array();
@@ -270,7 +270,6 @@ class Solicitud extends CI_Model{
 		foreach ($solicitud as $c => $v) {
 			$arr[$v->codigoconcepto] = $this->listarDocumentosConceptos($v->codigoconcepto);
 		}
-		print_r($arr);
 		return $arr;
 	}
 

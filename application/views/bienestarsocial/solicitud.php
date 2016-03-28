@@ -20,116 +20,40 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
  
 
     <form class="col s12" action="<?php echo base_url() . "index.php/BienestarSocial/subirArchivos";?>"  method="post" enctype="multipart/form-data">
-      <!--  1.- CARTA EXPOSICION DE MOTIVOS -->
-      <input type="hidden" value="<?php echo $codigo; ?>" name="codigo">
-       <input type="hidden" value="<?php echo $url; ?>" name="url">
-      <div class="row">
-        <div class="col s12">
-          <div class="file-field input-field">
-            <div class="btn col s1 m1 l1 btns-add" >
-              <i class="small material-icons">attach_file</i>
-              <input type="file" accept=".pdf" name="exposicion">
-            </div>
-            <div class="file-path-wrapper">
-              <input class="file-path validate" type="text" placeholder="Adjuntar Carta de Exposión de Motivos" >
-            </div>
-          </div>
-		</div>
-      </div> 
-      
-      
-      <!--  2.- CARTA AVAL DE SEGUROS HORIZONTE-->
-      <div class="row">
-        <div class="col s12">
-          <div class="file-field input-field">
-            <div class="btn col s1 m1 l1 btns-add">
-              <i class="small material-icons">attach_file</i>
-              <input type="file" name="carta">
-            </div>
-            <div class="file-path-wrapper">
-              <input class="file-path validate" type="text" placeholder="Adjuntar Carta Aval de Seguros Horizontes">
-            </div>
-          </div>
-		</div>
-      </div> 
-      
-      
-      <!--  3.- CARTA AVAL DE SEGUROS HORIZONTE-->
-      <div class="row">
-        <div class="col s12">
-          <div class="file-field input-field">
-            <div class="btn col s1 m1 l1 btns-add">
-              <i class="small material-icons">attach_file</i>
-              <input type="file" name="cobertura">
-            </div>
-            <div class="file-path-wrapper">
-              <input class="file-path validate" type="text" placeholder="Adjuntar Agotamiento de Cobertura">
-            </div>
-          </div>
-		</div>
-      </div> 
-      
-      
-      <!--  4.- Deuda Contraida-->
-      <div class="row">
-        <div class="col s12">
-          <div class="file-field input-field">
-            <div class="btn col s1 m1 l1 btns-add">
-              <i class="small material-icons">attach_file</i>
-              <input type="file" name="deuda">
-            </div>
-            <div class="file-path-wrapper">
-              <input class="file-path validate" type="text" placeholder="Adjuntar Constancia de la deuda contraida">
-            </div>
-          </div>
-		</div>
-      </div> 
-      
-      <!--  5.- Presupuesto de gastos-->
-      <div class="row">
-        <div class="col s12">
-          <div class="file-field input-field">
-            <div class="btn col s1 m1 l1 btns-add">
-              <i class="small material-icons">attach_file</i>
-              <input type="file" name="presupuesto">
-            </div>
-            <div class="file-path-wrapper">
-              <input class="file-path validate" type="text" placeholder="Adjuntar Presupuesto de Gastos">
-            </div>
-          </div>
-		</div>
-      </div> 
-      
-      
-      <!--  6.- Informe Medico-->
-      <div class="row">
-        <div class="col s12">
-          <div class="file-field input-field">
-            <div class="btn col s1 m1 l1 btns-add">
-              <i class="small material-icons">attach_file</i>
-              <input type="file" accept=".pdf" name="informe">
-            </div>
-            <div class="file-path-wrapper">
-              <input class="file-path validate" type="text" placeholder="Adjuntar Informe Medico Firmado y Sellado">
-            </div>
-          </div>
-		</div>
-      </div> 
-      
+      <input type="hidden" value="<?php echo $codigo;?>" name="codigo">
+      <input type="hidden" value="<?php echo $url;?>" name="url">
+      <?php
+        foreach ($data as $clave => $valor) {
+          foreach ($valor as $k => $v) {          
+              $cabecera = '<div class="row">
+                <div class="col s12">
+                <div class="file-field input-field">
+                <div class="btn col s1 m1 l1 btns-add" >
+                <i class="small material-icons">attach_file</i>';
+              $cuerpo = '<input type="file" accept=".pdf" name="' .  $v['nombre'] . '">';
+              $pie = '</div>
+                <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" placeholder="' .  $v['descripcion'] . '" >
+                </div>
+                </div>
+                </div>
+                </div>';
+              echo $cabecera . $cuerpo . $pie;
+          }
+        }       
+      ?>
+     
       
       <div class="row">
       	<div class="col s12">
-			<button class="btn-large waves-effect waves-light" style="background-color:#00345A"  
-      name="action" onclick="enviar(<?php echo $url?>)" type="submit">Enviar Documentos
-			    <i class="material-icons right">send</i>
-			</button>
+    			<button class="btn-large waves-effect waves-light" style="background-color:#00345A"  
+          name="action" onclick="enviar(<?php echo $url?>)" type="submit">Enviar Documentos
+    			    <i class="material-icons right">send</i>
+    			</button>
       	</div>
       </div>       
     </form>
  </div>
-
-
-
 <?php 
 $this->load->view("bienestarsocial/inc/pie.php");
 ?>

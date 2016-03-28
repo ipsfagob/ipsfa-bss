@@ -6,7 +6,8 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
 
 
 <div class="container">
-
+<h5>Solicitud: Reembolso y Ayudas</h5>
+R: Reembolsos | A: Ayudas
 	<ul class="collapsible" data-collapsible="accordion" >
 		<?php
 			//<img class="responsive-img circle" src="http://www.ipsfa.gob.ve/SAEMI/xmlsHtmlsImgs/imgs.afiliados/pers.mil.act/' . $val->codigo . '.jpg">
@@ -47,13 +48,13 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
 			}
 
 			function tipo($iTipo){
-				$tipo = '<i class="circle blue">R</i>';
+				$tipo = '<i class="circle blue" style="height: 50px; width:50px; font-size: 2em; padding-right: 5px; padding-top: 5px">R</i>';
 				if($iTipo == 2) $tipo = '<i class="circle green">A</i>';
 				return $tipo;
 			}
 		?>
 	</ul>
-	<br>
+	<br style="">
 
 	</div>
 	</div>
