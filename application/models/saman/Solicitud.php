@@ -25,7 +25,7 @@ class Solicitud extends CI_Model{
 	*/
 	function __construct() {
     	parent::__construct();
-    	
+    	$this->load->model("comun/Dbipsfa");
   	}
 	
 
@@ -45,18 +45,17 @@ class Solicitud extends CI_Model{
   	* @param array 
   	*/
 	function crear($arr = array()){
-		$this->load->model('comun/Dbipsfa');
 		
-		$sConsulta = "INSERT INTO solicitud (codigo, numero, certi, detalle, recipes, fecha, tipo, estatus) 
+		$sConsulta = "INSERT INTO solicitud (codigo, numero, certi, detalle, recipes, fecha, tipo, estatus, fcita) 
 		VALUES ('" . $arr['codigo'] . "', '" . $arr['numero'] . "', '" . $arr['certi'] . "', '" . 
-		$arr['detalle'] . "','" . $arr['recipes'] . "', now(), '" . $arr['tipo'] . "', '" . $arr['estatus'] . "' )";
+		$arr['detalle'] . "','" . $arr['recipes'] . "', now(), '" . $arr['tipo'] . "', '" . 
+		$arr['estatus'] . "', '" . $arr['fcita'] . "' )";
 
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		return $obj;
 	}
 
 	function listarMedicamentos($codigo = ''){
-		$this->load->model('comun/Dbipsfa');
 		$sConsulta = "SELECT * FROM solicitud WHERE tipo=3 AND estatus=1 AND codigo= '" . $codigo . "'";
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		return $obj;
@@ -68,7 +67,7 @@ class Solicitud extends CI_Model{
 
 
 	function importarSolicitudesSaman(Militar $Militar){
-		$this->load->model('comun/Dbsaman');		
+		$this->load->model('saman/Dbsaman');		
 		$sConsulta = 'SELECT * FROM ci_reembolso_solic 
 		INNER JOIN ci_reembolso_tipo ON ci_reembolso_solic.reembtipocod=ci_reembolso_tipo.reembtipocod
 		INNER JOIN canal_liquidacion ON ci_reembolso_solic.canalliquidcod=canal_liquidacion.canalliquidcod
@@ -96,7 +95,7 @@ class Solicitud extends CI_Model{
 	}
 
 	function importarDetalleSolicitudSaman($codigo, Persona $Persona){
-		$this->load->model('comun/Dbsaman');
+		$this->load->model('saman/Dbsaman');
 		$detalleSolicitud = array();
 
 		$sConsulta = 'SELECT * FROM ci_reembolso_det 
@@ -148,14 +147,12 @@ class Solicitud extends CI_Model{
 	*
 	*/
 	function listarPorCodigo($codigo){
-		$this->load->model("comun/Dbipsfa");
 		$sConsulta = 'SELECT * FROM solicitud WHERE codigo=\'' . $codigo . '\' AND estatus=0';
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		return $obj;
 	}
 
 	function listarSolicitudes($numero){
-		$this->load->model("comun/Dbipsfa");
 		$sConsulta = 'SELECT * FROM solicitud WHERE numero=\'' . $numero . '\' AND estatus=0';
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		
@@ -163,28 +160,58 @@ class Solicitud extends CI_Model{
 	}
 
 	function listarTodo(){
-		$this->load->model("comun/Dbipsfa");
 		$sConsulta = 'SELECT * FROM solicitud';
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		return $obj;
 	}
 
 	function salir(){
-		$this->load->model("comun/Dbipsfa");
 		$sConsulta = 'SELECT * FROM solicitud';
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		return $obj;
 	}
 
-	function quitar($codigo){
-		$this->load->model("comun/Dbipsfa");
+	function quitar($codigo){		
 		$sConsulta = 'DELETE * FROM solicitud WHERE codigo =\'' . $codigo . '\'';
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		return $obj;
 	}
 
-	function imprimirHoja($cedula){
-		
+	function imprimirHoja($cedula){		
 		return true;
+	}
+
+	function generarCitaTratamientoProlongado(){
+		$fecha = $this->seleccionarUltimoDia();
+		if($this->contarCitas($fecha) >= 50 ){
+			$fecha = $this->sumarDias($fecha);
+		}
+		return $fecha;
+	}
+	
+
+
+	function seleccionarUltimoDia(){
+		$sConsulta = 'SELECT * FROM solicitud WHERE tipo = 4 ORDER BY fcita DESC LIMIT 1;';
+		$obj = $this->Dbipsfa->consultar($sConsulta);
+		if($obj->code != 0){
+			$fecha = $obj->rs[0]->fcita;	
+		}else{
+			$fecha = date('Y-m-j');
+		}
+		
+		return substr($fecha, 0, 10);
+	}
+
+	function contarCitas($fecha){
+		$sConsulta = 'SELECT count(codigo) AS cantidad FROM solicitud WHERE fcita > \'' . $fecha . '\'::DATE;';
+		$obj = $this->Dbipsfa->consultar($sConsulta);
+		return $obj->rs[0]->cantidad;
+	}
+
+	function sumarDias($fecha){		
+		$nuevafecha = strtotime ( '+1 day' , strtotime ( $fecha ) ) ;
+		$nuevafecha = date ( 'Y-m-j' , $nuevafecha );		 
+		return $nuevafecha;
 	}
 }

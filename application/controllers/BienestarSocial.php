@@ -16,6 +16,7 @@
  * #00345A Azul Oscuro
  * #990000
  */
+date_default_timezone_set ( 'America/Caracas' );
 define ('__CONTROLADOR', 'BienestarSocial');
 class BienestarSocial extends CI_Controller {
 
@@ -471,7 +472,8 @@ class BienestarSocial extends CI_Controller {
 				'recipes' => '',
 				'fecha' => 'now()', 
 				'tipo' => 1, 
-				'estatus' => 0			
+				'estatus' => 0,
+				'fcita' => date('Y-m-j')
 			);
 			
 			$this->Solicitud->crear($arg);
@@ -527,7 +529,8 @@ class BienestarSocial extends CI_Controller {
 				'recipes' => '',
 				'fecha' => 'now()', 
 				'tipo' => 2, 
-				'estatus' => 0			
+				'estatus' => 0,
+				'fcita' => date('Y-m-j')			
 			);		
 			$this->Solicitud->crear($arg);
 		}else{
@@ -636,7 +639,8 @@ class BienestarSocial extends CI_Controller {
 				'recipes' => json_encode($imagen),
 				'fecha' => 'now()', 
 				'tipo' => 3, 
-				'estatus' => 1
+				'estatus' => 1,
+				'fcita' => date('Y-m-j')
 			);
 			$obj = $this->Solicitud->crear($arr);
 			$msj = "Nos estaremos comunicando con usted a la brevedad posible.";
@@ -649,6 +653,10 @@ class BienestarSocial extends CI_Controller {
 		}	
 	}
 
+	function generarCitaTratamientoProlongado(){
+		$this->load->model('saman/Solicitud');
+		echo $this->Solicitud->generarCitaTratamientoProlongado();
+	}
 
 
 }

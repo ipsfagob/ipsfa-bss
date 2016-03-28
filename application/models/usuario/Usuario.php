@@ -29,33 +29,93 @@ class Usuario extends CI_Model {
    */
   var $tipo;
 
+
+  /**
+   * 
+   * @var string
+   */
   var $nombre;
 
+
+  /**
+   * 
+   * @var string
+   */
   var $apellido;
 
+  /**
+   * 
+   * @var string
+   */
   var $direccion = '';
 
+  /**
+   * 
+   * @var string
+   */
   var $sobreNombre;
 
+  /**
+   * 
+   * @var string
+   */
   var $correo = '';
 
+  /**
+   * 
+   * @var string
+   */
   var $respuesta = '';
 
+  /**
+   * 
+   * @var string
+   */
   var $telefono = '';
 
+  /**
+   * 
+   * @var string
+   */
   var $empresa = '';
 
+  /**
+   * 
+   * @var string
+   */
   var $pagina = '';
 
+  /**
+   * 
+   * @var string
+   */
   var $clave;
 
+  /**
+   * 
+   * @var integer
+   */
   var $estatus = 0;
 
+  /**
+   * 
+   * @var string
+   */
   var $perfil = '';
 
+  /**
+   * 
+   * @var array
+   */
   var $listaPrivilegios = array();
 
+  /**
+   * 
+   * @var array
+   */
   var $listaDependientes = array();
+
+
 
   function __construct() {
     parent::__construct();
@@ -81,6 +141,7 @@ class Usuario extends CI_Model {
   /**
    * Definir el arreglo de la insercion a la base de datos
    *
+   * @access private
    * @return array
    */
   private function mapearObjeto() {
@@ -104,6 +165,7 @@ class Usuario extends CI_Model {
   /**
    * Verifica si exite un usuario y retorna su OID
    *
+   * @access public
    * @param string
    * @param CI_DB
    * @return int
@@ -118,8 +180,13 @@ class Usuario extends CI_Model {
     return $codigo;
   }
 
-
-  function validar() {
+  /**
+   * Definir el arreglo de la insercion a la base de datos
+   *
+   * @access public
+   * @return bool
+   */
+  public function validar() {
     $valor = FALSE;
     if ($this -> _evaluarSobreNombre() == TRUE && $this -> clave != '') {
       $rs = $this -> conectar();

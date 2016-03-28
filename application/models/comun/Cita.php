@@ -50,11 +50,10 @@ class Cita extends CI_Model{
 		$this->Semillero->obtener(4, $_SESSION['cedula'], 'Cita');
 		$this->load->model('saman/Solicitud');
 		$imagen = array(); //Listado de Imagenes Subidas
-		$fecha = date('Y-m-j');
+		$fecha = $this->Solicitud->generarCitaTratamientoProlongado();
 		$detalle = array(
-			"desde" => $fecha, 
-			"hasta" => date('Y-m-j', strtotime ( '+20 day' , strtotime ( $fecha ) ))
-
+			"desde" =>  date('Y-m-j'), 
+			"hasta" => $fecha
 		);
 		$arr = array(
 			'codigo' => $_SESSION['cedula'],
@@ -64,7 +63,8 @@ class Cita extends CI_Model{
 			'recipes' => json_encode($imagen),
 			'fecha' => 'now()', 
 			'tipo' => 4, 
-			'estatus' => 1
+			'estatus' => 1,
+			'fcita' => $fecha
 		);
 		$obj = $this->Solicitud->crear($arr);
 		
