@@ -86,6 +86,7 @@ class Semillero extends CI_Model{
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		foreach ($obj->rs as $clave => $valor) {
 			$this->codigo = $valor->codigo;
+			$this->estatus = 1;
 		}
 
 		return $obj;
@@ -107,6 +108,7 @@ class Semillero extends CI_Model{
 
 		if($obj->cant == 0){
 			$this->generar();
+			$this->estatus = 0;
 			$this->salvar($this->codigo, $session , $this->tipo, $this->observacion);
 		}
 		

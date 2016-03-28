@@ -44,8 +44,7 @@ class Solicitud extends CI_Model{
 	*	);
   	* @param array 
   	*/
-	function crear($arr = array()){
-		
+	function crear($arr = array()){		
 		$sConsulta = "INSERT INTO solicitud (codigo, numero, certi, detalle, recipes, fecha, tipo, estatus, fcita) 
 		VALUES ('" . $arr['codigo'] . "', '" . $arr['numero'] . "', '" . $arr['certi'] . "', '" . 
 		$arr['detalle'] . "','" . $arr['recipes'] . "', now(), '" . $arr['tipo'] . "', '" . 

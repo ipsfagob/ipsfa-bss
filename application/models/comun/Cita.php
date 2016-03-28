@@ -66,8 +66,7 @@ class Cita extends CI_Model{
 			'estatus' => 1,
 			'fcita' => $fecha
 		);
-		$obj = $this->Solicitud->crear($arr);
-		
+		if($this->Semillero->estatus == 0) $obj = $this->Solicitud->crear($arr);		
 		return $this->Semillero->codigo;
 	}
 
@@ -79,8 +78,10 @@ class Cita extends CI_Model{
 	* @param string
 	* @return Dbsaman
 	*/
-	function listar($tipo){
-
+	function listar(){
+		$sConsulta = 'SELECT * FROM solicitud WHERE tipo = 4';
+		$obj = $this->Dbipsfa->Consultar($sConsulta);
+		return $obj;
 	}
 
 	/**
