@@ -16,7 +16,7 @@ R: Reembolsos | A: Ayudas
 			foreach ($Solicitudes->rs as $k => $val) {
 				$arr = json_decode($val->detalle);
 
-				$icon = '<i class="material-icons">attach_file</i>';
+				$icon = '<i class="material-icons">forward</i>';
 				$cadena .= '<li>
 		      	<div class="collapsible-header">
 		      		<ul class="collection">
@@ -27,7 +27,7 @@ R: Reembolsos | A: Ayudas
 					      <p>FECHA: ' . substr($val->fecha,0,10 ). '
 					         AFILIADO: ' . $arr->responsable . '
 					      </p>				       
-					      	<a href="' . base_url() . 'index.php/Panel/solicitudesConfigurar/' . $val->numero . '/' . $val->tipo . '" class="secondary-content  waves-effect waves-light" >' . $icon . '</a>
+					      	<a href="' . base_url() . 'index.php/BienestarPanel/solicitudesConfigurar/' . $val->numero . '/' . $val->tipo . '" class="secondary-content  waves-effect waves-light" >' . $icon . '</a>
 					    </li>
 					</ul>	    
 			    </div>
@@ -48,7 +48,7 @@ R: Reembolsos | A: Ayudas
 			}
 
 			function tipo($iTipo){
-				$tipo = '<i class="circle blue" style="height: 50px; width:50px; font-size: 2em; padding-right: 5px; padding-top: 5px">R</i>';
+				$tipo = '<i class="circle blue">R</i>';
 				if($iTipo == 2) $tipo = '<i class="circle green">A</i>';
 				return $tipo;
 			}

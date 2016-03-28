@@ -66,6 +66,8 @@ class BienestarPanel extends CI_Controller{
 	}
 
 
+
+
 	/**
 	 * Generar listado de medicamentos pedidos
 	 *
@@ -91,7 +93,7 @@ class BienestarPanel extends CI_Controller{
 		$data['combo'] = $this->listarTipoDocumento();
 		$data['ruta'] = base_url() . "public/doc/" . $this->Archivo->_obtenerTipoCarpeta($tipo) . "/" . $id . '/';
 		$data['codigo'] = $id;
-		$this->load->view('panel/config_solicitudes', $data);
+		$this->load->view('bienestarsocial/panel/config_solicitudes', $data);
 	}
 
 

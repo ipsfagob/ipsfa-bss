@@ -1,9 +1,9 @@
 
 <?php 
-$this->load->view("panel/inc/cabecera.php");
+$this->load->view("bienestarsocial/panel/inc/cabecera.php");
 ?>
 <script type="text/javascript"
-	src="<?php echo base_url(); ?>application/views/panel/js/solicitud.js"></script>
+	src="<?php echo base_url(); ?>application/views/bienestarsocial/panel/js/solicitud.js"></script>
 
 
 
@@ -63,17 +63,20 @@ $this->load->view("panel/inc/cabecera.php");
       	
  <div class="row">
       <div class="input-field col s12">
-          <input  disabled  id="fechaNacimiento" class="validate" type="text" value="<?php echo $Militar->Persona->fechaNacimiento?>">
-          <label for="disabled">Fecha de Nacimiento</label>
+          <input  id="fechaVence" class="datepicker" type="date">
+          <label>Fecha de Vencimiento</label>
         </div>
         
         <div class="input-field col s12">
-          <select  disabled >
-            <option value=""></option>
-            
-            
+          <select  id="descripciondocumento" >
+            <option value="0">----------</option>
+            <?php
+	            foreach ($combo as $k => $v) {
+	            	echo '<option value="0">' . $v->nombre . '</option>';
+	            }
+            ?>
           </select>
-          <label>Genero</label>
+          <label>Descripcion Del Documento</label>
         </div>
      </div>
 
@@ -87,5 +90,5 @@ $this->load->view("panel/inc/cabecera.php");
   </div>
 
 <?php 
-$this->load->view("panel/inc/pie.php");
+$this->load->view("bienestarsocial/panel/inc/pie.php");
 ?>
