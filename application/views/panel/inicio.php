@@ -13,15 +13,15 @@ $this->load->view("panel/inc/cabecera.php");
 		 <ul class="collapsible" data-collapsible="accordion">
 		    <li>
 		      <div class="collapsible-header">
-		      	<a href="<?php echo base_url(); ?>index.php/Afiliacion/actualizarDatos">
-		      		<i class="material-icons md-36 light-blue-text text-darken-4">account_circle</i>Actualización de Datos
-		      	</a> <div class="collapsible-body"><p>
-		      	  .- Datos Personales.<br>
-			      .- Datos Bancarios <br> 
-			      .- Datos de Correo <br>
+		      	
+		      	<i class="material-icons md-36 light-blue-text text-darken-4">account_circle</i>Actualización de Datos</div>
+		      	 <div class="collapsible-body"><p>
+		      	  <a href="<?php echo base_url(); ?>index.php/Afiliacion/actualizarDatos">.- Datos Personales.</a><br>
+			      <a href="<?php echo base_url(); ?>index.php/Afiliacion/datosBancarios">.- Datos Bancarios </a><br> 
+			      
 			     </p></div>
 
-		      </div>		      
+		      		      
 		    </li>
 		    <li>
 		      <div class="collapsible-header">
@@ -50,13 +50,22 @@ $this->load->view("panel/inc/cabecera.php");
 		      <div class="collapsible-header">
 		      	<i class="material-icons md-36 brown-text">local_printshop</i>Impresión de Planillas y Netos</div>
 		      <div class="collapsible-body"><p>
-		      	  .- Constancia de Afiliación (PRINT). <br>
+		      	  .- 
+					<a href="/web/web/print/reporte.php?txt_cedula=<?php echo $_SESSION['cedula']?>" target="_blank">
+		      	  Constancia de Afiliación (PRINT)
+		      	  </a><br>
 		      	  .- Registro de Vehiculos. <br>
-		      	  .- Registro de Vivencia. <br>
+		      	  .-
+		      	  <a href="/web/web/ipsfaNet/vista/controlvConsultaDocumentos.php?variable1=<?php echo $_SESSION['cedula']?>" target="_blank">
+		      	   Registro de Vivencia. </a><br>
+		      	  .- 
 		      	  <a href="/web/web/ipsfaNet/solvPasRet/reporteHojSolv.php?txt_cedula=<?php echo $_SESSION['cedula']?>" target="_blank">
                     Hoja de Ruta
-                  </a>.<br>
-			      .- Hoja de Solvencia Pase a Retiro.</p>
+                  </a><br>
+                  .- 
+                  <a href="/web/web/ipsfaNet/solvPasRet/reporteSolvPasRet.php?txt_cedula=<?php echo $_SESSION['cedula']?>" target="_blank">
+			      Hoja de Solvencia Pase a Retiro
+			      </a></p>
 			   </div>
 		    </li>
 		 </ul>

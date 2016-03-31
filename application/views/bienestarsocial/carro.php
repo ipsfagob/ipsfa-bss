@@ -52,10 +52,7 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
 
 
       <div class="file-field input-field col s12 m6 l4 file-field-input-field">
-        
-        <!-- -->
                 <div class="file-path-wrapper-pre-view" id="pre-view-1"></div>
-                <!-- -->
                 <div class="file-path-wrapper file-path-wrapper-sopor">
           <input class="file-path validate" type="text"  placeholder="Presupuesto">
         </div>
@@ -74,11 +71,6 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
         </div>
       </div> 
       
-   
-
-
-
-             
     </form>
     <div class="row">
         <div class="col s12">
