@@ -12,8 +12,8 @@ $this->load->view("login/afiliacion/inc/cabecera.php");
 				 <div class="row">
 			        <div class="col s12">
 			          <div class="card white" >
-			            <div class="card-image purple"><br><h6 class="white-text"  style="font-weight: 800">Responde las Preguntas</h6>
-			              <i class="material-icons md-128 purple-text text-lighten-1" style="padding: 0px">live_help</i>		               	
+			            <div class="card-image blue-ipsfa"><br><h6 class="white-text"  style="font-weight: 800">Responde las Preguntas</h6>
+			              <i class="material-icons md-128 blue-grey-text" style="padding: 0px">live_help</i>		               	
 			            </div>
 			            <div class="card-content" style="padding: 0px">
 			              <p>
@@ -49,7 +49,7 @@ $this->load->view("login/afiliacion/inc/cabecera.php");
 	                    </p>
 			            </div>
 			            <div class="card-action" style="text-align: right; padding: 8px">
-			              <button class="btn waves-effect waves-light purple" type="submit">Continuar</button>
+			              <button class="btn waves-effect waves-light blue-ipsfa" type="submit">Continuar</button>
 			            </div>
 			          </div>
 			        </div>

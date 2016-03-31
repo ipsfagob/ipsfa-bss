@@ -48,18 +48,20 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
 <p><h5>Recuerde que debe adjuntar los digitales de los recipes</h5></p>
   <form class="col s12">
       <div class="row">
-        <div class="col s12">
-          <div class="file-field input-field">
-            <div class="btn" style="background-color:#00345A">
-              <span>Archivo</span>
-              <input type="file" multiple>
-            </div>
-            <div class="file-path-wrapper">
-              <input class="file-path validate" type="text" placeholder="Subir Archivo uno o mas">
-            </div>
-          </div>
 
 
+
+      <div class="file-field input-field col s12 m6 l4 file-field-input-field">
+        
+        <!-- -->
+                <div class="file-path-wrapper-pre-view" id="pre-view-1"></div>
+                <!-- -->
+                <div class="file-path-wrapper file-path-wrapper-sopor">
+          <input class="file-path validate" type="text"  placeholder="Presupuesto">
+        </div>
+                
+                <div class="btn btns-rd-c">
+          <input type="file" id="bdd_copia_carmil">
         </div>
       </div>
 
@@ -67,7 +69,7 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">mode_edit</i>
-          <textarea id="Obs" class="materialize-textarea"></textarea>
+          <textarea id="Obs" class="materialize-textarea" length="256"></textarea>
           <label for="Obs">Observaciones</label>
         </div>
       </div> 

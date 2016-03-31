@@ -208,13 +208,7 @@ $this->load->view("afiliacion/inc/cabecera.php");
           <label for=" disabled">Tipo de Cuenta</label>
         </div>
         
-     </div>
-
-
-
-
-
-      
+     </div>      
       <div class="row">
       <h5>Notas: </h5>
 
@@ -225,19 +219,17 @@ $this->load->view("afiliacion/inc/cabecera.php");
       </div>
       <br><br>      
       <div class="row">
-      	<div class="col s6">
-  			<button class="btn-large waves-effect waves-light blue darken-1" onclick="">Actualizar
+      	<div class="col s6" >
+  			<button  class="btn-large waves-effect waves-light" style="background-color:#00345A"   onclick="" >Actualizar
   			    <i class="material-icons left">swap_vertical_circle</i>
   			</button>
       	</div>
         <div class="col s6">
-        <button data-target="modal1" class="btn-large waves-effect waves-light blue darken-1 modal-trigger">Reportar
+        <button data-target="modal1" class="btn-large waves-effect waves-light modal-trigger"  style="background-color:#00345A">Reportar
             <i class="material-icons left">verified_user</i>
         </button>
         </div>
-      </div> 
-
-      
+      </div>       
     </form>
 </div>
 
@@ -255,14 +247,13 @@ $this->load->view("afiliacion/inc/cabecera.php");
        <div class="row">
          <div class="col s12">
           <p style="text-align: justify;">
-            Bienvenidos al sistema de reportes, está interfaz le servirá en caso de que
-            detecte algún dato errado y no pueda ser actualizado; sólo debe seleccionar y pulsar 
-            enviar y pronto estará resuelto.
+            Bienvenidos al sistema de reportes.<br>
+            ¿Los datos presentados en el anterior formulario son correctos?
           </p>    
          </div>
        </div>
       
-       <div class="section">
+       <div class="section" style="display: none">
           <h5>Datos Personales</h5>
           <div class="divider"></div>
           <br>
@@ -317,8 +308,8 @@ $this->load->view("afiliacion/inc/cabecera.php");
     </form>
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-blue btn-flat">Cancelar</a>
-      <a class="modal-action modal-close waves-effect waves-blue btn-flat" onclick="Salvar()">Reportar</a>  
+      <a class="modal-action modal-close waves-effect waves-blue btn-flat" onclick="Salvar()">NO</a>  
+      <a href="#!" class="modal-action modal-close waves-effect waves-blue btn-flat">SI</a>
     </div>
   </div>
     

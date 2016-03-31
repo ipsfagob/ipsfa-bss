@@ -7,6 +7,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 <div class="container">
 
 <h4>Modulo de Citas </h4>
+Deberá asistir a la Gerencia de Droguería y Farmacia del Instituto.
 <ul  >
 
 
@@ -34,6 +35,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 </ul>
 <br>
 </div>
+
 
 <?php 
 $this->load->view("bienestarsocial/inc/pie.php");

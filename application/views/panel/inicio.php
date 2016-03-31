@@ -15,13 +15,20 @@ $this->load->view("panel/inc/cabecera.php");
 		      <div class="collapsible-header">
 		      	<a href="<?php echo base_url(); ?>index.php/Afiliacion/actualizarDatos">
 		      		<i class="material-icons md-36 light-blue-text text-darken-4">account_circle</i>Actualización de Datos
-		      	</a>
+		      	</a> <div class="collapsible-body"><p>
+		      	  .- Datos Personales.<br>
+			      .- Datos Bancarios <br> 
+			      .- Datos de Correo <br>
+			     </p></div>
+
 		      </div>		      
 		    </li>
 		    <li>
 		      <div class="collapsible-header">
 		      	<i class="material-icons md-36 lime-text text-darken-2">group</i>Afiliación</div>
-		      <div class="collapsible-body"><p>.</p></div>
+		      <div class="collapsible-body"><p>
+		      	.- Renovación de Carnet.<br>
+		      </p></div>
 		    </li>
 		    <li>
 		      <div class="collapsible-header">
@@ -42,7 +49,13 @@ $this->load->view("panel/inc/cabecera.php");
 		    <li>
 		      <div class="collapsible-header">
 		      	<i class="material-icons md-36 brown-text">local_printshop</i>Impresión de Planillas y Netos</div>
-		      <div class="collapsible-body"><p></p></div>
+		      <div class="collapsible-body"><p>
+		      	  .- Constancia de Afiliación (PRINT). <br>
+		      	  .- Registro de Vehiculos. <br>
+		      	  .- Registro de Vivencia. <br>		     
+			      .- Hoja de Ruta.<br>
+			      .- Hoja de Solvencia Pase a Retiro.</p>
+			   </div>
 		    </li>
 		 </ul>
 

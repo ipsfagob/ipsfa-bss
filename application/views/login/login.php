@@ -15,14 +15,14 @@
 				<div class="row center">
 		          <div class="col s12 m3 l3">&nbsp;</div>
 		          <div class="col s12 m6 l6">
-		            <h4 class="bold">IpsfaNet</h4>
+		            <h4 class="bold">Ipsfa en Linea</h4>
 						<a href="<?php echo base_url(); ?>index.php/Login/identificacion">Si es primera vez que accede a este sitio has click aquí</a>
 						<form action="<?php echo base_url(); ?>index.php/Login/validarUsuario" method="POST">
 						 <div class="row">
 					        <div class="col s12">
 					          <div class="card white">
-					            <div class="card-image blue"><br><h6 class="white-text" style="font-weight: 800">Hola, Bienvenido</h6>
-					              <i class="material-icons md-128 blue-text text-lighten-1" >account_circle</i>
+					            <div class="card-image blue-ipsfa"><br><h6 class="white-text" style="font-weight: 800">Hola, Bienvenido</h6>
+					              <i class="material-icons md-128 blue-grey-text" >account_circle</i>
 					            </div>
 					            <div class="card-content" style="padding: 0px">	              		
 			                      <div class="input-field col s12">
@@ -35,7 +35,7 @@
 			                      </div>			                    
 					            </div>
 					            <div class="card-action" style="text-align: right; padding: 8px">
-					              <button class="btn waves-effect waves-light blue" type="submit" onclick="validarUsuario()">Entrar</button>
+					              <button class="btn waves-effect waves-light blue-ipsfa" type="submit" onclick="validarUsuario()">Entrar</button>
 					            </div>
 					          </div>
 					        </div>

@@ -223,12 +223,7 @@ class Login extends CI_Controller {
                 ->subject($subject)
                 ->message($body)
                 ->send();
-            echo "<pre>";
-            //print_r($this->email);
-            var_dump($result);
-            echo '<br />';
-            echo $this->email->print_debugger();
-            echo 'Prueba de Correo';
+            
 		
 
   	}

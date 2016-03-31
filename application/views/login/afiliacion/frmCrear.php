@@ -13,8 +13,8 @@ $this->load->view("login/afiliacion/inc/cabecera.php");
 				 <div class="row">
 			        <div class="col s12">
 			          <div class="card white">
-			            <div class="card-image orange" ><br><h6 class="white-text"  style="font-weight: 800">Crea Usuario IpsfaNet</h6> 
-			              <i class="material-icons md-128 orange-text text-lighten-1" >verified_user</i>
+			            <div class="card-image blue-ipsfa" ><br><h6 class="white-text"  style="font-weight: 800">Crea Usuario IpsfaNet</h6> 
+			              <i class="material-icons md-128 blue-grey-text" >verified_user</i>
 			            </div>
 			            <div class="card-content" style="padding: 0px">	              		
 	                      <div class="input-field col s12">
@@ -43,7 +43,7 @@ $this->load->view("login/afiliacion/inc/cabecera.php");
 
 			            </div>
 			              <div class="card-action" style="text-align: right; padding: 8px">
-			              <button class="btn waves-effect waves-light orange" type="submit">Aceptar</button>
+			              <button class="btn waves-effect waves-light blue-ipsfa" type="submit">Aceptar</button>
 			            </div>
 			          </div>
 			        </div>
