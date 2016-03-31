@@ -53,7 +53,7 @@ $this->load->view("panel/inc/cabecera.php");
 		      	  .- Constancia de Afiliación (PRINT). <br>
 		      	  .- Registro de Vehiculos. <br>
 		      	  .- Registro de Vivencia. <br>
-		      	  <a href="/web/web/ipsfaNet/solvPasRet/reporteHojSolv.php" target="_blank">
+		      	  <a href="/web/web/ipsfaNet/solvPasRet/reporteHojSolv.php?txt_cedula=<?php echo $_SESSION['cedula']?>" target="_blank">
                     Hoja de Ruta
                   </a>.<br>
 			      .- Hoja de Solvencia Pase a Retiro.</p>
