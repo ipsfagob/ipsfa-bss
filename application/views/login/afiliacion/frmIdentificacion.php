@@ -7,8 +7,7 @@ $this->load->view("login/afiliacion/inc/cabecera.php");
         <br>
 		<div class="row center">
           <div class="col s12 m3 l3">&nbsp;</div>
-          <div class="col s12 m6 l6">
-            
+          <div class="col s12 m6 l6">            
 				<form action="<?php echo base_url(); ?>index.php/Login/confirmar" method="POST">
 				 <div class="row">
 			        <div class="col s12">
@@ -22,7 +21,7 @@ $this->load->view("login/afiliacion/inc/cabecera.php");
 	                        <label for="cedula">Cédula de Identidad</label>
 	                      </div>
 	                      <div class="input-field col s12">                        
-	                        <input id="fecha" name="fecha" type="date" class="datepicker" required>
+	                        <input id="fecha" name="fecha" type="date" class="datepicker blue-ipsfa" required>
 	                        <label for="fecha">Fecha de Nacimiento</label>
 	                      </div>
 	                    

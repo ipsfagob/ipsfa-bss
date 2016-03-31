@@ -21,9 +21,7 @@ $this->load->view("login/afiliacion/inc/cabecera.php");
 	                      	Hola, <b><?php echo $_SESSION['nombreRango'];?></b> Le hemos enviado un correo de confirmación de cuenta, 
 	                      	recuerde que debe certificar su cuenta haciendo click en el enlace que le enviamos. <br><br>
 	                      	Esto le ayudará a mejorar sus procesos y tener información oportuna con todas nuestras aplicaciones.
-
-	                      </p>
-	                    
+	                      </p>	                    
 			            </div>
 			            <div class="card-action" style="text-align: right; padding: 8px">
 			              <button class="btn waves-effect waves-light green" type="submit">Iniciar</button>

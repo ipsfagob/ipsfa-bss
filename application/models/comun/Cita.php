@@ -34,6 +34,8 @@ class Cita extends CI_Model{
 
 	/**
 	* Iniciando la clase, Cargando Elementos BD Dbsaman
+	* Los estatus de una cita son: 
+	* 0: Cancelada, 1: Activa, 2: Procesada
 	*
 	* @access public
 	* @return void
@@ -79,7 +81,7 @@ class Cita extends CI_Model{
 	* @return Dbsaman
 	*/
 	function listar(){
-		$sConsulta = 'SELECT * FROM solicitud WHERE tipo = 4';
+		$sConsulta = 'SELECT * FROM solicitud WHERE tipo = 4 AND estatus = 1';
 		$obj = $this->Dbipsfa->Consultar($sConsulta);
 		return $obj;
 	}

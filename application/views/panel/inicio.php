@@ -52,8 +52,10 @@ $this->load->view("panel/inc/cabecera.php");
 		      <div class="collapsible-body"><p>
 		      	  .- Constancia de Afiliación (PRINT). <br>
 		      	  .- Registro de Vehiculos. <br>
-		      	  .- Registro de Vivencia. <br>		     
-			      .- Hoja de Ruta.<br>
+		      	  .- Registro de Vivencia. <br>
+		      	  <a href="/web/web/ipsfaNet/solvPasRet/reporteHojSolv.php" target="_blank">
+                    Hoja de Ruta
+                  </a>.<br>
 			      .- Hoja de Solvencia Pase a Retiro.</p>
 			   </div>
 		    </li>

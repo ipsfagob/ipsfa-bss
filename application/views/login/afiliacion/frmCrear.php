@@ -13,7 +13,7 @@ $this->load->view("login/afiliacion/inc/cabecera.php");
 				 <div class="row">
 			        <div class="col s12">
 			          <div class="card white">
-			            <div class="card-image blue-ipsfa" ><br><h6 class="white-text"  style="font-weight: 800">Crea Usuario IpsfaNet</h6> 
+			            <div class="card-image blue-ipsfa" ><br><h6 class="white-text"  style="font-weight: 800">Crea Usuario Ipsfa En Linea</h6> 
 			              <i class="material-icons md-128 blue-grey-text" >verified_user</i>
 			            </div>
 			            <div class="card-content" style="padding: 0px">	              		

@@ -82,8 +82,8 @@ class BienestarPanel extends CI_Controller{
 
 
 
-	function salir(){
-
+	function salvarCita(){
+		
 	}
 
 	function solicitudesConfigurar($id, $tipo = ""){
