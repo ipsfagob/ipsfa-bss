@@ -189,8 +189,10 @@ class Persona extends CI_Model{
 		}else{
 			$sConsulta .= 'WHERE personas.nropersona=' . $codigo;
 		}
-		$sConsulta .= ' ORDER BY auditfechacambio LIMIT 1';
+		$sConsulta .= ' ORDER BY pers_cta_bancarias.auditfechacambio LIMIT 1';
+		
 		return $sConsulta;
+
 	}
 
 
