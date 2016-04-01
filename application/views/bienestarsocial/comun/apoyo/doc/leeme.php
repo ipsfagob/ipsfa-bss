@@ -9,7 +9,7 @@ El instituto a través del fondo de cuidado integral de la salud, apoyará en un
 	<li>Constancia original de agotamiento de cobertura emitida por Seguros Horizontes y/u otra compañía de seguros.</li>
 	<li>Constancia original de la deuda que mantenga el afiliado con la clínica, firmada y con sello húmedo elaborada por la administración del centro de salud privada.</li>
 	<li>Presupuesto de la clínica con sello húmedo y rif.     </li>
-	<li>Copia del informe médico emitido por el hospital militar naval que certifique por escrito imposibilidad de atención médica temporal o definitiva en la red de sanitaria militar.</li>
+	<li>Copia del informe médico emitido por el hospital militar que certifique por escrito imposibilidad de atención médica temporal o definitiva en la red sanitaria militar.</li>
 	<li>Copia del informe médico actualizado y con sello húmedo del galeno.</la>
 	<li>Copia de la cédula de identidad del militar afiliado y del familiar con derecho ampliada y a color.</li>
 	<li>Copia del carnet vigente del militar y del familiar con derecho ampliada a color.</li>
