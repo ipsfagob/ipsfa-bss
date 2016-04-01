@@ -13,8 +13,8 @@ $this->load->view("login/afiliacion/inc/cabecera.php");
 				 <div class="row">
 			        <div class="col s12">
 			          <div class="card white">
-			            <div class="card-image green"><br><h6 class="white-text" style="font-weight: 800">En hora buena, Felicitaciones !!!</h6>
-			              <i class="material-icons md-128 green-text text-lighten-1" >check_circle</i>
+			            <div class="card-image blue-ipsfa"><br><h6 class="white-text" style="font-weight: 800">Felicitaciones !!!</h6>
+			              <i class="material-icons md-128 blue-grey-text" >check_circle</i>
 			            </div>
 			            <div class="card-content" style="padding: 10px">	              		
 	                      <p>
@@ -24,7 +24,7 @@ $this->load->view("login/afiliacion/inc/cabecera.php");
 	                      </p>	                    
 			            </div>
 			            <div class="card-action" style="text-align: right; padding: 8px">
-			              <button class="btn waves-effect waves-light green" type="submit">Iniciar</button>
+			              <button class="btn waves-effect waves-light blue-ipsfa" type="submit">Iniciar</button>
 			            </div>
 			          </div>
 			        </div>
