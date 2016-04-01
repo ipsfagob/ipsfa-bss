@@ -7,19 +7,10 @@ $this->load->view("afiliacion/inc/cabecera.php");
 <div class="container .hide-on-small-only">
   <h5>Bienvenidos al sistema de datos personales</h5>
   <div class="divider"></div>
-  <div class="row">
-    <div class="col s12 card-panel blue lighten-2">
-    <p style="text-align: justify;">
-
-      En caso de que
-      detecte algún dato errado y no pueda ser actualizado, favor dirigirse a la Gerencia de Afiliación del 
-      IPSFA en cualquiera de sus sucursales.
-    </p>    
-   </div>
-</div>
-
+  
+<!--
 <h5>Datos Básicos</h5>
-<li class="divider"></li><br>
+<li class="divider"></li>-->
 <div class="row center">
   <div class="col s12 m12 l12">
     <!-- 
@@ -194,9 +185,24 @@ $this->load->view("afiliacion/inc/cabecera.php");
       </div> 
       <br>
       <div class="row">
-      <h5>Notas: </h5>
+      <h5>Notas: </h5><div class="divider"></div>
           
-          <label for="certificar" >Si sus datos son correctos presione actualizar</label>
+          <div class="row">
+    <div class="col s12 card-panel blue lighten-2">
+    <p style="text-align: justify;">
+    <ol>
+      <li>En caso de que
+      detecte algún dato errado y no pueda ser actualizado, favor dirigirse a la Gerencia de Afiliación del 
+      IPSFA en cualquiera de sus sucursales.</li>
+      <li>
+        Si sus datos son correctos presione actualizar.
+      </li>
+    </ol>
+      
+      </p>    
+   </div>
+</div>
+          
         
       </div>
       <br><br>      
