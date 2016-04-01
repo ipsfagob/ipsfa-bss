@@ -192,22 +192,27 @@ $this->load->view("afiliacion/inc/cabecera.php");
           <label for="emailAux" data-error="Invalido" data-success="right">Correo Electronico Alternativo</label>
         </div>
       </div> 
-      
+      <br>
       <div class="row">
       <h5>Notas: </h5>
-
-        <div class="input-field col s12 m12 l12">
           
           <label for="certificar" >Si sus datos son correctos presione actualizar</label>
-        </div>
+        
       </div>
       <br><br>      
       <div class="row">
       	<div class="col s6" >
-  			<button  class="btn-large waves-effect waves-light" style="background-color:#00345A"   onclick="" >Actualizar
+  			<a  class="btn-large waves-effect waves-light" style="background-color:#00345A"   href="#" >Actualizar
   			    <i class="material-icons left">swap_vertical_circle</i>
-  			</button>
+  			</a>
       	</div>
+
+        <div class="col s6" >
+        <a class="btn-large waves-effect waves-light" style="background-color:#00345A" 
+        href="<?php echo base_url(); ?>index.php/Panel/index">Ir al Inicio
+            <i class="material-icons left">home</i>
+        </a>
+        </div>
       </div>       
     </form>
 </div>
