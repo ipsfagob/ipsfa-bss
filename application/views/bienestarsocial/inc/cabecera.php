@@ -118,7 +118,7 @@
 .btns-smin:hover,.row .col{float:left;box-sizing:border-box;padding:0.4rem 0.4rem 0.4rem 0.4rem}
 
 
-.file-path-wrapper-pre-view{border:1px #e0e0e0 solid;width:35%;height:97px;float:left;margin-left:0.5rem;background: url(../materializecss/ic_content_paste_white_24px.svg) no-repeat left top  #FBFBFB; color:#C4C4C4;box-sizing:border-box;clear:left}
+.file-path-wrapper-pre-view{border:1px #e0e0e0 solid;width:80%;height:97px;float:left;margin-left:0.1em;background: url(../materializecss/ic_content_paste_white_24px.svg) no-repeat left top  #FBFBFB; color:#C4C4C4;box-sizing:border-box;clear:left}
 .file-path-wrapper-sopor{border:0px #009933 solid;width:80%;box-sizing:border-box;clear:left;float:left}  
 
 

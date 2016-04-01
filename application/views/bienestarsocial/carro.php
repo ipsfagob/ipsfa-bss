@@ -49,18 +49,34 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
   <form class="col s12">
       <div class="row">
 
-
-
-      <div class="file-field input-field col s12 m6 l4 file-field-input-field">
-                <div class="file-path-wrapper-pre-view" id="pre-view-1"></div>
-                <div class="file-path-wrapper file-path-wrapper-sopor">
-          <input class="file-path validate" type="text"  placeholder="Presupuesto">
-        </div>
-                
-                <div class="btn btns-rd-c">
-          <input type="file" id="bdd_copia_carmil">
-        </div>
+        <div class="col s12 m6 l4 white" >        
+          <div style="width: 120px;height: 120px; margin:0px " id="view-1" >
+            <img style="width: 120px;height: 120px; margin-left: 0px" class="file-path-wrapper-pre-view" id="pre-view-1" />
+          </div>
+          <!-- -->
+          <div class="file-field input-field col file-field-input-field" >
+              <div class="file-path-wrapper file-path-wrapper-sopor">
+                <input class="file-path validate" type="text"  placeholder="Presupuesto">
+              </div>
+                    
+              <div class="btn btns-rd-c">
+                <input type="file" id="inputFile[1]" onchange="readURL(this, 1, 'pdf');">
+              </div>
+            </div>
+        </div>  
       </div>
+         
+          
+
+
+
+
+
+
+
+                
+
+
 
 
       <div class="row">

@@ -38,6 +38,17 @@ class Afiliacion extends CI_Controller {
 		}
 	}
 
+	function datosBancarios(){
+		if(isset($_SESSION['cedula'])){
+			$this->load->model('saman/Militar', 'Militar');
+			$this->Militar->consultar($_SESSION['cedula']);
+			$data['Militar'] = $this->Militar;
+			$this->load->view ( 'afiliacion/datos_bancario', $data );
+		}else{			
+			$this->salir("Debe iniciar session");
+		}
+	}
+
 	
 	public function listarMunicipio(){
 		if(isset($_SESSION['cedula'])){

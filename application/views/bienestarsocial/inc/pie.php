@@ -58,44 +58,30 @@
 
       
 
-
-
-    $(window).load(function(){
-
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-	            var reader = new FileReader();
-				
-	            reader.onload = function (e) {
-	               
-				   var fileExtension = ['jpeg', 'jpg', 'png', 'gif', 'bmp'];
-				   var fileExtension2 = ['pdf'];
-				  
-				   //alert($(input).val().split('.').pop().toLowerCase());
-					
-					if ($.inArray($(input).val().split('.').pop().toLowerCase(), fileExtension) == 1) {
-						$('#pre-view-1').html('<img src="'+ e.target.result + '" width="108px" height="97px" />');
-					}
-					
-					
-					if ($(input).val().split('.').pop().toLowerCase() == "pdf") {
-						
-						//$('#image_upload_preview').html('<iframe src="'+ e.target.result + '" width="100" height="100" >your</iframe>');
-						$('#pre-view-1').html('<object type="application/pdf" data= "'+ e.target.result + '" #toolbar=0&amp;navpanes=0&amp;scrollbar=0" width="200" height="100">');
-					}
-					
-					
-			   }
-				
-	            reader.readAsDataURL(input.files[0]);
-	        }
-	    }
-
-	    $("#bdd_copia_carmil").change(function () {
-	        readURL(this);
-	    });
+	    
 
 	});
+
+	 function readURL(input, id, tipo) {
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+            	if(tipo == 'pdf'){
+            		$('#view-' + id).html('<object type="application/pdf" data= "'+ e.target.result + '" #toolbar=0&amp;navpanes=0&amp;scrollbar=0" width="200" height="100">');
+
+            	}else{
+
+                	$('#pre-view-' + id).attr('src', e.target.result);
+            	}
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+ 
 
     </script>
 </main>

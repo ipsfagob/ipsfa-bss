@@ -54,9 +54,23 @@
     	$('.modal-trigger').leanModal();
     	
     	$('.datepicker').pickadate({
+			// Strings and translations
+			monthsFull: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+			monthsShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+			weekdaysFull: ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'],
+			weekdaysShort: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
+			showMonthsShort: undefined,
+			showWeekdaysFull: undefined,
+
+			// Buttons
+			today: 'Hoy',
+			clear: 'Limpiar',
+			close: 'Aceptar',
 	    	selectMonths: true, // Creates a dropdown to control month
-	    	selectYears: 15 // Creates a dropdown of 15 years to control year
-	  	});
+	    	selectYears: 10, // Creates a dropdown of 15 years to control year
+	    	format: 'yyyy/mm/dd',
+	    	formatSubmit: 'yyyy/mm/dd'
+  		});
 
 	  	//$('textarea#direccion').characterCounter();
 

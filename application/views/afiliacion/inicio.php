@@ -189,32 +189,13 @@ $this->load->view("afiliacion/inc/cabecera.php");
           <label for="emailAux" data-error="Invalido" data-success="right">Correo Electronico Alternativo</label>
         </div>
       </div> 
-
-      <h4>Datos Bancarios</h4>
-      <li class="divider"></li><br>
-     <div class="row">
-      <div class="input-field col s12 m6 l6">
-          <input  disabled  id="banco" type="text" class="validate" value="<?php echo $Militar->Persona->banco?>">
-          <label for="canco">Banco</label>
-        </div>
-        
-        <div class="input-field col s6 m6 l6">
-          <input  disabled id="cuenta" type="text" class="validate" value="<?php echo $Militar->Persona->cuenta?>">
-          <label for="cuenta">Cuenta Bancaria</label>
-        </div>
-
-        <div class="input-field col s6">
-          <input  disabled  id="cuenta" type="text" class="validate" value="<?php echo $Militar->Persona->obtenerTipoCuenta()?>">
-          <label for=" disabled">Tipo de Cuenta</label>
-        </div>
-        
-     </div>      
+      
       <div class="row">
       <h5>Notas: </h5>
 
         <div class="input-field col s12 m12 l12">
           <input type="checkbox" id="certificar" />
-          <label for="certificar" >Pulse click si certifica que esa es su cuenta bancaria actualmente</label>
+          <label for="certificar" >Marque esta opción si sus datos personales son correctos y luego pulse actualizar</label>
         </div>
       </div>
       <br><br>      
@@ -224,11 +205,6 @@ $this->load->view("afiliacion/inc/cabecera.php");
   			    <i class="material-icons left">swap_vertical_circle</i>
   			</button>
       	</div>
-        <div class="col s6">
-        <button data-target="modal1" class="btn-large waves-effect waves-light modal-trigger"  style="background-color:#00345A">Reportar
-            <i class="material-icons left">verified_user</i>
-        </button>
-        </div>
       </div>       
     </form>
 </div>

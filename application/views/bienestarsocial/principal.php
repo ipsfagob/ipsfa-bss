@@ -11,7 +11,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 </div>
 		<div class="row center">  	
 
-      <div class="col s12 m6 l3">
+      <div class="col s12 m4 l4">
         
         <div class="btns-smin">
           <div class="btns-sminf small">Tratamiento Prolongado</div>
@@ -27,7 +27,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
         </div> 
       </div>
 
-      <div class="col s12 m6 l3">
+      <div class="col s12 m4 l4">
         <div class="btns-smin">
           <div class="btns-sminf small">Consultar Medicamentos</div>
           <div class="btns-sminh tooltipped dropdown-button" data-position="bottom" data-delay="30" data-tooltip="I am tooltip" data-activates='dropdown1' >
@@ -42,7 +42,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
         </div>  
       </div>
 
-      <div class="col s12 m6 l3">
+      <div class="col s12 m4 l4">
         <div class="btns-smin">
           <div class="btns-sminf small">Notificar Reembolsos</div>
           <div class="btns-sminh tooltipped dropdown-button" data-position="bottom" data-delay="30" data-tooltip="I am tooltip" data-activates='dropdown1' >
@@ -57,14 +57,14 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
         </div>  
       </div>
 
-      <div class="col s12 m6 l3">
+      <div class="col s12 m4 l4">
         <div class="btns-smin">
           <div class="btns-sminf small">Notificar Ayuda</div>
           <div class="btns-sminh tooltipped dropdown-button" data-position="bottom" data-delay="30" data-tooltip="I am tooltip" data-activates='dropdown1' >
             <a href="#"><i class="material-icons black-text">more_vert</i></a>
           </div>
           <a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/2">
-            <div class="__ctdrs_xxmall cortar">Solicituar ayuda para adquiri medicamentos</div>
+            <div class="__ctdrs_xxmall cortar">Solicitar ayuda para adquirir medicamentos</div>
             <div >
               <img src="<?php echo base_url(); ?>public/img/ayudasocial.jpg">
             </div>
@@ -72,7 +72,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
         </div>  
       </div>
 
-      <div class="col s12 m6 l3">
+      <div class="col s12 m4 l4">
         <div class="btns-smin">
           <div class="btns-sminf small">Medicamentos Badan</div>
           <div class="btns-sminh tooltipped dropdown-button" data-position="bottom" data-delay="30" data-tooltip="I am tooltip" data-activates='dropdown1' >
@@ -89,7 +89,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 
 
 
-      <div class="col s12 m6 l3">
+      <div class="col s12 m4 l4">
         <div class="btns-smin">
           <div class="btns-sminf small">Carta Aval</div>
           <div class="btns-sminh tooltipped dropdown-button" data-position="bottom" data-delay="30" data-tooltip="I am tooltip" data-activates='dropdown1' >

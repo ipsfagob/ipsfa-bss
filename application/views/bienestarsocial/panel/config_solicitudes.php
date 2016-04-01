@@ -35,9 +35,21 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
 		      <input type="hidden" name="codigo" value=""> </input>
 		      <div class="row">
 		        <div class="row">
+		         <div class="input-field col s12">
+		          <select  id="descripciondocumento" >
+		            <option value="0">----------</option>
+		            <option value="1">Su solicitud está siendo procesada</option>	
+		            <option value="2">Su solicitud preseta errores en los documentos</option>
+		            <option value="3">Debe presentarse en las instalaciones del IPSFA</option>
+		          </select>
+		          <label>Observaciones Pre-cargadas</label>
+		        </div>
+
+
+
 		        <div class="input-field col s12">
 		          <i class="material-icons prefix">mode_edit</i>
-		          <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+		          <textarea id="icon_prefix2" class="materialize-textarea" length="256"></textarea>
 		          <label for="icon_prefix2">Escriba las observaciones que se enviaran al afiliado</label>
 		        </div>
 		      </div>

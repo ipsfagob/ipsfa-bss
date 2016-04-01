@@ -27,7 +27,7 @@ $this->load->view("panel/inc/cabecera.php");
 		      <div class="collapsible-header">
 		      	<i class="material-icons md-36 lime-text text-darken-2">group</i>Afiliación</div>
 		      <div class="collapsible-body"><p>
-		      	.- Renovación de Carnet.<br>
+		      	.- Renovación de Carnet. (En Desarrollo)<br>
 		      </p></div>
 		    </li>
 		    <li>
@@ -44,7 +44,9 @@ $this->load->view("panel/inc/cabecera.php");
 		    <li>
 		      <div class="collapsible-header">
 		      	<i class="material-icons md-36 green-text">access_alarms</i>Citas Automatizadas</div>
-		      <div class="collapsible-body"><p></p></div>
+		      <div class="collapsible-body"><p>
+		      	 (En Desarrollo)<br>
+		      </p></div>
 		    </li>
 		    <li>
 		      <div class="collapsible-header">

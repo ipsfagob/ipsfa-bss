@@ -271,6 +271,26 @@ class BienestarSocial extends CI_Controller {
 		}	
 	}
 
+
+
+	/**
+	 * Generar solicitud de medicamentos
+	 *
+	 * @access  public
+	 * @return html
+	 */
+	public function cartaaval(){
+		if(isset($_SESSION['cedula'])){
+			$this->load->model('saman/Tratamiento');
+			$data['data'] = $this->Tratamiento->consultarProlongado($_SESSION['cedula']);
+			$this->load->view ( 'bienestarsocial/comun/carta_aval/inicio', $data );
+		}else{
+			$this->salir();
+			echo "Debe iniciar session";
+			exit;
+		}	
+	}
+
 	public function adjuntarProlongado(){
 		if(isset($_SESSION['cedula'])){
 			$this->load->model('saman/Tratamiento');
