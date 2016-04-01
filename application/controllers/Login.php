@@ -197,7 +197,7 @@ class Login extends CI_Controller {
 	* @access protected
 	* @return mixed
 	*/	
-  	protected function enviarCorreoCertificacion(){
+  	public function enviarCorreoCertificacion(){
  
   		$this->load->library('email');
 

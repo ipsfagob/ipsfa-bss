@@ -32,44 +32,51 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
         </div>
       </div>
 
-      <div class="row">
-        <div class="col s12">
-          <div class="file-field input-field">
-            <div class="btn"  style="background-color:#00345A">
-              <span>Informe Medico</span>
-              <input type="file" multiple id="informe" accept=".pdf">
-            </div>
-            <div class="file-path-wrapper">
-              <input class="file-path validate" type="text" placeholder="Subir Archivo uno o mas">
-            </div>
+
+      <div class="row white">
+
+        <div class="col s12 m6 l4 white" >        
+          <div style="width: 120px;height: 120px; margin:0px " id="view-1" >
+            <img style="width: 120px;height: 120px; margin-left: 0px" class="file-path-wrapper-pre-view" id="pre-view-1" />
           </div>
+          <!-- -->
+          <div class="file-field input-field col file-field-input-field" >
+              <div class="file-path-wrapper file-path-wrapper-sopor">
+                <input class="file-path validate" type="text"  placeholder="Informe Medico">
+              </div>
+                    
+              <div class="btn btns-rd-c">
+                <input type="file" id="inputFile[1]" onchange="readURL(this, 1, 'pdf');">
+                <i class="material-icons">backup</i>
+              </div>
+            </div>
+        </div>  
+ 
 
 
-        </div>
+        <div class="col s12 m6 l4 white" >        
+          <div style="width: 120px;height: 120px; margin:0px " id="view-2" >
+            <img style="width: 120px;height: 120px; margin-left: 0px" class="file-path-wrapper-pre-view" id="pre-view-2" />
+          </div>
+          <!-- -->
+          <div class="file-field input-field col file-field-input-field" >
+              <div class="file-path-wrapper file-path-wrapper-sopor">
+                <input class="file-path validate" type="text"  placeholder="Fe de Vida">
+              </div>
+                    
+              <div class="btn btns-rd-c">
+                <input type="file" id="inputFile[1]" onchange="readURL(this, 2, 'img');">
+                <i class="material-icons">backup</i>
+              </div>
+            </div>
+        </div>  
       </div>
 
 
-      <div class="row">
-        <div class="col s12">
-          <div class="file-field input-field">
-            <div class="btn"  style="background-color:#00345A">
-              <span>Fe de Vida</span>
-              <input type="file" multiple>
-            </div>
-            <div class="file-path-wrapper">
-              <input class="file-path validate" type="text" placeholder="Subir Archivo">
-            </div>
-          </div>
-
-
-        </div>
-      </div>
-
-
-      <div class="row">
+      <div class="row ">
         <div class="input-field col s12">
           <i class="material-icons prefix">mode_edit</i>
-          <textarea id="Obs" class="materialize-textarea"></textarea>
+          <textarea id="Obs" class="materialize-textarea" length='256'></textarea>
           <label for="Obs">Observaciones</label>
         </div>
       </div> 

@@ -1,3 +1,4 @@
+
 <?php 
 $this->load->view("bienestarsocial/inc/cabecera.php");
 ?>
@@ -13,7 +14,8 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
           <h5>Nota:</h5>
           <p><font color="red" >* Los archivos adjuntos para el informe medico debe ser en extensión PDF</font>
           <br>Deben estar en un orden correlativo acorde al Informe Médico, de igual forma los documentos deben estar legibles,
-              asimismo el Informe medico deberá estar vigente.
+              asimismo el Informe medico deberá estar vigente.<br>
+              Recuerde que si la factura es mayor a tres meses se considera extemporanéa.<br>
           </p>
         </div>
   </div>
