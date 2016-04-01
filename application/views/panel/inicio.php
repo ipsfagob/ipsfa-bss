@@ -38,8 +38,10 @@ $this->load->view("panel/inc/cabecera.php");
 		    </li>
 		    <li>
 		      <div class="collapsible-header">
-		      	<i class="material-icons md-36 amber-text">credit_card</i>Crédito</div>
+		      <a href="http://192.168.12.198/dataConfig/Creditos.IPSFA.Web/atrr.php?administrador=<?php echo $_SESSION['cedula'];?>">
 		      
+		      	<i class="material-icons md-36 amber-text">credit_card</i>Crédito</div>
+		      </a>
 		    </li>
 		    <li>
 		      <div class="collapsible-header">
