@@ -5,18 +5,20 @@ $this->load->view("afiliacion/inc/cabecera.php");
   src="<?php echo base_url(); ?>application/views/afiliacion/js/datos.js"></script>
 <br><br>
 <div class="container .hide-on-small-only">
-
+  <h5>Bienvenidos al sistema de datos personales</h5>
+  <div class="divider"></div>
   <div class="row">
-   <div class="col s12">
+    <div class="col s12 card-panel blue lighten-2">
     <p style="text-align: justify;">
-      Bienvenidos al sistema de datos personales en caso de que
-      detecte algún dato errado y no pueda ser actualizado, favor dirigirse a la gerencia de afiliación del 
+
+      En caso de que
+      detecte algún dato errado y no pueda ser actualizado, favor dirigirse a la Gerencia de Afiliación del 
       IPSFA en cualquiera de sus sucursales.
     </p>    
    </div>
 </div>
 
-<h4>Datos Básicos</h4>
+<h5>Datos Básicos</h5>
 <li class="divider"></li><br>
 <div class="row center">
   <div class="col s12 m12 l12">
