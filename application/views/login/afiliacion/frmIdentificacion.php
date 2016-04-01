@@ -13,7 +13,9 @@ $this->load->view("login/afiliacion/inc/cabecera.php");
 			        <div class="col s12">
 			          <div class="card white">
 			            <div class="card-image blue-ipsfa"><br><h6 class="white-text" style="font-weight: 800">Ayudanos a indentificarte</h6>
-			              <i class="material-icons md-128 blue-grey-text" >person_pin</i>
+			              <center>
+					              	<img src="<?php echo base_url(); ?>public/img/logo-central-I.png" style="width:150px;">
+					              </center>
 			            </div>
 			            <div class="card-content" style="padding: 0px">	              		
 	                      <div class="input-field col s12">

@@ -14,7 +14,9 @@ $this->load->view("login/afiliacion/inc/cabecera.php");
 			        <div class="col s12">
 			          <div class="card white">
 			            <div class="card-image green"><br><h6 class="white-text" style="font-weight: 800">En hora buena, Felicitaciones !!!</h6>
-			              <i class="material-icons md-128 green-text text-lighten-1" >verified_user</i>
+			              <center>
+					              	<img src="<?php echo base_url(); ?>public/img/logo-central-I.png" style="width:150px;">
+					              </center>
 			            </div>
 			            <div class="card-content" style="padding: 10px">              		
 	                      <p>
