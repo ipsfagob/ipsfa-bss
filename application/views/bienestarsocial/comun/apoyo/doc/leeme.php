@@ -1,7 +1,7 @@
 <h4>Requisitos para la solicitud de Ayuda</h4>
 
 
-El instituto a través del fondo de cuidado integral de la salud, apoyará en un porcentaje razonable al personal profesional militar activo y retirado así como a sus familiares con derechos amparados por la ley de seguridad social de las Fuerza Armada Nacional, en aquellos casos que ameriten tratamiento médico quirúrgico y/u hospitalización, adquisición de material, prótesis, entre otros,  cuando no cuenten con el recurso financiero necesarios para solventar los gastos médicos incurridos por un excedente razonable en los centros de salud privado a nivel nacional, una vez que haya agotado la cobertura que ampara Seguros Horizonte y no sea atendido a través de la red sanitaria de la dirección general de salud de la FAN, para lo cual, deberá consignar los siguientes recaudos:
+El instituto a través del fondo de cuidado integral de la salud, apoyará en un porcentaje razonable al personal profesional militar activo y retirado así como a sus familiares con derechos amparados por la ley de seguridad social de las Fuerza Armada Nacional, en aquellos casos que ameriten tratamiento médico quirúrgico y/u hospitalización, adquisición de material, prótesis, entre otros,  cuando no cuenten con el recurso financiero necesarios para solventar los gastos médicos incurridos por un excedente razonable en los centros de salud privado a nivel nacional, una vez que haya agotado la cobertura que ampara Seguros Horizonte y no sea atendido a través de la red sanitaria de la dirección general de salud de la FANB, para lo cual, deberá consignar los siguientes recaudos:
 
 <ol>
 	<li>Carta de exposición de motivos dirigidos al ciudadano Presidente de la Junta Administrativa del IPSFA.</li>
