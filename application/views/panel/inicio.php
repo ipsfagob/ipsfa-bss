@@ -51,7 +51,7 @@ $this->load->view("panel/inc/cabecera.php");
 		      	<i class="material-icons md-36 brown-text">local_printshop</i>Impresión de Planillas y Netos</div>
 		      <div class="collapsible-body"><p>
 		      	  .- 
-					<a href="/web/web/print/reporte.php?txt_cedula=<?php echo $_SESSION['cedula']?>" target="_blank">
+					<a href="/web/web/ipsfaNet/print/reporte.php?txt_cedula=<?php echo $_SESSION['cedula']?>" target="_blank">
 		      	  Constancia de Afiliación (PRINT)
 		      	  </a><br>
 		      	  .- Registro de Vehiculos. <br>
