@@ -60,8 +60,8 @@ $this->load->view("panel/inc/cabecera.php");
 		      	  </a><br>
 		      	  .- Registro de Vehiculos. <br>
 		      	  .-
-		      	  <a href="/web/web/ipsfaNet/vista/controlvConsultaDocumentos.php?variable1=<?php echo $_SESSION['cedula']?>" target="_blank">
-		      	   Registro de Vivencia. </a><br>
+		      	  <a href="http://192.168.12.195/html/web/web/ipsfaNet/vista/controlvConsultaDocumentos.php?variable1=<?php echo $_SESSION['cedula']?>" target="_blank">
+		      	   Registro de Vivienda. </a><br>
 		      	  .- 
 		      	  <a href="/web/web/ipsfaNet/solvPasRet/reporteHojSolv.php?txt_cedula=<?php echo $_SESSION['cedula']?>" target="_blank">
                     Hoja de Ruta
