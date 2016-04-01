@@ -10,7 +10,8 @@ $this->load->view("afiliacion/inc/cabecera.php");
    <div class="col s12">
     <p style="text-align: justify;">
       Bienvenidos al sistema de datos personales en caso de que
-      detecte algún dato errado y no pueda ser actualizado; sólo debe pulsar click en reportar y enviar.
+      detecte algún dato errado y no pueda ser actualizado, favor dirigirse a la gerencia de afiliación del 
+      IPSFA en cualquiera de sus sucursales.
     </p>    
    </div>
 </div>
@@ -194,8 +195,8 @@ $this->load->view("afiliacion/inc/cabecera.php");
       <h5>Notas: </h5>
 
         <div class="input-field col s12 m12 l12">
-          <input type="checkbox" id="certificar" />
-          <label for="certificar" >Marque esta opción si sus datos personales son correctos y luego pulse actualizar</label>
+          
+          <label for="certificar" >Si sus datos son correctos presione actualizar</label>
         </div>
       </div>
       <br><br>      
