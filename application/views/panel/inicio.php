@@ -58,11 +58,14 @@ $this->load->view("panel/inc/cabecera.php");
 					<a href="/web/web/ipsfaNet/print/reporte.php?txt_cedula=<?php echo $_SESSION['cedula']?>" target="_blank">
 		      	  Constancia de Afiliación (PRINT)
 		      	  </a><br>
-		      	  .- Registro de Vehiculos. <br>
-		      	  .-
-		      	  <a href="http://192.168.12.195/html/web/web/ipsfaNet/vista/controlvConsultaDocumentos.php?variable1=<?php echo $_SESSION['cedula']?>" target="_blank">
-		      	   Registro de Vivienda. </a><br>
+
 		      	  .- 
+		      	   <a href="http://192.168.12.195/html/web/web/ipsfaNet/vista/controlvConsultaDocumentos.php?variable1=<?php echo $_SESSION['cedula']?>" target="_blank">
+		      	  Registro de Vehiculos. </a><br>
+		      	  .-
+		      	 <!--
+		      	   Registro de Vivienda. <br>
+		      	  .- -->
 		      	  <a href="/web/web/ipsfaNet/solvPasRet/reporteHojSolv.php?txt_cedula=<?php echo $_SESSION['cedula']?>" target="_blank">
                     Hoja de Ruta
                   </a><br>
