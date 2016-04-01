@@ -184,12 +184,12 @@ class Persona extends CI_Model{
 		LEFT JOIN pers_cta_bancarias ON personas.nropersona=pers_cta_bancarias.nropersona
 		LEFT JOIN inst_financieras ON pers_cta_bancarias.instfinancod=inst_financieras.instfinancod ';
 		if(!$codigo){
-			$sConsulta .= 'WHERE personas.codnip=\'' . $cedula . '\' LIMIT 1';
+			$sConsulta .= 'WHERE personas.codnip=\'' . $cedula . '\'';
 
 		}else{
-			$sConsulta .= 'WHERE personas.nropersona=' . $codigo . ' LIMIT 1';
+			$sConsulta .= 'WHERE personas.nropersona=' . $codigo;
 		}
-		
+		$sConsulta .= ' ORDER BY auditfechacambio LIMIT 1';
 		return $sConsulta;
 	}
 
