@@ -282,6 +282,8 @@ class Solicitud extends CI_Model{
 	private function listarDocumentosConceptos($codigo = ''){
 		$arr = array();
 		$sConsulta = 'SELECT * FROM concepto_archivo WHERE codi =\'' . $codigo  . '\'';
+		print_r($sConsulta);
+
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		foreach ($obj->rs as $k=> $v) {
 			$arr[] = array('nombre' => $v->valo,  'descripcion' => $v->nomb);  
