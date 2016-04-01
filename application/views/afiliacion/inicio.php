@@ -136,7 +136,7 @@ $this->load->view("afiliacion/inc/cabecera.php");
 
 
 
-      <h4>Datos de la Dirección</h4>
+      <h5>Datos de la Dirección</h5>
       <li class="divider"></li><br>
      <div class="row">
         <div class="input-field col s12 m6 l6">
@@ -184,27 +184,24 @@ $this->load->view("afiliacion/inc/cabecera.php");
         </div>
       </div> 
       <br>
-      <div class="row">
-      <h5>Notas: </h5><div class="divider"></div>
+    <div class="row">
+    <h5>Notas: </h5><div class="divider"></div>
           
-          <div class="row">
-    <div class="col s12 card-panel blue lighten-2">
-    <p style="text-align: justify;">
-    <ol>
-      <li>En caso de que
-      detecte algún dato errado y no pueda ser actualizado, favor dirigirse a la Gerencia de Afiliación del 
-      IPSFA en cualquiera de sus sucursales.</li>
-      <li>
-        Si sus datos son correctos presione actualizar.
-      </li>
-    </ol>
-      
-      </p>    
-   </div>
-</div>
-          
-        
+    <div class="row">
+      <div class="col s12 card-panel blue lighten-2">
+        <p style="text-align: justify;">
+          <ol>
+            <li>En caso de que
+            detecte algún dato errado y no pueda ser actualizado, favor dirigirse a la Gerencia de Afiliación del 
+            IPSFA en cualquiera de sus sucursales.</li>
+            <li>
+              Si sus datos son correctos presione actualizar.
+            </li>
+          </ol>        
+        </p>    
       </div>
+      </div>    
+    </div>
       <br><br>      
       <div class="row">
       	<div class="col s6" >

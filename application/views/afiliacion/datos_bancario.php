@@ -6,21 +6,12 @@ $this->load->view("afiliacion/inc/cabecera.php");
 <br><br>
 <div class="container .hide-on-small-only">
 
-  <div class="row">
-   <div class="col s12">
-    <p style="text-align: justify;">
-      Bienvenidos al sistema de datos personales en caso de que
-      detecte algún dato errado y no pueda ser actualizado; sólo debe pulsar click en reportar y enviar.
-    </p>    
-   </div>
-</div>
-
   
  <div class="row">
 	 
 
-      <h4>Datos Bancarios</h4>
-      <li class="divider"></li><br>
+      <h5>Datos Bancarios</h5>
+      <li class="divider"></li>
      <div class="row">
       <div class="input-field col s12 m6 l6">
           <input  disabled  id="banco" type="text" class="validate" value="<?php echo $Militar->Persona->banco?>">
@@ -38,25 +29,40 @@ $this->load->view("afiliacion/inc/cabecera.php");
         </div>
         
      </div>      
-      
       <div class="row">
-
-      <h5>Nota: </h5>
-      <li class="divider"></li><br>
-        <div class="input-field col s12 m12 l12">
-          <input type="checkbox" id="certificar" />
-          <label for="certificar" >Marque esta opción si sus datos bancarios son correctos y luego pulse actualizar</label>
+        <h5>Notas: </h5><div class="divider"></div>
+              
+        <div class="row">
+          <div class="col s12 card-panel blue lighten-2">
+            <p style="text-align: justify;">
+              <ol>
+                <li>En caso de que
+                detecte algún dato errado y no pueda ser actualizado, favor dirigirse a la Gerencia de Afiliación del 
+                IPSFA en cualquiera de sus sucursales.</li>
+                <li>
+                  Si sus datos son correctos presione actualizar.
+                </li>
+              </ol>        
+            </p>    
+          </div>
+          </div>    
         </div>
-      </div>
+
       <br><br>      
       <div class="row">
-      	<div class="col s6" >
-  			<button  class="btn-large waves-effect waves-light" style="background-color:#00345A"   onclick="" >Actualizar
-  			    <i class="material-icons left">swap_vertical_circle</i>
-  			</button>
-      	</div>
-        
-      </div>       
+        <div class="col s6" >
+        <a  class="btn-large waves-effect waves-light" style="background-color:#00345A"   href="#" >Actualizar
+            <i class="material-icons left">swap_vertical_circle</i>
+        </a>
+        </div>
+
+        <div class="col s6" >
+        <a class="btn-large waves-effect waves-light" style="background-color:#00345A" 
+        href="<?php echo base_url(); ?>index.php/Panel/index">Ir al Inicio
+            <i class="material-icons left">home</i>
+        </a>
+        </div>
+      </div>         
     </form>
 </div>
 
