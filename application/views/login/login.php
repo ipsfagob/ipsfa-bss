@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
   <html>
-  <title>IpsfaNet</title>
+  <title>Ipsfa en linea</title>
     <head>			
       <link type="text/css" href="<?php echo base_url(); ?>public/css/material.css" rel="stylesheet" />
       <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>public/css/materialize.min.css"  media="screen,projection"/>

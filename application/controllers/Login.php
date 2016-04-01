@@ -27,8 +27,15 @@ class Login extends CI_Controller {
 	 *Menu
 	 */
   	function ingresar() {
-		$this->load->view ( 'login/login');
+		if(isset($_SESSION['cedula'])){
+			$this->inicio();	
+		}else{
+			$this->load->view ( 'login/login');
+		}
+		
 	}
+
+
 	protected function inicio(){
 		$this->load->view ('panel/inicio');
 	}
@@ -259,7 +266,7 @@ class Login extends CI_Controller {
 
   	function salir(){
   		session_destroy();
-  		$this->index();
+  		$this->load->view ( 'login/login');
   	}
 
   	function xCODAP(){
