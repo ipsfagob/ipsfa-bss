@@ -88,7 +88,7 @@
 <footer class="page-footer" style="background-color:#00345A">
 	<div class="container white-text">
 		
-		© 2016 IpsfaNet
+		© 2016 Ipsfa en linea
 	</div>	
 </footer>
 

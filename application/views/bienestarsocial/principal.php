@@ -49,7 +49,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
             <a href="#"><i class="material-icons black-text">more_vert</i></a>
           </div>
           <a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/1">
-            <div class="__ctdrs_xxmall cortar">Solicitar Deevolución de una cantidad de dinero </div>
+            <div class="__ctdrs_xxmall cortar">Solicitar Devolución de una cantidad de dinero </div>
             <div >
               <img src="<?php echo base_url(); ?>public/img/reembolsos.jpg">
             </div>

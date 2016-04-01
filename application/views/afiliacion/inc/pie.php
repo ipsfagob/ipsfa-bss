@@ -59,7 +59,7 @@
 </main>
 <footer class="page-footer" style="background-color:#00345A">
 	<div class="container white-text">
-		© 2016 MamonSoft C.A
+		© 2016 Ipsfa en linea
 	</div>	
 </footer>
 
