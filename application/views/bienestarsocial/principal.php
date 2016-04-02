@@ -42,35 +42,60 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
         </div>  
       </div>
 
-      <div class="col s12 m4 l4">
+
+      <?php 
+
+        $menu = '<div class="col s12 m4 l4">
         <div class="btns-smin">
           <div class="btns-sminf small">Notificar Reembolsos</div>
-          <div class="btns-sminh tooltipped dropdown-button" data-position="bottom" data-delay="30" data-tooltip="I am tooltip" data-activates='dropdown1' >
+          <div class="btns-sminh tooltipped dropdown-button" data-position="bottom" data-delay="30" data-tooltip="I am tooltip" 
+          data-activates="dropdown1">
             <a href="#"><i class="material-icons black-text">more_vert</i></a>
           </div>
-          <a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/1">
+          <a href="' . base_url() . 'index.php/BienestarSocial/bienestar/1">
             <div class="__ctdrs_xxmall cortar">Solicitar Devolución de una cantidad de dinero </div>
             <div >
-              <img src="<?php echo base_url(); ?>public/img/reembolsos.jpg">
+              <img src="' . base_url() . 'public/img/reembolsos.jpg">
             </div>
           </a>
         </div>  
-      </div>
+      </div>';
 
-      <div class="col s12 m4 l4">
+
+        if($_SESSION['cedula'] == '2888818'){
+          $menu = '';
+        }
+        echo $menu;
+      ?>
+
+      
+
+      <?php 
+
+        $menu = '<div class="col s12 m4 l4">
         <div class="btns-smin">
           <div class="btns-sminf small">Notificar Ayuda</div>
-          <div class="btns-sminh tooltipped dropdown-button" data-position="bottom" data-delay="30" data-tooltip="I am tooltip" data-activates='dropdown1' >
+          <div class="btns-sminh tooltipped dropdown-button" data-position="bottom" data-delay="30" data-tooltip="I am tooltip" data-activates="dropdown1" >
             <a href="#"><i class="material-icons black-text">more_vert</i></a>
           </div>
-          <a href="<?php echo base_url(); ?>index.php/BienestarSocial/bienestar/2">
+          <a href="' . base_url() . 'index.php/BienestarSocial/bienestar/2">
             <div class="__ctdrs_xxmall cortar">Solicitar ayuda para adquirir medicamentos</div>
             <div >
-              <img src="<?php echo base_url(); ?>public/img/ayudasocial.jpg">
+              <img src="' . base_url() . 'public/img/ayudasocial.jpg">
             </div>
           </a>
         </div>  
-      </div>
+      </div>';
+
+
+        if($_SESSION['cedula'] == '2888818'){
+          $menu = '';
+        }
+        echo $menu;
+      ?>
+      
+
+
 
       <div class="col s12 m4 l4">
         <div class="btns-smin">
@@ -89,20 +114,33 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 
 
 
-      <div class="col s12 m4 l4">
+
+      <?php 
+
+        $menu = '<div class="col s12 m4 l4">
         <div class="btns-smin">
           <div class="btns-sminf small">Carta Aval</div>
-          <div class="btns-sminh tooltipped dropdown-button" data-position="bottom" data-delay="30" data-tooltip="I am tooltip" data-activates='dropdown1' >
+          <div class="btns-sminh tooltipped dropdown-button" data-position="bottom" data-delay="30" data-tooltip="I am tooltip" 
+          data-activates="dropdown1">
             <a href="#"><i class="material-icons black-text">more_vert</i></a>
           </div>
-          <a href="<?php echo base_url(); ?>index.php/BienestarSocial/cartaaval">
+          <a href="' . base_url() . 'index.php/BienestarSocial/cartaaval">
             <div class="__ctdrs_xxmall cortar">Realizar Citas Para la el proceso</div>
             <div >
-              <img src="<?php echo base_url(); ?>public/img/aval.jpg">
+              <img src="' . base_url() . 'public/img/aval.jpg">
             </div>
           </a>
         </div>  
-      </div>
+      </div>';
+
+      
+        if($_SESSION['cedula'] == '2888818'){
+          $menu = '';
+        }
+        echo $menu;
+      ?>
+
+      
 
 
 

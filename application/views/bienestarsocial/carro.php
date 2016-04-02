@@ -45,7 +45,7 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
 </ul>
 <br>
 
-<p><h5>Recuerde que debe adjuntar los digitales de los recipes</h5></p>
+<p><h5>Recuerde que debe adjunte: Su cita ha caducado favor ingresar nuevamente al sistema Ipsfa En lineaar los digitales de los recipes</h5></p>
   <form class="col s12">
       <div class="row">
 
