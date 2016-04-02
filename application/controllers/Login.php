@@ -216,10 +216,15 @@ class Login extends CI_Controller {
         $mail->AddReplyTo('ipsfanet.noresponder@gmail.com', 'Despartamento Afiliacion');
         $mail->Subject = 'Ipsfa En Linea';
 
-        $cuerpo = '<a href="http://200.44.168.196/web/web/ipsfaNet/ipsfa-bss/index.php/Login/validarCorreo/' . $_SESSION['APIkey'] . '">';
+        $cuerpo = '
+        Hola, ' . $_SESSION['nombreRango'] . ' <br>
+        Ipsfa en linea te da la bienvenida y te invita a certificar tu cuenta de correo.<br>
+        <a href="http://200.44.168.196/web/web/ipsfaNet/ipsfa-bss/index.php/Login/validarCorreo/' . $_SESSION['APIkey'] . '">
+        Certificar 
+        </a>';
 
         $mail->AltBody    = "Texto Alternativo"; // optional, comment out and test
-        
+        $mail->MsgHTML($cuerpo);
         $mail->AddAddress($_SESSION['correo'], "Certificacion de Cuenta");
         if(!$mail->Send()) {
             return "Error al enviar: " . $mail->ErrorInfo;
@@ -238,12 +243,12 @@ class Login extends CI_Controller {
 	* @return mixed
 	*/	
   	public function enviarCorreo(){
- 		
+ 		echo "Hola";
   		require_once('application/libraries/PHPMail/class.phpmailer.php');
  		$mail = new PHPMailer();
         $body                ='';
         $mail->IsSMTP(); 							  // telling the class to use SMTP
-        $mail->SMTPDebug  = 1;						  //
+        $mail->SMTPDebug  = 3;						  //
         $mail->Host          = "smtp.gmail.com";      //
         $mail->SMTPSecure = "tls";					  //
         $mail->SMTPAuth      = true;                  // enable SMTP authentication
@@ -256,10 +261,10 @@ class Login extends CI_Controller {
         $mail->AddReplyTo('ipsfanet.noresponder@gmail.com', 'Despartamento Afiliacion');
         $mail->Subject = 'Ipsfa En Linea';
 
-        $cuerpo = '<a href="http://200.44.168.196/web/web/ipsfaNet/ipsfa-bss/index.php/Login/validarCorreo/">';
+        $cuerpo = '<a href="http://200.44.168.196/web/web/ipsfaNet/ipsfa-bss/index.php/Login/validarCorreo/">Certificar Correo</a>';
 
         $mail->AltBody    = "Texto Alternativo"; // optional, comment out and test
-        
+        $mail->MsgHTML($cuerpo);
         $mail->AddAddress("gesaodin@gmail.com", "Certificacion de Cuenta");
         if(!$mail->Send()) {
             return "Error al enviar: " . $mail->ErrorInfo;
