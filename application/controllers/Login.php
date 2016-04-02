@@ -230,6 +230,47 @@ class Login extends CI_Controller {
 
   	}
 
+
+/**
+	* Enviar Correo Electronico para certificar una cuenta
+	*
+	* @access protected
+	* @return mixed
+	*/	
+  	public function enviarCorreo($correo){
+ 		
+  		require_once('application/libraries/PHPMail/class.phpmailer.php');
+ 		$mail = new PHPMailer();
+        $body                ='';
+        $mail->IsSMTP(); 							  // telling the class to use SMTP
+        $mail->SMTPDebug  = 1;						  //
+        $mail->Host          = "smtp.gmail.com";      //
+        $mail->SMTPSecure = "tls";					  //
+        $mail->SMTPAuth      = true;                  // enable SMTP authentication
+        $mail->SMTPKeepAlive = true;                  // SMTP connection will not close after each email sent
+
+        $mail->Port          = 587;
+        $mail->Username      = "ipsfanet.noresponder@gmail.com"; // SMTP account username
+        $mail->Password      = "za63qj2p";        // SMTP account password
+        $mail->SetFrom('ipsfanet.noresponder@gmail.com', 'Departamento de Afiliacion');
+        $mail->AddReplyTo('ipsfanet.noresponder@gmail.com', 'Despartamento Afiliacion');
+        $mail->Subject = 'Ipsfa En Linea';
+
+        $cuerpo = '<a href="http://200.44.168.196/web/web/ipsfaNet/ipsfa-bss/index.php/Login/validarCorreo/">';
+
+        $mail->AltBody    = "Texto Alternativo"; // optional, comment out and test
+        
+        $mail->AddAddress($correo, "Certificacion de Cuenta");
+        if(!$mail->Send()) {
+            return "Error al enviar: " . $mail->ErrorInfo;
+        } else {
+            return "Mensaje enviado a:  !";
+        }
+		
+
+  	}
+
+
   	/**
 	* Permite validar y comprobar la existencia de un correo
 	* Falta validar la funcion para el retorno de verdadero
