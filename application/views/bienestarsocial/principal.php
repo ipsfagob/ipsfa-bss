@@ -62,7 +62,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       </div>';
 
 
-        if($_SESSION['cedula'] == '2888818'){
+        if($_SESSION['cedula'] == '2888818' || $_SESSION['cedula'] == '2894093'){
           $menu = '';
         }
         echo $menu;
@@ -88,7 +88,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       </div>';
 
 
-        if($_SESSION['cedula'] == '2888818'){
+        if($_SESSION['cedula'] == '2888818' || $_SESSION['cedula'] == '2894093'){
           $menu = '';
         }
         echo $menu;
@@ -134,7 +134,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       </div>';
 
       
-        if($_SESSION['cedula'] == '2888818'){
+        if($_SESSION['cedula'] == '2888818' || $_SESSION['cedula'] == '2894093'){
           $menu = '';
         }
         echo $menu;
