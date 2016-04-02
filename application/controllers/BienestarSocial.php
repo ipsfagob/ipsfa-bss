@@ -252,7 +252,7 @@ class BienestarSocial extends CI_Controller {
 				Usted ha realizado una solicitud por reembolso bajo el codigo 
 				' . $_POST['codigo'] . ' la cual sera procesada por nuestros analistas
 				<br><br>
-				IPSFA en linea ¡Optimizando tu bienestar!';
+				IPSFA en linea Optimizando tu bienestar...';
 			$this->Correo->gerencia = 'Gerencia de Bienestar Social';
 			$this->Correo->titulo = $_SESSION['nombreRango'];
 			$this->Correo->enviar();
