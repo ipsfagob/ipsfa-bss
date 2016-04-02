@@ -68,7 +68,7 @@ $this->load->view("panel/inc/cabecera.php");
 		                  .- 
 		                  <a href="/web/web/ipsfaNet/solvPasRet/reporteSolvPasRet.php?txt_cedula=' . $_SESSION['cedula'] . '" target="_blank">
 					      Hoja de Solvencia Pase a Retiro
-					      </a></p>';
+					      </a>';
 
 		      		}
 		      	?>
@@ -84,7 +84,7 @@ $this->load->view("panel/inc/cabecera.php");
 		      	 <a href="http://192.168.12.195/html/web/web/ipsfaNet/vista/controlvConsultaVehiculo.php?variable1=<?php echo $_SESSION['cedula']?>" target="_blank">
 
 		      	   Registro de Vehiculos</a><br>
-		      	  
+		      	  </p>
 			   </div>
 		    </li>
 		 </ul>

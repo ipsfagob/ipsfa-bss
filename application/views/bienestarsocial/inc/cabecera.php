@@ -195,7 +195,7 @@
 					  	Notificar Reembolso<i class="mdi-action-assignment left blue-text"></i></a>
 					</li>							
 					<li class="divider"></li>
-					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia/me">
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia/ba">
 						Badan<i class="mdi-maps-local-hospital left red-text"></i></a>
 					</li>			
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/pendientes">

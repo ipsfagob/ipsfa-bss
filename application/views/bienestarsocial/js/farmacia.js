@@ -56,6 +56,7 @@ function Agregar(){
 			imagen: $('#img').val()
 		}
 	).done(function (data){	
+		$("#badan").show( "slow");
 		 Materialize.toast('Su producto ha sido seleccionado.', 3000, 'rounded');		
 	}).fail(function (data){
 		

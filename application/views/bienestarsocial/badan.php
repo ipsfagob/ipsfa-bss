@@ -2,15 +2,36 @@
 <?php
 $this->load->view ( "bienestarsocial/inc/cabecera.php" );
 ?>
+
+
 <script type="text/javascript"
 	src="<?php echo base_url(); ?>application/views/bienestarsocial/js/farmacia.js"></script>
-
-<br>
-
 <div class="row">
   
+</div>
+<div class="row">  
   <div class="col s12">
+
+  <?php 
+    $contenido = '<div id="badan" style="display: none;" class="right card-panel blue lighten-2">
+      <a href="' .  base_url() . 'index.php/BienestarSocial/carro" class="black-text">
+        <li class="material-icons left">add_shopping_cart</li>
+        Pendientes
+      </a>
+      </div>';
+    foreach ($data as $key => $val) {
+      $contenido = '<div id="badan" class="right card-panel blue lighten-2">
+      <a href="' .  base_url() . 'index.php/BienestarSocial/carro" class="black-text">
+        <li class="material-icons left">add_shopping_cart</li>
+        Pendientes
+      </a>
+      </div>';
+    }
+    echo $contenido;
+
+?>
     <h5>Solicitar Medicamentos de Alto Costo</h5>
+
   </div>
 
 </div>
@@ -18,8 +39,7 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
 
 	<div class="col s12 ">
 	<nav>
-
-    <div class="nav-wrapper white ">      
+      <div class="nav-wrapper white ">      
         <div class="input-field col s10">
 
           <input id="search" type="text" required placeholder='Buscar...' class="grey-text">
@@ -27,7 +47,7 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
           
         </div>
 
-        </div>
+      </div>
   </nav>	
 	</div>
 </div>

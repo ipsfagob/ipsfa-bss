@@ -162,8 +162,9 @@ class BienestarSocial extends CI_Controller {
 		if(isset($_SESSION['cedula'])){
 			if($id == "me"){
 				$this->load->view ( 'bienestarsocial/sidrofan' );
-			}else{				
-				$this->load->view ( 'bienestarsocial/badan' );
+			}else{
+				$data['data'] = $this->Carro->listar();
+				$this->load->view ( 'bienestarsocial/badan', $data);
 			}
 
 		}else{
@@ -244,7 +245,18 @@ class BienestarSocial extends CI_Controller {
 	public function subirArchivos(){
 		if(isset($_SESSION['cedula'])){
 			$this->load->model('comun/Archivo', 'Archivo');
+			$this->load->model('utilidad/Correo', 'Correo');
 			$this->Archivo->salvar($_POST['url'], $_FILES, $_POST['codigo']);
+			$this->Correo->para = $_SESSION['correo'];
+			$this->Correo->cuerpo = 'Hola, ' . $_SESSION['nombreRango'] . '.<br>
+				Usted ha realizado una solicitud por reembolso bajo el codigo 
+				' . $_POST['codigo'] . ' la cual sera procesada por nuestros analistas
+				<br><br>
+				IPSFA en linea ¡Optimizando tu bienestar!';
+			$this->Correo->gerencia = 'Gerencia de Bienestar Social';
+			$this->Correo->titulo = $_SESSION['nombreRango'];
+			$this->Correo->enviar();
+
 			$this->load->view ( 'bienestarsocial/principal');
 		}else{
 			$this->salir();
@@ -447,6 +459,18 @@ class BienestarSocial extends CI_Controller {
 		}	
 
 	}
+
+	function cp($cd){
+		$this->load->model('saman/Militar', 'Militar');
+			$this->Militar->consultar($cd);
+			
+			$this->load->model('saman/Solicitud', 'Solicitud');
+			print('<pre>');
+			$Militar = $this->Solicitud->importarSolicitudesSaman($this->Militar);
+			print_r($this->Militar);
+	}
+
+
 	function listarSolicitudes(){
 
 
