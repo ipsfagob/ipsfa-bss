@@ -60,7 +60,8 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
               </div>
                     
               <div class="btn btns-rd-c">
-                <input type="file" id="inputFile[1]" onchange="readURL(this, 1, 'pdf');">
+                <input type="file" id="inputFile[1]" onchange="readURL(this, 1, 'img');">
+                <li class="material-icons" style="padding-top: 15px">file_upload </li>
               </div>
             </div>
         </div>  

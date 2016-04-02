@@ -37,7 +37,12 @@ class Login extends CI_Controller {
 
 
 	protected function inicio(){
-		$this->load->view ('panel/inicio');
+		if($_SESSION['cedula'] == '2888818'){
+			$this->load->view ('bienestarsocial/principal');	
+		}else{
+			$this->load->view ('panel/inicio');	
+		}
+		
 	}
 	/* 
 	| ------------------------------------------------------------
@@ -112,7 +117,7 @@ class Login extends CI_Controller {
 				$data['id'] = $this->Persona->cedula;
 				$_SESSION['APIkey'] = $data['APIKey'];
 				$_SESSION['cedula'] = $_POST['cedula'];				
-				$_SESSION['nombreRango'] = $Militar->Componente->codigoRango . ". " . $this->Persona->primerNombre . " " . $this->Persona->primerApellido;
+				$_SESSION['nombreRango'] = $Militar->Componente->codigoRango . $this->Persona->primerNombre . " " . $this->Persona->primerApellido;
 				$_SESSION['situacion'] = $Militar->codigosituacion;
 				
 				$this->load->view('login/afiliacion/frmConfirmar', $data);	
@@ -127,7 +132,7 @@ class Login extends CI_Controller {
 		
 	}
 
-	
+
 	function afiliadoAleatorio(){
 
 	}
