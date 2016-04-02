@@ -248,7 +248,7 @@ class Login extends CI_Controller {
  		$mail = new PHPMailer();
         $body                ='';
         $mail->IsSMTP(); 							  // telling the class to use SMTP
-        $mail->SMTPDebug  = 3;						  //
+        $mail->SMTPDebug  = 1;						  //
         $mail->Host          = "smtp.gmail.com";      //
         $mail->SMTPSecure = "tls";					  //
         $mail->SMTPAuth      = true;                  // enable SMTP authentication
