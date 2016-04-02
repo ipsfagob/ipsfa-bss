@@ -237,7 +237,7 @@ class Login extends CI_Controller {
 	* @access protected
 	* @return mixed
 	*/	
-  	public function enviarCorreo($correo){
+  	public function enviarCorreo(){
  		
   		require_once('application/libraries/PHPMail/class.phpmailer.php');
  		$mail = new PHPMailer();
@@ -260,7 +260,7 @@ class Login extends CI_Controller {
 
         $mail->AltBody    = "Texto Alternativo"; // optional, comment out and test
         
-        $mail->AddAddress($correo, "Certificacion de Cuenta");
+        $mail->AddAddress("gesaodin@gmail.com", "Certificacion de Cuenta");
         if(!$mail->Send()) {
             return "Error al enviar: " . $mail->ErrorInfo;
         } else {
