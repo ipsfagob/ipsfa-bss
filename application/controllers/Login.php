@@ -199,7 +199,7 @@ class Login extends CI_Controller {
 	*/	
   	public function enviarCorreoCertificacion(){
  		echo "<pre>";
-  		require_once('application/third_party/phpmailer/PHPMailerAutoload.php');
+  		require_once('application/libraries/PHPMail/class.phpmailer.php');
 
 		$mail = new PHPMailer();
 
