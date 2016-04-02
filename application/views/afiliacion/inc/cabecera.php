@@ -5,9 +5,9 @@
       <!--Import Google Icon Font
       
 	
-      <link type="text/css" href="<?php echo base_url(); ?>public/css/material.css" rel="stylesheet" />	-->
+      	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">	-->					
       <title>Ipsfa en linea</title>
-      	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">					
+      <link type="text/css" href="<?php echo base_url(); ?>public/css/material.css" rel="stylesheet" />
       <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>public/css/materialize.min.css"  media="screen,projection"/>
       <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>public/css/estilo.css"/>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
