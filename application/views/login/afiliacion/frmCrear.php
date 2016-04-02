@@ -2,7 +2,6 @@
 $this->load->view("login/afiliacion/inc/cabecera.php");
 ?>
 
-
     <div class="container">
         <br>
 		<div class="row center">

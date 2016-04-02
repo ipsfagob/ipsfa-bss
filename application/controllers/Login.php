@@ -114,6 +114,7 @@ class Login extends CI_Controller {
 				$_SESSION['cedula'] = $_POST['cedula'];				
 				$_SESSION['nombreRango'] = $Militar->Componente->codigoRango . ". " . $this->Persona->primerNombre . " " . $this->Persona->primerApellido;
 				$_SESSION['situacion'] = $Militar->codigosituacion;
+				
 				$this->load->view('login/afiliacion/frmConfirmar', $data);	
 
 			}else{

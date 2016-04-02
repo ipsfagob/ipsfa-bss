@@ -6,7 +6,7 @@ $this->load->view("panel/inc/cabecera.php");
 <br>
 
 <div class="container">
-	
+	<?php print_r($_SESSION); ?>
 
 <div class="row">
 	<div class="col s12 m12 l12">

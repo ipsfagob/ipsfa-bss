@@ -439,6 +439,8 @@ class BienestarSocial extends CI_Controller {
 			print('<pre>');
 			$Militar = $this->Solicitud->importarSolicitudesSaman($this->Militar);
 			print_r($this->Militar);
+
+			
 		}else{
 			echo "Debe iniciar session";
 			exit;

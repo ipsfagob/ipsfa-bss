@@ -136,7 +136,9 @@ class Militar extends CI_Model{
 	* @return Persona
 	*/
 	public function obtener($codigo){
-		$sConsulta = 'SELECT * FROM pers_dat_militares WHERE nropersona = \'' . $codigo . '\' LIMIT 1';
+		$sConsulta = 'SELECT * FROM pers_dat_militares 
+		INNER JOIN ipsfa_pers_categ ON pers_dat_militares.perscategcod=ipsfa_pers_categ.perscategcod
+		WHERE nropersona = \'' . $codigo . '\' LIMIT 1';
 		$arr = $this->Dbsaman->consultar($sConsulta);
 		if($arr->code == 0){
 			foreach ($arr->rs as $clv => $val) {
@@ -145,10 +147,11 @@ class Militar extends CI_Model{
 				$Componente->codigoRango = strtoupper($val->gradocod);
 
 				$this->Componente = $Componente;	
-				
+				$this->codigosituacion = $val->perssituaccod;
 				$this->fechaIngreso = $val->fchingcomponente;
 				$this->fechaAscenso = $val->fchultimoascenso;
 				$this->fechaPromocion = $val->fchpromocion;
+				
 			}
 		}		
 		return $this;
