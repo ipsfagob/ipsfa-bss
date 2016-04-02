@@ -692,6 +692,16 @@ class BienestarSocial extends CI_Controller {
 			);
 			$obj = $this->Solicitud->crear($arr);
 			$msj = "Nos estaremos comunicando con usted a la brevedad posible.";
+			$this->load->model('utilidad/Correo', 'Correo');
+			$this->Correo->para = $_SESSION['correo'];
+			$this->Correo->cuerpo = 'Hola, ' . $_SESSION['nombreRango'] . '.<br>
+				Usted ha realizado una solicitud por medicamentos sera procesada por nuestros analistas
+				<br><br>
+				IPSFA en linea Optimizando tu bienestar...';
+			$this->Correo->gerencia = 'Gerencia de Bienestar Social';
+			$this->Correo->titulo = $_SESSION['nombreRango'];
+			$this->Correo->enviar();
+
 			if($obj->code !=0) $msj = "Por favor llamar a: ";
 			$this->LimipiarProductosCarrito();
 			echo $msj . $obj->query;
