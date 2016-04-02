@@ -198,12 +198,12 @@ class Login extends CI_Controller {
 	* @return mixed
 	*/	
   	public function enviarCorreoCertificacion(){
- 		echo "<pre>";
+ 		
   		require_once('application/libraries/PHPMail/class.phpmailer.php');
  		$mail = new PHPMailer();
         $body                ='';
         $mail->IsSMTP(); 							  // telling the class to use SMTP
-        $mail->SMTPDebug  = 2;						  //
+        $mail->SMTPDebug  = 1;						  //
         $mail->Host          = "smtp.gmail.com";      //
         $mail->SMTPSecure = "tls";					  //
         $mail->SMTPAuth      = true;                  // enable SMTP authentication
@@ -220,7 +220,7 @@ class Login extends CI_Controller {
 
         $mail->AltBody    = "Texto Alternativo"; // optional, comment out and test
         
-        $mail->AddAddress($_SESSION['correo'], "Plan de Pago");
+        $mail->AddAddress($_SESSION['correo'], "Certificacion de Cuenta");
         if(!$mail->Send()) {
             return "Error al enviar: " . $mail->ErrorInfo;
         } else {
