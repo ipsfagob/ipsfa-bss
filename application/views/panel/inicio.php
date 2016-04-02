@@ -6,7 +6,6 @@ $this->load->view("panel/inc/cabecera.php");
 <br>
 
 <div class="container">
-	<?php print_r($_SESSION); ?>
 
 <div class="row">
 	<div class="col s12 m12 l12">
@@ -54,6 +53,25 @@ $this->load->view("panel/inc/cabecera.php");
 		      <div class="collapsible-header">
 		      	<i class="material-icons md-36 brown-text">local_printshop</i>Impresión de Planillas y Netos</div>
 		      <div class="collapsible-body"><p>
+
+		      	<?php 
+		      		if($_SESSION['perfil'] == 'RCP'){
+		      			echo '.- 
+				      	  <a href="/web/web/ipsfaNet/netosweb/consulta_netos_pensionados.php?cedula=' . $_SESSION['cedula'] . '" target="_blank">
+		                    Neto Pensionado
+		                  </a><br>';
+		      		}else{
+		      			echo '.- 
+				      	  <a href="/web/web/ipsfaNet/solvPasRet/reporteHojSolv.php?txt_cedula=' . $_SESSION['cedula'] . '" target="_blank">
+		                    Hoja de Ruta
+		                  </a><br>
+		                  .- 
+		                  <a href="/web/web/ipsfaNet/solvPasRet/reporteSolvPasRet.php?txt_cedula=' . $_SESSION['cedula'] . '" target="_blank">
+					      Hoja de Solvencia Pase a Retiro
+					      </a></p>';
+
+		      		}
+		      	?>
 		      	  .- 
 					<a href="/web/web/ipsfaNet/print/reporte.php?txt_cedula=<?php echo $_SESSION['cedula']?>" target="_blank">
 		      	  Constancia de Afiliación (PRINT)
@@ -66,14 +84,7 @@ $this->load->view("panel/inc/cabecera.php");
 		      	 <a href="http://192.168.12.195/html/web/web/ipsfaNet/vista/controlvConsultaVehiculo.php?variable1=<?php echo $_SESSION['cedula']?>" target="_blank">
 
 		      	   Registro de Vehiculos</a><br>
-		      	  .- 
-		      	  <a href="/web/web/ipsfaNet/solvPasRet/reporteHojSolv.php?txt_cedula=<?php echo $_SESSION['cedula']?>" target="_blank">
-                    Hoja de Ruta
-                  </a><br>
-                  .- 
-                  <a href="/web/web/ipsfaNet/solvPasRet/reporteSolvPasRet.php?txt_cedula=<?php echo $_SESSION['cedula']?>" target="_blank">
-			      Hoja de Solvencia Pase a Retiro
-			      </a></p>
+		      	  
 			   </div>
 		    </li>
 		 </ul>
