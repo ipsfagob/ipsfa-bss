@@ -6,7 +6,8 @@
       <!--Import Google Icon Font
       
 
-      	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">	-->					
+      		-->					
+      		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link type="text/css" href="<?php echo base_url(); ?>public/css/material.css" rel="stylesheet">
       
       <!--Import materialize.css-->
