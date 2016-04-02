@@ -200,42 +200,32 @@ class Login extends CI_Controller {
   	public function enviarCorreoCertificacion(){
  		echo "<pre>";
   		require_once('application/libraries/PHPMail/class.phpmailer.php');
+ 		$mail = new PHPMailer();
+        $body                ='';
+        $mail->IsSMTP(); 							  // telling the class to use SMTP
+        $mail->SMTPDebug  = 2;						  //
+        $mail->Host          = "smtp.gmail.com";      //
+        $mail->SMTPSecure = "tls";					  //
+        $mail->SMTPAuth      = true;                  // enable SMTP authentication
+        $mail->SMTPKeepAlive = true;                  // SMTP connection will not close after each email sent
 
-		$mail = new PHPMailer();
+        $mail->Port          = 587;
+        $mail->Username      = "ipsfanet.noresponder@gmail.com"; // SMTP account username
+        $mail->Password      = "za63qj2p";        // SMTP account password
+        $mail->SetFrom('ipsfanet.noresponder@gmail.com', 'Departamento de Afiliacion');
+        $mail->AddReplyTo('ipsfanet.noresponder@gmail.com', 'Despartamento Afiliacion');
+        $mail->Subject = 'Ipsfa En Linea';
 
-		$mail->SMTPDebug = 3;                               // Enable verbose debug output
+        $cuerpo = '<a href="http://200.44.168.196/web/web/ipsfaNet/ipsfa-bss/index.php/Login/validarCorreo/' . $_SESSION['APIkey'] . '">';
 
-		$mail->isSMTP();                                      // Set mailer to use SMTP
-		$mail->Host  = "smtp.gmail.com";   // Specify main and backup SMTP servers
-		$mail->SMTPAuth = true;                               // Enable SMTP authentication
-		$mail->Username = 'ipsfanet.noresponder@gmail.com';                 // SMTP username
-		$mail->Password = 'za63qj2p';                           // SMTP password
-		$mail->SMTPSecure = 'tls';                           // Enable TLS encryption, `ssl` also accepted
-		$mail->SMTPKeepAlive = true; 
-		$mail->Port = 587;                                    // TCP port to connect to
-
-		$mail->setFrom('ipsfanet.noresponder@gmail.com', 'No Responder');
-		$mail->addAddress('gesaodin@gmail.com', 'Carlos Peña');     // Add a recipient
-		//$mail->addAddress('ellen@example.com');               // Name is optional
-		//$mail->addReplyTo('info@example.com', 'Information');
-		//$mail->addCC('cc@example.com');
-		//$mail->addBCC('bcc@example.com');
-
-		//$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
-		//$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
-		$mail->isHTML(true);                                  // Set email format to HTML
-
-		$mail->Subject = 'Here is the subject';
-		$mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-		$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
-		if(!$mail->send()) {
-		    echo 'Message could not be sent.';
-		    echo 'Mailer Error: ' . $mail->ErrorInfo;
-		} else {
-		    echo 'Message has been sent';
-		}
-            
+        $mail->AltBody    = "Texto Alternativo"; // optional, comment out and test
+        
+        $mail->AddAddress($_SESSION['correo'], "Plan de Pago");
+        if(!$mail->Send()) {
+            return "Error al enviar: " . $mail->ErrorInfo;
+        } else {
+            return "Mensaje enviado a:  !";
+        }
 		
 
   	}
