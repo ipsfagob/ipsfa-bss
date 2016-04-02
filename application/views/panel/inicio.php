@@ -57,7 +57,7 @@ $this->load->view("panel/inc/cabecera.php");
 		      	<?php 
 		      		if($_SESSION['perfil'] == 'RCP'){
 		      			echo '.- 
-				      	  <a href="/web/web/ipsfaNet/netosweb/consulta_netos_pensionados.php?cedula=' . $_SESSION['cedula'] . '?tipnip=V?anocur=2016" target="_blank">
+				      	  <a href="/web/web/ipsfaNet/netosweb/consulta_netos_pensionados.php?cedula=' . $_SESSION['cedula'] . '&tipnip=V&anocur=2016" target="_blank">
 		                    Neto Pensionado
 		                  </a><br>';
 		      		}else{
