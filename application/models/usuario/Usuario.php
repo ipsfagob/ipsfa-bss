@@ -196,6 +196,7 @@ class Usuario extends CI_Model {
           $this->cedula = $valor->cedu;
           $this->correo = $valor->corr;
           $this->estatus = $valor->esta;
+          $this->perfil = $valor->perf;
         }
         $valor = TRUE;
       }

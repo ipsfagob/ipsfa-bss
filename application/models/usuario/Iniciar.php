@@ -47,6 +47,7 @@ class Iniciar extends CI_Model {
         'nombreRango' => $usuario->nombre,
         'correo' => $usuario->correo,
         'estatus' => $usuario->estatus,
+        'perfil' => $usuario->perfil,
         'ultimaConexion' => $usuario->ultimaConexion()
       )
     );

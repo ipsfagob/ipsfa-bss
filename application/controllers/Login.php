@@ -113,6 +113,7 @@ class Login extends CI_Controller {
 				$_SESSION['APIkey'] = $data['APIKey'];
 				$_SESSION['cedula'] = $_POST['cedula'];				
 				$_SESSION['nombreRango'] = $Militar->Componente->codigoRango . ". " . $this->Persona->primerNombre . " " . $this->Persona->primerApellido;
+				$_SESSION['situacion'] = $Militar->codigosituacion;
 				$this->load->view('login/afiliacion/frmConfirmar', $data);	
 
 			}else{
@@ -169,6 +170,7 @@ class Login extends CI_Controller {
 		$usuario->correo = $_POST['correo'];
 		$usuario->clave = $_POST['clave'];
 		$usuario->respuesta = $_SESSION['APIkey'];
+		$usuario->perfil = $_SESSION['situacion'];
 		if($usuario->existe() == -1){
 			$usuario->registrar();
 			$this->load->model('comun/Dbipsfa');

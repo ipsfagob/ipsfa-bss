@@ -28,6 +28,12 @@ class Militar extends CI_Model{
 	*/
 	var $situacion = '';
 
+
+	/**
+	* @var Persona
+	*/
+	var $codigosituacion = '';
+
 	/**
 	* @var Persona
 	*/
@@ -113,6 +119,7 @@ class Militar extends CI_Model{
 			foreach ($arr->rs as $clv => $val) {		
 				$this->categoria = $val->perscategnombre;
 				$this->situacion = $val->perssituacnombre;
+				$this->codigosituacion = $val->perssituaccod;
 				$this->clase = $val->persclasenombre;
 				$this->fechaIngreso = $val->fchingcomponente;
 				$this->fechaAscenso = $val->fchultimoascenso;
