@@ -37,7 +37,7 @@ class Login extends CI_Controller {
 
 
 	protected function inicio(){
-		if($_SESSION['cedula'] == '2888818'){
+		if($_SESSION['cedula'] == '2888818' || $_SESSION['cedula'] == '2894093'){
 			$this->load->view ('bienestarsocial/principal');	
 		}else{
 			$this->load->view ('panel/inicio');	
