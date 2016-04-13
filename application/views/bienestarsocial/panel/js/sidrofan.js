@@ -15,7 +15,7 @@ function listarProductos(val) {
 			Materialize.toast("Disculpe el medicamento seleccionado no se encuentra disponible", 5000, 'rounded');
 		}else{
 			$.each(data, function(key, val) {
-				cadena = '<li class="collection-item avatar"><span class="email-title"><b>' + val.nomb + 
+				cadena = '<li class="collection-item avatar "><span class="email-title"><b>' + val.nomb + 
 				'</b><br><font color="#00345A">UBICACION DROGUERIA / FARMACIA</font><BR>EXISTENCIA: AGOTADA';
 				$(".collection").append(cadena);
 			});

@@ -1,23 +1,23 @@
 
 <?php
-$this->load->view ( "bienestarsocial/inc/cabecera.php" );
+$this->load->view ( "bienestarsocial/panel/inc/cabecera.php" );
 ?>
 <script type="text/javascript"
-	src="<?php echo base_url(); ?>application/views/bienestarsocial/js/sidrofan.js"></script>
+  src="<?php echo base_url(); ?>application/views/bienestarsocial/panel/js/sidrofan.js"></script>
 
 <br>
 <div class="container">
 <div class="row">
   
   <div class="col s12">
-    <h5>Consultar Medicamentos</h5>
+    <h5>Consultar Inventario En SidroFan</h5>
   </div>
 
 </div>
 <div class="row">
 
-	<div class="col s12 ">
-	<nav>
+  <div class="col s12 ">
+  <nav>
 
     <div class="nav-wrapper white ">      
         <div class="input-field col s10">
@@ -28,8 +28,8 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
         </div>
 
         </div>
-  </nav>	
-	</div>
+  </nav>  
+  </div>
 </div>
 
 
@@ -43,7 +43,9 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
 
 </ul>
 
-</div>
+  
+  </div>
+
 <?php
-$this->load->view ( "bienestarsocial/inc/pie.php" );
+$this->load->view ( "bienestarsocial/panel/inc/pie.php" );
 ?>

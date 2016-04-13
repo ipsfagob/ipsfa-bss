@@ -28,7 +28,7 @@ class Archivo extends CI_Model{
 	var $nombre;
 
 	/**
-	* @var int
+	* @var string
 	*/
 	var $tipo;
 
@@ -62,15 +62,15 @@ class Archivo extends CI_Model{
 	* @param string
 	* @return bool
 	*/
-	public function salvar($url = 0, $arr = array(), $codigo = ''){
-		
-		$ruta = "public/doc/" . $this->_obtenerCarpeta($url) . "/" . $codigo;
-		$this->codigo = $codigo;
+	public function salvar($url = 0, $arr , $codigo = ''){		
+		$ruta = $this->_obtenerCarpeta($url) . "/" . $codigo;
+		$this->codigo = $codigo;		
 		if(!is_dir($ruta)) mkdir($ruta, 0777); //crear directorio		
-		foreach ($_FILES as $k => $v) {
-			move_uploaded_file($_FILES[$k]['tmp_name'], $ruta . "/" . $v['name']); //Mover archivos al destino
+		foreach ($arr as $k => $v) {			
+			move_uploaded_file($arr[$k]['tmp_name'], $ruta . "/" . $v['name']); //Mover archivos al destino
 			$this->nombre = $v['name'];
 			$this->tipo = $this->_obtenerTipo($k);
+
 			$this->insertar();
 		}
 		return TRUE;
@@ -78,17 +78,27 @@ class Archivo extends CI_Model{
 
 
 	public function _obtenerCarpeta($id){
+		$ruta = "public/doc/";
 		switch ($id) {
 			case 1:
-				return "reembolso";
+				$ruta .= "reembolso";
 				break;
 			case 2:
-				return "ayuda";
+				$ruta .= "ayuda";
+				break;
+			case 3:
+				//$ruta .= "tratamiento" . '/' . $ced;
+				//if(!is_dir($ruta)) mkdir($ruta, 0777);
+				$ruta .= "tratamiento";
+				break;
+			case 4:
+				$ruta .= "medicamento";
 				break;
 			default:
 				# code...
 				break;
 		}
+		return $ruta ;
 	}
 	/**
 	* Insertar Contenido
@@ -100,6 +110,7 @@ class Archivo extends CI_Model{
 		$sInsertar = 'INSERT INTO archivo (codigo, nombre, coddoc) VALUES 
 		(\'' . $this->codigo . '\',\'' . $this->nombre . '\',\'' . $this->tipo . '\')';
 		$exec = $this->Dbipsfa->consultar($sInsertar);
+		
 		return $exec;
 	}
 
@@ -136,6 +147,21 @@ class Archivo extends CI_Model{
 				break;
 			case 'fe':
 				$cod = 7;
+				break;
+			case 'recipe':
+				$cod = 8;
+				break;
+			case 'factura':
+				$cod = 9;
+				break;
+			case 'orden':
+				$cod = 10;
+				break;
+			case 'finiquito':
+				$cod = 11;
+				break;
+			case 'recibo':
+				$cod = 12;
 				break;
 			default:
 				# code...
@@ -187,6 +213,12 @@ class Archivo extends CI_Model{
 			case 2:
 				$sTipo = "ayuda";
 				break;
+			case 3:
+				$sTipo = "tratamiento";
+				break;
+			case 4:
+				$sTipo = "medicamento";
+				break;	
 			default:
 				$sTipo = 'tratamiento';
 				break;

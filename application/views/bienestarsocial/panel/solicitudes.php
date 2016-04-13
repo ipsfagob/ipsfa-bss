@@ -70,7 +70,7 @@ R: Reembolsos | A: Ayudas
 
     </div>
     <div class="modal-footer">
-      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Notificar</a>
     </div>
   </div>
 

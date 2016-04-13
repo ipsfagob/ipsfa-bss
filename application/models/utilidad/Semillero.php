@@ -50,7 +50,8 @@ class Semillero extends CI_Model{
 	*/
 	var $longitud = 8;
 
-
+	var $estatus = 0;
+	
 	var $session = '';
 
 	var $observacion = '';
@@ -95,7 +96,7 @@ class Semillero extends CI_Model{
 	/**
 	* Obtener Codigo Automatico
 	*
-	* @var string | 1: Reembolso 2: Apoyo 3: Medicamentos
+	* @var string | 1: Reembolso 2: Apoyo 3: Medicamentos 4: Citas 5: Tratamiento 6: Carta Aval
 	* @var string
 	* @var string | Observaciones extras
 	* @return mixed
@@ -178,7 +179,18 @@ class Semillero extends CI_Model{
 		return $strContenido;
 	}
 	
-
+	/**
+	* Permite cambiar o actualizar el estatus de una solicitud
+	*
+	* @access public
+	* @return mixed
+	*/
+	public function modificar($numero = '', $estatus = ''){
+		$sActualizar = 'UPDATE semillero SET estatus = ' . $estatus . '  WHERE codigo=\'' . $numero . '\'';
+		$exec = $this->Dbipsfa->consultar($sActualizar);
+		
+		return $exec;
+	}
 
 	function __destruct(){
 

@@ -1,6 +1,8 @@
 /**
 *
 */
-function editarContenido(){
+function editarContenido(id ){
+	
 	$('#selecciones').openModal();
+
 }

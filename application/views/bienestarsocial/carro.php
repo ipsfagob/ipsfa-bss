@@ -8,10 +8,17 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
 <br>
 <div class="container">
 
+  <div class="row">
+  <div class="col s12 card-panel blue lighten-2">
+    
+        <ol><li><b>Recuerde que debe adjuntar el recipe médico</b></li></ol>
+      
+  </div>
+  </div>
 
-<ul class="collection with-header" id='producto'>
- <li class="collection-header"><h5>Productos Seleccionados</h5></li>
-  <?php
+  <ul class="collection with-header" id='producto'>
+   <li class="collection-header"><h5>Médicamentos Seleccionados</h5></li>
+    <?php
     
     foreach ($data as $key => $val) {
       
@@ -20,7 +27,7 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
         '<span class="title truncate">' . $val['name'] . 
         '</span><p class="truncate"> Cantidad: ' . $val['qty'] . ' <br> Prioridad: ' . prioridad($val['prioridad']) .
         '<a href="javascript:Eliminar(\'' . $val['rowid'] .  '\');" class="secondary-content">
-        <i class="mdi-navigation-cancel small"></i></a>';   
+        <i class="material-icons right red-text">cancel</i></a>';   
         echo $cadena;
     }
     
@@ -45,9 +52,10 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
 </ul>
 <br>
 
-<p><h5>Recuerde que debe adjunte: Su cita ha caducado favor ingresar nuevamente al sistema Ipsfa En lineaar los digitales de los recipes</h5></p>
-  <form class="col s12">
-      <div class="row">
+
+  <h5>Recipe Medico</h5>
+  <form class="col s12" enctype="multipart/form-data" id="frmCorreo" method="post">
+      <div class="row white">
 
         <div class="col s12 m6 l4 white" >        
           <div style="width: 120px;height: 120px; margin:0px " id="view-1" >
@@ -56,35 +64,23 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
           <!-- -->
           <div class="file-field input-field col file-field-input-field" >
               <div class="file-path-wrapper file-path-wrapper-sopor">
-                <input class="file-path validate" type="text"  placeholder="Presupuesto">
+                <input class="file-path validate" type="text"  placeholder="Recipe Médico">
               </div>
                     
               <div class="btn btns-rd-c">
-                <input type="file" id="inputFile[1]" onchange="readURL(this, 1, 'img');">
-                <li class="material-icons" style="padding-top: 15px">file_upload </li>
+                <input type="file" name='recipe' id="inputFile[1]"  accept="image/gif, image/jpeg, image/png" onchange="readURL(this, 1, 'img');">
+                <i class="material-icons">file_upload </i>
               </div>
             </div>
         </div>  
       </div>
          
           
-
-
-
-
-
-
-
-                
-
-
-
-
-      <div class="row">
+      <div class="row" style="display: none">
         <div class="input-field col s12">
           <i class="material-icons prefix">mode_edit</i>
-          <textarea id="Obs" class="materialize-textarea" length="256"></textarea>
-          <label for="Obs">Observaciones</label>
+          <textarea id="Observa" class="materialize-textarea" length="256"></textarea>
+          <label for="Observa">Observaciones</label>
         </div>
       </div> 
       

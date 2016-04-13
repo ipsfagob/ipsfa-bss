@@ -84,10 +84,9 @@ class Afiliacion extends CI_Controller {
 	 * @access public
 	 * @return mixed
 	 */
-  	public function salir($msj = '') {
-  		session_destroy();
-  		$data['msj'] = $msj;
-		$this->load->view ( 'login/login');
+  	public function salir($msj = '') {  		
+		session_destroy();		
+		header('Location: ' . base_url() . 'index.php/Login');
 	}
   
 	function __destruct(){

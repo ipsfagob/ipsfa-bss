@@ -17,6 +17,11 @@ if (!defined('BASEPATH'))
  */
 class Solicitud extends CI_Model{
 
+	var $numero = "";
+
+	var $estatus = "";
+
+	var $codigo = "";
 	/**
 	* Iniciando la clase, Cargando Elementos BD SAMAN
 	*
@@ -61,6 +66,24 @@ class Solicitud extends CI_Model{
 		return $obj;
 	}
 
+	/**
+	* Consultar Solicitud por Numero
+	* 
+	* @var string
+	* @access public
+	* @return bool
+	*/
+	public function consultar($codigo = ''){
+		$valor = 0;
+		$sConsulta = 'SELECT * FROM solicitud WHERE numero=\'' . $codigo . '\'';
+		$obj = $this->Dbipsfa->consultar($sConsulta);
+		foreach ($obj->rs as $clave => $valor) {
+			$this->numero = $valor->codigo;
+			$this->estatus = $valor->estatus;
+			$valor = 1;
+		}
+		return $valor;
+	}
 
 
 	function exportarSAMAN(){
@@ -162,8 +185,8 @@ class Solicitud extends CI_Model{
 	* @return object
 	*/
 	public function listarPorCodigo($codigo = ''){
-		$sConsulta = 'SELECT * FROM solicitud WHERE codigo=\'' . $codigo . '\' AND estatus=0  LIMIT 1';
-		$obj = $this->Dbipsfa->consultar($sConsulta);
+		$sConsulta = 'SELECT * FROM solicitud WHERE codigo=\'' . $codigo . '\' AND tipo < 3 ORDER BY fecha ';
+		$obj = $this->Dbipsfa->consultar($sConsulta);		
 		return $obj;
 	}
 
@@ -175,7 +198,9 @@ class Solicitud extends CI_Model{
 	* @return object
 	*/
 	public function listarSolicitudes($numero = ''){
-		$sConsulta = 'SELECT * FROM solicitud WHERE numero=\'' . $numero . '\' AND estatus=0 LIMIT 1';
+		$sConsulta = 'SELECT * FROM solicitud 
+		INNER JOIN usuario ON solicitud.codigo=usuario.cedu
+		WHERE numero=\'' . $numero . '\' LIMIT 1';
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		
 		return $obj;
@@ -288,4 +313,31 @@ class Solicitud extends CI_Model{
 		}
 		return $arr;
 	}
+
+	/**
+	* Permite cambiar o actualizar el estatus de una solicitud
+	*
+	* @access public
+	* @return mixed
+	*/
+	public function modificar($numero = '', $estatus = ''){
+		$this->load->model('utilidad/Semillero');
+		$sActualizar = 'UPDATE solicitud SET estatus = ' . $estatus . '  WHERE numero=\'' . $numero . '\'';
+		$exec = $this->Dbipsfa->consultar($sActualizar);
+		$this->Semillero->modificar($numero, $estatus);		
+		return $exec;
+	}
+
+		/**
+	* Permite cambiar o actualizar el estatus de una solicitud
+	*
+	* @access public
+	* @return mixed
+	*/
+	public function modificarCodigo($numero = '', $observa = ''){
+		$sActualizar = 'UPDATE solicitud SET recipes = \'' . $observa . '\'  WHERE numero=\'' . $numero . '\'';
+		$exec = $this->Dbipsfa->consultar($sActualizar);	
+		return $exec;
+	}
+
 }

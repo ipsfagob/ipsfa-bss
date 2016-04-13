@@ -6,7 +6,7 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
 <br>
 <div class="container">
 	
-<h5>Listado De Citas Para Tratamiento Prolongado </h5>
+<h5>Listado Tratamiento Prolongado Por Actualizar </h5>
 
 <ul>
 
@@ -26,9 +26,9 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
 	      	<input type="hidden" value="' . $val->corr . '" id="corr' . $val->numero . '">
 	      	<input type="hidden" value="' . $val->nomb . '" id="nomb' . $val->numero . '">
 	      </a>
-	      Cita número ( <b><font color="green">' . $val->numero . ' </font></b> ) programada para el día : ' . substr($arr->hasta,0,10 ). ' 
-	      <a href="' . base_url() . 'index.php/BienestarPanel/citaAtendida/' . $val->numero . '" class="right">
-	      <i class="material-icons green-text right">check_circle</i></a>
+	      Actualizar tratamiento número ( <b><font color="green">' . $val->numero . ' </font></b> ) 
+	      <a href="' . base_url() . 'index.php/BienestarPanel/solicitudesConfigurar/' . $val->numero . '/5" class="right">
+	      <i class="material-icons green-text right">forward</i></a>
 	    </div>
 	   	<div class="collapsible-body" style="padding:10px">
 

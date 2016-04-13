@@ -6,9 +6,9 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
 
 <script type="text/javascript"
 	src="<?php echo base_url(); ?>application/views/bienestarsocial/js/farmacia.js"></script>
-<div class="row">
+<div class="container">
   
-</div>
+
 <div class="row">  
   <div class="col s12">
 
@@ -95,7 +95,7 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
       <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Cancelar</a>
     </div>
   </div>
-
+</div>
 <?php
 $this->load->view ( "bienestarsocial/inc/pie.php" );
 ?>

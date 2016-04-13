@@ -11,13 +11,21 @@ function setValor(cod, id, tipo){
 *
 * @return mixed
 */
-function salvar(tipo){
-	$.post( sUrlP + "salvarCita/", {cod: $("#codigo").val(), id: $("#id").val(), tip: tipo})
+function cancelarCita(){
+	codigo = $("#codigo").val();
+	
+	correo = $("#corr" + codigo).val();
+	
+	nombre = $("#nomb" + codigo).val();
+
+	$.post( sUrlP + "reportarCitaTratamiento/", {cod: codigo, corr: correo, nomb: nombre})
 		.done(function(data) {			
-			Materialize.toast(data, 3000, 'rounded');	
+
+			Materialize.toast(data, 3000, 'rounded');
+			$(location).attr('href', sUrlP + "tratamiento");	
 		})
 		.fail(function(jqXHR, textStatus) {
 	    	alert(jqXHR.responseText);
-	});		
+	});	
 }
 

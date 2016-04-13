@@ -110,14 +110,14 @@ class Login extends CI_Controller {
 				if ($posicion != $max) {
 					$afiliado = $this->Persona->Familiares[$posicion];					
 					$data['afiliado'] =  $afiliado->nombreApellidoCompleto();
-					$resp = "SI";				
+					$resp = "SI";
 				}
 
 				$data['APIKey'] = md5($ano[0] . $Militar->Componente->codigo . "SI" . $resp);
 				$data['id'] = $this->Persona->cedula;
 				$_SESSION['APIkey'] = $data['APIKey'];
 				$_SESSION['cedula'] = $_POST['cedula'];				
-				$_SESSION['nombreRango'] = $Militar->Componente->codigoRango . '. ' $this->Persona->primerNombre . " " . $this->Persona->primerApellido;
+				$_SESSION['nombreRango'] = $Militar->Componente->codigoRango . '. ' . $this->Persona->primerNombre . " " . $this->Persona->primerApellido;
 				$_SESSION['situacion'] = $Militar->codigosituacion;
 				
 				$this->load->view('login/afiliacion/frmConfirmar', $data);	
@@ -328,6 +328,77 @@ class Login extends CI_Controller {
   		$this -> load -> model("usuario/usuario","usuario");
   		print_r($this->usuario->listar());
   		
+  	}
+
+
+  	function descargar(){
+
+	ini_set("max_execution_time ","60000");
+	ini_set("max_input_time  ","60000");
+	ini_set("memory_limit","2000M");
+	
+	/**   */	
+	$link_170_SELECT = pg_Connect( "host=192.168.12.170 port=5432 dbname=TARJETA_SAMAN2 user=ingrid password='ingpol123'" );
+	
+	
+	//$mar_nro_documento = $tgsIndexCedMartillo['mar_nro_documento']; 17166094
+	$mar_nro_documento = "11953710";
+	
+	/**  CEDULA DESCARGA */
+	$sqlDwl = "SELECT * FROM afiliado limit 1" ;
+	//$sqlDwl = "SELECT * FROM afiliado where numero_documento = '3944896'" ;
+	/**  Ejecucion Sql */
+	$resultDlw=pg_query($link_170_SELECT, $sqlDwl);
+	
+	# Recupera los atributos del archivo
+	//$row=pg_fetch_array($resultDlw,0);
+	//pg_free_result($resultDlw);
+	$i = 0;
+
+	while ($row = pg_fetch_array($resultDlw)){
+
+		$mar_nro_documento = $row['numero_documento'];
+	    $path = "public/doc/reembolso/w_" . $mar_nro_documento . ".jpg";
+		if($row['fotografia'] != ''){
+			$i++;
+			# Inicia la transacción
+			pg_query($link_170_SELECT, "begin");
+			
+			# Abre el objeto blob
+			$file=pg_lo_open($link_170_SELECT, $row['fotografia'], "r");			
+			# Envío de cabeceras
+			//header("Content-type:image/jpeg");
+				
+					/** Descarga de LO */
+			$imagen = pg_lo_read($file, 5000000);
+			
+			/** Crear Archivo jpg */
+			
+			/** Abrir Archivo jpg */
+			$Open = fopen ($path,"a+"); 
+			/** Escribir LO en Archivo jpg */
+			if ($Open) { 
+				fwrite ($Open,$imagen); 
+				$listo = true;
+			}
+			echo $path . "<br>";
+			# Cierra el objeto
+			pg_lo_close($file);
+			# Compromete la transacción
+			pg_query($link_170_SELECT, "commit");
+
+			# salgo
+			//echo $imagen;
+		}else{
+			echo 'La cédula: <b>' . $mar_nro_documento . "</b>. No posee fotografia en la BD... <br>";
+		}
+
+
+	}
+	echo "Total de Fotos Procesadas: <b>" . $i . "</b>";
+	pg_close($link_170_SELECT);	
+		
+
   	}
 
 	function __destruct(){

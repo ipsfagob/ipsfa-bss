@@ -62,7 +62,6 @@ class BienestarSocial extends CI_Controller {
 			$this->load->view ( 'bienestarsocial/datos', $data );
 		}else{
 			$this->salir();
-			echo "Debe iniciar session";
 			exit;
 		}
 	}
@@ -93,7 +92,6 @@ class BienestarSocial extends CI_Controller {
 				$this->load->view ( 'afiliacion/inicio', $data );
 			}else{
 				$this->salir();
-				echo "Debe iniciar session";
 				exit;
 			}
 		}
@@ -111,7 +109,6 @@ class BienestarSocial extends CI_Controller {
 			$this->load->view ( 'bienestarsocial/bienestar', $data);
 		}else{
 			$this->salir();
-			echo "Debe iniciar session";
 			exit;
 		}
 	}
@@ -125,14 +122,13 @@ class BienestarSocial extends CI_Controller {
 			$this->load->model('saman/Militar', 'Militar');
 			$this->Militar->consultar($_SESSION['cedula']);
 			
-			$this->load->model('saman/Solicitud', 'Solicitud');		
+			$this->load->model('saman/Solicitud');		
 			$Militar = $this->Solicitud->importarSolicitudesSaman($this->Militar)->Militar;		
 			
 			$data['Militar'] = $Militar->Solicitudes;
 			$this->load->view ( 'bienestarsocial/pendientes', $data );
 		}else{
 			$this->salir();
-			echo "Debe iniciar session";
 			exit;
 		}
 	}
@@ -148,7 +144,6 @@ class BienestarSocial extends CI_Controller {
 			$this->load->view ( 'bienestarsocial/ayuda', $data);
 		}else{
 			$this->salir();
-			echo "Debe iniciar session";
 			exit;
 		}
 	}
@@ -158,7 +153,7 @@ class BienestarSocial extends CI_Controller {
 	 * Vista Pagina Farmacia
 	 * @return html
 	 */
-	function farmacia($id) {
+	function farmacia($id = '') {
 		if(isset($_SESSION['cedula'])){
 			if($id == "me"){
 				$this->load->view ( 'bienestarsocial/sidrofan' );
@@ -169,7 +164,6 @@ class BienestarSocial extends CI_Controller {
 
 		}else{
 			$this->salir();
-			echo "Debe iniciar session";
 			exit;
 		}
 	}
@@ -185,7 +179,6 @@ class BienestarSocial extends CI_Controller {
 			$this->load->view ( 'bienestarsocial/citas', $data );
 		}else{
 			$this->salir();
-			echo "Debe iniciar session";
 			exit;
 		}
 	}
@@ -211,7 +204,6 @@ class BienestarSocial extends CI_Controller {
 			$this->load->view ( 'bienestarsocial/reportar' );
 		}else{
 			$this->salir();
-			echo "Debe iniciar session";
 			exit;
 		}
 	}
@@ -228,10 +220,13 @@ class BienestarSocial extends CI_Controller {
 			$data['url'] = $url;
 			$this->load->model('saman/Solicitud');
 			$data['data'] = $this->Solicitud->seleccionarDocumentos($codigo);
-			$this->load->view ( 'bienestarsocial/solicitud', $data );
+			if($url == 1){
+				$this->load->view ( 'bienestarsocial/solicitud', $data );
+			}else{
+				$this->load->view ( 'bienestarsocial/solicitud_ayuda', $data );
+			}
 		}else{
 			$this->salir();
-			echo "Debe iniciar session";
 			exit;
 		}
 	}
@@ -245,7 +240,9 @@ class BienestarSocial extends CI_Controller {
 	public function subirArchivos(){
 		if(isset($_SESSION['cedula'])){
 			$this->load->model('comun/Archivo', 'Archivo');
-			$this->load->model('utilidad/Correo', 'Correo');
+			$this->load->model('utilidad/Correo');
+			$this->load->model('utilidad/Semillero');
+
 			$this->Archivo->salvar($_POST['url'], $_FILES, $_POST['codigo']);
 			$this->Correo->para = $_SESSION['correo'];
 			$this->Correo->cuerpo = 'Hola, ' . $_SESSION['nombreRango'] . '.<br>
@@ -256,11 +253,55 @@ class BienestarSocial extends CI_Controller {
 			$this->Correo->gerencia = 'Gerencia de Bienestar Social';
 			$this->Correo->titulo = $_SESSION['nombreRango'];
 			$this->Correo->enviar();
+			$this->load->model('saman/Solicitud');
+			$this->Solicitud->modificar($_POST['codigo'], 1); // Cambio General del Estatus del caso
+			
+			$this->load->view ( 'bienestarsocial/principal');
+		}else{
+			$this->salir();
+			exit;
+		}		
+	}
+
+
+	
+
+	function subirArchivosTratamiento(){
+		if(isset($_SESSION['cedula'])){
+			$this->load->model('comun/Archivo', 'Archivo');
+			$this->load->model('utilidad/Correo', 'Correo');
+			$this->load->model('saman/Solicitud');
+			$codigo = $this->generarCodigo('5','TRA');
+			
+			$this->Archivo->salvar(3, $_FILES , $codigo);
+			$this->Correo->para = $_SESSION['correo'];
+			$this->Correo->cuerpo = 'Hola, ' . $_SESSION['nombreRango'] . '.<br>
+				Usted ha realizado una actulización de documentos para su tratamiento prolongado 
+				el cual sera procesado por nuestros analistas
+				<br><br>
+				IPSFA en linea Optimizando tu bienestar...';
+			$this->Correo->gerencia = 'Gerencia de Bienestar Social';
+			$this->Correo->titulo = $_SESSION['nombreRango'];
+			$this->Correo->enviar();
+
+
+
+			$arr = array(
+				'codigo' => $_SESSION['cedula'],
+				'numero' => $codigo,
+				'certi' => md5($_SESSION['cedula']), 
+				'detalle' => json_encode($_POST), //Esquema Json Opcional
+				'recipes' => $_POST['patologia'],
+				'fecha' => 'now()', 
+				'tipo' => 5, 
+				'estatus' => 1,
+				'fcita' => date('Y-m-j')
+			);
+			$obj = $this->Solicitud->crear($arr);
 
 			$this->load->view ( 'bienestarsocial/principal');
 		}else{
 			$this->salir();
-			echo "Debe iniciar session";
 			exit;
 		}		
 	}
@@ -278,7 +319,6 @@ class BienestarSocial extends CI_Controller {
 			$this->load->view ( 'bienestarsocial/comun/tratamiento/inicio', $data );
 		}else{
 			$this->salir();
-			echo "Debe iniciar session";
 			exit;
 		}	
 	}
@@ -298,22 +338,51 @@ class BienestarSocial extends CI_Controller {
 			$this->load->view ( 'bienestarsocial/comun/carta_aval/inicio', $data );
 		}else{
 			$this->salir();
-			echo "Debe iniciar session";
 			exit;
 		}	
 	}
 
+	/**
+	 * Generar Codigo para una cita
+	 *
+	 * @access  public
+	 * @return html
+	 */
+	public function generarCitaTratamientoProlongado(){
+		$this->load->model('saman/Solicitud');
+		echo $this->Solicitud->generarCitaTratamientoProlongado();
+	}
+
+
+	/**
+	 * Generar solicitud de medicamentos
+	 *
+	 * @access  public
+	 * @return html
+	 */
 	public function adjuntarProlongado(){
 		if(isset($_SESSION['cedula'])){
 			$this->load->model('saman/Tratamiento');
 			$data['data'] = $this->Tratamiento->consultarProlongado($_SESSION['cedula']);
 			$this->load->view ( 'bienestarsocial/comun/tratamiento/frm/datos',$data);
 		}else{
-			echo "Debe iniciar session";
+			
 			$this->salir();
 			exit;
 		}	
 	}
+
+	/**
+	 * listar medicamentos de un tratamiento o patologia
+	 *
+	 * @access  public
+	 * @return json
+	 */
+	public function listarKitDetalle($codigo){		
+		$this->load->model('saman/Tratamiento');
+		echo json_encode($this->Tratamiento->listarKitDetalle($_SESSION['cedula'], $codigo)->rs);
+	}
+
 
 	/**
 	 * Generar solicitud de medicamentos
@@ -328,20 +397,7 @@ class BienestarSocial extends CI_Controller {
 	}
 
 
-	/**
-	 * Salir del Sistema
-	 *
-	 * @access  public
-	 * @return mixed
-	 */	
-	public function salir() {
-		session_destroy();
-		//$this->index();
-		//header('Location: http://192.168.12.195/html/web/web/ipsfaNet/vista/vmenu.php');
-		echo "Debe iniciar session";
-		exit;
-	}
-	
+
 	/* 
 	| ------------------------------------------------------------
 	|	Control de Acciones
@@ -349,13 +405,6 @@ class BienestarSocial extends CI_Controller {
 	*/
 
 
-
-	
-	/* 
-	| ------------------------------------------------------------
-	|	Metodos de Asignación, Selección y Eliminación del Carro
-	| ------------------------------------------------------------
-	*/
 
 	/**
 	 * Listar un producto o medicamento según lo declare un usuario
@@ -382,6 +431,13 @@ class BienestarSocial extends CI_Controller {
 		print($this->Producto->listarExistenciaProductosSidroFan($pr));
 	}
 
+
+	
+	/* 
+	| ------------------------------------------------------------
+	|	Metodos de Asignación, Selección y Eliminación del Carro
+	| ------------------------------------------------------------
+	*/
 	/**
 	 * Agregar un Medicamento al Carro
 	 *
@@ -431,7 +487,7 @@ class BienestarSocial extends CI_Controller {
 			$this->load->model('saman/reembolso', 'Reembolso');
 			print_r($this->Reembolso->listarCedula($_SESSION['cedula']));
 		}else{
-			echo "Debe iniciar session";
+			$this->salir();
 			exit;
 		}	
 	}
@@ -454,25 +510,9 @@ class BienestarSocial extends CI_Controller {
 
 			
 		}else{
-			echo "Debe iniciar session";
+			$this->salir();
 			exit;
 		}	
-
-	}
-
-	function cp($cd){
-		$this->load->model('saman/Militar', 'Militar');
-			$this->Militar->consultar($cd);
-			
-			$this->load->model('saman/Solicitud', 'Solicitud');
-			print('<pre>');
-			$Militar = $this->Solicitud->importarSolicitudesSaman($this->Militar);
-			print_r($this->Militar);
-	}
-
-
-	function listarSolicitudes(){
-
 
 	}
 
@@ -484,18 +524,31 @@ class BienestarSocial extends CI_Controller {
 	*/
 	public function continuarReembolso(){
 		if(isset($_SESSION['cedula'])){
-			$this->load->model('saman/Militar', 'Militar');
-			$this->load->model('saman/CodigoArea', 'CodigoArea');
-			$this->load->model('saman/Concepto', 'Concepto');	
-
-			$this->Militar->consultar($_SESSION['cedula']);
-			$data['CodigoArea'] = $this->CodigoArea->listar()->rs;
-			$data['Militar'] = $this->Militar;
-			$data['Concepto'] = $this->Concepto->listar()->rs;
-			$data['Codigo'] = $this->generarCodigo($_POST['codigo'], $_POST['obs']);		
-			$this->load->view ( 'bienestarsocial/comun/reembolso/inicio', $data);
+			if(isset($_POST['codigo'])){
+				$this->load->model('saman/Militar');
+				$this->load->model('saman/CodigoArea');
+				$this->load->model('saman/Concepto');
+				$this->load->model('utilidad/Semillero');	
+				$this->load->model('saman/Solicitud');
+				$this->Semillero->obtener($_POST['codigo'], $_SESSION['cedula'], $_POST['obs']);
+				$valor = $this->Solicitud->consultar($this->Semillero->codigo);
+				
+				if($this->Semillero->estatus == 1 && $valor == 1){
+					$this->adjuntos($this->Semillero->codigo, 2);				
+				}else{
+					$this->Militar->consultar($_SESSION['cedula']);
+					$data['CodigoArea'] = $this->CodigoArea->listar()->rs;
+					$data['Militar'] = $this->Militar;
+					$data['Concepto'] = $this->Concepto->listar()->rs;
+				
+					$data['Codigo'] = $this->Semillero->codigo;	
+					$this->load->view ( 'bienestarsocial/comun/reembolso/inicio', $data);
+				}
+			}else{
+				header('Location: ' . base_url() . 'index.php/BienestarSocial/index');
+			}
 		}else{
-			echo "Debe iniciar session";
+			$this->salir();
 			exit;
 		}	
 	}
@@ -527,7 +580,7 @@ class BienestarSocial extends CI_Controller {
 			$this->Solicitud->crear($arg);
 			//print_r($arg);
 		}else{
-			echo "Debe iniciar session";
+			$this->salir();
 			exit;
 		}	
 		
@@ -541,18 +594,32 @@ class BienestarSocial extends CI_Controller {
 	*/
 	public function continuarApoyo(){
 		if(isset($_SESSION['cedula'])){
-			$this->load->model('saman/Militar', 'Militar');
-			$this->load->model('saman/CodigoArea', 'CodigoArea');
-			$this->load->model('saman/Concepto', 'Concepto');	
-
-			$this->Militar->consultar($_SESSION['cedula']);
-			$data['CodigoArea'] = $this->CodigoArea->listar()->rs;
-			$data['Militar'] = $this->Militar;
-			$data['Concepto'] = $this->Concepto->listar()->rs;
-			$data['Codigo'] = $this->generarCodigo($_POST['codigo'], $_POST['obs']);		
-			$this->load->view ( 'bienestarsocial/comun/apoyo/inicio', $data);
+			if(isset($_POST['codigo'])){
+				$this->load->model('saman/Militar');
+				$this->load->model('saman/CodigoArea');
+				$this->load->model('saman/Concepto');
+				$this->load->model('utilidad/Semillero');	
+				$this->load->model('saman/Solicitud');
+				$this->Semillero->obtener($_POST['codigo'], $_SESSION['cedula'], $_POST['obs']);
+				$valor = $this->Solicitud->consultar($this->Semillero->codigo);
+				
+				if($this->Semillero->estatus == 1 && $valor == 1){
+					$this->adjuntos($this->Semillero->codigo, 2);				
+				}else{
+					$this->Militar->consultar($_SESSION['cedula']);
+					$data['CodigoArea'] = $this->CodigoArea->listar()->rs;
+					$data['Militar'] = $this->Militar;
+					$data['Concepto'] = $this->Concepto->listar()->rs;
+				
+					$data['Codigo'] = $this->Semillero->codigo;	
+					$this->load->view ( 'bienestarsocial/comun/apoyo/inicio', $data);
+				}
+			}else{
+				header('Location: ' . base_url() . 'index.php/BienestarSocial/index');
+			}	
+			
 		}else{
-			echo "Debe iniciar session";
+			$this->salir();
 			exit;
 		}	
 	}
@@ -582,7 +649,7 @@ class BienestarSocial extends CI_Controller {
 			);		
 			$this->Solicitud->crear($arg);
 		}else{
-			echo "Debe iniciar session";
+			$this->salir();
 			exit;
 		}	
 	}
@@ -591,23 +658,23 @@ class BienestarSocial extends CI_Controller {
 	 * Permite imprimir hojas de reembolso y apoyo
 	 * @return string
 	 */	
-	public function imprimirHoja($codigo){
+	public function imprimirHoja($codigo, $url){
 		if(isset($_SESSION['cedula'])){
 			$this->load->model('saman/Solicitud', 'Solicitud');
 			$this->load->model('saman/Militar', 'Militar');
 			$this->Militar->consultar($_SESSION['cedula']);	
 
 			$arr['Militar'] = $this->Militar;
-			$arr['Codigo'] = $this->generarCodigo($codigo, '');
+			$arr['Codigo'] = $codigo;
 			$arr['Solicitud'] = $this->Solicitud->listarSolicitudes($arr['Codigo']);
 			
-			if($codigo == 1){			
+			if($url == 1){			
 				$this->load->view('bienestarsocial/comun/reembolso/imp/plantilla', $arr);
 			}else{
 				$this->load->view('bienestarsocial/comun/apoyo/imp/plantilla', $arr);
 			}
 		}else{
-			echo "Debe iniciar session";
+			$this->salir();
 			exit;
 		}	
 	}
@@ -624,7 +691,7 @@ class BienestarSocial extends CI_Controller {
 			$this->Semillero->obtener($tipo, $_SESSION['cedula'], $obs);
 			return $this->Semillero->codigo;
 		}else{
-			echo "Debe iniciar session";
+			$this->salir();
 			exit;
 		}	
 	}
@@ -642,7 +709,7 @@ class BienestarSocial extends CI_Controller {
 			$this->Cita->generar();
 			$this->citas();
 		}else{
-			echo "Debe iniciar session";
+			$this->salir();
 			exit;
 		}	
 	}
@@ -662,7 +729,7 @@ class BienestarSocial extends CI_Controller {
 			if($obj->code !=0) $msj = "Por favor llamar a: ";
 			echo $msj;
 		}else{
-			echo "Debe iniciar session";
+			$this->salir();
 			exit;
 		}	
 	}
@@ -673,18 +740,27 @@ class BienestarSocial extends CI_Controller {
 	 * @access  public
 	 * @return mixed 
 	 */
-	function SalvarSolicitudMedicamentos(){
+	function SalvarSolicitudMedicamentos($tipo = ''){
 		if(isset($_SESSION['cedula'])){
+
+			
 			$this->load->model('saman/Solicitud');
+			$this->load->model('comun/Archivo', 'Archivo');
+			$this->load->model('utilidad/Correo', 'Correo');
+			$codigo = $this->generarCodigo('3','MED');
+			$this->Archivo->salvar(4, $_FILES, $codigo);
+
+			
 			$detalle = $this->Carro->salvarPedido();
 			//$imagen = $this->Imagen->Salvar();
+			
 			$imagen = array(); //Listado de Imagenes Subidas
 			$arr = array(
 				'codigo' => $_SESSION['cedula'],
-				'numero' => $this->generarCodigo('3','MED'),
+				'numero' => $codigo,
 				'certi' => md5($_SESSION['cedula']), 
 				'detalle' => json_encode($detalle), //Esquema Json Opcional
-				'recipes' => json_encode($imagen),
+				'recipes' => $_POST['observa'] ,
 				'fecha' => 'now()', 
 				'tipo' => 3, 
 				'estatus' => 1,
@@ -704,18 +780,33 @@ class BienestarSocial extends CI_Controller {
 
 			if($obj->code !=0) $msj = "Por favor llamar a: ";
 			$this->LimipiarProductosCarrito();
-			echo $msj . $obj->query;
+			echo $msj;
+			
+			
+
 		}else{
-			echo "Debe iniciar session";
+			$this->salir();
 			exit;
 		}	
 	}
 
-	function generarCitaTratamientoProlongado(){
-		$this->load->model('saman/Solicitud');
-		echo $this->Solicitud->generarCitaTratamientoProlongado();
-	}
 
+
+	/**
+	 * Salir del Sistema
+	 *
+	 * @access  public
+	 * @return mixed
+	 */	
+	public function salir() {
+		session_destroy();
+		
+		header('Location: ' . base_url() . 'index.php/Login');
+		
+		
+		
+	}
+	
 
 }
 

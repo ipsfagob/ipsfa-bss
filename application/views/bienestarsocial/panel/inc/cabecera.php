@@ -14,16 +14,6 @@
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
   <style type="text/css">
   	  [class*="img-cred-"]{width:96%;height:55px;margin:auto}
-.img-cred-00001{background:url(/public/img/.jpg) no-repeat center;clear:left;background-size:100% 95%}
-.img-cred-00002{background:url(../../images/inputs/credito-00002.jpg) no-repeat center;clear:left;background-size:100% 95%}
-.img-cred-00003{background:url(../../images/inputs/credito-00003.jpg) no-repeat center;clear:left;background-size:100% 95%}
-.img-cred-00004{background:url(../../images/inputs/credito-00004.jpg) no-repeat center;clear:left;background-size:100% 95%}
-.img-cred-00005{background:url(../../images/inputs/credito-00005.jpg) no-repeat center;clear:left;background-size:100% 95%}
-.img-cred-00006{background:url(../../images/inputs/credito-00006.jpg) no-repeat center;clear:left;background-size:100% 95%}
-.img-cred-00007{background:url(../../images/inputs/credito-00007.jpg) no-repeat center;clear:left;background-size:100% 95%}
-.img-cred-00008{background:url(../../images/inputs/credito-00008.jpg) no-repeat center;clear:left;background-size:100% 95%}
-.img-cred-00009{background:url(../../images/inputs/credito-00009.jpg) no-repeat center;clear:left;background-size:100% 95%}
-.img-cred-00010{background:url(../../images/inputs/credito-00010.jpg) no-repeat center;clear:left;background-size:100% 95%}
 
 
 .btns-sminf{color:#003E82;text-align:justify;width:93%;float:left;font-weight:bold; box-sizing: border-box}
@@ -35,6 +25,8 @@
 
 .btns-smin{background:#fff;height:auto;width:100%;cursor:pointer;padding:5px;margin:0;box-sizing:border-box;border:0.1rem #e0e0e0 solid}
 .btns-smin:hover{height:auto;width:100%;box-shadow: 0.1rem 0.1rem 0.2rem 0.1rem #990000;cursor:pointer}
+
+
 .btns-smin,.row .col{float:left;box-sizing:border-box;padding:0.4rem 0.4rem 0.4rem 0.4rem}
 .btns-smin:hover,.row .col{float:left;box-sizing:border-box;padding:0.4rem 0.4rem 0.4rem 0.4rem}
 
@@ -55,11 +47,16 @@
 
 .btns-rd-c{background: url(../materializecss/ic_file_upload_black_24px.svg) no-repeat center}
 .btns-send{background: url(../materializecss/ic_playlist_add_check_white_24px.svg) #FFF no-repeat center}
+
+.mnu:hover{height:auto;width:100%;box-shadow: 0.1rem 0.1rem 0.2rem 0.1rem #CECECE;cursor:pointer}
+.input-field input[id="search"] {border-bottom: 0px solid #000;box-shadow: 0 0px 0 0 #000;}
+.input-field:hover input[id="search"] {border-bottom: 0px solid #000;box-shadow: 0 0px 0 0 #000;}
+
   </style>
   
     </head>
 
-    <body class=" grey lighten-4">
+    <body class=" white">
 	<main>
 
 	<div class="navbar-fixed">
@@ -139,28 +136,3 @@
 
 	
 
-	<div id="datos" class="dropdown-content" style="width: 400px">
-		<div class="row">
-			<div class="col s4">Nombre</div>
-			<div class="col s4">Apellido</div>
-		</div>
-	</div>
-
-	<ul id="panelControl" class="dropdown-content">
-	    <li>
-	      <a>
-	      	<i class="material-icons light-blue-text text-darken-4 left">account_circle</i>Actualización de Datos
-	      </a>
-	    </li>
-	    <li>
-	      <a>
-	      	<i class="material-icons lime-text text-darken-2 left">group</i>Afiliación
-	      </a>
-	    </li>
-	    <li>
-	      <a>
-	      	<i class="material-icons red-text text-lighten-1 left">local_convenience_store</i>Bienestar Social
-	      </a>
-	    </li>
-
-	</ul>

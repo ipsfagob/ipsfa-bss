@@ -98,9 +98,10 @@ function iniciarElementos(){
 function mensaje(codigo, tipo){
 	if(tipo == 0){
 		if(i > 0){
-			$("#msj").html('Tiene productos seleccionados, ¿Desea eliminarlos e ir atras?');
+			$("#msj").html('Tiene productos seleccionados, ¿Desea omitirlos e ir atras?');
 			cadena = '<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat "' +  
-				'onclick="atras()">Si</a><a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">No</a>';	
+				'onclick="atras()">Si<i class="material-icons left green-text">check_circle</i></a>' +
+				'<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">No<i class="material-icons left red-text">cancel</i></a>';	
 		}else{
 			atras();
 			return true;
@@ -108,8 +109,8 @@ function mensaje(codigo, tipo){
 	}else{
 		$("#msj").html('¿Está seguro que sus datos son correctos?, una vez realizada la solicitud no podrá realizar cambios');
 		cadena = '<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat "' +  
-		'onclick="salvarR(\'' + codigo + '\')">Si</a><a href="#!" class="modal-action ' + 
-		'modal-close waves-effect waves-green btn-flat">No</a>';
+		'onclick="salvarR(\'' + codigo + '\')">Si<i class="material-icons left green-text">check_circle</i></a><a href="#!" class="modal-action ' + 
+		'modal-close waves-effect waves-green btn-flat">No<i class="material-icons left red-text">cancel</i></a>';
 	}	
 	$("#acciones").html(cadena);
 	$('#modal1').openModal();

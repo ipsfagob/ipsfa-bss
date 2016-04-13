@@ -18,7 +18,7 @@ function listarProductos(val) {
 			cadena = '<li class="collection-item avatar">'  + '<span class="title">' + val.nomb + 
 			'<a href="javascript:Modal(\'' + val.obse + '\',\'' + val.nomb + '\',\'' + val.imag +	'\',\'' + val.oid + '\');"' +
 			'class="secondary-content btn-floating btn-small waves-effect waves-light modal-trigger" style="background-color:#00345A"><i class="mdi-action-add-shopping-cart"></i></a></span><p>UNIDAD DE MEDIDA: ' + val.obse + 
-			'<br>UBICACION: DROGRERIA / FARMACIA';		
+			'<br>UBICACION: DROGUERIA / FARMACIA';		
 
 
 			$(".collection").append(cadena);
@@ -84,18 +84,43 @@ function Eliminar(oid){
 * @return html
 */
 function Salvar(){
-	var Anomalia = {};
-	Anomalia['observacion'] = $('#Obs').val();
-	$.post( sUrlP + "SalvarSolicitudMedicamentos/", Anomalia)
+	var inputFileImage = document.getElementById("inputFile[1]");
+	var file = inputFileImage.files[0];
+
+	var data = new FormData();
+
+	data.append('recipe',file);
+	data.append('observa', $("#Observa").val());
+	
+
+	$.ajax({
+		url:sUrlP + "SalvarSolicitudMedicamentos/",
+		type:'POST',
+		contentType:false,
+		data:data,
+		processData:false,
+		cache : false,
+		success : function(res){
+               Materialize.toast('Su solicitud se atendera a la brevedad', 3000, 'rounded');
+
+               $(location).attr('href', sUrlP + "index");
+            } 
+	});
+	
+	/**
+	//Anomalia['archivo'] = data;
+
+	$.post( sUrlP + "SalvarSolicitudMedicamentos/", data)
 		.done(function(data) {			
-			Materialize.toast('Su solicitud se atendera a la brevedad', 3000, 'rounded');
-			$('#producto').html('');
-			$(location).attr('href', sUrlP + "index");
+	alert(1);
+			//
+			//$('#producto').html('');
+			//
 		})
 		.fail(function(jqXHR, textStatus) {
 	    	alert(jqXHR.responseText);
 	});	
-	
+	**/
 }
 
 

@@ -28,7 +28,7 @@ class Mpanel extends CI_Model {
   */
   function cosultarSolicitudes(){
     $this->load->model('comun/Dbipsfa');
-    $obj = $this->Dbipsfa->consultar("SELECT * FROM solicitud WHERE tipo IN (1,2)");
+    $obj = $this->Dbipsfa->consultar("SELECT * FROM solicitud WHERE tipo IN (1,2) AND estatus IN (1,2) ORDER BY fecha");
     return $obj;
   }
 

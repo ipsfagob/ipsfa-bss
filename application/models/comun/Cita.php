@@ -35,7 +35,7 @@ class Cita extends CI_Model{
 	/**
 	* Iniciando la clase, Cargando Elementos BD Dbsaman
 	* Los estatus de una cita son: 
-	* 0: Cancelada, 1: Activa, 2: Procesada
+	* 0: Cancelada, 1: Activa, 2: Procesada 3: Cancelada o Rechazada
 	*
 	* @access public
 	* @return void
@@ -48,7 +48,7 @@ class Cita extends CI_Model{
 
 
 	function generar(){
-		$this->load->model('utilidad/Semillero', 'Semillero');
+		$this->load->model('utilidad/Semillero');
 		$this->Semillero->obtener(4, $_SESSION['cedula'], 'Cita');
 		$this->load->model('saman/Solicitud');
 		$imagen = array(); //Listado de Imagenes Subidas
@@ -80,12 +80,16 @@ class Cita extends CI_Model{
 	* @param string
 	* @return Dbsaman
 	*/
-	function listar(){
-		$sConsulta = 'SELECT * FROM solicitud WHERE tipo = 4 AND estatus = 1';
+	function listar($tipo){
+		$sConsulta = 'SELECT * FROM solicitud 
+		INNER JOIN usuario ON solicitud.codigo=usuario.cedu
+		WHERE solicitud.tipo = ' . $tipo . ' AND solicitud.estatus = 2';
 		$obj = $this->Dbipsfa->Consultar($sConsulta);
 		return $obj;
 	}
 
+
+	
 	/**
 	* Consultar Caso en medicamentos prolongados
 	*
@@ -97,6 +101,20 @@ class Cita extends CI_Model{
 		$sConsulta = 'SELECT * FROM solicitud WHERE tipo=4 AND codigo =\'' . $codigo . '\'';
 		$obj = $this->Dbipsfa->Consultar($sConsulta);
 		return $obj;
+	}
+
+
+	/**
+	* Permite cambiar o actualizar el estatus de una Cita
+	*
+	* @access public
+	* @return mixed
+	*/
+	public function modificar($numero = '', $estatus = ''){
+		$sActualizar = 'UPDATE semillero SET estatus = ' . $estatus . '  WHERE codigo=\'' . $numero . '\'';
+		$exec = $this->Dbipsfa->consultar($sActualizar);
+		
+		return $exec;
 	}
 
 }

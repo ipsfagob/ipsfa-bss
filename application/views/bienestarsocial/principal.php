@@ -15,8 +15,8 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
         
         <div class="btns-smin">
           <div class="btns-sminf small">Tratamiento Prolongado</div>
-          <div class="btns-sminh tooltipped dropdown-button" data-position="bottom" data-delay="30" data-tooltip="I am tooltip" data-activates='dropdown1' >
-            <a href="#"><i class="material-icons black-text">more_vert</i></a>
+          <div class="btns-sminh  dropdown-button">
+            <a href="#"><i class="material-icons white-text">more_vert</i></a>
           </div>
           <a href="<?php echo base_url(); ?>index.php/BienestarSocial/tratamiento">
             <div class="__ctdrs_xxmall cortar">Este programa está diseñado para la entrega del Kit de medicamentos a los pacientes con tratamientos de por vida</div>
@@ -30,8 +30,9 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       <div class="col s12 m4 l4">
         <div class="btns-smin">
           <div class="btns-sminf small">Consultar Medicamentos</div>
-          <div class="btns-sminh tooltipped dropdown-button" data-position="bottom" data-delay="30" data-tooltip="I am tooltip" data-activates='dropdown1' >
-            <a href="#"><i class="material-icons black-text">more_vert</i></a>
+          <!-- data-position="bottom" data-delay="30" data-tooltip="I am tooltip" data-activates="dropdown1" -->
+          <div class="btns-sminh  dropdown-button" >
+            <a href="#"><i class="material-icons white-text">more_vert</i></a>
           </div>
           <a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia/me">
             <div class="__ctdrs_xxmall cortar">Permite ver la disponibilidad interna</div>
@@ -48,9 +49,8 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
         $menu = '<div class="col s12 m4 l4">
         <div class="btns-smin">
           <div class="btns-sminf small">Notificar Reembolsos</div>
-          <div class="btns-sminh tooltipped dropdown-button" data-position="bottom" data-delay="30" data-tooltip="I am tooltip" 
-          data-activates="dropdown1">
-            <a href="#"><i class="material-icons black-text">more_vert</i></a>
+          <div class="btns-sminh  dropdown-button" >
+            <a href="#"><i class="material-icons white-text">more_vert</i></a>
           </div>
           <a href="' . base_url() . 'index.php/BienestarSocial/bienestar/1">
             <div class="__ctdrs_xxmall cortar">Solicitar Devolución de una cantidad de dinero </div>
@@ -75,8 +75,8 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
         $menu = '<div class="col s12 m4 l4">
         <div class="btns-smin">
           <div class="btns-sminf small">Notificar Ayuda</div>
-          <div class="btns-sminh tooltipped dropdown-button" data-position="bottom" data-delay="30" data-tooltip="I am tooltip" data-activates="dropdown1" >
-            <a href="#"><i class="material-icons black-text">more_vert</i></a>
+          <div class="btns-sminh  dropdown-button"  >
+            <a href="#"><i class="material-icons white-text">more_vert</i></a>
           </div>
           <a href="' . base_url() . 'index.php/BienestarSocial/bienestar/2">
             <div class="__ctdrs_xxmall cortar">Solicitar ayuda para adquirir medicamentos</div>
@@ -100,8 +100,8 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       <div class="col s12 m4 l4">
         <div class="btns-smin">
           <div class="btns-sminf small">Medicamentos Badan</div>
-          <div class="btns-sminh tooltipped dropdown-button" data-position="bottom" data-delay="30" data-tooltip="I am tooltip" data-activates='dropdown1' >
-            <a href="#"><i class="material-icons black-text">more_vert</i></a>
+          <div class="btns-sminh  dropdown-button" >
+            <a href="#"><i class="material-icons white-text">more_vert</i></a>
           </div>
           <a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia/ba">
             <div class="__ctdrs_xxmall cortar">Consultar Existencias Badan</div>
@@ -120,9 +120,8 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
         $menu = '<div class="col s12 m4 l4">
         <div class="btns-smin">
           <div class="btns-sminf small">Carta Aval</div>
-          <div class="btns-sminh tooltipped dropdown-button" data-position="bottom" data-delay="30" data-tooltip="I am tooltip" 
-          data-activates="dropdown1">
-            <a href="#"><i class="material-icons black-text">more_vert</i></a>
+          <div class="btns-sminh  dropdown-button" >
+            <a href="#"><i class="material-icons white-text">more_vert</i></a>
           </div>
           <a href="' . base_url() . 'index.php/BienestarSocial/cartaaval">
             <div class="__ctdrs_xxmall cortar">Realizar Citas Para la el proceso</div>
