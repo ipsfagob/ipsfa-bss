@@ -8,6 +8,7 @@
       <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>public/css/estilo.css"/>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <script src='https://www.google.com/recaptcha/api.js'></script>
     </head>
     <body class="white lighten-4">
 		<main>			
@@ -34,8 +35,12 @@
 			                      <div class="input-field col s12">                        
 			                        <input id="clave" name="clave" type="password" class="validate" required>
 			                        <label for="clave">Clave</label>
-			                      </div>			                    
+			                      </div>
+			                      <div class="input-field col s12"> 
+			                       <div class="g-recaptcha" data-sitekey="6LcwWR0TAAAAANJJMXvw84XKe0L1ttZipoG43n1i"></div>			 
+			                      </div>                  
 					            </div>
+					           
 					            <div class="card-action" style="text-align: right; padding: 8px">
 					              <button class="btn waves-effect waves-light blue-ipsfa" type="submit" onclick="validarUsuario()">Entrar</button>
 					            </div>

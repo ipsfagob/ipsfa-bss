@@ -44,12 +44,7 @@
 	      closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
 	    });
     	  
-    	$("#search").keypress(function(event) {
-    		if (event.which == 13) {
-    			listarProductos($("#search").val());
-    			$("#search").val('');
-    		}
-    	  });
+    	
 
     	$('.modal-trigger').leanModal();
     	
@@ -80,6 +75,14 @@
     		thousandsSeparator: '.'
 		});
 
+		$("#search").keypress(function(event) {
+    		if (event.which == 13) {
+    			
+    			consultar($("#search").val());
+    			$("#search").val('');
+    		}
+    	  });
+		$('.materialboxed').materialbox();
 		    	 
       });
       

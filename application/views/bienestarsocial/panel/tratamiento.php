@@ -18,6 +18,7 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
 	foreach ($cita->rs as $k => $val) {
 		$arr = json_decode($val->detalle);
 		$icon = '';
+		$sDiagnostico = explode("|", $val->observacion);
 		$cadena .= '<li>
       	<div class="collapsible-header">
 	      <a class="waves-effect waves-light modal-trigger" href="#modal1" 
@@ -26,7 +27,7 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
 	      	<input type="hidden" value="' . $val->corr . '" id="corr' . $val->numero . '">
 	      	<input type="hidden" value="' . $val->nomb . '" id="nomb' . $val->numero . '">
 	      </a>
-	      Actualizar tratamiento número ( <b><font color="green">' . $val->numero . ' </font></b> ) 
+	      ' . $sDiagnostico[1] . ' ( <b><font color="green">' . $val->numero . ' </font></b> ) 
 	      <a href="' . base_url() . 'index.php/BienestarPanel/solicitudesConfigurar/' . $val->numero . '/5" class="right">
 	      <i class="material-icons green-text right">forward</i></a>
 	    </div>

@@ -25,6 +25,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
     enctype="multipart/form-data">
         <input type="hidden" id= "codigo" name="codigo">
         <input type="hidden" value="3" name="url">
+        <input type="hidden" name="diagnostico" id="diagnostico">
         <div class="row white">
           <div class="col s12">
           <label for="patologia">Seleccioné la patología que desea actualizar</label>
@@ -88,7 +89,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       </div>
 
 
-      <div class="row white ">
+      <div class="row white "  style="display: none">
         <div class="input-field col s12">
           <i class="material-icons prefix">mode_edit</i>
           <textarea id="Obs" class="materialize-textarea" length='256'></textarea>

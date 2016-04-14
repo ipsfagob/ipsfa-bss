@@ -74,6 +74,38 @@ class BienestarPanel extends CI_Controller{
 	* @access public
 	* @return html
 	*/
+	public function consulta(){
+		
+		$this->load->view('bienestarsocial/panel/consulta');	
+	}
+
+	/**
+	* Permite listar Reembolso y Ayudas ver estatus
+	*
+	* @access public
+	* @return html
+	*/
+	public function estadistica(){
+		
+		$this->load->view('bienestarsocial/panel/estadistica');	
+	}
+
+	/**
+	* Permite listar Reembolso y Ayudas ver estatus
+	*
+	* @access public
+	* @return html
+	*/
+	public function reporte(){
+		
+		$this->load->view('bienestarsocial/panel/reporte');	
+	}
+	/**
+	* Permite listar Reembolso y Ayudas ver estatus
+	*
+	* @access public
+	* @return html
+	*/
 	public function solicitudes(){
 		$data['Solicitudes'] = $this->Mpanel->cosultarSolicitudes();
 		$this->load->view('bienestarsocial/panel/solicitudes', $data);	
@@ -182,9 +214,11 @@ class BienestarPanel extends CI_Controller{
 
 	}
 
-	function listarDirectorio(){
-		
-		print (json_encode($this->Archivo->listarDirectorio('00000000', 'reembolso')));
+	function listarDirectorio($sCodigo, $iTipo){
+
+		$this->load->model('comun/Archivo');
+		$sTipo = $this->Archivo->_obtenerTipoCarpeta($iTipo);
+		print (json_encode($this->Archivo->listarDirectorio($sCodigo, $sTipo)));
 	}
 	
 	/**
@@ -233,6 +267,12 @@ class BienestarPanel extends CI_Controller{
 		$this->Cita->modificar($cod, 2);
 		$this->citas();
 	}
+
+	function consultarCodigo($cod){
+		$this->load->model('saman/Solicitud');
+		$Solicitud = $this->Solicitud->consultarCodigo($cod);
+		echo json_encode($Solicitud->rs);
+	}	
 
 	function __destruct(){
 

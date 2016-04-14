@@ -47,6 +47,10 @@ class BienestarSocial extends CI_Controller {
 		}
 
 	}
+
+	private function home(){
+		header('Location: ' . base_url() . 'index.php/BienestarSocial/index');
+	}
 	
 	/**
 	 * Vista Datos Basicos del Personal
@@ -239,24 +243,28 @@ class BienestarSocial extends CI_Controller {
 	 */
 	public function subirArchivos(){
 		if(isset($_SESSION['cedula'])){
-			$this->load->model('comun/Archivo', 'Archivo');
-			$this->load->model('utilidad/Correo');
-			$this->load->model('utilidad/Semillero');
+			if(isset($_POST['url'] )){
+				$this->load->model('comun/Archivo', 'Archivo');
+				$this->load->model('utilidad/Correo');
+				$this->load->model('utilidad/Semillero');
+				print_r($_POST);
+				
+				$this->Archivo->salvar($_POST['url'], $_FILES, $_POST['codigo']);
+				
+				$this->Correo->para = $_SESSION['correo'];
+				$this->Correo->cuerpo = 'Hola, ' . $_SESSION['nombreRango'] . '.<br>
+					Usted ha realizado una solicitud por reembolso bajo el codigo 
+					' . $_POST['codigo'] . ' la cual sera procesada por nuestros analistas
+					<br><br>
+					IPSFA en linea Optimizando tu bienestar...';
+				$this->Correo->gerencia = 'Gerencia de Bienestar Social';
+				$this->Correo->titulo = $_SESSION['nombreRango'];
+				$this->Correo->enviar();
+				$this->load->model('saman/Solicitud');
+				$this->Solicitud->modificar($_POST['codigo'], 1); // Cambio General del Estatus del caso
 
-			$this->Archivo->salvar($_POST['url'], $_FILES, $_POST['codigo']);
-			$this->Correo->para = $_SESSION['correo'];
-			$this->Correo->cuerpo = 'Hola, ' . $_SESSION['nombreRango'] . '.<br>
-				Usted ha realizado una solicitud por reembolso bajo el codigo 
-				' . $_POST['codigo'] . ' la cual sera procesada por nuestros analistas
-				<br><br>
-				IPSFA en linea Optimizando tu bienestar...';
-			$this->Correo->gerencia = 'Gerencia de Bienestar Social';
-			$this->Correo->titulo = $_SESSION['nombreRango'];
-			$this->Correo->enviar();
-			$this->load->model('saman/Solicitud');
-			$this->Solicitud->modificar($_POST['codigo'], 1); // Cambio General del Estatus del caso
-			
-			$this->load->view ( 'bienestarsocial/principal');
+				$this->home();
+			}
 		}else{
 			$this->salir();
 			exit;
@@ -270,36 +278,44 @@ class BienestarSocial extends CI_Controller {
 		if(isset($_SESSION['cedula'])){
 			$this->load->model('comun/Archivo', 'Archivo');
 			$this->load->model('utilidad/Correo', 'Correo');
+			$this->load->model('utilidad/Semillero');
 			$this->load->model('saman/Solicitud');
-			$codigo = $this->generarCodigo('5','TRA');
+			$obs = 'TRA|' . $_POST['diagnostico'];
+			$codigo = $this->generarCodigo('5',$obs);
+			$valor = $this->Semillero->consultarTratamiento($codigo, $obs, 0);
+			if($valor == 0){
+				
+				$this->Archivo->salvar(3, $_FILES , $codigo);
+				$this->Correo->para = $_SESSION['correo'];
+				$this->Correo->cuerpo = 'Hola, ' . $_SESSION['nombreRango'] . '.<br>
+					Usted ha realizado una actulización de documentos para su tratamiento prolongado 
+					el cual sera procesado por nuestros analistas
+					<br><br>
+					IPSFA en linea Optimizando tu bienestar...';
+				$this->Correo->gerencia = 'Gerencia de Bienestar Social';
+				$this->Correo->titulo = $_SESSION['nombreRango'];
+
+				$this->Correo->enviar();
+
+
+
+				$arr = array(
+					'codigo' => $_SESSION['cedula'],
+					'numero' => $codigo,
+					'certi' => md5($_SESSION['cedula']), 
+					'detalle' => json_encode($_POST), //Esquema Json Opcional
+					'recipes' => $_POST['patologia'],
+					'fecha' => 'now()', 
+					'tipo' => 5, 
+					'estatus' => 1,
+					'fcita' => date('Y-m-j')
+				);
+				$obj = $this->Solicitud->crear($arr);
+				$this->Solicitud->modificar($codigo, 1);			
+			}
 			
-			$this->Archivo->salvar(3, $_FILES , $codigo);
-			$this->Correo->para = $_SESSION['correo'];
-			$this->Correo->cuerpo = 'Hola, ' . $_SESSION['nombreRango'] . '.<br>
-				Usted ha realizado una actulización de documentos para su tratamiento prolongado 
-				el cual sera procesado por nuestros analistas
-				<br><br>
-				IPSFA en linea Optimizando tu bienestar...';
-			$this->Correo->gerencia = 'Gerencia de Bienestar Social';
-			$this->Correo->titulo = $_SESSION['nombreRango'];
-			$this->Correo->enviar();
 
-
-
-			$arr = array(
-				'codigo' => $_SESSION['cedula'],
-				'numero' => $codigo,
-				'certi' => md5($_SESSION['cedula']), 
-				'detalle' => json_encode($_POST), //Esquema Json Opcional
-				'recipes' => $_POST['patologia'],
-				'fecha' => 'now()', 
-				'tipo' => 5, 
-				'estatus' => 1,
-				'fcita' => date('Y-m-j')
-			);
-			$obj = $this->Solicitud->crear($arr);
-
-			$this->load->view ( 'bienestarsocial/principal');
+			$this->home();
 		}else{
 			$this->salir();
 			exit;
@@ -323,6 +339,17 @@ class BienestarSocial extends CI_Controller {
 		}	
 	}
 
+		/**
+	 * Generar solicitud de medicamentos
+	 *
+	 * @access  public
+	 * @return html
+	 */
+	public function tratamientoSolicitud(){
+		$this->load->model('comun/Cita');	
+		$data['cita'] = $this->Cita->listar(5, $_SESSION['cedula']);
+		$this->load->view ( 'bienestarsocial/tratamiento', $data );
+	}
 
 
 	/**
@@ -395,6 +422,9 @@ class BienestarSocial extends CI_Controller {
 		$data['data'] = $this->Solicitud->listarMedicamentos($_SESSION['cedula']);
 		$this->load->view ( 'bienestarsocial/medicamentos', $data );
 	}
+
+
+
 
 
 
@@ -530,7 +560,7 @@ class BienestarSocial extends CI_Controller {
 				$this->load->model('saman/Concepto');
 				$this->load->model('utilidad/Semillero');	
 				$this->load->model('saman/Solicitud');
-				$this->Semillero->obtener($_POST['codigo'], $_SESSION['cedula'], $_POST['obs']);
+				$this->Semillero->obtener($_POST['codigo'], $_SESSION['cedula'], 'REM');
 				$valor = $this->Solicitud->consultar($this->Semillero->codigo);
 				
 				if($this->Semillero->estatus == 1 && $valor == 1){
@@ -600,7 +630,7 @@ class BienestarSocial extends CI_Controller {
 				$this->load->model('saman/Concepto');
 				$this->load->model('utilidad/Semillero');	
 				$this->load->model('saman/Solicitud');
-				$this->Semillero->obtener($_POST['codigo'], $_SESSION['cedula'], $_POST['obs']);
+				$this->Semillero->obtener($_POST['codigo'], $_SESSION['cedula'], 'APO');
 				$valor = $this->Solicitud->consultar($this->Semillero->codigo);
 				
 				if($this->Semillero->estatus == 1 && $valor == 1){

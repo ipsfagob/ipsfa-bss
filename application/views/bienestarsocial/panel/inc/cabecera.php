@@ -31,6 +31,8 @@
 .btns-smin:hover,.row .col{float:left;box-sizing:border-box;padding:0.4rem 0.4rem 0.4rem 0.4rem}
 
 
+
+
 .file-path-wrapper-pre-view{border:1px #e0e0e0 solid;width:80%;height:97px;float:left;margin-left:0.1em;background: url(../materializecss/ic_content_paste_white_24px.svg) no-repeat left top  #FBFBFB; color:#C4C4C4;box-sizing:border-box;clear:left}
 .file-path-wrapper-sopor{border:0px #009933 solid;width:80%;box-sizing:border-box;clear:left;float:left}  
 
@@ -49,9 +51,28 @@
 .btns-send{background: url(../materializecss/ic_playlist_add_check_white_24px.svg) #FFF no-repeat center}
 
 .mnu:hover{height:auto;width:100%;box-shadow: 0.1rem 0.1rem 0.2rem 0.1rem #CECECE;cursor:pointer}
-.input-field input[id="search"] {border-bottom: 0px solid #000;box-shadow: 0 0px 0 0 #000;}
-.input-field:hover input[id="search"] {border-bottom: 0px solid #000;box-shadow: 0 0px 0 0 #000;}
+.input-field input[id="search"] {
+ border-bottom: 0px ;
+ box-shadow: 0 0px 0 0 #000;
+}
+.input-field input[id="search"]:hover {
+ border-bottom: 0px;
+ box-shadow: 0 0px 0 0 #000;
+}
+.input-field input[id="search"]:focus {
+ border-bottom: 0px ;
+ box-shadow: 0 0px 0 0 #000;
+}
 
+.img-min{background:#fff;height:100px;width:100px;cursor:pointer;padding:10px;margin:0;box-sizing:border-box;border:0.1rem #e0e0e0 solid}
+
+.chart-legend li span{
+    display: inline-block;
+    padding: 10px;
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+}
   </style>
   
     </head>
@@ -70,19 +91,26 @@
 				<a href="#" data-activates="nav-mobile" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only" style="background-color:#00345A" id="menuprincipal"><i class="mdi-navigation-menu"></i></a>
 				
 								
-				<ul id="solicitudes1" class="dropdown-content " >				  			 
-				  <li><a href="<?php echo base_url(); ?>index.php/BienestarPanel/farmacia/me">
-						<font class="black-text" >Medicamentos</font><i class="mdi-maps-local-hospital left red-text "></i></a>
+				<ul id="reportes" class="dropdown-content " >
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarPanel/consulta">
+						<font class="black-text" >Consultar Codigo</font><i class="material-icons left green-text ">search</i></a>
 					</li>
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarPanel/farmacia/me">
+						<font class="black-text" >Notificar Afiliado</font><i class="material-icons left blue-text ">contact_mail</i></a>
+					</li>
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarPanel/farmacia/me">
+						<font class="black-text" >Configurar Solicitud</font><i class="material-icons left blue-text ">settings</i></a>
+					</li>			  			 
+				  	
 											
-					<li class="divider"></li>				
+					<li class="divider"></li>	
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarPanel/farmacia/me">
+						<font class="black-text" >Reembolsos y Apoyos</font><i class="material-icons left blue-text ">print</i></a>
+					</li>			
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarPanel
-					/solicitudes">
-						<font class="black-text" >Solicitudes</font><i class="mdi-action-alarm-add left blue-text text-darken-3"></i></a>							
-					</li>
-					<li><a href="<?php echo base_url(); ?>index.php/BienestarPanel/citas">
-					<font class="black-text" >Citas</font><i class="mdi-action-lock left blue-text text-darken-3">
-					</i></a></li>				
+					/citas">
+						<font class="black-text" >Citas Tratamientos</font><i class="mdi-action-alarm-add left blue-text text-darken-3"></i></a>							
+					</li>		
 					
 
 				</ul>
@@ -94,16 +122,7 @@
 					<i class="mdi-action-home left blue-text"></i></a></li>
 					
 					
-					<li><a href="<?php echo base_url(); ?>index.php/BienestarPanel/medicamentos">
-						Medicamentos<i class="mdi-maps-local-hospital left blue-text"></i></a>
-					</li>
-											
-					<li class="divider"></li>				
-					<li><a href="<?php echo base_url(); ?>index.php/BienestarPanel/solicitudes">
-						Solicitudes<i class="mdi-action-alarm-add left blue-text"></i></a>							
-					</li>
-					<li><a href="<?php echo base_url(); ?>index.php/BienestarPanel/tratamientos">
-					Citas<i class="mdi-action-lock left blue-text"></i></a></li>
+					
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarPanel/salir" class="tooltipped" data-position="top" data-delay="10" data-tooltip="Volver al menu">
 						Salir<i class="mdi-action-settings-power left red-text"></i> </a>
 					</li>
@@ -122,6 +141,12 @@
 					</li>
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarPanel/index" >
 						<i class="material-icons">notifications</i></a>
+					</li>
+					<li><a class="dropdown-panel" href="#!" data-activates="reportes">
+						<i class="material-icons">more_vert</i></a>
+					</li>
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarPanel/index" >
+						<i class="material-icons">settings_power</i></a>
 					</li>
 									
 				</ul>

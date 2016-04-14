@@ -60,8 +60,14 @@ class Solicitud extends CI_Model{
 	}
 
 	function listarMedicamentos($codigo = ''){
-		$sConsulta = "SELECT * FROM solicitud WHERE tipo=3 AND estatus=1";
-		if($codigo != '') $sConsulta = "SELECT * FROM solicitud WHERE tipo=3 AND estatus=1 AND codigo= '" . $codigo . "'";
+		$sConsulta = "SELECT solicitud.codigo AS cedula, * FROM solicitud 
+		LEFT JOIN archivo ON solicitud.numero=archivo.codigo
+		WHERE solicitud.tipo=3 AND solicitud.estatus=1";
+		if($codigo != '') {
+			$sConsulta = "SELECT * FROM solicitud 
+			LEFT JOIN archivo ON solicitud.numero=archivo.codigo
+			WHERE solicitud.tipo=3 AND solicitud.estatus=1 AND solicitud.codigo= '" . $codigo . "'";
+		}			
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		return $obj;
 	}
@@ -85,6 +91,40 @@ class Solicitud extends CI_Model{
 		return $valor;
 	}
 
+
+
+	/**
+	* Consultar Solicitud por Numero
+	* 
+	* @var string
+	* @access public
+	* @return object
+	*/
+	public function consultarCodigo($codigo = ''){
+		$valor = 0;
+		$sConsulta = 'SELECT * FROM solicitud INNER JOIN 
+		usuario ON solicitud.codigo=usuario.cedu
+		INNER JOIN semillero ON solicitud.numero=semillero.codigo
+		WHERE numero=\'' . $codigo . '\'';
+		$obj = $this->Dbipsfa->consultar($sConsulta);
+
+		return $obj;
+	}
+
+		/**
+	* Consultar Solicitud por Cedula del afiliado titular
+	* 
+	* @var string
+	* @access public
+	* @return object
+	*/
+	public function consultarCedula($codigo = ''){
+		$valor = 0;
+		$sConsulta = 'SELECT * FROM solicitud WHERE codigo=\'' . $codigo . '\'';
+		$obj = $this->Dbipsfa->consultar($sConsulta);
+
+		return $obj;
+	}
 
 	function exportarSAMAN(){
 

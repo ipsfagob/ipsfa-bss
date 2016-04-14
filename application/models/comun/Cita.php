@@ -49,7 +49,7 @@ class Cita extends CI_Model{
 
 	function generar(){
 		$this->load->model('utilidad/Semillero');
-		$this->Semillero->obtener(4, $_SESSION['cedula'], 'Cita');
+		$this->Semillero->obtener(4, $_SESSION['cedula'], 'CIT');
 		$this->load->model('saman/Solicitud');
 		$imagen = array(); //Listado de Imagenes Subidas
 		$fecha = $this->Solicitud->generarCitaTratamientoProlongado();
@@ -80,10 +80,15 @@ class Cita extends CI_Model{
 	* @param string
 	* @return Dbsaman
 	*/
-	function listar($tipo){
+	function listar($tipo,  $cedula = ''){
+		$sWhere = 'WHERE solicitud.tipo = ' . $tipo . ' AND solicitud.estatus = 1 ';
+		if($cedula != '') $sWhere = 'WHERE solicitud.tipo = ' . $tipo . ' AND solicitud.codigo = \'' . $cedula . '\'';
+
+		
 		$sConsulta = 'SELECT * FROM solicitud 
-		INNER JOIN usuario ON solicitud.codigo=usuario.cedu
-		WHERE solicitud.tipo = ' . $tipo . ' AND solicitud.estatus = 2';
+		INNER JOIN semillero ON solicitud.numero=semillero.codigo 
+		INNER JOIN usuario ON solicitud.codigo=usuario.cedu ' . $sWhere;
+
 		$obj = $this->Dbipsfa->Consultar($sConsulta);
 		return $obj;
 	}

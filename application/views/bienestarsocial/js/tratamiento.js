@@ -6,7 +6,7 @@ function solicitarCita(){
 }
 
 function adjuntar(){
-	$(location).attr('href', sUrlP + "adjuntarProlongado");listarKitDetalle
+	$(location).attr('href', sUrlP + "adjuntarProlongado");
 }
 
 /**
@@ -16,6 +16,7 @@ function adjuntar(){
 * @return mixed
 */
 function listarKitDetalle(){
+	$("#diagnostico").val($("#patologia option:selected").text());
 	$.getJSON(sUrlP + "listarKitDetalle/" + $("#patologia option:selected").val() , function(data) {
 		var cadena = '';
 		$(".collection-item").remove();

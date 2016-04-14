@@ -214,11 +214,14 @@ class Archivo extends CI_Model{
 				$sTipo = "ayuda";
 				break;
 			case 3:
-				$sTipo = "tratamiento";
+				$sTipo = "medicamento";
+				break;
+			case 4:
+				$sTipo = "cita";
 				break;
 			case 4:
 				$sTipo = "medicamento";
-				break;	
+				break;
 			default:
 				$sTipo = 'tratamiento';
 				break;

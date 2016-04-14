@@ -82,6 +82,28 @@ class Semillero extends CI_Model{
 		return $obj;
 	}
 
+		/**
+	* Consultar Solicitud por Numero
+	* 
+	* @var string
+	* @access public
+	* @return bool
+	*/
+	public function consultarTratamiento($codigo = '', $obs = '', $esta = 0){
+		$valor = 0;
+		$sConsulta = 'SELECT * FROM semillero 
+		INNER JOIN solicitud ON semillero.codigo=solicitud.numero
+		WHERE semillero.codigo=\'' . $codigo . '\' AND semillero.observacion=\'' . $obs . '\' 
+		AND semillero.estatus= ' . $esta . ';';
+		$obj = $this->Dbipsfa->consultar($sConsulta);
+		echo $sConsulta;
+		foreach ($obj->rs as $clave => $valor) {
+			$valor = 1;
+		}
+		return $valor;
+	}
+
+
 
 	private function generarConsultaSQL($sConsulta){
 		$obj = $this->Dbipsfa->consultar($sConsulta);

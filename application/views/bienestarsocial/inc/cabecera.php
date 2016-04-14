@@ -198,9 +198,9 @@
 	      <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/medicamentos" 
 	      		class="btn-floating blue tooltipped" data-position="top" data-delay="10" data-tooltip="Solicitud Medicamentos"><i class="mdi-editor-publish"></i></a>
 	      </li>
-	      <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/carro" 
-	      		class="btn-floating blue tooltipped" data-position="top" data-delay="10" data-tooltip="Pendientes Badan">
-	      		<i class="material-icons">shopping_cart</i></a>
+	      <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/tratamientoSolicitud" 
+	      		class="btn-floating blue tooltipped" data-position="top" data-delay="10" data-tooltip="Tratamientos Prolongado">
+	      		<i class="material-icons">toc</i></a>
 	      </li>
 	    </ul>
 	  </div>
