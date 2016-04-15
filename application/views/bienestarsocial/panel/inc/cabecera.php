@@ -77,7 +77,7 @@
   
     </head>
 
-    <body class=" white">
+    <body class="grey lighten-5">
 	<main>
 
 	<div class="navbar-fixed">

@@ -272,7 +272,14 @@ class BienestarPanel extends CI_Controller{
 		$this->load->model('saman/Solicitud');
 		$Solicitud = $this->Solicitud->consultarCodigo($cod);
 		echo json_encode($Solicitud->rs);
-	}	
+	}
+
+	function consultaGeneral(){
+		$this->load->model('saman/Solicitud');
+		$lst = $this->Solicitud->consultaGeneral($_GET);
+		//print_r($lst);
+		print(json_encode($lst->rs));
+	}
 
 	function __destruct(){
 

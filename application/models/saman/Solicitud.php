@@ -380,4 +380,22 @@ class Solicitud extends CI_Model{
 		return $exec;
 	}
 
+	/**
+	* Listar consultas
+	* 
+	* @var array | tipo, estatus, desde, hasta
+	* @access public
+	* @return object
+	*/
+	public function consultaGeneral($arr = array()){
+		$sConsulta = 'SELECT * FROM solicitud 
+		INNER JOIN usuario ON solicitud.codigo=usuario.cedu
+		WHERE solicitud.tipo=' . $arr['tipo'] . ' AND solicitud.estatus=' . $arr['estatus'] . ' AND 
+		solicitud.fcita BETWEEN \'' . $arr['desde'] . '\' AND \'' . $arr['hasta'] . '\'';
+		$obj = $this->Dbipsfa->consultar($sConsulta);
+		
+		return $obj;
+	}
+
+
 }
