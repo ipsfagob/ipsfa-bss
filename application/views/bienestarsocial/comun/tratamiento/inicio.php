@@ -4,9 +4,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 
 <script type="text/javascript"
   src="<?php echo base_url(); ?>application/views/bienestarsocial/js/tratamiento.js"></script>
-<br>
 
-<br><br>
 <div class="container .hide-on-small-only">
 
  

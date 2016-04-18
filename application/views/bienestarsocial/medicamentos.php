@@ -2,11 +2,25 @@
 $this->load->view("bienestarsocial/inc/cabecera.php");
 ?>
 
-<br>
+
 <div class="container">
 
-<?php //print_r($data->rs); ?>
-<h5>Solicitud de medicamentos</h5>
+	<div class="row">
+		<ul class="collection with-header">
+        	<li class="collection-header"><span class="titulo">Solicitud de Medicamentos Badan</span>
+        	<i class="material-icons blue-text right">help</i>
+        	</li>
+		</ul>
+	</div>
+
+<div class="row">
+	<div class="col s6 m2 l2"><i class="material-icons left amber-text text-darken-4">timer</i>Pendientes</div>
+	<div class="col s6 m2 l2"><i class="material-icons left amber-text text-darken-4">assignment_returned</i>Recibido IPSFA</div>
+	<div class="col s6 m2 l2"><i class="material-icons left green-text text-darken-4">done</i>Procesando</div>
+	<div class="col s6 m2 l2"><i class="material-icons left blue-text text-darken-4">done_all</i>Aceptado</div>
+	<div class="col s6 m2 l2"><i class="material-icons left purple-text text-darken-4">lock_open</i>Autorizado</div>
+	<div class="col s6 m2 l2"><i class="material-icons left red-text text-darken-4">cancel</i>Rechazado</div>
+</div>
 <ul class="collapsible"  data-collapsible="accordion">
 
 

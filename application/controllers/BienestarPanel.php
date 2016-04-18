@@ -281,6 +281,14 @@ class BienestarPanel extends CI_Controller{
 		print(json_encode($lst->rs));
 	}
 
+	function consultaEstadisticas(){
+		$this->load->model('saman/Solicitud');
+		//$arr = array('tipo' => 1, 'desde' => '2016/04/12', 'hasta' => '2016/04/15');
+		$lst = $this->Solicitud->estadisticasGeneral($_GET);
+		//print_r($lst);
+		print(json_encode($lst));
+	}
+
 	function __destruct(){
 
 	}

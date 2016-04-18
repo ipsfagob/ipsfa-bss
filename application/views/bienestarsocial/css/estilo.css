@@ -183,3 +183,6 @@ line-height: 50px;
  border-bottom: 0px ;
  box-shadow: 0 0px 0 0 #000;
 }
+
+.imagen-text-right{background:url(/ipsfa-bss/public/img/texts_active.svg) #696C68  no-repeat right;}
+.titulo{background:#fff;height:auto;width:100%;cursor:pointer;padding:5px;margin:0;color:#003E82;font-size: 16px}

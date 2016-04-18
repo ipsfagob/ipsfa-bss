@@ -5,15 +5,16 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
 <script type="text/javascript"
 	src="<?php echo base_url(); ?>application/views/bienestarsocial/js/sidrofan.js"></script>
 
-<br>
 <div class="container">
-<div class="row">
-  
-  <div class="col s12">
-    <h5>Consultar Medicamentos</h5>
-  </div>
 
-</div>
+  <div class="row">
+      <ul class="collection with-header">
+            <li class="collection-header"><span class="titulo">Consultar Medicamentos</span>
+            <i class="material-icons blue-text right">help</i>
+            </li>
+      </ul>
+  </div> 
+
 <div class="row">
 
 	<div class="col s12 ">
@@ -38,7 +39,7 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
         </div>
 
 
-<ul class="collection" >
+<ul class="collection" id="consulta">
 
 
 </ul>

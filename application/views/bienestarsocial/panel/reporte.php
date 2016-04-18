@@ -5,9 +5,15 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
 
 <br>
 <div class="container">
-
 	<div class="row">
-
+		<ul class="collection with-header">
+        	<li class="collection-header"><span class="titulo">Reportes Generales</span>
+        	<i class="material-icons blue-text right">help</i>
+        	</li>
+		</ul>
+	</div>
+	<div class="row white">
+		<br>
 		<div class="input-field col s6 l3 m3">
 			<select id="modulo" onchnge="">
 				<option value="1">Reembolsos</option>
@@ -21,9 +27,9 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
 			<select  id="estatus" onchnge="">
 				<option value="0" disabled>Selección</option>
 				<option value="1">Recibidos IPSFA</option>
-				<option value="2">En Proceso</option>
+				<option value="2">Procesando</option>
 				<option value="3">Aceptados</option>
-				<option value="4">En Finanzas</option>
+				<option value="4">Finanzas</option>
 
 			</select>
 			<label for="estatus">Seleccione el Estatus</label>
@@ -31,11 +37,11 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
 		</div>
 
 		<div class="input-field col s6 l3 m3">
-			<input id="desde" name="fecha" type="date" class="datepicker blue-ipsfa" required>
+			<input id="desde" name="fecha" type="date" class="datepicker blue-ipsfa imagen-text-right" required>
 	        <label for="desde">Desde</label>		
 		</div>
 		<div class="input-field col s6 l3 m3">
-			<input id="hasta" name="fecha" type="date" class="datepicker blue-ipsfa" required>
+			<input id="hasta" name="fecha" type="date" class="datepicker blue-ipsfa imagen-text-right" required>
 	        <label for="hasta">Hasta</label>
 		</div>
 
@@ -51,20 +57,27 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
 		</div>
 	</div>
 
-	<div class="row white">
-		<div class="row">			
-			<div class="col s12 l8 m8" id="estadistica">
-				
-			</div>
-			<div class="col s12 l4 m4">
-				<div id="js-legend" class="chart-legend"></div>	
-			</div>			
-		</div>
-		<div class="row">			
-			<div class="col s12 l12 m12" id="reporte"></div>
-		</div>
+	<div class="row white" id="imprimir">
+		<div class="col s12 l12 m12">
+			<div class="row">
+					<div class="col s12 l2 m2"></div>		
 
-			
+					<div class="col s12 l8 m8 center-align">
+						<div id="legend" class="menu"></div>
+						<div id="estadistica"></div>
+						
+					</div>
+
+					<div class="col s12 l2 m2"></div>
+			</div>
+			<div class="row">
+				<div class="col s12 l1 m1"></div>
+				<div class="col s12 l10 m10">
+					<div id="reporte"></div>
+				</div>
+				<div class="col s12 l1 m1"></div>
+			</div>
+		</div>
 	</div>
 </div>
 

@@ -17,7 +17,7 @@ function listarProductos(val) {
 			$.each(data, function(key, val) {
 				cadena = '<li class="collection-item avatar"><span class="email-title"><b>' + val.nomb + 
 				'</b><br><font color="#00345A">UBICACION DROGUERIA / FARMACIA</font><BR>EXISTENCIA: AGOTADA';
-				$(".collection").append(cadena);
+				$("#consulta").append(cadena);
 			});
 		}
 		

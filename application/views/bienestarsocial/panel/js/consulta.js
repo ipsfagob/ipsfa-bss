@@ -51,7 +51,7 @@ function tipo(id){
 			caso += 'CITA PARA TRATAMIENTO PROLONGADO';
 			break;
 		case '5': 
-			caso += 'ACTULIZACION DE EXPEDIENTES POR TRATAMIENTO PROLONGADO';
+			caso += 'ACTUALIZACION DE EXPEDIENTES POR TRATAMIENTO PROLONGADO';
 			break;
 		default:
 			break;

@@ -397,5 +397,104 @@ class Solicitud extends CI_Model{
 		return $obj;
 	}
 
+	/**
+	* Listar estadisticas
+	* 
+	* @var array | tipo, estatus, desde, hasta
+	* @access public
+	* @return object
+	*/
+	public function estadisticasGeneral( $arr = array()){
+		$est = array();
+		$sConsulta = 'SELECT count(numero) AS cant, estatus FROM solicitud 
+		WHERE solicitud.tipo=' . $arr['tipo'] . ' AND 
+		solicitud.fcita BETWEEN \'' . $arr['desde'] . '\' AND \'' . $arr['hasta'] . '\' GROUP BY estatus ORDER BY estatus';
+		$obj = $this->Dbipsfa->consultar($sConsulta);
+		
+		if($obj->cant != 0){
+			foreach ($obj->rs as $k=> $v) {
+				$estatus = $this->_obtenerEstatus($v->estatus);
+				$est[] = array('value' => $v->cant,  'color' => $estatus['col'], 'label' => $estatus['des'], 'icon' => '');  
+			}
+		}
 
+		return $est;
+	}
+
+	function _obtenerTipos($id){
+		$res['des']  = 'Creando';
+		$res['col'] =  "#CECECE";
+		switch ($id) {
+			case 0:
+				$res['des'] = 'Creando';
+				$res['col'] =  "#F7464A";
+				break;
+			case 1:
+				$res['des'] = 'Reembolsos';
+				$res['col'] =  "#46BFBD";
+				break;
+			case 2:
+				$res['des'] = 'Ayudas';
+				$res['col'] =  "#FDB45C";
+				break;
+			case 3:
+				$res['des'] = 'Medicamentos';
+				$res['col'] =   "#949FB1";
+				break;
+			case 4:
+				$res['des'] = 'Citas';
+				$res['col'] =  "#4D5360";
+				break;
+			case 5:
+				$res['des'] = 'Tratamientos';
+				$res['col'] =  "#4a148c";
+				break;
+			case 6:
+				$res['des'] = 'Carta Aval';
+				$res['col'] =  "#33691e";
+				break;
+			default:
+				$res['des'] = 'Pendientes';
+				$res['col'] =  "#CECECE";			
+				break;
+		}
+		return $res;
+	}
+
+	function _obtenerEstatus($id){
+		$res['des'] = 'Pendientes';
+		$res['col'] =  "#CECECE";
+		switch ($id) {
+			case 0:
+				$res['des'] = 'Pendientes';
+				$res['col'] =  "#F7464A";
+				break;
+			case 1:
+				$res['des'] = 'Creado';
+				$res['col'] =  "#46BFBD";
+				break;
+			case 2:
+				$res['des'] = 'Procesando';
+				$res['col'] =  "#FDB45C";
+				break;
+			case 3:
+				$res['des'] = 'Aceptado';
+				$res['col'] =   "#949FB1";
+				break;
+			case 4:
+				$res['des'] = 'Pagando';
+				$res['col'] =  "#4D5360";
+				break;
+			case 5:
+				$res['des'] = 'Pagado';
+				$res['col'] =  "#4a148c";
+				break;
+
+			default:
+				$res['des'] = 'Pendientes';
+				$res['col'] =  "#CECECE";			
+				break;
+		}
+		return $res;
+	}
 }

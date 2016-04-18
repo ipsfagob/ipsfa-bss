@@ -6,9 +6,6 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
   src="<?php echo base_url(); ?>application/views/bienestarsocial/js/tratamiento.js"></script>
 
 <div class="container">
-
-
-        
         <h5>Nota:</h5>
         <div class="row">
           <div class="col s12 card-panel blue lighten-2">

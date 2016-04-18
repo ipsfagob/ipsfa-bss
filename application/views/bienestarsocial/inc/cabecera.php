@@ -16,7 +16,7 @@
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     </head>
 
-    <body class="grey lighten-5">
+    <body class="grey lighten-3">
 	<main>
 
 	<div class="navbar-fixed">

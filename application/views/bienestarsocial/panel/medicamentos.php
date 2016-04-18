@@ -5,8 +5,13 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
 <br>
 <div class="container">
 
-<?php //print_r($data->rs); ?>
-<h5>Solicitud de medicamentos</h5>
+<div class="row">
+	<ul class="collection with-header">
+    	<li class="collection-header"><span class="titulo">Solicitud de Medicamentos Badan</span>
+    	<i class="material-icons blue-text right">help</i>
+    	</li>
+	</ul>
+</div>
 <ul class="collapsible"  data-collapsible="accordion">
 
 
@@ -31,7 +36,7 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
 	      	<input type="hidden" value="' . $v->numero . '" id="nomb' . $v->numero . '">
 	      	</a>
 	      	
-		      ' . substr($v->fecha,0,10 ). ' ( <b><font color="green">' . $v->numero . '</font></b> ) POR CEDULA 
+		      CODIGO <b><font color="green">' . $v->numero . '</font></b> CEDULA 
 		      ( <b><font color="green">' . $v->cedula . '</font></b> )
 		      <a href="' . base_url() . 'index.php/bienestarsocial/panel/adjuntos/' . $v->numero . '">' . $icon . '</a>
 		    </div>
@@ -58,8 +63,35 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
 
   ?>
 </ul>
-<br>
 </div>
+
+
+
+  <!-- Modal Structure -->
+ 
+
+
+   <div id="modal1" class="card modal modal-fixed-footer" style="width: 560px">
+    <div class="card-image waves-effect waves-block waves-light green center-align" style="height: 160px">
+    	<br>
+    	<i class="material-icons md-128 white-text">contact_mail</i>
+    </div>
+    <div class="card-content">
+       <div class="input-field col s12">
+       		<input id="mail" type="text"></input>
+       		<label for="mail">Correo Electronico</label>
+       </div>
+       <div class="input-field col s12">
+          <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+          <label for="icon_prefix2">Introduzca el contenido</label>
+        </div>
+
+    </div>
+	<div class="card-action">
+        <a href="#" class="right green-text waves-effect waves-block waves-light"> <i class="material-icons left green-text">done_all</i>Notificar</a>
+        <a href="#" class="right red-text waves-effect waves-block waves-light"> <i class="material-icons left red-text">cancel</i>Cancelar</a>
+    </div>    
+  </div>
 
 <?php 
 $this->load->view("bienestarsocial/panel/inc/pie.php");
