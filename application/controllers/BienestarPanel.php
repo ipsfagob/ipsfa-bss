@@ -289,6 +289,20 @@ class BienestarPanel extends CI_Controller{
 		print(json_encode($lst));
 	}
 
+	function notificarBadan(){
+		$this->load->model('utilidad/Correo');
+		$this->Correo->para = $_GET['correo'];
+		$this->Correo->cuerpo = 'HOLA, ' . $_GET['nombre'] . '.<br> 
+				SU SOLICITU BAJO EL CODIGO ' . $_GET['codigo'] . ' HA SIDO ' . $_GET['tipo'] . '<br><br>
+				OBSERVACIONES: <BR> ' . $_GET['contenido'] . '<br><br>
+				IPSFA EN LINEA OPTIMIZANDO SU BIENESTAR...';
+		$this->Correo->gerencia = 'Gerencia de Bienestar Social';
+		$this->Correo->titulo = $_GET['nombre'];
+		$this->Correo->enviar();
+		echo json_encode("Correo enviado");
+
+	}
+
 	function __destruct(){
 
 	}

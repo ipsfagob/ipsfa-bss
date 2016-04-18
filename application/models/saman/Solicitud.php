@@ -62,10 +62,12 @@ class Solicitud extends CI_Model{
 	function listarMedicamentos($codigo = ''){
 		$sConsulta = "SELECT solicitud.codigo AS cedula, * FROM solicitud 
 		LEFT JOIN archivo ON solicitud.numero=archivo.codigo
+		INNER JOIN usuario ON solicitud.codigo = usuario.cedu
 		WHERE solicitud.tipo=3 AND solicitud.estatus=1";
 		if($codigo != '') {
 			$sConsulta = "SELECT * FROM solicitud 
 			LEFT JOIN archivo ON solicitud.numero=archivo.codigo
+			INNER JOIN usuario ON solicitud.codigo = usuario.cedu
 			WHERE solicitud.tipo=3 AND solicitud.estatus=1 AND solicitud.codigo= '" . $codigo . "'";
 		}			
 		$obj = $this->Dbipsfa->consultar($sConsulta);

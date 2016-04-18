@@ -9,7 +9,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 <h5>Estatus del Tratamiento Prolongado </h5>
 <div class="row">
 	<div class="col s6 m3 l3"><i class="material-icons left amber-text text-darken-4">assignment_returned</i>Recibido IPSFA</div>
-	<div class="col s6 m3 l3"><i class="material-icons left green-text text-darken-4">done</i>Procesando</div>
+	<div class="col s6 m3 l3"><i class="material-icons left green-text text-darken-4">settings</i>Procesando</div>
 	<div class="col s6 m3 l3"><i class="material-icons left blue-text text-darken-4">done_all</i>Aceptado</div>
 	<div class="col s6 m3 l3"><i class="material-icons left red-text text-darken-4">cancel</i>Rechazado</div>
 </div>
@@ -53,8 +53,8 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 				$msj .= '<i class="material-icons right amber-text text-darken-4 hide-on-small-only">assignment_returned</i>';
 				break;
 			case 2:
-				$msj = '<i class="material-icons left green-text text-darken-4 hide-on-large-only">done</i>';
-				$msj .= '<i class="material-icons right green-text text-darken-4 hide-on-small-only">done</i>';
+				$msj = '<i class="material-icons left green-text text-darken-4 hide-on-large-only">settings</i>';
+				$msj .= '<i class="material-icons right green-text text-darken-4 hide-on-small-only">settings</i>';
 				break;
 			case 3:
 				$msj = '<i class="material-icons left blue-text text-darken-4 hide-on-large-only">done_all</i>';

@@ -11,6 +11,17 @@
 
     $(document).ready(function(){
 
+    	$("input").keyup( function() {
+	        var value = $(this).val();
+	        $(this).val(value.toUpperCase());
+	    });
+	    $("textarea").keyup( function() {
+	        var pos_act = $(this).scrollTop();
+	        var value = $(this).val();
+	        $(this).val(value.toUpperCase());
+	        $(this).scrollTop(pos_act);
+	    });
+
     	$('.tooltipped').tooltip({delay: 10});
 		$('.materialboxed').materialbox();
   		$('select').material_select();  
