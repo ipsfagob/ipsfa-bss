@@ -86,6 +86,31 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
     </form>
   </div>
  </div>
+
+<div id="msg" class="card modal modal-fixed-footer" style="width: 400px; height: 400px">
+    <div  class="card-image waves-effect waves-block waves-light orange center-align" style="height: 160px">
+      <i class="material-icons md-128 orange-text text-lighten-2">restore</i><br>
+      <span id="titulos" class="white-text">Enviando Información por favor espere</span>
+    </div>
+    <div class="card-content center-align">
+    <div class="preloader-wrapper big active">
+        <div class="spinner-layer spinner-blue-only">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+    </div>
+    <br><br><br>
+    </div>
+  <div class="card-action">
+        Procesando...
+    </div>    
+  </div>
+ 
 <?php 
 $this->load->view("bienestarsocial/inc/pie.php");
 ?>

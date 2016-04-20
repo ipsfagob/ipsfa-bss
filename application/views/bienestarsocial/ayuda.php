@@ -6,10 +6,15 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 <h5>Reembolsos y Ayudas Solicitadas</h5>
 
 <div class="row">
+	<!--
+		<div class="col s6 m3 l3"><i class="material-icons left amber-text text-darken-4">timer</i>Pendiente</div>
+		<div class="col s6 m3 l3"><i class="material-icons left blue-text">description</i>Expediente Digital</div>
+	-->
 	<div class="col s6 m3 l3"><i class="material-icons left amber-text text-darken-4">assignment_returned</i>Recibido IPSFA</div>
 	<div class="col s6 m3 l3"><i class="material-icons left green-text text-darken-4">settings</i>Procesando</div>
 	<div class="col s6 m3 l3"><i class="material-icons left blue-text text-darken-4">done_all</i>Aceptado</div>
 	<div class="col s6 m3 l3"><i class="material-icons left red-text text-darken-4">cancel</i>Rechazado</div>
+
 </div>
 <ul class="collapsible"  data-collapsible="accordion">
 

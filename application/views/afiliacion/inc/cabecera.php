@@ -15,7 +15,7 @@
       
     </head>
 
-    <body>
+    <body class="white">
 	<main>
 	<div class="navbar-fixed">
 		<nav>

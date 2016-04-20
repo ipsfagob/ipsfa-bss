@@ -120,7 +120,7 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
 		      </div>
 		    </div>
 	 	</div>
-	 	<br><br>
+	 	<br><br><br>
     </div>
 	<div class="card-action">
         Procesando...

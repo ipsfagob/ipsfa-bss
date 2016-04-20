@@ -149,7 +149,8 @@ class Solicitud extends CI_Model{
 		$sConsulta = 'SELECT * FROM ci_reembolso_solic 
 		INNER JOIN ci_reembolso_tipo ON ci_reembolso_solic.reembtipocod=ci_reembolso_tipo.reembtipocod
 		INNER JOIN canal_liquidacion ON ci_reembolso_solic.canalliquidcod=canal_liquidacion.canalliquidcod
-		WHERE nropersonaafilmil = ' . $Militar->Persona->oid . ' ORDER BY reembfchsolicitud DESC';
+		WHERE nropersonaafilmil = ' . $Militar->Persona->oid . ' AND ci_reembolso_solic.reembfchsolicitud > \'2016/05/05\' ORDER BY reembfchsolicitud DESC';
+		//echo $sConsulta;
 		$obj = $this->Dbsaman->consultar($sConsulta);		
 		if($obj->code == 0){
 			foreach ($obj->rs as $key => $val) {

@@ -40,3 +40,7 @@ function listarKitDetalle(){
 		alert(jqXHR.responseText);
 	});
 }
+
+function cargando(){
+	$('#msg').openModal();
+}

@@ -93,6 +93,26 @@ class Cita extends CI_Model{
 		return $obj;
 	}
 
+		/**
+	* Consultar Caso en medicamentos prolongados
+	*
+	* @access public
+	* @param string
+	* @return Dbsaman
+	*/
+	function listarPanel($tipo,  $cedula = ''){
+		$sWhere = 'WHERE solicitud.tipo = ' . $tipo . ' AND solicitud.estatus IN (1,2) ';
+		if($cedula != '') $sWhere = 'WHERE solicitud.tipo = ' . $tipo . ' AND solicitud.codigo = \'' . $cedula . '\'';
+
+		
+		$sConsulta = 'SELECT * FROM solicitud 
+		INNER JOIN semillero ON solicitud.numero=semillero.codigo 
+		INNER JOIN usuario ON solicitud.codigo=usuario.cedu ' . $sWhere;
+
+		$obj = $this->Dbipsfa->Consultar($sConsulta);
+		return $obj;
+	}
+
 
 	
 	/**

@@ -24,7 +24,8 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 
         echo "<ol>";
         foreach ($data->rs as $k => $v) {
-          echo "<li>" . $v->nombre . " Y <b>VENCE</b> EL " . $v->vencimiento . "</li>";
+          $fecha = explode('/', $v->vencimiento);
+          echo "<li>" . $v->nombre . " Y <b>VENCE</b> EL " . $fecha[2] . "/" . $fecha[1]  . "/" . $fecha[0]  . "</li>";
         }
         echo "</ol>";
         echo "<h5>Nota: </h5>";

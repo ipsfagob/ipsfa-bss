@@ -117,7 +117,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 
       <?php 
 
-        $menu = '<div class="col s12 m4 l4">
+        $menu = '<div class="col s12 m4 l4" style="display:visibility">
         <div class="btns-smin">
           <div class="btns-sminf small">Carta Aval</div>
           <div class="btns-sminh  dropdown-button" >

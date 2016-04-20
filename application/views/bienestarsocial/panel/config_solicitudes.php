@@ -49,7 +49,7 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
 			            <option value="SU SOLICITUD PRESENTA ERROR EN LOS DOCUMENTOS">SU SOLICITUD PRESENTA ERROR EN LOS DOCUMENTOS</option>
 			            <option value="SU SOLICITUD HA SIDO RECHAZADA (LOS DOCUMENTOS NO SON LEGIBLES)">SU SOLICITUD HA SIDO RECHAZADA (LOS DOCUMENTOS NO SON LEGIBLES)</option>
 			          </select>
-			          <label style="color:#000">OBSERVACIONES PRE-CARGADAS</label>
+			          <label style="color:#000">RESPUESTAS</label>
 			        </div>
 
 

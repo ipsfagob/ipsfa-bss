@@ -50,7 +50,7 @@ class BienestarPanel extends CI_Controller{
 	 */
 	public function tratamiento(){
 		$this->load->model('comun/Cita');	
-		$data['cita'] = $this->Cita->listar(5);
+		$data['cita'] = $this->Cita->listarPanel(5);
 		$this->load->view ( 'bienestarsocial/panel/tratamiento', $data );
 	}
 

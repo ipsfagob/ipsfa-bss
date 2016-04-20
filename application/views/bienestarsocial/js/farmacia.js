@@ -92,7 +92,7 @@ function Salvar(){
 	data.append('recipe',file);
 	data.append('observa', $("#Observa").val());
 	
-
+	$('#msg').openModal();
 	$.ajax({
 		url:sUrlP + "SalvarSolicitudMedicamentos/",
 		type:'POST',
@@ -101,7 +101,7 @@ function Salvar(){
 		processData:false,
 		cache : false,
 		success : function(res){
-               Materialize.toast('Su solicitud se atendera a la brevedad', 3000, 'rounded');
+               Materialize.toast('Su solicitud se atendera a la brevedad', 3000);
 
                $(location).attr('href', sUrlP + "index");
             } 

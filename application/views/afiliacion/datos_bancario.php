@@ -14,17 +14,17 @@ $this->load->view("afiliacion/inc/cabecera.php");
       <li class="divider"></li>
      <div class="row">
       <div class="input-field col s12 m6 l6">
-          <input  disabled  id="banco" type="text" class="validate" value="<?php echo $Militar->Persona->banco?>">
+          <input  disabled  id="banco" type="text" class="validate  imagen-text-right" value="<?php echo $Militar->Persona->banco?>">
           <label for="canco">Banco</label>
         </div>
         
         <div class="input-field col s6 m6 l6">
-          <input  disabled id="cuenta" type="text" class="validate" value="<?php echo $Militar->Persona->cuenta?>">
+          <input  disabled id="cuenta" type="text" class="validate  imagen-text-right" value="<?php echo $Militar->Persona->cuenta?>">
           <label for="cuenta">Cuenta Bancaria</label>
         </div>
 
         <div class="input-field col s6">
-          <input  disabled  id="cuenta" type="text" class="validate" value="<?php echo $Militar->Persona->obtenerTipoCuenta()?>">
+          <input  disabled  id="cuenta" type="text" class="validate  imagen-text-right" value="<?php echo $Militar->Persona->obtenerTipoCuenta()?>">
           <label for=" disabled">Tipo de Cuenta</label>
         </div>
         

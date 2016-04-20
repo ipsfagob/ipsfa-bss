@@ -3,8 +3,8 @@ $this->load->view("afiliacion/inc/cabecera.php");
 ?>
 <script type="text/javascript"
   src="<?php echo base_url(); ?>application/views/afiliacion/js/datos.js"></script>
-<br><br>
-<div class="container .hide-on-small-only">
+
+<div class="container white">
   <h5>Bienvenidos al sistema de datos personales</h5>
   <div class="divider"></div>
   
@@ -20,12 +20,12 @@ $this->load->view("afiliacion/inc/cabecera.php");
   
  <div class="row">
 	 	<div class="input-field col s12 m6 l6">
-          <input disabled id="cedula" type="text" class="validate" 
+          <input disabled id="cedula" type="text" class="validate  imagen-text-right" 
             value="<?php echo $Militar->Persona->nacionalidad . '-' . $Militar->Persona->cedula?>">
           <label for="disabled">Documento de Identidad</label>
         </div>
     <div class="input-field col s12  m6 l6">
-          <input  disabled  id="edocivil" type="text" class="validate" value="<?php echo $Militar->Persona->estadoCivil;?>">
+          <input  disabled  id="edocivil" type="text" class="validate  imagen-text-right" value="<?php echo $Militar->Persona->estadoCivil;?>">
           <label for=" disabled">Estado Civil</label>
         </div>
 
@@ -33,30 +33,30 @@ $this->load->view("afiliacion/inc/cabecera.php");
     <form class="col s12">
       <div class="row">
       <div class="input-field col s6">
-          <input  disabled  id="componente" type="text" class="validate" value="<?php echo $Militar->Componente->nombre?>">
+          <input  disabled  id="componente" type="text" class="validate  imagen-text-right" value="<?php echo $Militar->Componente->nombre?>">
           <label>Componente</label>
         </div>
         
         <div class="input-field col s6">
-          <input  disabled id="grado" type="text" class="validate" value="<?php echo $Militar->Componente->rango?>">
+          <input  disabled id="grado" type="text" class="validate  imagen-text-right" value="<?php echo $Militar->Componente->rango?>">
           <label>Grado</label>
         </div>
      </div>
 
      <div class="row">
      	<div class="input-field col s6">
-          <input  disabled  id="first_name" type="text" class="validate" value="<?php echo $Militar->Persona->nombreCompleto()?>">
+          <input  disabled  id="first_name" type="text" class="validate  imagen-text-right" value="<?php echo $Militar->Persona->nombreCompleto()?>">
           <label for=" disabled">Nombres</label>
         </div>
         
         <div class="input-field col s6">
-          <input  disabled id="last_name" type="text" class="validate" value="<?php echo $Militar->Persona->apellidoCompleto()?>">
+          <input  disabled id="last_name" type="text" class="validate  imagen-text-right" value="<?php echo $Militar->Persona->apellidoCompleto()?>">
           <label for=" disabled ">Apellidos</label>
         </div>
      </div>
       <div class="row">
       <div class="input-field col s6">
-          <input  disabled  id="fechaNacimiento" class="validate" type="text" value="<?php echo $Militar->Persona->fechaNacimiento?>">
+          <input  disabled  id="fechaNacimiento" class="validate  imagen-text-right" type="text" value="<?php echo $Militar->Persona->fechaNacimiento?>">
           <label for="disabled">Fecha de Nacimiento</label>
         </div>
         
