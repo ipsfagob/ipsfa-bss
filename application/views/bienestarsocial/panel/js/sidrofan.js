@@ -7,7 +7,7 @@ function listarProductos1(val) {
 *<a href="javascript:Modal(\'' + val.obse + '\',\'' + val.nomb + '\',\'' + val.imag +	'\',\'' + val.oid + '\');"' +
 			'class="secondary-content btn-floating btn-small waves-effect waves-light modal-trigger" style="background-color:#00345A"><i class="mdi-action-add-shopping-cart"></i></a>
 */
-function listarProductos(val) {
+function consultar(val) {
 	$.getJSON(sUrlP + "listarMedicamentosSidroFan/" + val, function(data) {
 		var cadena = '';
 		$(".collection-item").remove();

@@ -18,6 +18,8 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
 				<option value="1">Reembolsos</option>
 				<option value="2">Ayudas</option>
 				<option value="3">Medicamentos</option>
+				<option value="4">Citas</option>
+				<option value="5">Tratamientos</option>
 			</select>
 			<label for="modulo">Seleccionar Modulo</label>
 			
