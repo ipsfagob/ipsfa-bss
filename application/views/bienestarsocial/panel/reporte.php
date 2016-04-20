@@ -3,7 +3,6 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
 ?>
 
 
-<br>
 <div class="container">
 	<div class="row">
 		<ul class="collection with-header">

@@ -35,7 +35,7 @@
           <label for="concepto">Seleccione un concepto</label>
      </div>
      <div class="input-field col s9 m2 l2">
-            <input id="monto" type="text" class="validate" value="0,00" placeholder="Introduzca un Monto"
+            <input id="monto" type="text" class="validate imagen-text-right" value="0,00" placeholder="Introduzca un Monto"
                maxlength="13" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
 
           <label for="monto">Monto Solicitado</label>

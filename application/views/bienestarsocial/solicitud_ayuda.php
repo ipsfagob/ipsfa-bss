@@ -56,8 +56,8 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
         }       
       ?>
      
-      <input type="hidden" value="<?php echo $codigo;?>" name="codigo">
-      <input type="hidden" value="<?php echo $url;?>" name="url">
+      <input type="hidden" value="<?php echo $codigo;?>" name="codigo" id="codigo">
+      <input type="hidden" value="<?php echo $url;?>" name="url" id="url">
       <div class="row">
         <div class="col s12">
           <button class="btn-large waves-effect waves-light" style="background-color:#00345A"  

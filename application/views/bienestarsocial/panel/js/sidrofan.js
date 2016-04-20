@@ -12,7 +12,7 @@ function listarProductos(val) {
 		var cadena = '';
 		$(".collection-item").remove();
 		if(data == ""){
-			Materialize.toast("Disculpe el medicamento seleccionado no se encuentra disponible", 5000, 'rounded');
+			Materialize.toast("Disculpe el medicamento seleccionado no se encuentra disponible", 5000);
 		}else{
 			$.each(data, function(key, val) {
 				cadena = '<li class="collection-item avatar "><span class="email-title"><b>' + val.nomb + 

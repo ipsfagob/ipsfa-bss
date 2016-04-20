@@ -3,7 +3,7 @@
   ?>
 
   <br><br>
-  <div class="container .hide-on-small-only">
+  <div class="container ">
 
   <h5>Reembolso (<?php echo $Codigo?>)</h5>
 

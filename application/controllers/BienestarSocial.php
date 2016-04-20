@@ -247,7 +247,7 @@ class BienestarSocial extends CI_Controller {
 				$this->load->model('comun/Archivo', 'Archivo');
 				$this->load->model('utilidad/Correo');
 				$this->load->model('utilidad/Semillero');
-				print_r($_POST);
+				
 				
 				$this->Archivo->salvar($_POST['url'], $_FILES, $_POST['codigo']);
 				

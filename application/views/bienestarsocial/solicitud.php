@@ -6,7 +6,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 <script type="text/javascript"
   src="<?php echo base_url(); ?>application/views/bienestarsocial/js/solicitud.js"></script>
 <?php //echo $codigo?>
-<div class="container .hide-on-small-only">
+<div class="container">
 	
 <div class="row">
         <h5>Notas Por Reembolso (<?php echo $codigo;?>): </h5><div class="divider"></div>
@@ -29,7 +29,8 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 
     <div class="row white">
     <form class="col s12" action="<?php echo base_url();?>index.php/BienestarSocial/subirArchivos"  method="post" enctype="multipart/form-data">
-      
+      <input type="hidden" value="<?php echo $codigo;?>" name="codigo" id="codigo">
+      <input type="hidden" value="<?php echo $url;?>" name="url" id="url">
       <?php
         foreach ($data as $clave => $valor) {
           $i =0;
@@ -73,8 +74,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
         }       
       ?>
      
-      <input type="hidden" value="<?php echo $codigo;?>" name="codigo">
-      <input type="hidden" value="<?php echo $url;?>" name="url">
+      
       <div class="row">
       	<div class="col s12">
     			<button class="btn-large waves-effect waves-light" style="background-color:#00345A"  

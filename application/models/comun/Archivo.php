@@ -230,13 +230,18 @@ class Archivo extends CI_Model{
 	}
 
 	function listarDocumentos($codigo){
-		$sConsulta = 'SELECT numero, solicitud.tipo, coddoc, archivo.oid, archivo.nombre AS archivo, tdocumento.nombre AS doc FROM solicitud 
+		$sConsulta = 'SELECT numero, solicitud.tipo, coddoc, archivo.oid, archivo.nombre AS archivo,  archivo.fecha, tdocumento.nombre AS doc FROM solicitud 
 		INNER JOIN archivo ON solicitud.numero=archivo.codigo 
 		INNER JOIN tdocumento ON tdocumento.oid=archivo.coddoc
 		WHERE solicitud.numero=\'' . $codigo . '\'';
 		$obj = $this->Dbipsfa->consultar($sConsulta);
+		return $obj;		
+	}
+
+	function modificar($arr){
+		$sConsulta = 'UPDATE archivo SET fecha=\'' . $arr['fecha'] . '\', coddoc=\'' . $arr['coddoc'] . '\'  WHERE oid =' . $arr['oid'];
+		$obj = $this->Dbipsfa->consultar($sConsulta);
 		return $obj;
-		
 	}
 
 	

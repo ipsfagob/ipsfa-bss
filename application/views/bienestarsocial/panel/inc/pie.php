@@ -89,7 +89,7 @@
 		$("#search").keypress(function(event) {
     		if (event.which == 13) {
     			
-    			consultar($("#search").val());
+    			listarProductos($("#search").val());
     			$("#search").val('');
     		}
     	  });

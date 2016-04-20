@@ -20,7 +20,7 @@ function agregarR(){
 	if($('#monto').val() == "0,00" || concepto == "0"){				
 		Materialize.toast("Debe introducir un monto o seleccionar un concepto", 3000, 'rounded');
 		iniciarElementos();
-	}else if(maximoValor($('#concepto option:selected').text(), monto) == true){
+	}else if(maximoValor($('#concepto option:selected').val(), monto) == true){
 		var arr = familiar.split('|');
 		Pedido['codigo'] = arr[0];
 		Pedido['parentesco'] = arr[1];
@@ -44,7 +44,7 @@ function agregarR(){
 function maximoValor(concepto, monto){
 	val = false;
 	switch (concepto){
-		case 'LENTES':
+		case 'LENTE':
 			val = true;
 			if(monto > 50000) {	
 				val = false;
@@ -52,7 +52,22 @@ function maximoValor(concepto, monto){
 				pubMsj = 'El monto maximo permitido por lentes es de 50.000,00 Bs.';
 			}
 			break;
-
+		case 'TRAPS':
+			val = true;
+			if(monto > 10000) {	
+				val = false;
+				iniciarElementos();
+				pubMsj = 'El monto maximo permitido por tratamiento psicologico es de 10.000,00 Bs.';
+			}
+			break;
+		case 'GERIT':
+			val = true;
+			if(monto > 10000) {	
+				val = false;
+				iniciarElementos();
+				pubMsj = 'El monto maximo permitido por geriatrico es de 10.000,00 Bs.';
+			}
+			break;
 		default:
 			val = true;
 	} 

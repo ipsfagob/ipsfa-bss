@@ -59,17 +59,28 @@ class Solicitud extends CI_Model{
 		return $obj;
 	}
 
+
 	function listarMedicamentos($codigo = ''){
 		$sConsulta = "SELECT solicitud.codigo AS cedula, * FROM solicitud 
 		LEFT JOIN archivo ON solicitud.numero=archivo.codigo
 		INNER JOIN usuario ON solicitud.codigo = usuario.cedu
-		WHERE solicitud.tipo=3 AND solicitud.estatus=1";
+		WHERE solicitud.tipo=3 AND solicitud.estatus!=5";
 		if($codigo != '') {
 			$sConsulta = "SELECT * FROM solicitud 
 			LEFT JOIN archivo ON solicitud.numero=archivo.codigo
 			INNER JOIN usuario ON solicitud.codigo = usuario.cedu
-			WHERE solicitud.tipo=3 AND solicitud.estatus=1 AND solicitud.codigo= '" . $codigo . "'";
+			WHERE solicitud.tipo=3 AND solicitud.estatus!=5 AND solicitud.codigo= '" . $codigo . "'";
 		}			
+		$obj = $this->Dbipsfa->consultar($sConsulta);
+		return $obj;
+	}
+
+		function listarMedicamentosPanel($estatus){
+		$sConsulta = 'SELECT solicitud.codigo AS cedula, * FROM solicitud 
+		LEFT JOIN archivo ON solicitud.numero=archivo.codigo
+		INNER JOIN usuario ON solicitud.codigo = usuario.cedu
+		WHERE solicitud.tipo=3 AND solicitud.estatus = ' . $estatus;
+			
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		return $obj;
 	}

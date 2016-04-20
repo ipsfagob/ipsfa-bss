@@ -142,7 +142,7 @@ class BienestarPanel extends CI_Controller{
 	 */
 	public function medicamentos(){
 		$this->load->model('saman/Solicitud');
-		$data['data'] = $this->Solicitud->listarMedicamentos();
+		$data['data'] = $this->Solicitud->listarMedicamentosPanel(1);
 		$this->load->view ( 'bienestarsocial/panel/medicamentos', $data );
 	}
 
@@ -153,6 +153,7 @@ class BienestarPanel extends CI_Controller{
 	}
 
 	function solicitudesConfigurar($id, $tipo = ""){
+		error_reporting(0);
 		$this->load->model('comun/Archivo');
 		$this->load->model('saman/Solicitud');
 		$this->load->model('utilidad/Correo');
@@ -167,7 +168,7 @@ class BienestarPanel extends CI_Controller{
 				IPSFA en linea Optimizando tu bienestar...';
 		$this->Correo->gerencia = 'Gerencia de Bienestar Social';
 		$this->Correo->titulo = $solicitud[0]->nomb;
-		$this->Correo->enviar();
+		//$this->Correo->enviar();
 
 		$data['detalles'] = $this->listarDocumentos($id);
 
@@ -299,8 +300,17 @@ class BienestarPanel extends CI_Controller{
 		$this->Correo->gerencia = 'Gerencia de Bienestar Social';
 		$this->Correo->titulo = $_GET['nombre'];
 		$this->Correo->enviar();
+
+		$this->load->model('saman/Solicitud');
+		$this->Solicitud->modificar($_GET['codigo'], 2);
 		echo json_encode("Correo enviado");
 
+	}
+
+	function modificarArchivo(){
+		$this->load->model('comun/Archivo');
+		$obj = $this->Archivo->modificar($_GET);
+		print_r(json_encode($obj));
 	}
 
 	function __destruct(){
