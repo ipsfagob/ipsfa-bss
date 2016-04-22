@@ -842,6 +842,58 @@ class BienestarSocial extends CI_Controller {
 		
 		
 	}
+
+	function crearTablas(){
+
+		$this->load->model('comun/Dbipsfa');
+		$sCon = 'DROP TABLE archivo;
+
+		CREATE TABLE archivo
+		(
+		  oid serial NOT NULL,
+		  codigo character varying(20),
+		  nombre character varying(250),
+		  coddoc integer,
+		  fecha date
+		)';
+
+		$this->Dbipsfa->consultar($sCon);
+
+		$sCon = 'DROP TABLE solicitud;
+
+		CREATE TABLE solicitud
+		(
+		  oid serial NOT NULL,
+		  codigo character varying(16) NOT NULL,
+		  numero character varying(16) NOT NULL,
+		  certi character varying(32),
+		  detalle text,
+		  recipes text,
+		  fecha timestamp without time zone,
+		  tipo bigint,
+		  estatus bigint,
+		  fcita date,
+		  CONSTRAINT numero_pkey PRIMARY KEY (numero)
+		)';
+
+		$this->Dbipsfa->consultar($sCon);
+
+		$sCon = 'DROP TABLE semillero;	
+
+		CREATE TABLE semillero
+		(
+		  oid serial NOT NULL,
+		  codigo character varying(16),
+		  certi character varying(32),
+		  fecha timestamp without time zone,
+		  tipo bigint,
+		  observacion character varying(250) NOT NULL,
+		  estatus bigint,
+		  CONSTRAINT semillero_pkey PRIMARY KEY (oid)
+		)';
+		$this->Dbipsfa->consultar($sCon);
+		echo "exito";
+	}
 	
 
 }
