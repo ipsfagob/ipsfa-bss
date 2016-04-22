@@ -192,6 +192,8 @@ class BienestarSocial extends CI_Controller {
 	 * @return html
 	 */
 	function carro(){
+		$this->load->model('saman/Estado');
+		$data['Estado'] = $this->Estado->listar()->rs;
 		$data['data'] = $this->Carro->listar();
 		$this->load->view ( 'bienestarsocial/carro', $data );
 	}

@@ -149,7 +149,7 @@ class Solicitud extends CI_Model{
 		$sConsulta = 'SELECT * FROM ci_reembolso_solic 
 		INNER JOIN ci_reembolso_tipo ON ci_reembolso_solic.reembtipocod=ci_reembolso_tipo.reembtipocod
 		INNER JOIN canal_liquidacion ON ci_reembolso_solic.canalliquidcod=canal_liquidacion.canalliquidcod
-		WHERE nropersonaafilmil = ' . $Militar->Persona->oid . ' AND ci_reembolso_solic.reembfchsolicitud > \'2016/05/05\' ORDER BY reembfchsolicitud DESC';
+		WHERE nropersonaafilmil = ' . $Militar->Persona->oid . ' AND ci_reembolso_solic.reembfchsolicitud > \'2013/05/05\' ORDER BY reembfchsolicitud DESC';
 		//echo $sConsulta;
 		$obj = $this->Dbsaman->consultar($sConsulta);		
 		if($obj->code == 0){
@@ -492,15 +492,15 @@ class Solicitud extends CI_Model{
 				$res['col'] =  "#FDB45C";
 				break;
 			case 3:
-				$res['des'] = 'Aceptado';
+				$res['des'] = 'Verificado';
 				$res['col'] =   "#949FB1";
 				break;
 			case 4:
-				$res['des'] = 'Pagando';
+				$res['des'] = 'Autorizado';
 				$res['col'] =  "#4D5360";
 				break;
 			case 5:
-				$res['des'] = 'Pagado';
+				$res['des'] = 'Finanzas';
 				$res['col'] =  "#4a148c";
 				break;
 

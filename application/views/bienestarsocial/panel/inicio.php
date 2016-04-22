@@ -132,6 +132,21 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
             </a>
           </div>  
         </div>
+
+        <div class="col s12 m3 l3">
+          <div class="btns-smin">
+            <div class="btns-sminf small">Autorizar Solicitudes</div>
+            <div class="btns-sminh tooltipped dropdown-button" data-position="bottom" data-delay="30" data-tooltip="I am tooltip" data-activates='dropdown1' >
+              <a href="#"><i class="material-icons white-text">more_vert</i></a>
+            </div>
+            <a href="<?php echo base_url(); ?>index.php/BienestarPanel/solicitudesAutorizar">
+              <div class="__ctdrs_xxmall cortar">Aprobar Solicitudes </div>
+              <div >
+                <img src="<?php echo base_url(); ?>public/img/aprobado.jpg">
+              </div>
+            </a>
+          </div>  
+        </div>
         
   </div>
 

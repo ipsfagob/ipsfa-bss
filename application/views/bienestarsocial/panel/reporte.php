@@ -29,8 +29,9 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
 				<option value="0" disabled>Selección</option>
 				<option value="1">Recibidos IPSFA</option>
 				<option value="2">Procesando</option>
-				<option value="3">Aceptados</option>
-				<option value="4">Finanzas</option>
+				<option value="3">Verificado</option>
+				<option value="4">Autorizado</option>
+				<option value="5">Enviado Finanzas</option>
 
 			</select>
 			<label for="estatus">Seleccione el Estatus</label>

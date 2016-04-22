@@ -87,9 +87,19 @@ function Salvar(){
 	var inputFileImage = document.getElementById("inputFile[1]");
 	var file = inputFileImage.files[0];
 
+	var inputFileImageA = document.getElementById("inputFile[2]");
+	var fileA = inputFileImageA.files[0];
+
+	var inputFileImageB = document.getElementById("inputFile[3]");
+	var fileB = inputFileImageB.files[0];
+
+
 	var data = new FormData();
 
 	data.append('recipe',file);
+	data.append('informe',fileA);
+	data.append('tratamiento',fileB);
+
 	data.append('observa', $("#Observa").val());
 	
 	$('#msg').openModal();

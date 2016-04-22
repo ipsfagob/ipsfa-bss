@@ -9,11 +9,15 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 	<!--
 		<div class="col s6 m3 l3"><i class="material-icons left amber-text text-darken-4">timer</i>Pendiente</div>
 		<div class="col s6 m3 l3"><i class="material-icons left blue-text">description</i>Expediente Digital</div>
+		<div class="col s6 m3 l2"><i class="material-icons left red-text text-darken-4">cancel</i>Rechazado</div>
 	-->
-	<div class="col s6 m3 l3"><i class="material-icons left amber-text text-darken-4">assignment_returned</i>Recibido IPSFA</div>
-	<div class="col s6 m3 l3"><i class="material-icons left green-text text-darken-4">settings</i>Procesando</div>
-	<div class="col s6 m3 l3"><i class="material-icons left blue-text text-darken-4">done_all</i>Aceptado</div>
-	<div class="col s6 m3 l3"><i class="material-icons left red-text text-darken-4">cancel</i>Rechazado</div>
+	<div class="col s6 m3 l2"><i class="material-icons left amber-text text-darken-4">timer</i>Pendiente</div>
+	<div class="col s6 m3 l2"><i class="material-icons left amber-text text-darken-4">assignment_returned</i>Recibido IPSFA</div>
+	<div class="col s6 m3 l2"><i class="material-icons left green-text text-darken-4">settings</i>Procesando</div>
+	<div class="col s6 m3 l2"><i class="material-icons left blue-text text-darken-4">done</i>Verificado</div>
+	<div class="col s6 m3 l2"><i class="material-icons left blue-text text-darken-4">lock_open</i>Autorizado</div>
+	<div class="col s6 m3 l2"><i class="material-icons left purple-text text-darken-4">local_shipping</i>En Finanzas</div>
+	
 
 </div>
 <ul class="collapsible"  data-collapsible="accordion">
@@ -74,8 +78,20 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 				$msj .= '<i class="material-icons right green-text text-darken-4 hide-on-small-only">settings</i>';
 				break;
 			case 3:
-				$msj = '<i class="material-icons left blue-text text-darken-4 hide-on-large-only">done_all</i>';
-				$msj .= '<i class="material-icons right blue-text text-darken-4 hide-on-small-only">done_all</i>';
+				$msj = '<i class="material-icons left blue-text text-darken-4 hide-on-large-only">done</i>';
+				$msj .= '<i class="material-icons right blue-text text-darken-4 hide-on-small-only">done</i>';
+				break;
+			case 4:
+				$msj = '<i class="material-icons left blue-text text-darken-4 hide-on-large-only">lock_open</i>';
+				$msj .= '<i class="material-icons right blue-text text-darken-4 hide-on-small-only">lock_open</i>';
+				break;
+			case 5:
+				$msj = '<i class="material-icons left purple-text text-darken-4 hide-on-large-only">local_shipping</i>';
+				$msj .= '<i class="material-icons right purple-text text-darken-4 hide-on-small-only">local_shipping</i>';
+				break;
+			case 9:
+				$msj = '<i class="material-icons left blue-text text-darken-4 hide-on-large-only">cancel</i>';
+				$msj .= '<i class="material-icons right blue-text text-darken-4 hide-on-small-only">cancel</i>';
 				break;
 
 

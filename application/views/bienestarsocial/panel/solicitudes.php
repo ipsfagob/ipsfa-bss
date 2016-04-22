@@ -6,7 +6,7 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
 
 
 <div class="container">
-<h5>Solicitud: Reembolso y Ayudas</h5>
+<h5><?php echo $titulo; ?></h5>
 R: Reembolsos | A: Ayudas
 	<ul class="collapsible" data-collapsible="accordion" >
 		<?php
@@ -15,8 +15,17 @@ R: Reembolsos | A: Ayudas
 			$monto = 0;
 			foreach ($Solicitudes->rs as $k => $val) {
 				$arr = json_decode($val->detalle);
+				
 
-				$icon = '<i class="material-icons">forward</i>';
+				$acc = estatus($val->estatus,  $val->numero, $val->tipo);
+				if($accion == 1) {
+					$acc = '<a href="' . base_url() . 'index.php/BienestarPanel/autorizarSolicitud/' . $val->numero . '/4" 
+					class="secondary-content  waves-effect waves-light tooltipped" 
+					data-position="top" data-delay="10" data-tooltip="Autorizar Solicitud">
+					<i class="material-icons purple-text">lock_open</i></a>';
+				}
+
+					
 				$cadena .= '<li>
 		      	<div class="collapsible-header">
 		      		<ul class="collection">
@@ -27,7 +36,7 @@ R: Reembolsos | A: Ayudas
 					      <p>FECHA: ' . substr($val->fecha,0,10 ). '
 					         AFILIADO: ' . $arr->responsable . '
 					      </p>				       
-					      	<a href="' . base_url() . 'index.php/BienestarPanel/solicitudesConfigurar/' . $val->numero . '/' . $val->tipo . '" class="secondary-content  waves-effect waves-light" >' . $icon . '</a>
+					      	' . $acc . '
 					    </li>
 					</ul>	    
 			    </div>
@@ -52,6 +61,17 @@ R: Reembolsos | A: Ayudas
 				if($iTipo == 2) $tipo = '<i class="circle green">A</i>';
 				return $tipo;
 			}
+
+			function estatus($id, $numero, $tipo){
+				$contenido = '<a href="' . base_url() . 'index.php/BienestarPanel/solicitudesConfigurar/' . $numero . '/' . $tipo . '" class="secondary-content  waves-effect waves-light tooltipped" 
+					data-position="top" data-delay="10" data-tooltip="Procesar Solicitud"><i class="material-icons">forward</i></a>';
+				if($id == 4)
+					$contenido = '<a href="' . base_url() . 'index.php/BienestarPanel/autorizarSolicitud/' . $numero . '/5" class="secondary-content  waves-effect waves-light tooltipped" 
+					data-position="top" data-delay="10" data-tooltip="Enviar a Finanzas"><i class="material-icons purple-text text-darken-4">local_shipping</i></a>';
+				
+				return $contenido;
+			}
+
 		?>
 	</ul>
 	<br style="">

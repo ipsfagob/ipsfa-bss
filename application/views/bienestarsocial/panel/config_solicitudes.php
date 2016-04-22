@@ -18,17 +18,23 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
 <div class="row white">
 	<ul class="collection  with-header" >
 			<?php 
+			 	$edit = '';
+			 	$vence = '';
+				if($tipo > 4) {
+					$edit = '<a href="javascript:editarContenido(' . $v->oid . ')" class="secondary-content"><i class="material-icons green-text text-darken-4">edit</i></a>';
+					$vence = 'y vence el <label id="f' . $v->oid . '" class="orange-text"> ' . $v->fecha . '</label>';
+				}
+
 				echo '<li class="collection-header"><h5>Listado de Documentos </h5></li>';
 				foreach ($detalles as $k => $v) {
 					$fila = "";
 					if($v->archivo != "") {
 						$fila = '<li class="collection-item truncate" style="padding-bottom: 20px">
-							' . $v->doc . ' y vence el <label id="f' . $v->oid . '" class="orange-text"> ' . $v->fecha . '</label> <div class="chip right">
+							' . $v->doc . '  <div class="chip right">
 							 <a href="' . $ruta . $v->archivo . '" target="top">
 						   ' . $v->archivo . '</a>
 							  </div>  
-								<a href="javascript:editarContenido(' . $v->oid . ')" class="secondary-content"><i class="material-icons green-text 
-								text-darken-4">edit</i></a>
+								' . $edit . ' 
 							  </li>';
 					}
 					echo $fila;
@@ -45,9 +51,9 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
 
 			          <select  id="descripciondocumento" name="nota">
 			            <option value="0">----------</option>
-			            <option value="SU SOLICITUD HA SIDO ACEPTADA Y ENVIADA A FINANZAS">SU SOLICITUD HA SIDO ACEPTADA Y ENVIADA A FINANZAS</option>
-			            <option value="SU SOLICITUD PRESENTA ERROR EN LOS DOCUMENTOS">SU SOLICITUD PRESENTA ERROR EN LOS DOCUMENTOS</option>
-			            <option value="SU SOLICITUD HA SIDO RECHAZADA (LOS DOCUMENTOS NO SON LEGIBLES)">SU SOLICITUD HA SIDO RECHAZADA (LOS DOCUMENTOS NO SON LEGIBLES)</option>
+			            <option value="VERIFICADA">SU SOLICITUD HA SIDO VERIFICADA</option>
+			            <option value="ERROR">SU SOLICITUD PRESENTA ERROR EN LOS DOCUMENTOS</option>
+			            <option value="RECHAZADA">SU SOLICITUD HA SIDO RECHAZADA</option>
 			          </select>
 			          <label style="color:#000">RESPUESTAS</label>
 			        </div>

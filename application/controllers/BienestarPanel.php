@@ -20,12 +20,15 @@
  * @link http://www.mamonsoft.com.ve
  * @since version 1.0
  */
+session_start();
+
 define ('__CONTROLADOR', 'BienestarPanel');
 class BienestarPanel extends CI_Controller{
 	function __construct(){
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->model('panel/Mpanel');
+		$_SESSION['nivel'] = 0;
 	}
 
 	function validarUsuario(){
@@ -108,6 +111,21 @@ class BienestarPanel extends CI_Controller{
 	*/
 	public function solicitudes(){
 		$data['Solicitudes'] = $this->Mpanel->cosultarSolicitudes();
+		$data['titulo'] = 'Solicitud: Reembolso y Ayudas';
+		$data['accion'] = 0;
+		$this->load->view('bienestarsocial/panel/solicitudes', $data);	
+	}
+
+	/**
+	* Permite listar Reembolso y Ayudas ver estatus
+	*
+	* @access public
+	* @return html
+	*/
+	public function solicitudesAutorizar(){
+		$data['Solicitudes'] = $this->Mpanel->cosultarSolicitudes(1);
+		$data['titulo'] = 'Solicitud: Reembolso y Ayudas Verificadas';
+		$data['accion'] = 1;
 		$this->load->view('bienestarsocial/panel/solicitudes', $data);	
 	}
 
@@ -152,7 +170,7 @@ class BienestarPanel extends CI_Controller{
 		
 	}
 
-	function solicitudesConfigurar($id, $tipo = ""){
+	function solicitudesConfigurar($id = '', $tipo = ''){
 		error_reporting(0);
 		$this->load->model('comun/Archivo');
 		$this->load->model('saman/Solicitud');
@@ -177,7 +195,9 @@ class BienestarPanel extends CI_Controller{
 		$data['codigo'] = $id;
 		$data['correo'] = $solicitud[0]->corr;
 		$data['nombre'] = $solicitud[0]->nomb;
-		$this->Solicitud->modificar($id, 2);
+		$data['tipo'] = $tipo;
+
+		$this->Solicitud->modificar($id, 2);		
 		$this->load->view('bienestarsocial/panel/config_solicitudes', $data);
 		
 	}
@@ -312,6 +332,21 @@ class BienestarPanel extends CI_Controller{
 		$obj = $this->Archivo->modificar($_GET);
 		print_r(json_encode($obj));
 	}
+
+	function autorizarSolicitud($cod, $val){
+		$this->load->model('saman/Solicitud');
+		$this->Solicitud->modificar($cod, $val);
+		if($val == 5){
+			header('Location: ' . base_url() . 'index.php/BienestarPanel/solicitudes');
+		}else{
+			header('Location: ' . base_url() . 'index.php/BienestarPanel/solicitudesAutorizar');
+		}
+
+	}
+
+
+	
+
 
 	function __destruct(){
 
