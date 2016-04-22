@@ -90,8 +90,9 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 				$msj .= '<i class="material-icons right purple-text text-darken-4 hide-on-small-only">local_shipping</i>';
 				break;
 			case 9:
-				$msj = '<i class="material-icons left blue-text text-darken-4 hide-on-large-only">cancel</i>';
-				$msj .= '<i class="material-icons right blue-text text-darken-4 hide-on-small-only">cancel</i>';
+				$print = '';
+				$msj = '<i class="material-icons left red-text text-darken-4 hide-on-large-only">cancel</i>';
+				$msj .= '<i class="material-icons right red-text text-darken-4 hide-on-small-only">cancel</i>';
 				break;
 
 

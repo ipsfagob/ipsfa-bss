@@ -57,7 +57,8 @@
 				</ul>
 				
 				<ul class="right hide-off-med-and-down">
-					<li><a class="dropdown-panel" href="<?php echo base_url(); ?>index.php/Panel/index">
+					<li><a  href="<?php echo base_url(); ?>index.php/Panel/index" class="dropdown-panel tooltipped" 
+					data-position="bottom" data-delay="10" data-tooltip="Volver al inicio">
 						<i class="material-icons">home</i></a>
 					</li>
 

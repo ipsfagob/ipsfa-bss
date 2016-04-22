@@ -349,6 +349,45 @@
 	<p style="color:red;width:100%" class"textoCenter">GERENCIA DE FINANZAS DPTO. DE CONTABILIDAD</p>
 
 </div>
+
+<div id="boton">
+	<br>
+	<input type="button" value="Imprimir" onclick="imprimir()">
+	<input type="button" value="Cancelar Solicitud" onclick="cancelarSolicitud('<?php echo $Codigo?>')">
+</div>
+</center>
+
+<script type="text/javascript" src="<?php echo base_url(); ?>public/js/jquery-2.min.js"></script>
+
+<script type="text/javascript">
+	/**
+	* Validar Ubicacion
+	* @return ubicacion
+	*/
+	/**
+	* Validar Ubicacion
+	* @return ubicacion
+	*/
+	var sUrl = "<?php echo base_url(); ?>";
+	var sUrlP = sUrl + 'index.php' + <?php echo "/" . __CONTROLADOR . "/";?>;
+	function cancelarSolicitud(cod){
+
+		$.post(sUrlP + "cancelarSolicitud/" + cod)
+
+	 	.done(function(msg) {
+			alert('Su solicitud ha sido cancelada');
+			window.close();
+		}).fail(function(jqXHR, textStatus) {
+			alert('Error de conexion...');
+		});
+
+	}
+	function imprimir(){
+		$('#boton').html('');
+		window.print();
+		window.close();
+	}
+</script>
 </center>
 </body>
 </html>

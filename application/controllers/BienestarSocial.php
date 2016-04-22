@@ -822,7 +822,11 @@ class BienestarSocial extends CI_Controller {
 		}	
 	}
 
-
+	function cancelarSolicitud($cod = ''){
+		$this->load->model('saman/Solicitud');
+		$this->Solicitud->modificar($cod, 9); // Cambio General del Estatus del caso
+		
+	}
 
 	/**
 	 * Salir del Sistema

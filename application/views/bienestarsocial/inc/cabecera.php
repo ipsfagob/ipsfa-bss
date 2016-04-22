@@ -135,7 +135,8 @@
 					</li>
 					<li>
 						<a href="<?php echo base_url(); ?>index.php/Panel/index">
-							<i class="mdi-action-home"></i>
+							<i class="mdi-action-home tooltipped" 
+					data-position="bottom" data-delay="10" data-tooltip="Volver al inicio"></i>
 						</a>
 					</li>
 					<li>

@@ -91,3 +91,5 @@ $this->load->view("bienestarsocial/panel/inc/pie.php");
 <script type="text/javascript"
   src="<?php echo base_url(); ?>application/views/bienestarsocial/panel/js/reporte.js"></script>
 
+
+
