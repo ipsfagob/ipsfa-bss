@@ -54,6 +54,10 @@ class Panel extends CI_Controller{
 		$this->login();
 	}
 
+	function locatel(){
+		$this->load->view('panel/locatel');
+	}
+
 
 
 	function __destruct(){
