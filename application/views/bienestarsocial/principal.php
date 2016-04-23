@@ -142,6 +142,20 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       
 
 
+<div class="col s12 m4 l4" style="display:visibility">
+        <div class="btns-smin">
+          <div class="btns-sminf small">Consulta Locatel</div>
+          <div class="btns-sminh  dropdown-button" >
+            <a href="#"><i class="material-icons white-text">more_vert</i></a>
+          </div>
+          <a href="<?php echo base_url(); ?>index.php/BienestarSocial/locatel">
+            <div class="__ctdrs_xxmall cortar">Realizar Consultas en el país</div>
+            <div >
+              <img src="<?php echo base_url(); ?>public/img/locatel.jpg" style="width:300px; height: 105px">
+            </div>
+          </a>
+        </div>  
+      </div>
 
 
 
