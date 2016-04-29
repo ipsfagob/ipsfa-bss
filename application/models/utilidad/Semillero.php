@@ -57,6 +57,10 @@ class Semillero extends CI_Model{
 	var $observacion = '';
 
 
+	var $esq = 'bss';
+
+	var $esq_sess = 'session';
+
 	function __construct(){
 		parent::__construct();
 		$this->load->model('comun/Dbipsfa');
@@ -70,14 +74,14 @@ class Semillero extends CI_Model{
 	* @return string
 	*/
 	function generar(){		
-		$sConsulta = "SELECT max(oid) + 1 AS codigo FROM semillero LIMIT 1;";
+		$sConsulta = 'SELECT max(oid) + 1 AS codigo FROM ' . $this->esq . '.semillero LIMIT 1;';
 		$obj = $this->generarConsultaSQL($sConsulta);
 		return $obj;
 	}
 
 	//Modificar para listar o ver
 	function consultar(){
-		$sConsulta = 'SELECT * FROM semillero WHERE codigo=\'' . $this->codigo . '\'';		
+		$sConsulta = 'SELECT * FROM ' . $this->esq . '.semillero WHERE codigo=\'' . $this->codigo . '\'';		
 		$obj = $this->generarConsultaSQL($sConsulta);
 		return $obj;
 	}
@@ -91,10 +95,10 @@ class Semillero extends CI_Model{
 	*/
 	public function consultarTratamiento($codigo = '', $obs = '', $esta = 0){
 		$valor = 0;
-		$sConsulta = 'SELECT * FROM semillero 
-		INNER JOIN solicitud ON semillero.codigo=solicitud.numero
-		WHERE semillero.codigo=\'' . $codigo . '\' AND semillero.observacion=\'' . $obs . '\' 
-		AND semillero.estatus= ' . $esta . ';';
+		$sConsulta = 'SELECT * FROM ' . $this->esq . '.semillero 
+		INNER JOIN ' . $this->esq . '.solicitud ON ' . $this->esq . '.semillero.codigo=' . $this->esq . '.solicitud.numero
+		WHERE ' . $this->esq . '.semillero.codigo=\'' . $codigo . '\' AND ' . $this->esq . '.semillero.observacion=\'' . $obs . '\' 
+		AND ' . $this->esq . '.semillero.estatus= ' . $esta . ';';
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		echo $sConsulta;
 		foreach ($obj->rs as $clave => $valor) {
@@ -138,7 +142,7 @@ class Semillero extends CI_Model{
 	}
 
 	function validar(){
-		$sConsulta = 'SELECT * FROM semillero WHERE certi=\'' . $this->session . '\' AND tipo=\'' . $this->tipo . '\' AND estatus=0';		
+		$sConsulta = 'SELECT * FROM ' . $this->esq . '.semillero WHERE certi=\'' . $this->session . '\' AND tipo=\'' . $this->tipo . '\' AND estatus=0';		
 		$obj = $this->generarConsultaSQL($sConsulta);
 		return $obj;
 	}
@@ -157,7 +161,7 @@ class Semillero extends CI_Model{
 	* @return mixed
 	*/
 	function salvar($sCodigo,$sCertificado, $sTipo, $sObservacion){
-		$sConsulta = "INSERT INTO semillero (codigo,certi,fecha, tipo, observacion, estatus ) VALUES ('" .  
+		$sConsulta = "INSERT INTO ' . $this->esq . '.semillero (codigo,certi,fecha, tipo, observacion, estatus ) VALUES ('" .  
 		$this->completar($sCodigo, $this->longitud) . "','" .  md5($sCertificado) . "', now()," .  $sTipo . ",'" .  $sObservacion . "',0);";
 		
 		$this->codigo = $this->completar($sCodigo, $this->longitud);
@@ -208,7 +212,7 @@ class Semillero extends CI_Model{
 	* @return mixed
 	*/
 	public function modificar($numero = '', $estatus = ''){
-		$sActualizar = 'UPDATE semillero SET estatus = ' . $estatus . '  WHERE codigo=\'' . $numero . '\'';
+		$sActualizar = 'UPDATE ' . $this->esq . '.emillero SET estatus = ' . $estatus . '  WHERE codigo=\'' . $numero . '\'';
 		$exec = $this->Dbipsfa->consultar($sActualizar);
 		
 		return $exec;

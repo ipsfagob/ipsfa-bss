@@ -22,7 +22,7 @@ class Iniciar extends CI_Model {
   var $token = null;
 
   function __construct() {
-    $this -> load -> model('usuario/usuario', 'Usuario');
+    $this -> load -> model('usuario/Usuario', 'Usuario');
   }
 
   function validarCuenta($arg = null) {
@@ -48,7 +48,7 @@ class Iniciar extends CI_Model {
         'correo' => $usuario->correo,
         'estatus' => $usuario->estatus,
         'perfil' => $usuario->perfil,
-        'ultimaConexion' => $usuario->ultimaConexion()
+        'ultimaConexion' => '', //$usuario->ultimaConexion()
       )
     );
     $this->load->model('comun/Dbipsfa');
@@ -61,6 +61,16 @@ class Iniciar extends CI_Model {
       );
 
     $this->Dbipsfa->insertarArreglo('traza', $arr);
+  }
+
+  function token($token){
+    $this->Usuario->cedula = $token->afi_nro_persona;
+    $this->Usuario->nombre = "PRUEBA"; //$token->dmi_grado_ . '-' . $token->afi_nombre_primero . ' ' . $token->afi_nombre_segundo;
+    $this->Usuario->correo = "gesaodin@gmail.com"; //$token->afi_correo;
+    $this->Usuario->perfil = $token->dmi_situacion_;
+    $this->Usuario->estatus = 0; //$token->afi_estatus;
+    $this->_entrar($this->Usuario);
+
   }
 
   private function _salir() {

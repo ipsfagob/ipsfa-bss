@@ -32,6 +32,10 @@ class Cita extends CI_Model{
 	*/
 	var $fecha = '';
 
+	var $esq = 'bss';
+
+	var $esq_sess = 'session';
+
 	/**
 	* Iniciando la clase, Cargando Elementos BD Dbsaman
 	* Los estatus de una cita son: 
@@ -81,14 +85,15 @@ class Cita extends CI_Model{
 	* @return Dbsaman
 	*/
 	function listar($tipo,  $cedula = ''){
-		$sWhere = 'WHERE solicitud.tipo = ' . $tipo . ' AND solicitud.estatus = 1 ';
-		if($cedula != '') $sWhere = 'WHERE solicitud.tipo = ' . $tipo . ' AND solicitud.codigo = \'' . $cedula . '\'';
+		$sWhere = 'WHERE ' . $this->esq . '.solicitud.tipo = ' . $tipo . ' AND ' . $this->esq . '.solicitud.estatus = 1 ';
+		if($cedula != '') $sWhere = 'WHERE ' . $this->esq . '.solicitud.tipo = ' . $tipo . ' AND ' . $this->esq . '.solicitud.codigo = \'' . $cedula . '\'';
 
 		
-		$sConsulta = 'SELECT * FROM solicitud 
-		INNER JOIN semillero ON solicitud.numero=semillero.codigo 
-		INNER JOIN usuario ON solicitud.codigo=usuario.cedu ' . $sWhere;
-
+		$sConsulta = 'SELECT * FROM ' . $this->esq . '.solicitud 
+		INNER JOIN ' . $this->esq . '.semillero ON ' . $this->esq . '.solicitud.numero=' . $this->esq . '.semillero.codigo 
+		INNER JOIN ' . $this->esq_sess . '.tbl_usuario ON ' . $this->esq . '.solicitud.codigo=
+		' . $this->esq_sess . '.tbl_usuario.usu_numero_documento ' . $sWhere;
+		
 		$obj = $this->Dbipsfa->Consultar($sConsulta);
 		return $obj;
 	}
@@ -101,13 +106,14 @@ class Cita extends CI_Model{
 	* @return Dbsaman
 	*/
 	function listarPanel($tipo,  $cedula = ''){
-		$sWhere = 'WHERE solicitud.tipo = ' . $tipo . ' AND solicitud.estatus IN (1,2) ';
-		if($cedula != '') $sWhere = 'WHERE solicitud.tipo = ' . $tipo . ' AND solicitud.codigo = \'' . $cedula . '\'';
+		$sWhere = 'WHERE ' . $this->esq . '.solicitud.tipo = ' . $tipo . ' AND ' . $this->esq . '.solicitud.estatus IN (1,2) ';
+		if($cedula != '') $sWhere = 'WHERE ' . $this->esq . '.solicitud.tipo = ' . $tipo . ' AND ' . $this->esq . '.solicitud.codigo = \'' . $cedula . '\'';
 
 		
-		$sConsulta = 'SELECT * FROM solicitud 
-		INNER JOIN semillero ON solicitud.numero=semillero.codigo 
-		INNER JOIN usuario ON solicitud.codigo=usuario.cedu ' . $sWhere;
+		$sConsulta = 'SELECT * FROM ' . $this->esq . '.solicitud 
+		INNER JOIN ' . $this->esq . '.semillero ON ' . $this->esq . '.solicitud.numero=' . $this->esq . '.semillero.codigo 
+		INNER JOIN ' . $this->esq_sess . '.tbl_usuario ON ' . $this->esq . '.solicitud.codigo=
+		' . $this->esq_sess . '.tbl_usuario.usu_numero_documento ' . $sWhere;
 
 		$obj = $this->Dbipsfa->Consultar($sConsulta);
 		return $obj;
@@ -123,7 +129,7 @@ class Cita extends CI_Model{
 	* @return Dbipsfa
 	*/
 	public function consultar($codigo){
-		$sConsulta = 'SELECT * FROM solicitud WHERE tipo=4 AND codigo =\'' . $codigo . '\'';
+		$sConsulta = 'SELECT * FROM ' . $this->esq . '.solicitud WHERE tipo=4 AND codigo =\'' . $codigo . '\'';
 		$obj = $this->Dbipsfa->Consultar($sConsulta);
 		return $obj;
 	}
@@ -136,7 +142,7 @@ class Cita extends CI_Model{
 	* @return mixed
 	*/
 	public function modificar($numero = '', $estatus = ''){
-		$sActualizar = 'UPDATE semillero SET estatus = ' . $estatus . '  WHERE codigo=\'' . $numero . '\'';
+		$sActualizar = 'UPDATE ' . $this->esq . '.semillero SET estatus = ' . $estatus . '  WHERE codigo=\'' . $numero . '\'';
 		$exec = $this->Dbipsfa->consultar($sActualizar);
 		
 		return $exec;

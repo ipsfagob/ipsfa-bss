@@ -23,6 +23,10 @@ if (!defined('BASEPATH'))
 class Anomalia extends CI_Model{
 
 	var $__SISTEM = NULL;
+
+	var $esq = 'bss';
+
+	var $esq_sess = 'session';
 	
 	function __construct(){
 		parent::__construct();
@@ -44,7 +48,7 @@ class Anomalia extends CI_Model{
 	* @return mixed
 	*/
 	public function media($id,  $json){
-		$sConsulta = 'INSERT INTO anomalia (codigo, detalle, fecha, tipo, prioridad, estatus) 
+		$sConsulta = 'INSERT INTO ' . $this->esq . '.anomalia (codigo, detalle, fecha, tipo, prioridad, estatus) 
 		VALUES ( \'' . $id . '\',\'' . $json . '\', now(), 0, 1, 0)';
 
 		$obj = $this->Dbipsfa->consultar($sConsulta);
@@ -52,7 +56,7 @@ class Anomalia extends CI_Model{
 	}
 
 	public function eliminarMedia(){
-		$sConsulta = 'DELETE FROM anomalia WHERE codigo=\'syslog\'';
+		$sConsulta = 'DELETE FROM ' . $this->esq . '.anomalia WHERE codigo=\'syslog\'';
 
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		return $obj;
@@ -71,7 +75,7 @@ class Anomalia extends CI_Model{
 	* @return mixed
 	*/
 	function exentrica($id,  $detalle){
-		$sConsulta = 'INSERT INTO anomalia (codigo, detalle, fecha, tipo, prioridad, estatus) 
+		$sConsulta = 'INSERT INTO ' . $this->esq . '.anomalia (codigo, detalle, fecha, tipo, prioridad, estatus) 
 		VALUES ( \'' . $id . '\',\'' . $detalle . '\', now(), 1, 2, 0)';
 
 		$obj = $this->Dbipsfa->consultar($sConsulta);

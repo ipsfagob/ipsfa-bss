@@ -7,10 +7,10 @@
 ?> 
 <script type="text/javascript" src="<?php echo base_url(); ?>public/js/price_format.2.0.min.js"></script>
 
-
 <script type="text/javascript">
 
     $(document).ready(function(){
+
 
     	$("input").keyup( function() {
 	        var value = $(this).val();
@@ -95,7 +95,7 @@
         }
     }
 
- 
+
 
     </script>
 </main>

@@ -48,6 +48,33 @@ class BienestarSocial extends CI_Controller {
 
 	}
 
+	/**
+	* Rohamel Conexion
+	*
+	*
+	*/
+	function token($token){
+		$this->load->model('usuario/Usuario');
+		$this->load->model('usuario/Iniciar');
+
+		$ruta = '/' . $token . '.json';
+		$gestor = @fopen('http://localhost/' . $token . '.json', 'r');
+
+		if ($gestor) {
+
+		    while (($buffer = fgets($gestor, 4096)) !== false) {		       
+		        $php_ = json_decode($buffer);		       		       
+		        $this->Iniciar->token($php_[0]);
+		        header('Location: ' . base_url() . 'index.php/BienestarSocial/index');
+		    }
+		    if (!feof($gestor)) {
+		        echo "";
+		    }
+		    fclose($gestor);
+		}
+
+	}
+
 	private function home(){
 		header('Location: ' . base_url() . 'index.php/BienestarSocial/index');
 	}

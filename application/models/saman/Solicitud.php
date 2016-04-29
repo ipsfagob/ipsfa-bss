@@ -22,6 +22,11 @@ class Solicitud extends CI_Model{
 	var $estatus = "";
 
 	var $codigo = "";
+
+	var $esq = 'bss';
+
+	var $esq_sess = 'session';
+
 	/**
 	* Iniciando la clase, Cargando Elementos BD SAMAN
 	*
@@ -50,7 +55,7 @@ class Solicitud extends CI_Model{
   	* @param array 
   	*/
 	function crear($arr = array()){		
-		$sConsulta = "INSERT INTO solicitud (codigo, numero, certi, detalle, recipes, fecha, tipo, estatus, fcita) 
+		$sConsulta = "INSERT INTO " . $this->esq . ".solicitud (codigo, numero, certi, detalle, recipes, fecha, tipo, estatus, fcita) 
 		VALUES ('" . $arr['codigo'] . "', '" . $arr['numero'] . "', '" . $arr['certi'] . "', '" . 
 		$arr['detalle'] . "','" . $arr['recipes'] . "', now(), '" . $arr['tipo'] . "', '" . 
 		$arr['estatus'] . "', '" . $arr['fcita'] . "' )";
@@ -61,25 +66,27 @@ class Solicitud extends CI_Model{
 
 
 	function listarMedicamentos($codigo = ''){
-		$sConsulta = "SELECT solicitud.codigo AS cedula, * FROM solicitud 
-		LEFT JOIN archivo ON solicitud.numero=archivo.codigo
-		INNER JOIN usuario ON solicitud.codigo = usuario.cedu
-		WHERE solicitud.tipo=3 AND solicitud.estatus!=5";
+		$sConsulta = "SELECT " . $this->esq . ".solicitud.codigo AS cedula, * FROM solicitud 
+		LEFT JOIN  " . $this->esq . ".archivo ON  " . $this->esq . ".solicitud.numero=archivo.codigo
+		INNER JOIN  " . $this->esq_sess . ".tbl_usuario ON  " . $this->esq . ".solicitud.codigo = " . $this->esq_sess . ".tbl_usuario.usu_numero_documento
+		WHERE  " . $this->esq . ".solicitud.tipo=3 AND  " . $this->esq . ".solicitud.estatus!=5";
 		if($codigo != '') {
-			$sConsulta = "SELECT * FROM solicitud 
-			LEFT JOIN archivo ON solicitud.numero=archivo.codigo
-			INNER JOIN usuario ON solicitud.codigo = usuario.cedu
-			WHERE solicitud.tipo=3 AND solicitud.estatus!=5 AND solicitud.codigo= '" . $codigo . "'";
+			$sConsulta = "SELECT * FROM  " . $this->esq . ".solicitud 
+			LEFT JOIN  " . $this->esq . ".archivo ON  " . $this->esq . ".solicitud.numero= " . $this->esq . ".archivo.codigo
+			INNER JOIN  " . $this->esq_sess . ".tbl_usuario ON solicitud.codigo = " . $this->esq_sess. ".tbl_usuario.usu_numero_documento
+			WHERE  " . $this->esq . ".solicitud.tipo=3 AND  " . $this->esq . ".solicitud.estatus!=5 AND  " . $this->esq . ".solicitud.codigo= '" . $codigo . "'";
 		}			
 		$obj = $this->Dbipsfa->consultar($sConsulta);
+		
 		return $obj;
 	}
 
-		function listarMedicamentosPanel($estatus){
-		$sConsulta = 'SELECT solicitud.codigo AS cedula, * FROM solicitud 
-		LEFT JOIN archivo ON solicitud.numero=archivo.codigo
-		INNER JOIN usuario ON solicitud.codigo = usuario.cedu
-		WHERE solicitud.tipo=3 AND solicitud.estatus = ' . $estatus;
+	function listarMedicamentosPanel($estatus){
+		$sConsulta = 'SELECT  ' . $this->esq . '.solicitud.codigo AS cedula, * FROM ' . $this->esq . '.solicitud 
+		LEFT JOIN ' . $this->esq . '.archivo ON ' . $this->esq . '.solicitud.numero=' . $this->esq . '.archivo.codigo
+		INNER JOIN ' . $this->esq_sess . '.tbl_usuario ON ' . $this->esq . '.solicitud.codigo = ' 
+		. $this->esq_sess . '.tbl_usuario.usu_numero_documento
+		WHERE ' . $this->esq . '.solicitud.tipo=3 AND ' . $this->esq . '.solicitud.estatus =' . $estatus;
 			
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		return $obj;
@@ -94,7 +101,7 @@ class Solicitud extends CI_Model{
 	*/
 	public function consultar($codigo = ''){
 		$valor = 0;
-		$sConsulta = 'SELECT * FROM solicitud WHERE numero=\'' . $codigo . '\'';
+		$sConsulta = 'SELECT * FROM ' . $this->esq . '.solicitud WHERE numero=\'' . $codigo . '\'';
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		foreach ($obj->rs as $clave => $valor) {
 			$this->numero = $valor->codigo;
@@ -115,9 +122,9 @@ class Solicitud extends CI_Model{
 	*/
 	public function consultarCodigo($codigo = ''){
 		$valor = 0;
-		$sConsulta = 'SELECT * FROM solicitud INNER JOIN 
-		usuario ON solicitud.codigo=usuario.cedu
-		INNER JOIN semillero ON solicitud.numero=semillero.codigo
+		$sConsulta = 'SELECT * FROM ' . $this->esq . 'solicitud INNER JOIN 
+		' . $this->esq_sess . '.tbl_usuario ON ' . $this->esq . '.solicitud.codigo=' . $this->esq_sess . '.tbl_usuario.usu_numero_documento
+		INNER JOIN ' . $this->esq . '.semillero ON ' . $this->esq . '.solicitud.numero=' . $this->esq . '.semillero.codigo
 		WHERE numero=\'' . $codigo . '\'';
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 
@@ -133,7 +140,7 @@ class Solicitud extends CI_Model{
 	*/
 	public function consultarCedula($codigo = ''){
 		$valor = 0;
-		$sConsulta = 'SELECT * FROM solicitud WHERE codigo=\'' . $codigo . '\'';
+		$sConsulta = 'SELECT * FROM ' . $this->esq . '.solicitud WHERE codigo=\'' . $codigo . '\'';
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 
 		return $obj;
@@ -239,21 +246,22 @@ class Solicitud extends CI_Model{
 	* @return object
 	*/
 	public function listarPorCodigo($codigo = ''){
-		$sConsulta = 'SELECT * FROM solicitud WHERE codigo=\'' . $codigo . '\' AND tipo < 3 ORDER BY fecha ';
+		$sConsulta = 'SELECT * FROM ' . $this->esq . '.solicitud WHERE codigo=\'' . $codigo . '\' AND tipo < 3 ORDER BY fecha ';
 		$obj = $this->Dbipsfa->consultar($sConsulta);		
 		return $obj;
 	}
 
 	/**
 	* Listar Solicitudes por Numero de Semillero
-	* 
+	*  
 	* @var string
 	* @access public
 	* @return object
 	*/
 	public function listarSolicitudes($numero = ''){
-		$sConsulta = 'SELECT * FROM solicitud 
-		INNER JOIN usuario ON solicitud.codigo=usuario.cedu
+		$sConsulta = 'SELECT * FROM ' . $this->esq . '.solicitud 
+		INNER JOIN ' . $this->esq_sess . '.tbl_usuario ON ' . $this->esq . '.solicitud.codigo=' 
+		. $this->esq_sess . '.tbl_usuario.usu_numero_documento
 		WHERE numero=\'' . $numero . '\' LIMIT 1';
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		
@@ -267,7 +275,7 @@ class Solicitud extends CI_Model{
 	* @return object
 	*/
 	function listarTodo(){
-		$sConsulta = 'SELECT * FROM solicitud';
+		$sConsulta = "SELECT * FROM " . $this->esq . ".solicitud";
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		return $obj;
 	}
@@ -280,7 +288,7 @@ class Solicitud extends CI_Model{
 	* @return object
 	*/	
 	public function quitar($codigo){		
-		$sConsulta = 'DELETE * FROM solicitud WHERE codigo =\'' . $codigo . '\' LIMIT 1';
+		$sConsulta = 'DELETE * FROM ' . $this->esq . '.solicitud WHERE codigo =\'' . $codigo . '\' LIMIT 1';
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		return $obj;
 	}
@@ -308,7 +316,7 @@ class Solicitud extends CI_Model{
 	* @return date
 	*/
 	private function seleccionarUltimoDia(){
-		$sConsulta = 'SELECT * FROM solicitud WHERE tipo = 4 ORDER BY fcita DESC LIMIT 1;';
+		$sConsulta = 'SELECT * FROM ' . $this->esq . '.solicitud WHERE tipo = 4 ORDER BY fcita DESC LIMIT 1;';
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		if($obj->code != 0){
 			$fecha = $obj->rs[0]->fcita;	
@@ -326,7 +334,7 @@ class Solicitud extends CI_Model{
 	* @return integer
 	*/
 	private function contarCitas($fecha){
-		$sConsulta = 'SELECT count(codigo) AS cantidad FROM solicitud WHERE fcita > \'' . $fecha . '\'::DATE;';
+		$sConsulta = 'SELECT count(codigo) AS cantidad FROM ' . $this->esq . '.solicitud WHERE fcita > \'' . $fecha . '\'::DATE;';
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		return $obj->rs[0]->cantidad;
 	}
@@ -360,7 +368,7 @@ class Solicitud extends CI_Model{
 	*/
 	private function listarDocumentosConceptos($codigo = ''){
 		$arr = array();
-		$sConsulta = 'SELECT * FROM concepto_archivo WHERE codi =\'' . $codigo  . '\'';
+		$sConsulta = 'SELECT * FROM ' . $this->esq . '.concepto_archivo WHERE codi =\'' . $codigo  . '\'';
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		foreach ($obj->rs as $k=> $v) {
 			$arr[] = array('nombre' => $v->valo,  'descripcion' => $v->nomb);  
@@ -376,7 +384,7 @@ class Solicitud extends CI_Model{
 	*/
 	public function modificar($numero = '', $estatus = ''){
 		$this->load->model('utilidad/Semillero');
-		$sActualizar = 'UPDATE solicitud SET estatus = ' . $estatus . '  WHERE numero=\'' . $numero . '\'';
+		$sActualizar = 'UPDATE ' . $this->esq . '.solicitud SET estatus = ' . $estatus . '  WHERE numero=\'' . $numero . '\'';
 		$exec = $this->Dbipsfa->consultar($sActualizar);
 		$this->Semillero->modificar($numero, $estatus);		
 		return $exec;
@@ -389,7 +397,7 @@ class Solicitud extends CI_Model{
 	* @return mixed
 	*/
 	public function modificarCodigo($numero = '', $observa = ''){
-		$sActualizar = 'UPDATE solicitud SET recipes = \'' . $observa . '\'  WHERE numero=\'' . $numero . '\'';
+		$sActualizar = 'UPDATE ' . $this->esq . '.solicitud SET recipes = \'' . $observa . '\'  WHERE numero=\'' . $numero . '\'';
 		$exec = $this->Dbipsfa->consultar($sActualizar);	
 		return $exec;
 	}
@@ -402,10 +410,11 @@ class Solicitud extends CI_Model{
 	* @return object
 	*/
 	public function consultaGeneral($arr = array()){
-		$sConsulta = 'SELECT * FROM solicitud 
-		INNER JOIN usuario ON solicitud.codigo=usuario.cedu
-		WHERE solicitud.tipo=' . $arr['tipo'] . ' AND solicitud.estatus=' . $arr['estatus'] . ' AND 
-		solicitud.fcita BETWEEN \'' . $arr['desde'] . '\' AND \'' . $arr['hasta'] . '\'';
+		$sConsulta = 'SELECT * FROM ' . $this->esq . '.solicitud 
+		INNER JOIN ' . $this->esq_sess . '.tbl_usuario ON ' . $this->esq . '.solicitud.codigo=' 
+		. $this->esq_sess . '.tbl_usuario.usu_numero_documento
+		WHERE ' . $this->esq . '.solicitud.tipo=' . $arr['tipo'] . ' AND ' . $this->esq . '.solicitud.estatus=' . $arr['estatus'] . ' AND 
+		' . $this->esq . '.solicitud.fcita BETWEEN \'' . $arr['desde'] . '\' AND \'' . $arr['hasta'] . '\'';
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		
 		return $obj;
@@ -420,9 +429,9 @@ class Solicitud extends CI_Model{
 	*/
 	public function estadisticasGeneral( $arr = array()){
 		$est = array();
-		$sConsulta = 'SELECT count(numero) AS cant, estatus FROM solicitud 
-		WHERE solicitud.tipo=' . $arr['tipo'] . ' AND 
-		solicitud.fcita BETWEEN \'' . $arr['desde'] . '\' AND \'' . $arr['hasta'] . '\' GROUP BY estatus ORDER BY estatus';
+		$sConsulta = 'SELECT count(numero) AS cant, estatus FROM ' . $this->esq . '.solicitud 
+		WHERE ' . $this->esq . '.solicitud.tipo=' . $arr['tipo'] . ' AND 
+		' . $this->esq . '.solicitud.fcita BETWEEN \'' . $arr['desde'] . '\' AND \'' . $arr['hasta'] . '\' GROUP BY estatus ORDER BY estatus';
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		
 		if($obj->cant != 0){
