@@ -119,7 +119,7 @@ class MaestroProducto extends CI_Model {
 	 */
 	function listarExistenciaProductosSidroFan($pr = ''){
 		$this->load->model('comun/Dbipsfa');
-		$obj = $this->Dbipsfa->consultar('SELECT oid, nombre AS nomb, contenido AS obse, zpreprd AS imag FROM sidrofan WHERE nombre ~* \'' . $pr . '\'');
+		$obj = $this->Dbipsfa->consultar('SELECT oid, nombre AS nomb, contenido AS obse, zpreprd AS imag FROM bss.sidrofan WHERE nombre ~* \'' . $pr . '\'');
 		
 		return json_encode($obj->rs);
 	}

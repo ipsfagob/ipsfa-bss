@@ -6,11 +6,15 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 
 
 <div class="container">
-<div class="row" style="text-align: left;">
 
-</div>
-		<div class="row center">  	
-
+    <div class="row">
+      <ul class="collection with-header">
+          <li class="collection-header"><center><span class="titulo" style="font-size: 19px;color: #000;font-weight: bold;">Panel de bienestar y seguridad</span></center>
+          
+          </li>
+      </ul>
+    </div>
+		<div class="row center">
       <div class="col s12 m4 l4">
         
         <div class="btns-smin">
@@ -117,7 +121,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 
       <?php 
 
-        $menu = '<div class="col s12 m4 l4" style="display:visibility">
+        $menu = '<div class="col s12 m4 l4" style="display:none">
         <div class="btns-smin">
           <div class="btns-sminf small">Carta Aval</div>
           <div class="btns-sminh  dropdown-button" >
@@ -142,7 +146,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       
 
 
-<div class="col s12 m4 l4" style="display:visibility">
+<div class="col s12 m4 l4" style="display:none">
         <div class="btns-smin">
           <div class="btns-sminf small">Consulta Locatel</div>
           <div class="btns-sminh  dropdown-button" >

@@ -131,6 +131,7 @@ class Cita extends CI_Model{
 	public function consultar($codigo){
 		$sConsulta = 'SELECT * FROM ' . $this->esq . '.solicitud WHERE tipo=4 AND codigo =\'' . $codigo . '\'';
 		$obj = $this->Dbipsfa->Consultar($sConsulta);
+		
 		return $obj;
 	}
 

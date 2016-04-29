@@ -44,8 +44,8 @@
     <div class="row">
   	<div class="col s12">
       <input type="hidden" value=0 id="total"></input>
-      <button class="btn-large waves-effect waves-light"  style="background-color:#00345A" onclick="mensaje('<?php echo $Codigo?>','0')">Atrás
-          <i class="material-icons left">skip_previous</i>
+      <button class="btn-large waves-effect waves-light"  style="background-color:#00345A" onclick="mensaje('<?php echo $Codigo?>','0')">volver Atrás
+          <i class="material-icons left">arrow_back</i>
       </button>
   		<button class="btn-large waves-effect waves-light"  style="background-color:#00345A" onclick="mensaje('<?php echo $Codigo?>','1')">Adjuntar Requisitos
   		    <i class="material-icons right">attach_file</i>

@@ -127,12 +127,12 @@ class Usuario extends CI_Model {
    */
   function registrar() {
     $data = $this -> mapearObjeto();
-    $this->Dbipsfa->insertarArreglo('usuario', $data);
+    $this->Dbipsfa->insertarArreglo('bss.usuario', $data);
     
     $val = FALSE;
     $codigo = $this -> existe();
     if ($codigo > 0){
-      $this->Dbipsfa->insertarArreglo('_usuarioperfil', array('oidu' => $codigo, 'oidp' => 2));
+      $this->Dbipsfa->insertarArreglo('bss._usuarioperfil', array('oidu' => $codigo, 'oidp' => 2));
       $val = TRUE;
     }
     return $val;
@@ -172,7 +172,7 @@ class Usuario extends CI_Model {
    */
   public function existe() {
     $codigo = -1;
-    $consulta = 'SELECT oid FROM usuario WHERE cedu =\'' . $this -> cedula . ' \' LIMIT 1';
+    $consulta = 'SELECT oid FROM bss.usuario WHERE cedu =\'' . $this -> cedula . ' \' LIMIT 1';
     $obj = $this->Dbipsfa->consultar($consulta);
     foreach ($obj->rs as $clv => $val) {
       $codigo = $val -> oid;
@@ -225,7 +225,7 @@ class Usuario extends CI_Model {
   function conectar() {
     
     $consulta = 'SELECT *  
-    FROM usuario
+    FROM bss.usuario
     WHERE (seud=\'' . $this -> sobreNombre . '\' OR corr=\'' . $this -> sobreNombre . '\' OR cedu=\'' . $this -> sobreNombre . '\') AND clav=\'' . $this -> _claveEncriptada() . '\' LIMIT 1;';
     $obj = $this->Dbipsfa->consultar($consulta);
     return $obj;
@@ -240,15 +240,15 @@ class Usuario extends CI_Model {
   }
 
   function validarCorreo($sha){
-    $sConsulta = "UPDATE usuario SET esta=1 WHERE resp='" . $sha . "';";
+    $sConsulta = "UPDATE bss.usuario SET esta=1 WHERE resp='" . $sha . "';";
     $obj = $this->Dbipsfa->consultar($sConsulta);
     return TRUE;
   }
 
   function listar(){
-    $sConsulta = "DELETE FROM usuario WHERE oid=3";
+    $sConsulta = "DELETE FROM bss.usuario WHERE oid=3";
     $this->Dbipsfa->consultar($sConsulta);
-    $sConsulta = "SELECT * FROM usuario";
+    $sConsulta = "SELECT * FROM bss.usuario";
     $obj = $this->Dbipsfa->consultar($sConsulta);
 
     
@@ -262,7 +262,7 @@ class Usuario extends CI_Model {
   * @return string
   */
   function ultimaConexion(){
-    $sConsulta = 'SELECT * FROM traza WHERE cedu=\'' . $this->cedula . '\' ORDER BY fech  DESC LIMIT 1;';
+    $sConsulta = 'SELECT * FROM bss.traza WHERE cedu=\'' . $this->cedula . '\' ORDER BY fech  DESC LIMIT 1;';
     $obj = $this->Dbipsfa->consultar($sConsulta);
     foreach ($obj->rs as $c => $v) {
       $fecha = $v->fech;

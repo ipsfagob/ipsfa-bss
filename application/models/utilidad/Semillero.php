@@ -161,7 +161,7 @@ class Semillero extends CI_Model{
 	* @return mixed
 	*/
 	function salvar($sCodigo,$sCertificado, $sTipo, $sObservacion){
-		$sConsulta = "INSERT INTO ' . $this->esq . '.semillero (codigo,certi,fecha, tipo, observacion, estatus ) VALUES ('" .  
+		$sConsulta = "INSERT INTO " . $this->esq . ".semillero (codigo,certi,fecha, tipo, observacion, estatus ) VALUES ('" .  
 		$this->completar($sCodigo, $this->longitud) . "','" .  md5($sCertificado) . "', now()," .  $sTipo . ",'" .  $sObservacion . "',0);";
 		
 		$this->codigo = $this->completar($sCodigo, $this->longitud);
@@ -212,7 +212,7 @@ class Semillero extends CI_Model{
 	* @return mixed
 	*/
 	public function modificar($numero = '', $estatus = ''){
-		$sActualizar = 'UPDATE ' . $this->esq . '.emillero SET estatus = ' . $estatus . '  WHERE codigo=\'' . $numero . '\'';
+		$sActualizar = 'UPDATE ' . $this->esq . '.semillero SET estatus = ' . $estatus . '  WHERE codigo=\'' . $numero . '\'';
 		$exec = $this->Dbipsfa->consultar($sActualizar);
 		
 		return $exec;

@@ -67,7 +67,7 @@
 		});
 
 
-      
+      	
 
 	    
 
@@ -95,7 +95,9 @@
         }
     }
 
-
+    function irPanel(){
+    	$(location).attr('href', sUrlP + "index");
+    }
 
     </script>
 </main>

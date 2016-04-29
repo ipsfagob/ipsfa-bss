@@ -75,7 +75,8 @@ class Solicitud extends CI_Model{
 			LEFT JOIN  " . $this->esq . ".archivo ON  " . $this->esq . ".solicitud.numero= " . $this->esq . ".archivo.codigo
 			INNER JOIN  " . $this->esq_sess . ".tbl_usuario ON solicitud.codigo = " . $this->esq_sess. ".tbl_usuario.usu_numero_documento
 			WHERE  " . $this->esq . ".solicitud.tipo=3 AND  " . $this->esq . ".solicitud.estatus!=5 AND  " . $this->esq . ".solicitud.codigo= '" . $codigo . "'";
-		}			
+		}	
+			
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		
 		return $obj;
@@ -260,7 +261,7 @@ class Solicitud extends CI_Model{
 	*/
 	public function listarSolicitudes($numero = ''){
 		$sConsulta = 'SELECT * FROM ' . $this->esq . '.solicitud 
-		INNER JOIN ' . $this->esq_sess . '.tbl_usuario ON ' . $this->esq . '.solicitud.codigo=' 
+		LEFT JOIN ' . $this->esq_sess . '.tbl_usuario ON ' . $this->esq . '.solicitud.codigo=' 
 		. $this->esq_sess . '.tbl_usuario.usu_numero_documento
 		WHERE numero=\'' . $numero . '\' LIMIT 1';
 		$obj = $this->Dbipsfa->consultar($sConsulta);

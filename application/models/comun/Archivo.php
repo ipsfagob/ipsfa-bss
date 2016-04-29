@@ -107,7 +107,7 @@ class Archivo extends CI_Model{
 	* @return Dbipsfa
 	*/
 	private function insertar(){
-		$sInsertar = 'INSERT INTO archivo (codigo, nombre, coddoc) VALUES 
+		$sInsertar = 'INSERT INTO bss.archivo (codigo, nombre, coddoc) VALUES 
 		(\'' . $this->codigo . '\',\'' . $this->nombre . '\',\'' . $this->tipo . '\')';
 		$exec = $this->Dbipsfa->consultar($sInsertar);
 		
@@ -176,7 +176,7 @@ class Archivo extends CI_Model{
 	*
 	*/
 	function listarTipoDocumento(){
-		$sConsulta = 'SELECT * FROM tdocumento';
+		$sConsulta = 'SELECT * FROM bss.tdocumento';
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		return $obj;
 
@@ -230,16 +230,16 @@ class Archivo extends CI_Model{
 	}
 
 	function listarDocumentos($codigo){
-		$sConsulta = 'SELECT numero, solicitud.tipo, coddoc, archivo.oid, archivo.nombre AS archivo,  archivo.fecha, tdocumento.nombre AS doc FROM solicitud 
-		INNER JOIN archivo ON solicitud.numero=archivo.codigo 
-		INNER JOIN tdocumento ON tdocumento.oid=archivo.coddoc
-		WHERE solicitud.numero=\'' . $codigo . '\'';
+		$sConsulta = 'SELECT numero, solicitud.tipo, coddoc, archivo.oid, archivo.nombre AS archivo,  archivo.fecha, tdocumento.nombre AS doc FROM bss.solicitud 
+		INNER JOIN bss.archivo ON bss.solicitud.numero=bss.archivo.codigo 
+		INNER JOIN bss.tdocumento ON bss.tdocumento.oid=bss.archivo.coddoc
+		WHERE bss.solicitud.numero=\'' . $codigo . '\'';
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		return $obj;		
 	}
 
 	function modificar($arr){
-		$sConsulta = 'UPDATE archivo SET fecha=\'' . $arr['fecha'] . '\', coddoc=\'' . $arr['coddoc'] . '\'  WHERE oid =' . $arr['oid'];
+		$sConsulta = 'UPDATE bss.archivo SET fecha=\'' . $arr['fecha'] . '\', coddoc=\'' . $arr['coddoc'] . '\'  WHERE oid =' . $arr['oid'];
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		return $obj;
 	}

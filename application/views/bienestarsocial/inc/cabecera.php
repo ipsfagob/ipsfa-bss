@@ -87,7 +87,7 @@
 					</li>
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/citas">
 					Citas<i class="mdi-action-lock left blue-text"></i></a></li>
-					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/salir" class="tooltipped" data-position="top" data-delay="10" data-tooltip="Volver al menu">
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/salir" >
 						Salir<i class="mdi-action-settings-power left red-text"></i> </a>
 					</li>
 				</ul>
@@ -130,24 +130,22 @@
 				</ul>
 
 				<ul class="right hide-on-med-and-down">
+					
 					<li>
-						<i class="right"></i>BIENESTAR Y SEGURIDAD SOCIAL
+						<i class="right"></i><?php echo $_SESSION['nombreRango'];?>
 					</li>
 					<li>
 						<a href="<?php echo base_url(); ?>index.php/Panel/index">
 							<i class="mdi-action-home tooltipped" 
-					data-position="bottom" data-delay="10" data-tooltip="Volver al inicio"></i>
+							data-position="bottom" data-delay="10" data-tooltip="Volver al inicio"></i>
 						</a>
 					</li>
 					<li>
-						<a href="<?php echo base_url(); ?>index.php/BienestarSocial/index">
-							<i class="material-icons">store_mall_directory</i>
+						<a href="<?php echo base_url(); ?>index.php/BienestarSocial/index" class="tooltipped" data-position="bottom" data-delay="10" data-tooltip="Volver a bienestar">
+							<i class="material-icons">local_convenience_store</i>
 						</a>
 					</li>
 
-					<li>
-						<i class="right"></i><?php echo $_SESSION['nombreRango'];?>
-					</li>
 					
 					<li><a class="dropdown-panel" 
 						   data-activates="notificaciones">						

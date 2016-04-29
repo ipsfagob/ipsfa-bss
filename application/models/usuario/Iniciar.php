@@ -60,13 +60,13 @@ class Iniciar extends CI_Model {
       'tipo' => 0
       );
 
-    $this->Dbipsfa->insertarArreglo('traza', $arr);
+    $this->Dbipsfa->insertarArreglo('bss.traza', $arr);
   }
 
   function token($token){
-    $this->Usuario->cedula = $token->afi_nro_persona;
-    $this->Usuario->nombre = "PRUEBA"; //$token->dmi_grado_ . '-' . $token->afi_nombre_primero . ' ' . $token->afi_nombre_segundo;
-    $this->Usuario->correo = "gesaodin@gmail.com"; //$token->afi_correo;
+    $this->Usuario->cedula = $token->afi_numero_documento;
+    $this->Usuario->nombre =  $token->dmi_grado_ . '-' . $token->afi_apellido_paterno; //$token->dmi_grado_ . '-' . $token->afi_nombre_primero . ' ' . $token->afi_nombre_segundo;
+    $this->Usuario->correo = $token->usu_correo;
     $this->Usuario->perfil = $token->dmi_situacion_;
     $this->Usuario->estatus = 0; //$token->afi_estatus;
     $this->_entrar($this->Usuario);
