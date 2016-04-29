@@ -23,8 +23,8 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
 	      <a class="waves-effect waves-light modal-trigger" href="#modal1" 
 	      onclick="setValor(\'' . $val->numero . '\', \'' . $val->codigo . '\', 0);">
 	      	<i class="material-icons red-text left">remove_circle</i>
-	      	<input type="hidden" value="' . $val->corr . '" id="corr' . $val->numero . '">
-	      	<input type="hidden" value="' . $val->nomb . '" id="nomb' . $val->numero . '">
+	      	<input type="hidden" value="' . $val->usu_correo . '" id="corr' . $val->numero . '">
+	      	<input type="hidden" value="' . $val->usu_nombre_usuario . '" id="nomb' . $val->numero . '">
 	      </a>
 	      Cita número ( <b><font color="green">' . $val->numero . ' </font></b> ) programada para el día : ' . substr($arr->hasta,0,10 ). ' 
 	      <a href="' . base_url() . 'index.php/BienestarPanel/citaAtendida/' . $val->numero . '" class="right">

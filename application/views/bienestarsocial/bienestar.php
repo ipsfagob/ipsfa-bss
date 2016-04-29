@@ -6,7 +6,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 <div class="container .hide-on-small-only">
 
  <div class="row">
- <div class="col s12">
+ <div class="col s12 ">
 
 
   <?php 
@@ -21,6 +21,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
     }
  
   ?>
+ 
   <form class="col s12" 
       action="<?php echo base_url() . 'index.php/BienestarSocial/' . $continuar ?>"  method="post">
       <input type="hidden" name="codigo" value="<?php echo $url; ?>"> </input>
@@ -36,7 +37,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
           <a href="#" class="btn-large waves-effect waves-light"  style="background-color:#00345A" onclick="irPanel()">Volver atrás
             <i class="material-icons left">arrow_back</i>       
           </a>
-    			<button class="btn-large waves-effect waves-light"  style="background-color:#00345A" type="submit">Transcribir Planilla
+    			<button class="btn-large waves-effect waves-light"  style="background-color:#00345A" type="submit">llenar Planilla
     			    <i class="material-icons right">description</i>
     			</button>
       	</div>

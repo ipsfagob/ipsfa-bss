@@ -9,7 +9,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 
     <div class="row">
       <ul class="collection with-header">
-          <li class="collection-header"><center><span class="titulo" style="font-size: 19px;color: #000;font-weight: bold;">Panel de bienestar y seguridad</span></center>
+          <li class="collection-header"><center><span class="titulo" style="font-size: 19px;color: #000;font-weight: bold;">Bienestar y Seguridad Social</span></center>
           
           </li>
       </ul>

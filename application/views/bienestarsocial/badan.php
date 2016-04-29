@@ -63,6 +63,10 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
 
 </ul>
 
+<button class="btn-large waves-effect waves-light"  style="background-color:#00345A" onclick="irPanel()">Volver atrás
+    <i class="material-icons left">arrow_back</i>
+ 
+</button>
   <!-- Modal Structure -->
   <div id="modal1" class="modal modal-fixed-footer">
     <div class="modal-content">
@@ -91,8 +95,8 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
       <input type="text" id="img" hidden value=""/>
     </div>
     <div class="modal-footer">
-      <a href="javascript:Agregar();" class="modal-action modal-close waves-effect waves-green btn-flat ">Agregar</a>
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Cancelar</a>
+      <a href="javascript:Agregar();" class="modal-action modal-close waves-effect waves-green btn-flat ">Agregar <i class="material-icons left green-text">check_circle</i></a>
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Cancelar<i class="material-icons left red-text">cancel</i></a>
     </div>
   </div>
 </div>

@@ -40,7 +40,7 @@ class Iniciar extends CI_Model {
 
   private function _entrar($usuario) {
     
-    
+   http://localhost/ipsfa-bss/index.php/Bienestar 
   
     $this->session->set_userdata(array(
         'cedula' => $usuario->cedula,
@@ -66,7 +66,7 @@ class Iniciar extends CI_Model {
   function token($token){
     $this->Usuario->cedula = $token->afi_numero_documento;
     $this->Usuario->nombre =  $token->dmi_grado_ . '-' . $token->afi_apellido_paterno; //$token->dmi_grado_ . '-' . $token->afi_nombre_primero . ' ' . $token->afi_nombre_segundo;
-    $this->Usuario->correo = $token->usu_correo;
+    $this->Usuario->correo = "rosma33@gmail.com"; //$token->usu_correo;
     $this->Usuario->perfil = $token->dmi_situacion_;
     $this->Usuario->estatus = 0; //$token->afi_estatus;
     $this->_entrar($this->Usuario);

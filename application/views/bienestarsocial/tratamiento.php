@@ -73,6 +73,9 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 
 </ul>
 <br>
+<a href="#" class="btn-large waves-effect waves-light"  style="background-color:#00345A" onclick="irPanel()">Volver atrás
+	<i class="material-icons left">arrow_back</i>       
+</a>
 </div>
 
 <?php 

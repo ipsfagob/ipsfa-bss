@@ -18,6 +18,10 @@ class Mpanel extends CI_Model {
 
   var $identificador = NULL;
 
+  var $esq = 'bss';
+
+  var $esq_sess = 'session';
+
   function __construct() {
     
   }
@@ -28,9 +32,9 @@ class Mpanel extends CI_Model {
   */
   function cosultarSolicitudes($oid = 0){
     $this->load->model('comun/Dbipsfa');
-    $sConsulta = 'SELECT * FROM solicitud WHERE tipo IN (1,2) AND estatus IN (1,2,4) ORDER BY fecha';
+    $sConsulta = 'SELECT * FROM ' . $this->esq . '.solicitud WHERE tipo IN (1,2) AND estatus IN (1,2,4) ORDER BY fecha';
     if($oid != '') 
-        $sConsulta = 'SELECT * FROM solicitud WHERE tipo IN (1,2) AND estatus IN (3) ORDER BY fecha';
+        $sConsulta = 'SELECT * FROM ' . $this->esq . '.solicitud WHERE tipo IN (1,2) AND estatus IN (3) ORDER BY fecha';
 
     $obj = $this->Dbipsfa->consultar($sConsulta);
     

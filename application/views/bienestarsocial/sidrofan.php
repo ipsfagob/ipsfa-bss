@@ -44,7 +44,14 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
 
 </ul>
 
+
+      <button class="btn-large waves-effect waves-light"  style="background-color:#00345A" onclick="irPanel()">Volver atrás
+          <i class="material-icons left">arrow_back</i>
+       
+      </button>
 </div>
+
+
 <?php
 $this->load->view ( "bienestarsocial/inc/pie.php" );
 ?>

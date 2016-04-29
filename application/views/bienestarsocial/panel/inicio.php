@@ -20,7 +20,7 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
             <a href="<?php echo base_url(); ?>index.php/BienestarPanel/consulta">
               <div class="__ctdrs_xxmall cortar">Consultar Codigo Generados</div>
               <div >
-                <img src="<?php echo base_url(); ?>public/img/consulta.jpg">
+                <img src="<?php echo base_url(); ?>public/img/consulta.jpg" style="width:215px;height: 100px">
               </div>
             </a>
           </div>  
@@ -36,7 +36,7 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
             <a href="<?php echo base_url(); ?>index.php/BienestarPanel/citas">
               <div class="__ctdrs_xxmall cortar">Este programa está diseñado para la entrega del Kit de medicamentos a los pacientes con tratamientos de por vida</div>
               <div >
-                <img src="<?php echo base_url(); ?>public/img/farmaipsfa.jpg">
+                <img src="<?php echo base_url(); ?>public/img/farmaipsfa.jpg" style="width:215px;height: 100px">
               </div>
             </a> 
           </div> 
@@ -52,7 +52,7 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
             <a href="<?php echo base_url(); ?>index.php/BienestarPanel/tratamiento">
               <div class="__ctdrs_xxmall cortar">Kit para tratamiento prolongado</div>
               <div >
-                <img src="<?php echo base_url(); ?>public/img/aval.jpg">
+                <img src="<?php echo base_url(); ?>public/img/aval.jpg" style="width:215px;height: 100px">
               </div>
             </a> 
           </div> 
@@ -68,7 +68,7 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
             <a href="<?php echo base_url(); ?>index.php/BienestarPanel/medicamentos">
               <div class="__ctdrs_xxmall cortar">Medicamentos solicitados por afiliados</div>
               <div >
-                <img src="<?php echo base_url(); ?>public/img/medicamentos.jpg">
+                <img src="<?php echo base_url(); ?>public/img/medicamentos.jpg" style="width:215px;height: 100px">
               </div>
             </a>
           </div>  
@@ -83,7 +83,7 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
             <a href="<?php echo base_url(); ?>index.php/BienestarPanel/sidrofan">
               <div class="__ctdrs_xxmall cortar">Ver disponibilidad en Sidrofan</div>
               <div >
-                <img src="<?php echo base_url(); ?>public/img/inventario.jpg">
+                <img src="<?php echo base_url(); ?>public/img/inventario.jpg" style="width:215px;height: 100px">
               </div>
             </a>
           </div>  
@@ -99,7 +99,7 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
             <a href="<?php echo base_url(); ?>index.php/BienestarPanel/solicitudes">
               <div class="__ctdrs_xxmall cortar">Deevolución de una cantidad de dinero </div>
               <div >
-                <img src="<?php echo base_url(); ?>public/img/reembolsos.jpg">
+                <img src="<?php echo base_url(); ?>public/img/reembolsos.jpg"  style="width:215px;height: 100px">
               </div>
             </a>
           </div>  
@@ -113,7 +113,7 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
             <a href="<?php echo base_url(); ?>index.php/BienestarPanel/estadistica">
               <div class="__ctdrs_xxmall cortar">Solicitar Deevolución de una cantidad de dinero </div>
               <div >
-                <img src="<?php echo base_url(); ?>public/img/estadistica.jpg">
+                <img src="<?php echo base_url(); ?>public/img/estadistica.jpg" style="width:215px;height: 100px">
               </div>
             </a>
           </div>  
@@ -127,7 +127,7 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
             <a href="<?php echo base_url(); ?>index.php/BienestarPanel/reporte">
               <div class="__ctdrs_xxmall cortar">Reportes Generales del Sistema </div>
               <div >
-                <img src="<?php echo base_url(); ?>public/img/reporte.jpg">
+                <img src="<?php echo base_url(); ?>public/img/reporte.jpg" style="width:215px;height: 100px">
               </div>
             </a>
           </div>  
@@ -142,7 +142,7 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
             <a href="<?php echo base_url(); ?>index.php/BienestarPanel/solicitudesAutorizar">
               <div class="__ctdrs_xxmall cortar">Aprobar Solicitudes </div>
               <div >
-                <img src="<?php echo base_url(); ?>public/img/aprobado.jpg">
+                <img src="<?php echo base_url(); ?>public/img/aprobado.jpg" style="width:215px;height: 100px">
               </div>
             </a>
           </div>  

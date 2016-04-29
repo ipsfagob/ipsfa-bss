@@ -28,7 +28,7 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
             echo $sEstado;
           ?>
           </select>
-          <label>Ubicacíón para ser atendido</label>
+          <label>Ubicacíón para ser atendido por el IPSFA y BADAN</label>
         </div>
 
       </div>
@@ -137,6 +137,14 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
     </form>
     <div class="row">
         <div class="col s12">
+          <a href="#" class="btn-large waves-effect waves-light"  style="background-color:#00345A" onclick="irPanel()">Volver atrás
+              <i class="material-icons left">arrow_back</i>
+           
+          </a>
+          <a href="<?php echo base_url();?>index.php/BienestarSocial/farmacia/ba" class="btn-large waves-effect waves-light"  style="background-color:#00345A" >Seleccionar mas
+              <i class="material-icons right">add_shopping_cart</i>
+           
+          </a>
           <button class="btn-large medium waves-effect waves-light "  style="background-color:#00345A" onclick="Salvar()">Solicitar
             <i class="material-icons right">send</i>
           </button>

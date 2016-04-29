@@ -84,11 +84,11 @@ class Solicitud extends CI_Model{
 
 	function listarMedicamentosPanel($estatus){
 		$sConsulta = 'SELECT  ' . $this->esq . '.solicitud.codigo AS cedula, * FROM ' . $this->esq . '.solicitud 
-		LEFT JOIN ' . $this->esq . '.archivo ON ' . $this->esq . '.solicitud.numero=' . $this->esq . '.archivo.codigo
+		
 		INNER JOIN ' . $this->esq_sess . '.tbl_usuario ON ' . $this->esq . '.solicitud.codigo = ' 
 		. $this->esq_sess . '.tbl_usuario.usu_numero_documento
 		WHERE ' . $this->esq . '.solicitud.tipo=3 AND ' . $this->esq . '.solicitud.estatus =' . $estatus;
-			
+		
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		return $obj;
 	}

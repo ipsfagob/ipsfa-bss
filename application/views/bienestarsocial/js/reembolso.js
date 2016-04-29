@@ -160,15 +160,18 @@ function salvarR(codigo){
 	var Reembolso = {};
 	Reembolso['Solicitud'] = Solicitud;
 	Reembolso['Codigo'] = codigo;
-
-	$.post( sUrlP + "salvarReembolso/", Reembolso)
-		.done(function(data) {			
-			Materialize.toast(data, 3000, 'rounded');
-			$(location).attr('href', sUrlP + "adjuntos/" + codigo + "/" + 1);	
-		})
-		.fail(function(jqXHR, textStatus) {
-	    	alert(jqXHR.responseText);
-	});		
+	if(i > 0){
+		$.post( sUrlP + "salvarReembolso/", Reembolso)
+			.done(function(data) {			
+				Materialize.toast(data, 3000, 'rounded');
+				$(location).attr('href', sUrlP + "adjuntos/" + codigo + "/" + 1);	
+			})
+			.fail(function(jqXHR, textStatus) {
+		    	alert(jqXHR.responseText);
+		});		
+	}else{
+		Materialize.toast('Debe seleccionar al menos un concepto', 5000);
+	}
 }
 
 function eliminarR(id){		

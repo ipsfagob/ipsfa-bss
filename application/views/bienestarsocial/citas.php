@@ -34,6 +34,9 @@ Deberá asistir a la Gerencia de Droguería y Farmacia del Instituto.
   ?>
 </ul>
 <br>
+<a href="#" class="btn-large waves-effect waves-light"  style="background-color:#00345A" onclick="irPanel()">Volver atrás
+	<i class="material-icons left">arrow_back</i>       
+</a>
 </div>
 
 

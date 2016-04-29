@@ -107,15 +107,18 @@ function salvarA(codigo){
 	var Reembolso = {};
 	Reembolso['Solicitud'] = Solicitud;
 	Reembolso['Codigo'] = codigo;
-
-	$.post( sUrlP + "salvarApoyo/", Reembolso)
-		.done(function(data) {			
-			Materialize.toast(data, 3000, 'rounded');
-			$(location).attr('href', sUrlP + "adjuntos/" + codigo + "/" + 2);	
-		})
-		.fail(function(jqXHR, textStatus) {
-	    	alert(jqXHR.responseText);
-	});		
+	if(i > 0){
+		$.post( sUrlP + "salvarApoyo/", Reembolso)
+			.done(function(data) {			
+				Materialize.toast(data, 3000, 'rounded');
+				$(location).attr('href', sUrlP + "adjuntos/" + codigo + "/" + 2);	
+			})
+			.fail(function(jqXHR, textStatus) {
+		    	alert(jqXHR.responseText);
+		});	
+	}else{
+		Materialize.toast('Debe seleccionar al menos un concepto', 5000);
+	}
 }
 
 function eliminarR(id){		

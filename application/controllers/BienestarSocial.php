@@ -58,10 +58,13 @@ class BienestarSocial extends CI_Controller {
 		$this->load->model('usuario/Iniciar');
 
 		$ruta = '/' . $token . '.json';
-		$gestor = @fopen('http://localhost/' . $token . '.json', 'r');
-
+		if(base_url() == 'http://localhost/ipsfa-bss/'){
+			$gestor = @fopen(base_url() . '/' . $token . '.json', 'r');
+		}else{
+			$gestor = @fopen(base_url() . '/NUEVO/ipsfaNet/init.session.IPSFA.web/fileWebSourceLogic/admin/' . $token . '.json', 'r');
+		}
+		
 		if ($gestor) {
-
 		    while (($buffer = fgets($gestor, 4096)) !== false) {		       
 		        $php_ = json_decode($buffer);		       		       
 		        $this->Iniciar->token($php_[0]);
@@ -281,11 +284,16 @@ class BienestarSocial extends CI_Controller {
 				$this->Archivo->salvar($_POST['url'], $_FILES, $_POST['codigo']);
 				
 				$this->Correo->para = $_SESSION['correo'];
+				
+				/**
 				$this->Correo->cuerpo = 'Hola, ' . $_SESSION['nombreRango'] . '.<br>
 					Usted ha realizado una solicitud por reembolso bajo el codigo 
 					' . $_POST['codigo'] . ' la cual sera procesada por nuestros analistas
 					<br><br>
 					IPSFA en linea Optimizando tu bienestar...';
+				**/
+				$this->Correo->cuerpo = $this->plantillaMensajeCorreo($_SESSION['nombreRango'], 'REEMBOLSO' ,$_POST['codigo']);
+
 				$this->Correo->gerencia = 'Gerencia de Bienestar Social';
 				$this->Correo->titulo = $_SESSION['nombreRango'];
 				$this->Correo->enviar();
@@ -316,11 +324,16 @@ class BienestarSocial extends CI_Controller {
 				
 				$this->Archivo->salvar(3, $_FILES , $codigo);
 				$this->Correo->para = $_SESSION['correo'];
+
+				/**
 				$this->Correo->cuerpo = 'Hola, ' . $_SESSION['nombreRango'] . '.<br>
 					Usted ha realizado una actulización de documentos para su tratamiento prolongado 
 					el cual sera procesado por nuestros analistas
 					<br><br>
 					IPSFA en linea Optimizando tu bienestar...';
+				**/
+
+				$this->Correo->cuerpo = $this->plantillaMensajeCorreo($_SESSION['nombreRango'], 'TRATAMIENTO PROLONGADO' ,$_POST['codigo']);
 				$this->Correo->gerencia = 'Gerencia de Bienestar Social';
 				$this->Correo->titulo = $_SESSION['nombreRango'];
 
@@ -829,10 +842,14 @@ class BienestarSocial extends CI_Controller {
 			$msj = "Nos estaremos comunicando con usted a la brevedad posible.";
 			$this->load->model('utilidad/Correo', 'Correo');
 			$this->Correo->para = $_SESSION['correo'];
+			/**
 			$this->Correo->cuerpo = 'Hola, ' . $_SESSION['nombreRango'] . '.<br>
 				Usted ha realizado una solicitud por medicamentos sera procesada por nuestros analistas
 				<br><br>
 				IPSFA en linea Optimizando tu bienestar...';
+			**/
+
+			$this->Correo->cuerpo = $this->plantillaMensajeCorreo($_SESSION['nombreRango'], 'MEDICAMENTOS' ,$codigo);
 			$this->Correo->gerencia = 'Gerencia de Bienestar Social';
 			$this->Correo->titulo = $_SESSION['nombreRango'];
 			$this->Correo->enviar();
@@ -873,9 +890,9 @@ class BienestarSocial extends CI_Controller {
 	function crearTablas(){
 
 		$this->load->model('comun/Dbipsfa');
-		$sCon = 'DROP TABLE archivo;
+		$sCon = 'DROP TABLE bss.archivo;
 
-		CREATE TABLE archivo
+		CREATE TABLE bss.archivo
 		(
 		  oid serial NOT NULL,
 		  codigo character varying(20),
@@ -886,9 +903,9 @@ class BienestarSocial extends CI_Controller {
 
 		$this->Dbipsfa->consultar($sCon);
 
-		$sCon = 'DROP TABLE solicitud;
+		$sCon = 'DROP TABLE bss.solicitud;
 
-		CREATE TABLE solicitud
+		CREATE TABLE bss.solicitud
 		(
 		  oid serial NOT NULL,
 		  codigo character varying(16) NOT NULL,
@@ -907,7 +924,7 @@ class BienestarSocial extends CI_Controller {
 
 		$sCon = 'DROP TABLE semillero;	
 
-		CREATE TABLE semillero
+		CREATE TABLE bss.semillero
 		(
 		  oid serial NOT NULL,
 		  codigo character varying(16),
@@ -921,7 +938,27 @@ class BienestarSocial extends CI_Controller {
 		$this->Dbipsfa->consultar($sCon);
 		echo "exito";
 	}
-	
+
+
+	private function plantillaMensajeCorreo($nombre, $tipo, $codigo){
+		$msj = '
+			Estimado Afiliado(a)  ' . $nombre . ', <br><br>
+
+			Usted ha realizado una solicitud por  ' . $tipo . ' bajo el código  ' . $codigo . ' la cual será procesada  por nuestros analistas de Bienestar y Seguridad Social. Para mayor información puede mantenerse en contacto a través de nuestro portal web http://www.ipsfa.gob.ve, o le estaremos notificando a través de su correo electrónico.<br><br>
+
+			.- IPSFA jamás le enviará un enlace donde le solicite información de claves de acceso a IPSFA en línea, cuentas bancarias, ni correo electrónico personal.<br>
+			.- IPSFA sólo envía correos personalizados, es decir, con su nombre, por ejemplo: CNEL. BOLIVAR SIMON.<br>
+			.- IPSFA nunca le enviará un correo en el que se use su dirección en el encabezado del mensaje, por ejemplo: Estimado afiliado Sr.(a): juan.cristobal.arocha@gmail.com.<br>
+			.- Esta es una cuenta no monitoreada. No responda o reenvíe correos a esta cuenta.<br>
+			Ud. dispone de los siguientes correos en caso que requiera reportar cualquier situación irregular: 
+
+
+			IPSFA en línea Optimizando tu Bienestar.
+		';
+
+		return $msj;
+
+	}
 
 }
 

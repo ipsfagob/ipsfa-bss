@@ -33,16 +33,15 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
 	      	onclick="setMedicamento(\'' . $v->numero . '\', \'RECHAZADO\');">
 	      	<i class="material-icons red-text ">remove_circle</i>	      	
 	      	</a>
-	      	<input id="corr' .  $v->numero . '" value="' . $v->corr . '" type="hidden"></input>
-	      	<input id="nomb' .  $v->numero . '" value="' . $v->nomb . '" type="hidden"></input>
+	      	<input id="corr' .  $v->numero . '" value="' . $v->usu_correo . '" type="hidden"></input>
+	      	<input id="nomb' .  $v->numero . '" value="' . $v->usu_nombre_usuario . '" type="hidden"></input>
 		      CODIGO <b><font color="green">' . $v->numero . '</font></b> CEDULA 
-		      ( <b><font color="green">' . $v->cedula . '</font></b> )' . $icon . '
+		      ( <b><font color="green">' . $v->usu_numero_documento . '</font></b> )' . $icon . '
 		    </div>
 		   	<div class="collapsible-body" style="padding:10px">
 		   	<div class="row">	
 		   	<div class="col s2 m2 l2" style="padding-left:30px">
-		   		<img width="80px" height="80px" src="' . base_url() . 'public/doc/medicamento/' . $v->numero . '/' . $v->nombre . '" 
-		   		class="img-respoonsive materialboxed">
+		   		
 		   	</div>
 		   	<div class="col s10 m10 l10">';
 

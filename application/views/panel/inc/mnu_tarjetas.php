@@ -22,7 +22,7 @@
 			</div>
 		
 			<div class="ContactoDetalle" style="height: 48px">
-			<span style="float: right; padding-right: 30px"><a href="#!">+ Acerca de IpsfaNet</a></span></div>
+			<span style="float: right; padding-right: 30px"><a href="#!">+ Acerca de Ipsfa en linea</a></span></div>
 			
 			<div class="grey lighten-5" style="height: 48px; border: 1px solid #CCC">
 				<span style="float: right; padding: 7px; padding-top: 9px; padding-right: 20px">
