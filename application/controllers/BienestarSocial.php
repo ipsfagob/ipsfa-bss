@@ -24,9 +24,11 @@ class BienestarSocial extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
+		
 		$this->load->helper('url');
 		$this -> load -> model('carro/mcarro','Carro');
 		$this->load->library('session');		
+		header("Cache-Control: no-cache, must-revalidate, max-age=0"); // HTTP/1.1
 	}
 
 	/*
@@ -41,6 +43,7 @@ class BienestarSocial extends CI_Controller {
 	 */
 	function index() {
 		if(isset($_SESSION['cedula'])){
+			$_SESSION['back']=0;
 			$this->load->view ( 'bienestarsocial/principal');
 		}else{
 			$this->salir();
@@ -53,29 +56,30 @@ class BienestarSocial extends CI_Controller {
 	*
 	*
 	*/
-	function token($token){
+	function token($token = ''){
 		$this->load->model('usuario/Usuario');
 		$this->load->model('usuario/Iniciar');
 
-		$ruta = '/' . $token . '.json';
-		if(base_url() == 'http://localhost/ipsfa-bss/'){
-			$gestor = @fopen(base_url() . '/' . $token . '.json', 'r');
-		}else{
-			$gestor = @fopen(base_url() . '/NUEVO/ipsfaNet/init.session.IPSFA.web/fileWebSourceLogic/admin/' . $token . '.json', 'r');
-		}
-		
-		if ($gestor) {
-		    while (($buffer = fgets($gestor, 4096)) !== false) {		       
-		        $php_ = json_decode($buffer);		       		       
+		if($token != ''){
+			$ruta = '/var/www/NUEVO/ipsfaNet/init.session.IPSFA.web/fileWebSourceLogic/admin/';
+			if(base_url() == 'http://localhost/ipsfa-bss/') $ruta = '/home/www/';
+			
+			$ruta = $ruta . $token . '.json';
+			
+			if (file_exists($ruta)) {
+				$contenido = file_get_contents($ruta);	
+			    		       
+		        $php_ = json_decode($contenido);		       		       
 		        $this->Iniciar->token($php_[0]);
+		        
 		        header('Location: ' . base_url() . 'index.php/BienestarSocial/index');
-		    }
-		    if (!feof($gestor)) {
-		        echo "";
-		    }
-		    fclose($gestor);
+		  	}else{
+		  		echo "No se encontro el token";
+		  	}
+			
+		}else{
+			echo "falta iniciar un token de Conexion";
 		}
-
 	}
 
 	private function home(){
@@ -604,7 +608,9 @@ class BienestarSocial extends CI_Controller {
 				$this->load->model('saman/Solicitud');
 				$this->Semillero->obtener($_POST['codigo'], $_SESSION['cedula'], 'REM');
 				$valor = $this->Solicitud->consultar($this->Semillero->codigo);
-				
+				$_SESSION['back'] = 1;
+
+
 				if($this->Semillero->estatus == 1 && $valor == 1){
 					$this->adjuntos($this->Semillero->codigo, 2);				
 				}else{
@@ -615,13 +621,12 @@ class BienestarSocial extends CI_Controller {
 				
 					$data['Codigo'] = $this->Semillero->codigo;	
 					$this->load->view ( 'bienestarsocial/comun/reembolso/inicio', $data);
-				}
+				}				
 			}else{
-				header('Location: ' . base_url() . 'index.php/BienestarSocial/index');
+				header('Location: ' . base_url() . 'index.php/BienestarSocial/bienestar/1');
 			}
 		}else{
-			$this->salir();
-			exit;
+			header('Location: ' . base_url() . 'index.php/BienestarSocial/bienestar/1');
 		}	
 	}
 

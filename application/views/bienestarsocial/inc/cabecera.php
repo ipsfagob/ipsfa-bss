@@ -3,17 +3,19 @@
   <html>
     <head>
       <title>Ipsfa en linea</title>	
-      <!--Import Google Icon Font     
-
-      	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">	-->					
+      <!--Import Google Icon Font 
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">	-->					
       <link type="text/css" href="<?php echo base_url(); ?>public/css/material.css" rel="stylesheet">
-      
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>public/css/materialize.min.css"  media="screen,projection"/>
-       <link type="text/css" href="<?php echo base_url(); ?>application/views/bienestarsocial/css/estilo.css" rel="stylesheet">
+      <link type="text/css" href="<?php echo base_url(); ?>application/views/bienestarsocial/css/estilo.css" rel="stylesheet">
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <meta http-equiv="Expires" content="0" /> 
+	  <meta http-equiv="Pragma" content="no-cache" />
+	  
+    
     </head>
 
     <body class="grey lighten-3">
