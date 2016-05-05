@@ -11,11 +11,23 @@
 
 	var bPreguntar = true;	 
 	
-	window.onbeforeonload = function (){
-		//if (bPreguntar)return "¿Seguro que quieres salir?";
+	window.onbeforeunload = function (e){
+		
+		if (bPreguntar)return "¿Seguro que desea quieres salir?";
 
 		//alert(window.closed);
 	}
+	window.onclose = function (e){
+		alert(1);
+	}
+	window.close = function (e){
+		alert(1);
+	}
+
+	window.onclick = function (e){
+		console.log(e);
+	}
+	
 	
 
 
