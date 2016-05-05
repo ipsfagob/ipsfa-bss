@@ -18,7 +18,7 @@
     
     </head>
 
-    <body class="grey lighten-3">
+    <body class="grey lighten-3" onunload="hola()">
 	<main>
 
 	<div class="navbar-fixed">

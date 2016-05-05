@@ -62,7 +62,7 @@ class BienestarSocial extends CI_Controller {
 
 		if($token != ''){
 			$ruta = '/var/www/NUEVO/ipsfaNet/init.session.IPSFA.web/fileWebSourceLogic/admin/';
-			if(base_url() == 'http://localhost/ipsfa-bss/') $ruta = '/home/www/';
+			if(base_url() == '/ipsfa-bss/') $ruta = '/home/www/';
 			
 			$ruta = $ruta . $token . '.json';
 			
@@ -504,9 +504,20 @@ class BienestarSocial extends CI_Controller {
 	 */
 	public function listarMedicamentosSidroFan($pr = ''){		
 		$this->load->model("fisico/maestroproducto", "Producto");
-		print($this->Producto->listarExistenciaProductosSidroFan($pr));
+		print($this->Producto->consultarSidroFan($pr));
 	}
 
+	/**
+	 * Listar un producto o medicamento de FarmaIPSFA
+	 *
+	 * @access  public
+	 * @param string
+	 * @return json 
+	 */
+	function listarMedicamentosFarmaIpsfa($pr = ''){
+		$this->load->model("fisico/maestroproducto", "Producto");
+		print($this->Producto->consultarFarmaIpsfa($pr));
+	}
 
 	
 	/* 
@@ -877,6 +888,8 @@ class BienestarSocial extends CI_Controller {
 		
 	}
 
+
+
 	/**
 	 * Salir del Sistema
 	 *
@@ -886,8 +899,8 @@ class BienestarSocial extends CI_Controller {
 	public function salir() {
 		session_destroy();
 		
-		header('Location: ' . base_url() . 'index.php/Login');
-		
+		//header('Location: ' . base_url() . 'index.php/Login');
+		header('Location: http://www.ipsfa.gob.ve/NUEVO/ipsfaNet/init.session.IPSFA.web/project.Web/projects/admin/view/enlace/iniciarSession/');
 		
 		
 	}

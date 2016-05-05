@@ -21,18 +21,20 @@
  * @since version 1.0
  */
 session_start();
-
 define ('__CONTROLADOR', 'BienestarPanel');
+
 class BienestarPanel extends CI_Controller{
+
+
 	function __construct(){
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->model('panel/Mpanel');
 		$_SESSION['nivel'] = 0;
+		header("Cache-Control: no-cache, must-revalidate, max-age=0"); // HTTP/1.1
 	}
 
-	function validarUsuario(){
-		
+	function validarUsuario(){		
 		$this->index();
 	}
 
@@ -345,7 +347,11 @@ class BienestarPanel extends CI_Controller{
 	}
 
 
-	
+	function actualizarFarmaIpsfa(){
+		$this->load->model('fisico/Maestroproducto');
+		$this->Maestroproducto->actualizarFarmaIpsfa();
+
+	}
 
 
 	function __destruct(){

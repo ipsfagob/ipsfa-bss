@@ -28,6 +28,9 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
   	foreach ($data->rs as $c => $v) {
   		$icon = '';//'<i class="mdi-content-link right amber-text text-darken-4"></i>';
 		$valor = json_decode($v->detalle);
+
+		$fecha = explode("-", substr($v->fecha,0,10 ));
+		//$sFech = $fecha[2] . '/' . $fecha[1] . '/' . $fecha[0];
 		$cadena .= '<li>
 	      	<div class="collapsible-header"><i class="material-icons grey-text">playlist_add</i>
 		      ' . substr($v->fecha,0,10 ). ' ( <b><font color="green">' . $v->numero . '</font></b> )

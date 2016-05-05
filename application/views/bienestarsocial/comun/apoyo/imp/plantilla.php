@@ -140,7 +140,9 @@
 			<tr class="texto12 doble"><td style="width:30%;"class="biz bde bt bajo"></td><td style="width:70%;" colspan="3" class="bde bajo"></td></tr>
 			<tr class="texto12"><td colspan="4" class="biz bde btop" class="bde btop">12.DIRECCION O DEPENDENCIA:</td></tr>
 			<tr class="texto12 doble"><td colspan="4" class="biz bde bajo"></td></tr>
-			<tr class="texto12"><td colspan="2" class="biz bde btop">CORREO ELECTRONICO:</td><td class="bde btop">13.TEL&Eacute;EFONO HABITACI&Oacute;N:</td><td class="bde">MOVIL/CELULAR:</td></tr>
+			<tr class="texto12"><td colspan="2" class="biz bde btop">CORREO ELECTRONICO:<br>
+				<font style="font-size: 12px"><?php echo $_SESSION['correo'];?></font>
+			</td><td class="bde btop">13.TEL&Eacute;EFONO HABITACI&Oacute;N:</td><td class="bde">MOVIL/CELULAR:</td></tr>
 			<tr class="texto12 doble"><td colspan="2" class="biz bde  bajo"></td><td class="bde bajo"></td><td class="bde bajo"></td></tr>
 		</tbody>
 	</table>

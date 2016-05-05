@@ -117,17 +117,85 @@ class MaestroProducto extends CI_Model {
 	 * @var string|cod, nomb, obse, imag
 	 * @return JsonSerializable
 	 */
-	function listarExistenciaProductosSidroFan($pr = ''){
+	function consultarSidroFan($pr = ''){
+				
+		$url         = "http://192.168.22.2/SidrofanbWS/SidrofanbWS.asmx?wsdl"; 
+		$client     = new SoapClient($url, array("trace" => 1, "exception" => 0)); 
+
+		$result = $client->__soapCall("GetProductsJsonByName", array( 'GetProductsJsonByName' => array( 
+   									  "token" => '70F45F8291C6',
+   									  "name" => '%' . $pr . '%'), NULL));
+		
+
+		return $result->GetProductsJsonByNameResult;
+
+		/**
+
 		$this->load->model('comun/Dbipsfa');
-		$obj = $this->Dbipsfa->consultar('SELECT oid, nombre AS nomb, contenido AS obse, zpreprd AS imag FROM bss.sidrofan WHERE nombre ~* \'' . $pr . '\'');
+		$obj = $this->Dbipsfa->consultar('SELECT oid AS cant, nombre AS nomb, contenido AS obse, zpreprd AS imag FROM bss.sidrofan WHERE nombre ~* \'' . $pr . '\'');
+		
+		return json_encode($obj->rs);
+		**/
+	}
+
+
+	/**
+	 * Listar Existencia de los productos de farmaIPSFA
+	 * 
+	 * @access public
+	 * @var string|cod, nomb, obse, imag
+	 * @return JsonSerializable
+	 */
+	function consultarFarmaIpsfa($pr = ''){
+		$this->load->model('comun/Dbipsfa');
+		$sCon = 'SELECT cant, nomb FROM bss.farmaipsfa WHERE nomb ~* \'' . $pr . '\'';
+		$obj = $this->Dbipsfa->consultar($sCon);
 		
 		return json_encode($obj->rs);
 	}
 
 
+
+
+	function actualizarFarmaIpsfa(){
+		$this->load->model('comun/Dbipsfa');
+		$sCon = 'DROP TABLE IF EXISTS bss.farmaipsfa;
+
+		CREATE TABLE bss.farmaipsfa
+		(
+		  oid serial NOT NULL,
+		  codigo integer,
+		  cant integer,
+		  nomb character varying(250)
+		)';
+
+		$this->Dbipsfa->consultar($sCon);
+
+		$ruta = '/home/www/afiliados.txt';
+		$archivo = file($ruta);
+		$sConsulta = 'INSERT INTO bss.farmaipsfa (codigo, cant, nomb) VALUES ';
+		foreach ($archivo as $linea) {
+				$sCampos = explode(";", $linea);
+				if(count($sCampos) == 4 ){
+					
+					if($sCampos[2] != ''){
+						$sConsulta .= '
+						 (' .  $sCampos[0] . ',' .  str_replace(",", ".",  $sCampos[1]) . ', \'' .  str_replace("'", " ",  $sCampos[2]) . '\'), ';
+						//$this->Dbipsfa->consultar($sConsulta);
+					}
+				}
+
+		}
+		$sConsulta .= ' (0,0,\'\')';
+		$this->Dbipsfa->consultar($sConsulta);
+		$this->Dbipsfa->consultar('DELETE FROM bss.farmaipsfa WHERE codigo=0 ');
+		//echo "<br>Proceso Finalizado.---";
+		//fclose($archivo);
+	}
 	
 	/**
 	 * Listar Productos por Categoria
+
 	 */
 	function listarPorCategoria($idCategoria = NULL, $ubi = NULL) {
 

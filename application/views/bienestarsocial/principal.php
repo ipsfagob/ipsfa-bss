@@ -25,7 +25,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
           <a href="<?php echo base_url(); ?>index.php/BienestarSocial/tratamiento">
             <div class="__ctdrs_xxmall cortar">Este programa está diseñado para la entrega del Kit de medicamentos a los pacientes con tratamientos de por vida</div>
             <div >
-              <img src="<?php echo base_url(); ?>public/img/farmaipsfa.jpg">
+              <img src="<?php echo base_url(); ?>public/img/farmaipsfa.jpg" class="responsive-img">
             </div>
           </a> 
         </div> 
@@ -41,7 +41,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
           <a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia/me">
             <div class="__ctdrs_xxmall cortar">Permite ver la disponibilidad interna</div>
             <div >
-              <img src="<?php echo base_url(); ?>public/img/medicamentos.jpg">
+              <img src="<?php echo base_url(); ?>public/img/medicamentos.jpg" class="responsive-img">
             </div>
           </a>
         </div>  
@@ -59,7 +59,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
           <a href="' . base_url() . 'index.php/BienestarSocial/bienestar/1">
             <div class="__ctdrs_xxmall cortar">Solicitar Devolución de una cantidad de dinero </div>
             <div >
-              <img src="' . base_url() . 'public/img/reembolsos.jpg">
+              <img src="' . base_url() . 'public/img/reembolsos.jpg" class="responsive-img">
             </div>
           </a>
         </div>  
@@ -83,9 +83,9 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
             <a href="#"><i class="material-icons white-text">more_vert</i></a>
           </div>
           <a href="' . base_url() . 'index.php/BienestarSocial/bienestar/2">
-            <div class="__ctdrs_xxmall cortar">Solicitar ayuda para adquirir medicamentos</div>
+            <div class="__ctdrs_xxmall cortar">Notificar ayudas medicas</div>
             <div >
-              <img src="' . base_url() . 'public/img/ayudasocial.jpg">
+              <img src="' . base_url() . 'public/img/ayudasocial.jpg" class="responsive-img">
             </div>
           </a>
         </div>  
@@ -110,7 +110,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
           <a href="<?php echo base_url(); ?>index.php/BienestarSocial/farmacia/ba">
             <div class="__ctdrs_xxmall cortar">Consultar Existencias Badan</div>
             <div >
-              <img src="<?php echo base_url(); ?>public/img/badan.jpg">
+              <img src="<?php echo base_url(); ?>public/img/badan.jpg" class="responsive-img">
             </div>
           </a>
         </div>  
@@ -130,7 +130,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
           <a href="' . base_url() . 'index.php/BienestarSocial/cartaaval">
             <div class="__ctdrs_xxmall cortar">Realizar Citas Para la el proceso</div>
             <div >
-              <img src="' . base_url() . 'public/img/aval.jpg">
+              <img src="' . base_url() . 'public/img/aval.jpg" class="responsive-img">
             </div>
           </a>
         </div>  
@@ -146,16 +146,16 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       
 
 
-<div class="col s12 m4 l4" style="display:none">
+<div class="col s12 m4 l4">
         <div class="btns-smin">
-          <div class="btns-sminf small">Consulta Locatel</div>
+          <div class="btns-sminf small">Estatus de Solicitudes</div>
           <div class="btns-sminh  dropdown-button" >
             <a href="#"><i class="material-icons white-text">more_vert</i></a>
           </div>
           <a href="<?php echo base_url(); ?>index.php/BienestarSocial/locatel">
-            <div class="__ctdrs_xxmall cortar">Realizar Consultas en el país</div>
+            <div class="__ctdrs_xxmall cortar">Estatus de las Solicitudes</div>
             <div >
-              <img src="<?php echo base_url(); ?>public/img/locatel.jpg" style="width:300px; height: 105px">
+              <img src="<?php echo base_url(); ?>public/img/pendientes.jpg" class="responsive-img">
             </div>
           </a>
         </div>  

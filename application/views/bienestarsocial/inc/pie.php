@@ -9,6 +9,17 @@
 
 <script type="text/javascript">
 
+	var bPreguntar = true;	 
+	
+	window.onbeforeonload = function (){
+		//if (bPreguntar)return "¿Seguro que quieres salir?";
+
+		//alert(window.closed);
+	}
+	
+
+
+	//if (history.back(1)){alert("¡Cobarde, has vuelto atrás!")}
 	
 
     $(document).ready(function(){
@@ -98,8 +109,11 @@
     }
 
     function irPanel(){
+    	bPreguntar = false;
     	$(location).attr('href', sUrlP + "index");
     }
+
+
 
     </script>
 </main>
