@@ -34,7 +34,7 @@ function listarProductos(val) {
 	).done(function(msg) {
 		$("#menuprincipal").focus();
 	}).fail(function(jqXHR, textStatus) {
-				alert(jqXHR.responseText);
+		//alert(jqXHR.responseText);
 		//alert('API sin conexión actualmente');
 		Materialize.toast("Disculpe actualmente no se logro establecer conexión con " + sEnlace, 5000);
 	});

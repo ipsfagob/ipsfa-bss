@@ -150,7 +150,7 @@ class BienestarPanel extends CI_Controller{
 	 */
 	public function listarMedicamentosSidroFan($pr = ''){		
 		$this->load->model("fisico/maestroproducto", "Producto");
-		print($this->Producto->listarExistenciaProductosSidroFan($pr));
+		print($this->Producto->consultarSidroFan($pr));
 	}
 
 

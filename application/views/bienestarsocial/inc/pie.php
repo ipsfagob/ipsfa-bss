@@ -13,26 +13,18 @@
 	
 	window.onbeforeunload = function (e){
 		
-		if (bPreguntar)return "¿Seguro que desea quieres salir?";
+		//if (bPreguntar)return "¿Seguro que desea quieres salir?";
 
 		//alert(window.closed);
 	}
-	window.onclose = function (e){
-		alert(1);
-	}
-	window.close = function (e){
-		alert(1);
-	}
-
-	window.onclick = function (e){
-		console.log(e);
-	}
-	
 	
 
 
 	//if (history.back(1)){alert("¡Cobarde, has vuelto atrás!")}
 	
+	$( window ).on('beforeunload', function() {
+	 	if (bPreguntar)return 'Bienestar y Seguridad Social';
+	});
 
     $(document).ready(function(){
 
@@ -91,7 +83,9 @@
     		thousandsSeparator: '.'
 		});
 
-
+		$('a').click(function (e){
+			 bPreguntar = false;
+		});	  	
       	
 
 	    

@@ -14,10 +14,18 @@ function consultar(val) {
 		if(data == ""){
 			Materialize.toast("Disculpe el medicamento seleccionado no se encuentra disponible", 5000);
 		}else{
+
 			$.each(data, function(key, val) {
-				cadena = '<li class="collection-item avatar "><span class="email-title"><b>' + val.nomb + 
-				'</b><br><font color="#00345A">UBICACION DROGUERIA / FARMACIA</font><BR>EXISTENCIA: AGOTADA';
-				$(".collection").append(cadena);
+				cantidad = val.StockQuantity - (val.StockQuantity * 0.1);
+				cantidad = parseFloat(cantidad).toFixed(0);
+				if (cantidad <= 1) cantidad = 0
+
+				cadena = '<li class="collection-item avatar"><span class="email-title"><b>' + val.ProductName +
+				'</b><br>PRESENTACION: ' + val.Presentation  + '<br>' +
+				'CONCENTRACION: ' + val.Concentration  + '<br>' +
+				'<font color="#00345A">' + val.LocationAddress + '</font><BR>EXISTENCIA: ' + 
+				existe(cantidad) + '<br><b>CANTIDAD: ' + cantidad + '</b>';
+				$("#consulta").append(cadena);
 			});
 		}
 		
@@ -29,4 +37,15 @@ function consultar(val) {
 		alert(jqXHR.responseText);
 	});
 }
+
+
+					
+
+
+function existe(cant){
+	sCant = '<font color="red"><b>AGOTADA</b></font>';
+	if (cant > 10) sCant = '<font color="green"><b>DISPONIBLE</b></font>'
+	return sCant;
+}
+
 

@@ -64,11 +64,11 @@ class Iniciar extends CI_Model {
   }
 
   function token($token){
-    $this->Usuario->cedula = $token->afi_numero_documento;
-    $this->Usuario->nombre =  $token->dmi_grado_ . '-' . $token->afi_apellido_paterno; //$token->dmi_grado_ . '-' . $token->afi_nombre_primero . ' ' . $token->afi_nombre_segundo;
-    $this->Usuario->correo = "rosma33@gmail.com"; //$token->usu_correo;
-    $this->Usuario->perfil = $token->dmi_situacion_;
-    $this->Usuario->estatus = 0; //$token->afi_estatus;
+    $this->Usuario->cedula = $token->id;
+    $this->Usuario->nombre =  $token->nom; //$token->dmi_grado_ . '-' . $token->afi_nombre_primero . ' ' . $token->afi_nombre_segundo;
+    $this->Usuario->correo = $token->cor; //$token->usu_correo;
+    $this->Usuario->perfil = $token->sit;
+    $this->Usuario->estatus = $token->est; //$token->afi_estatus;
     $this->_entrar($this->Usuario);
 
   }

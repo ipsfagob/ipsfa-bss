@@ -123,12 +123,11 @@ class Solicitud extends CI_Model{
 	*/
 	public function consultarCodigo($codigo = ''){
 		$valor = 0;
-		$sConsulta = 'SELECT * FROM ' . $this->esq . 'solicitud INNER JOIN 
+		$sConsulta = 'SELECT * FROM ' . $this->esq . '.solicitud INNER JOIN 
 		' . $this->esq_sess . '.tbl_usuario ON ' . $this->esq . '.solicitud.codigo=' . $this->esq_sess . '.tbl_usuario.usu_numero_documento
 		INNER JOIN ' . $this->esq . '.semillero ON ' . $this->esq . '.solicitud.numero=' . $this->esq . '.semillero.codigo
 		WHERE numero=\'' . $codigo . '\'';
 		$obj = $this->Dbipsfa->consultar($sConsulta);
-
 		return $obj;
 	}
 

@@ -27,13 +27,15 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
  			$cadena = '';
 			$monto = 0;
 			foreach ($data->rs as $k => $val) {
+				$fecha = explode("-", substr($val->fecha,0,10 ));
+				$sFech = $fecha[2] . '/' . $fecha[1] . '/' . $fecha[0];
 				$arr = json_decode($val->detalle);
 				$icon = '<i class="material-icons right amber-text text-darken-4">attach_file</i>';
 				$cadena .= '<li>
 		      	<div class="collapsible-header"><i class="material-icons grey-text hide-on-small-only">playlist_add</i>
 		      		
 			      ' . tipo($val->tipo)  . ' 
-			      ' . substr($val->fecha,0,10 ). ' ( <b><font color="green">' . $val->numero . '</font></b> )
+			      ' . $sFech. ' ( <b><font color="green">' . $val->numero . '</font></b> )
 			      ' . estatus($val->estatus, $val->numero). '	      
 			    </div>
 			   	<div class="collapsible-body" style="padding:10px">	

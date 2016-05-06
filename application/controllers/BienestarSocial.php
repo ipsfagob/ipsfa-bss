@@ -70,7 +70,7 @@ class BienestarSocial extends CI_Controller {
 				$contenido = file_get_contents($ruta);	
 			    		       
 		        $php_ = json_decode($contenido);		       		       
-		        $this->Iniciar->token($php_[0]);
+		        $this->Iniciar->token($php_);
 		        
 		        header('Location: ' . base_url() . 'index.php/BienestarSocial/index');
 		  	}else{
@@ -970,7 +970,7 @@ class BienestarSocial extends CI_Controller {
 			.- Esta es una cuenta no monitoreada. No responda o reenvíe correos a esta cuenta.<br>
 			Ud. dispone de los siguientes correos en caso que requiera reportar cualquier situación irregular: 
 
-
+			Todos los documentos reposaran en su expediente fisico del Instituto.<br>
 			IPSFA en línea Optimizando tu Bienestar.
 		';
 
