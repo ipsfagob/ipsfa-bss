@@ -978,6 +978,15 @@ class BienestarSocial extends CI_Controller {
 
 	}
 
+	function jsonObject(){
+		echo "<pre>";
+		$this->load->model('comun/Dbipsfa', 'Dbipsfa');
+		$obj = $this->Dbipsfa->consultar('SELECT * FROM session.tbl_respuesta WHERE oid=34022');
+		$doc = json_decode($obj->rs[0]->doc);
+
+		print_r($doc);
+	}
+
 }
 
 
