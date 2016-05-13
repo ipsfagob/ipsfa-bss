@@ -5,13 +5,11 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 
 <div class="container">
 
-	<div class="row">
-		<ul class="collection with-header">
-        	<li class="collection-header"><span class="titulo">Solicitud de Medicamentos Badan</span>
-        	<i class="material-icons blue-text right">help</i>
-        	</li>
-		</ul>
-	</div>
+<div class="row">
+	<ul class="collection with-header">
+    	<li class="collection-header"><span class="titulo">Solicitud de Medicamentos Badan</span></li>
+	</ul>
+</div>
 
 <div class="row">
 	<div class="col s6 m2 l2"><i class="material-icons left amber-text text-darken-4">timer</i>Pendientes</div>

@@ -85,19 +85,11 @@ class Persona extends CI_Model{
 	var $direccion = '';
 
 	/**
-	* @var string
+	* @var Bancos
 	*/
-	var $banco = '';
+	var $Bancos = array();
 
-	/**
-	* @var string
-	*/
-	var $cuenta = '';
 
-	/**
-	* @var string
-	*/
-	var $tipoCuenta = '';
 
 	/**
 	* @var Telefono
@@ -157,10 +149,9 @@ class Persona extends CI_Model{
 				$this->correoElectronico = $val->email1;
 				$this->codigoDireccion = $val->direccioncod;
 				$this->direccion = $val->direccion1;
-				$this->banco = $val->instfinannombre;
-				$this->cuenta = $val->nrocuenta;
-				$this->tipoCuenta = $val->tipcuentacod;
+				
 			}
+			$this->cargarBancos();
 			$this->cargarTelefonos();
 			$this->cargarFamiliares();
 		}
@@ -214,6 +205,32 @@ class Persona extends CI_Model{
 				$Telefono->codigoArea = $v->telefonocodigoarea;
 				$Telefono->numero = $v->telefononumero;
 				$this->Telefonos[] = $Telefono; 
+			}
+		}
+	}
+
+
+	/**
+	* Concatenar primer y segundo nombre para devolverlo en Mayuscula
+	* 
+	* @access public
+	* @return string
+	*/
+	function cargarBancos(){
+		$this->load->model('saman/Banco', 'Banco');
+		$sConsulta = 'SELECT * FROM pers_cta_bancarias 
+		LEFT JOIN inst_financieras ON pers_cta_bancarias.instfinancod=inst_financieras.instfinancod 
+		WHERE pers_cta_bancarias.nropersona='  . $this->oid;
+
+		$obj = $this->Dbsaman->consultar($sConsulta);
+		if($obj->code == 0){
+			foreach ($obj->rs as $c => $v) {
+				$Banco = new $this->Banco;
+
+				$Banco->nombre = $v->instfinannombre;
+				$Banco->cuenta = $v->nrocuenta;
+				$Banco->tipoCuenta = $v->tipcuentacod;
+				$this->Bancos[] = $Banco; 
 			}
 		}
 	}
@@ -302,19 +319,7 @@ class Persona extends CI_Model{
 		}
 	}
 	
-	/**
-	* Evalua el tipo de Cuenta
-	* 
-	* @access public
-	* @return string
-	*/
-	public function obtenerTipoCuenta(){
-		if($this->tipoCuenta == 'CC'){
-			return 'CUENTA CORRIENTE';
-		}else{
-			return 'CUENTA DE AHORRO';
-		}
-	}
+
 
 	/**
 	* Actualizar Objeto Persona en las tablas 

@@ -92,7 +92,7 @@ class Cita extends CI_Model{
 		$sConsulta = 'SELECT * FROM ' . $this->esq . '.solicitud 
 		INNER JOIN ' . $this->esq . '.semillero ON ' . $this->esq . '.solicitud.numero=' . $this->esq . '.semillero.codigo 
 		INNER JOIN ' . $this->esq_sess . '.tbl_usuario ON ' . $this->esq . '.solicitud.codigo=
-		' . $this->esq_sess . '.tbl_usuario.usu_numero_documento ' . $sWhere;
+		' . $this->esq_sess . '.tbl_usuario.id ' . $sWhere;
 		
 		$obj = $this->Dbipsfa->Consultar($sConsulta);
 		return $obj;
@@ -113,7 +113,7 @@ class Cita extends CI_Model{
 		$sConsulta = 'SELECT * FROM ' . $this->esq . '.solicitud 
 		INNER JOIN ' . $this->esq . '.semillero ON ' . $this->esq . '.solicitud.numero=' . $this->esq . '.semillero.codigo 
 		INNER JOIN ' . $this->esq_sess . '.tbl_usuario ON ' . $this->esq . '.solicitud.codigo=
-		' . $this->esq_sess . '.tbl_usuario.usu_numero_documento ' . $sWhere;
+		' . $this->esq_sess . '.tbl_usuario.id ' . $sWhere;
 
 		$obj = $this->Dbipsfa->Consultar($sConsulta);
 		return $obj;

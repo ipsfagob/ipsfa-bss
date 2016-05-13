@@ -12,7 +12,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       Bienvenidos al sistema de datos personales en caso de que
       detecte algún dato errado y no pueda ser actualizado; sólo debe pulsar click en reportar y enviar.
     </p>    
-   </div>
+   </div> 
 </div>
 
 <h4>Datos Básicos</h4>

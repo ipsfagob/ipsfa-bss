@@ -148,6 +148,7 @@ function msjMaximo(){
 * @return mixed
 */
 function atras(){	
+	bPreguntar = false;
 	$(location).attr('href', sUrlP + "bienestar/1");	
 }
 
@@ -160,6 +161,7 @@ function salvarR(codigo){
 	var Reembolso = {};
 	Reembolso['Solicitud'] = Solicitud;
 	Reembolso['Codigo'] = codigo;
+	Reembolso['banco'] = $('#banco option:selected').text();
 	if(i > 0){
 		$.post( sUrlP + "salvarReembolso/", Reembolso)
 			.done(function(data) {			

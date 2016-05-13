@@ -1,11 +1,13 @@
 
 
 function solicitarCita(){
-	Materialize.toast('Su cita ha sido creada...!', 5000, 'rounded');
+	bPreguntar = false;
+	Materialize.toast('Su cita ha sido creada...!', 5000);
 	$(location).attr('href', sUrlP + "generarCita");	
 }
 
 function adjuntar(){
+	bPreguntar = false;
 	$(location).attr('href', sUrlP + "adjuntarProlongado");
 }
 

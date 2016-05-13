@@ -6,7 +6,11 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 <br>
 <div class="container">
 	
-<h5>Estatus del Tratamiento Prolongado </h5>
+<div class="row">
+	<ul class="collection with-header">
+    	<li class="collection-header"><span class="titulo">Estatus del Tratamiento Prolongado</span></li>
+	</ul>
+</div>
 <div class="row">
 	<div class="col s6 m3 l3"><i class="material-icons left amber-text text-darken-4">assignment_returned</i>Recibido IPSFA</div>
 	<div class="col s6 m3 l3"><i class="material-icons left green-text text-darken-4">settings</i>Procesando</div>

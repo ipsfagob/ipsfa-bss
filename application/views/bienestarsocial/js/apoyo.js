@@ -100,6 +100,7 @@ function mensaje(codigo, tipo){
 * @return mixed
 */
 function atras(){	
+	bPreguntar = false;
 	$(location).attr('href', sUrlP + "bienestar/2");
 }
 

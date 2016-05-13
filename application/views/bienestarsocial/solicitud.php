@@ -88,9 +88,11 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
  </div>
 
 <div id="msg" class="card modal modal-fixed-footer" style="width: 400px; height: 400px">
-    <div  class="card-image waves-effect waves-block waves-light orange center-align" style="height: 160px">
-      <i class="material-icons md-128 orange-text text-lighten-2">restore</i><br>
-      <span id="titulos" class="white-text">Enviando Información por favor espere</span>
+    <div  class="card-image waves-effect waves-block waves-light green center-align" style="height: 160px">
+      <center>
+        <img src="<?php echo base_url(); ?>public/img/logo-central-I.png" style="width:150px;">
+      </center>
+      <span id="titulos" class="white-text">Enviando Información favor espere</span>
     </div>
     <div class="card-content center-align">
     <div class="preloader-wrapper big active">

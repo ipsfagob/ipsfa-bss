@@ -68,12 +68,12 @@ class Solicitud extends CI_Model{
 	function listarMedicamentos($codigo = ''){
 		$sConsulta = "SELECT " . $this->esq . ".solicitud.codigo AS cedula, * FROM solicitud 
 		LEFT JOIN  " . $this->esq . ".archivo ON  " . $this->esq . ".solicitud.numero=archivo.codigo
-		INNER JOIN  " . $this->esq_sess . ".tbl_usuario ON  " . $this->esq . ".solicitud.codigo = " . $this->esq_sess . ".tbl_usuario.usu_numero_documento
+		INNER JOIN  " . $this->esq_sess . ".tbl_usuario ON  " . $this->esq . ".solicitud.codigo = " . $this->esq_sess . ".tbl_usuario.id
 		WHERE  " . $this->esq . ".solicitud.tipo=3 AND  " . $this->esq . ".solicitud.estatus!=5";
 		if($codigo != '') {
 			$sConsulta = "SELECT * FROM  " . $this->esq . ".solicitud 
 			LEFT JOIN  " . $this->esq . ".archivo ON  " . $this->esq . ".solicitud.numero= " . $this->esq . ".archivo.codigo
-			INNER JOIN  " . $this->esq_sess . ".tbl_usuario ON solicitud.codigo = " . $this->esq_sess. ".tbl_usuario.usu_numero_documento
+			INNER JOIN  " . $this->esq_sess . ".tbl_usuario ON solicitud.codigo = " . $this->esq_sess. ".tbl_usuario.id
 			WHERE  " . $this->esq . ".solicitud.tipo=3 AND  " . $this->esq . ".solicitud.estatus!=5 AND  " . $this->esq . ".solicitud.codigo= '" . $codigo . "'";
 		}	
 			
@@ -86,7 +86,7 @@ class Solicitud extends CI_Model{
 		$sConsulta = 'SELECT  ' . $this->esq . '.solicitud.codigo AS cedula, * FROM ' . $this->esq . '.solicitud 
 		
 		INNER JOIN ' . $this->esq_sess . '.tbl_usuario ON ' . $this->esq . '.solicitud.codigo = ' 
-		. $this->esq_sess . '.tbl_usuario.usu_numero_documento
+		. $this->esq_sess . '.tbl_usuario.id
 		WHERE ' . $this->esq . '.solicitud.tipo=3 AND ' . $this->esq . '.solicitud.estatus =' . $estatus;
 		
 		$obj = $this->Dbipsfa->consultar($sConsulta);
@@ -124,7 +124,7 @@ class Solicitud extends CI_Model{
 	public function consultarCodigo($codigo = ''){
 		$valor = 0;
 		$sConsulta = 'SELECT * FROM ' . $this->esq . '.solicitud INNER JOIN 
-		' . $this->esq_sess . '.tbl_usuario ON ' . $this->esq . '.solicitud.codigo=' . $this->esq_sess . '.tbl_usuario.usu_numero_documento
+		' . $this->esq_sess . '.tbl_usuario ON ' . $this->esq . '.solicitud.codigo=' . $this->esq_sess . '.tbl_usuario.id
 		INNER JOIN ' . $this->esq . '.semillero ON ' . $this->esq . '.solicitud.numero=' . $this->esq . '.semillero.codigo
 		WHERE numero=\'' . $codigo . '\'';
 		$obj = $this->Dbipsfa->consultar($sConsulta);
@@ -261,8 +261,9 @@ class Solicitud extends CI_Model{
 	public function listarSolicitudes($numero = ''){
 		$sConsulta = 'SELECT * FROM ' . $this->esq . '.solicitud 
 		LEFT JOIN ' . $this->esq_sess . '.tbl_usuario ON ' . $this->esq . '.solicitud.codigo=' 
-		. $this->esq_sess . '.tbl_usuario.usu_numero_documento
+		. $this->esq_sess . '.tbl_usuario.id
 		WHERE numero=\'' . $numero . '\' LIMIT 1';
+		
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		
 		return $obj;
@@ -412,7 +413,7 @@ class Solicitud extends CI_Model{
 	public function consultaGeneral($arr = array()){
 		$sConsulta = 'SELECT * FROM ' . $this->esq . '.solicitud 
 		INNER JOIN ' . $this->esq_sess . '.tbl_usuario ON ' . $this->esq . '.solicitud.codigo=' 
-		. $this->esq_sess . '.tbl_usuario.usu_numero_documento
+		. $this->esq_sess . '.tbl_usuario.id
 		WHERE ' . $this->esq . '.solicitud.tipo=' . $arr['tipo'] . ' AND ' . $this->esq . '.solicitud.estatus=' . $arr['estatus'] . ' AND 
 		' . $this->esq . '.solicitud.fcita BETWEEN \'' . $arr['desde'] . '\' AND \'' . $arr['hasta'] . '\'';
 		$obj = $this->Dbipsfa->consultar($sConsulta);

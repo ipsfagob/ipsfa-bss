@@ -18,7 +18,7 @@
     
     </head>
 
-    <body class="grey lighten-3" onunload="hola()">
+    <body class="grey lighten-3">
 	<main>
 
 	<div class="navbar-fixed">
@@ -137,7 +137,7 @@
 						<i class="right"></i><?php echo $_SESSION['nombreRango'];?>
 					</li>
 					<li>
-						<a href="<?php echo base_url(); ?>index.php/Panel/index">
+						<a href="http://www.ipsfa.gob.ve/NUEVO/ipsfaNet/init.session.IPSFA.web/project.Web/projects/admin/view/panel.Init/consola/menu.gral.php">
 							<i class="mdi-action-home tooltipped" 
 							data-position="bottom" data-delay="10" data-tooltip="Volver al inicio"></i>
 						</a>

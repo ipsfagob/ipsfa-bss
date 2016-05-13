@@ -26,7 +26,7 @@
 			
 			<div class="grey lighten-5" style="height: 48px; border: 1px solid #CCC">
 				<span style="float: right; padding: 7px; padding-top: 9px; padding-right: 20px">
-					<a class="button " href="<?php echo base_url(); ?>index.php/Login/salir">
+					<a class="button " href="<?php echo base_url(); ?>index.php/BienestarSocial/salir">
 						Salir del Sistema
 					</a>
 				</span>

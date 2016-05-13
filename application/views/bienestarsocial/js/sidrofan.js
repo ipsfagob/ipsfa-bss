@@ -8,6 +8,7 @@ var sDesc = '';
 */
 function listarProductos(val) {
 	ruta = sUrlP + "listarMedicamentos" + sEnlace + "/" + val;
+	
 	$.getJSON(ruta, function(data) {
 		var cadena = '';
 		$(".collection-item").remove();

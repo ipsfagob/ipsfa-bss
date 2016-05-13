@@ -651,7 +651,7 @@ class BienestarSocial extends CI_Controller {
 		if(isset($_SESSION['cedula'])){
 			$this->load->model('saman/Solicitud', 'Solicitud');
 			//$imagen = $this->Imagen->Salvar();
-			$Solicitud = array('solicitud' => $_POST['Solicitud'], 'responsable' => $_SESSION['nombreRango']);
+			$Solicitud = array('solicitud' => $_POST['Solicitud'], 'banco' => $_POST['banco'], 'responsable' => $_SESSION['nombreRango']);
 			$imagen = array(); //Listado de Imagenes Subidas
 			$arg = array(
 				'codigo' => $_SESSION['cedula'],
@@ -900,7 +900,7 @@ class BienestarSocial extends CI_Controller {
 		session_destroy();
 		
 		//header('Location: ' . base_url() . 'index.php/Login');
-		header('Location: http://www.ipsfa.gob.ve/NUEVO/ipsfaNet/init.session.IPSFA.web/project.Web/projects/admin/view/enlace/iniciarSession/');
+		header('Location: http://www.ipsfa.gob.ve/NUEVO/ipsfaNet/init.session.IPSFA.web/php.Source/projects/admin/app/actions/enlace/iniciarSesion/class.DestroySesionActions.php');
 		
 		
 	}
@@ -940,7 +940,7 @@ class BienestarSocial extends CI_Controller {
 
 		$this->Dbipsfa->consultar($sCon);
 
-		$sCon = 'DROP TABLE semillero;	
+		$sCon = 'DROP TABLE bss.semillero;	
 
 		CREATE TABLE bss.semillero
 		(

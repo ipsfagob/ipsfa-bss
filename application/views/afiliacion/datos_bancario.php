@@ -12,23 +12,41 @@ $this->load->view("afiliacion/inc/cabecera.php");
 
       <h5>Datos Bancarios</h5>
       <li class="divider"></li>
-     <div class="row">
-      <div class="input-field col s12 m6 l6">
-          <input  disabled  id="banco" type="text" class="validate  imagen-text-right" value="<?php echo $Militar->Persona->banco?>">
-          <label for="canco">Banco</label>
-        </div>
-        
-        <div class="input-field col s6 m6 l6">
-          <input  disabled id="cuenta" type="text" class="validate  imagen-text-right" value="<?php echo $Militar->Persona->cuenta?>">
-          <label for="cuenta">Cuenta Bancaria</label>
-        </div>
 
-        <div class="input-field col s6">
-          <input  disabled  id="cuenta" type="text" class="validate  imagen-text-right" value="<?php echo $Militar->Persona->obtenerTipoCuenta()?>">
-          <label for=" disabled">Tipo de Cuenta</label>
-        </div>
+
+      <?php
+        $cadena = '';
         
-     </div>      
+        foreach ($Militar->Persona->Bancos as $key => $v) {
+          $cadena .= '
+            <div class="row white">
+              <div class="input-field col s12 m6 l6">
+                <input disabled  id="banco" type="text" class="validate  imagen-text-right" value="' . $v->nombre . '">
+                <label for="canco">Banco</label>
+              </div>
+              
+              <div class="input-field col s6 m6 l6">
+                <input disabled id="cuenta" type="text" class="validate  imagen-text-right" value="' . $v->cuenta . '">
+                <label for="cuenta">Cuenta Bancaria</label>
+              </div>
+
+              <div class="input-field col s6">
+                <input  disabled  id="cuenta" 
+                type="text" class="validate  imagen-text-right" value="' . $v->obtenerTipoCuenta() . '">
+                <label for=" disabled">Tipo de Cuenta</label>
+              </div>        
+           </div>';
+        }
+
+
+
+        echo $cadena;
+
+      ?>
+           
+
+
+
       <div class="row">
         <h5>Notas: </h5><div class="divider"></div>
               

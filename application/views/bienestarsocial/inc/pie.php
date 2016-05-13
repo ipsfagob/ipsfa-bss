@@ -87,12 +87,18 @@
 			 bPreguntar = false;
 		});	  	
       	
-
+		$('form').submit(function (){
+			 bPreguntar = false;
+		});	 
 	    
 
 	});
 
-	 function readURL(input, id, tipo) {
+    function cancel(){
+    	bPreguntar = false;
+    }
+
+	function readURL(input, id, tipo) {
 	 	div = '<div class="preloader-wrapper small active"><div class="spinner-layer spinner-green-only">';
 	 	div += '<div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div>';
       	div += '</div><div class="circle-clipper right"><div class="circle"></div></div></div></div>';

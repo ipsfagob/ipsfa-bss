@@ -2,8 +2,13 @@
 $this->load->view("bienestarsocial/inc/cabecera.php");
 ?>
 <div class="container">
-<?php //print_r($data->rs); ?>
-<h5>Reembolsos y Ayudas Solicitadas</h5>
+
+<div class="row">
+	<ul class="collection with-header">
+    	<li class="collection-header"><span class="titulo">Reembolsos y Ayudas Solicitadas</span></li>
+	</ul>
+</div>
+
 
 <div class="row">
 	<!--

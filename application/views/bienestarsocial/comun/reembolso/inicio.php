@@ -22,8 +22,25 @@
     <li class="collection-header"><h5 id="htotal">Total 0 Bs.</h5></li>
     
   </ul>
+  <ul class="collection with-header">
+    <li class="collection-header">
+    <h5 >Seleccione el banco</h5>
+      <div class="input-field col s12 m4 l5 ">
+          <select id="banco" name='banco'>
+               <?php 
+                    
 
-  <br><br>
+                    foreach ($Militar->Persona->Bancos as $key => $val) {
+                         $cadena = '<option value="' . $val->cuenta . '">' .  
+                                   $val->nombre . '|' . $val->cuenta . '|' .  $val->tipoCuenta . '</option>';
+                         echo $cadena;
+                    }
+               ?>
+          </select>
+     </div>
+    </li>
+        
+  </ul><br>
     
 
 

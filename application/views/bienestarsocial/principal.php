@@ -146,7 +146,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       
 
 
-<div class="col s12 m4 l4">
+<div class="col s12 m4 l4" style="display: none">
         <div class="btns-smin">
           <div class="btns-sminf small">Estatus de Solicitudes</div>
           <div class="btns-sminh  dropdown-button" >

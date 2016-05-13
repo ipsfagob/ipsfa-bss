@@ -154,7 +154,9 @@
 		<?php
 			$monto = 0;
 			foreach ($Solicitud->rs as $k => $val) {
-				$arr = json_decode($val->detalle);		
+				$arr = json_decode($val->detalle);	
+				$banco = explode('|', $arr->banco);
+
 				foreach ($arr->solicitud as $c => $v) {
 					echo '<tr class="doble">
 							<td>' . $v->parentesco . '</td>
@@ -163,8 +165,17 @@
 							<td align="center">' . $v->monto . '</td>
 							<td></td>
 						</tr>';
-					$monto += $v->monto; 
-				}		
+
+					$monto += $v->monto;
+				}
+			}
+
+			function obtenerTipoCuenta($tipo){
+				if($tipo == 'CC'){
+					return 'CUENTA CORRIENTE';
+				}else{
+					return 'CUENTA DE AHORRO';
+				}
 			}
 		?>
 		<tr class="doble">
@@ -185,8 +196,12 @@
 			</td>
 			<td style="width:40%" class="bde btop">22.FIRMA DEL SOLICITANTE</td>
 		</tr>
+		<?php 
+
+
+		?>
 		<tr class="simple">
-			<td colspan="2" class="biz bde  bajo"><?php echo strtoupper($Militar->Persona->cuenta); ?></td>
+			<td colspan="2" class="biz bde  bajo"><?php echo strtoupper($banco[1]) ?></td>
 			<td rowspan="3" class=" bde  bajo"></td>
 		</tr>
 		<tr class="texto12">
@@ -195,10 +210,10 @@
 		</tr>
 		<tr class="simple">
 			<td class="biz bde  bajo">
-				<?php echo strtoupper($Militar->Persona->banco); ?>
+				<?php echo strtoupper($banco[0]); ?>
 			</td>				
 			<td class=" bde  bajo">
-				<?php echo strtoupper($Militar->Persona->obtenerTipoCuenta()); ?>
+				<?php echo strtoupper(obtenerTipoCuenta($banco[2])); ?>
 			</td>
 		</tr>
 		
