@@ -45,7 +45,7 @@ class TSaman extends CI_Controller{
 		* personas
 		* ---------------------------------------
 		*/
-		$sCon = "SELECT * FROM personas LIMIT 1";
+		$sCon = "SELECT * FROM public.personas LIMIT 1";
 		$arr = $this->Dbsaman->consultar($sCon);
 		$this->unit->run($arr->code, 0, 'Existe (personas) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
 		
@@ -54,7 +54,7 @@ class TSaman extends CI_Controller{
 		* pers_relaciones
 		* ---------------------------------------
 		*/
-		$sCon = "SELECT * FROM pers_relaciones LIMIT 1";
+		$sCon = "SELECT * FROM public.pers_relaciones LIMIT 1";
 		$arr = $this->Dbsaman->consultar($sCon);
 		$this->unit->run($arr->code, 0, 'Existe (pers_relaciones) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
 		/*
@@ -62,7 +62,7 @@ class TSaman extends CI_Controller{
 		* pers_cta_bancarias
 		* ---------------------------------------
 		*/
-		$sCon = "SELECT * FROM pers_cta_bancarias LIMIT 1";
+		$sCon = "SELECT * FROM public.pers_cta_bancarias LIMIT 1";
 		$arr = $this->Dbsaman->consultar($sCon);
 		$this->unit->run($arr->code, 0, 'Existe (pers_relaciones) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
 		
@@ -71,7 +71,7 @@ class TSaman extends CI_Controller{
 		* pers_cta_bancarias
 		* ---------------------------------------
 		*/
-		$sCon = "SELECT * FROM pers_relacs_tipo LIMIT 1";
+		$sCon = "SELECT * FROM public.pers_relacs_tipo LIMIT 1";
 		$arr = $this->Dbsaman->consultar($sCon);
 		$this->unit->run($arr->code, 0, 'Existe (pers_relacs_tipo) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
 
@@ -80,7 +80,7 @@ class TSaman extends CI_Controller{
 		* ci_reembolso_concep
 		* ---------------------------------------
 		*/
-		$sCon = "SELECT * FROM ci_reembolso_concep LIMIT 1";
+		$sCon = "SELECT * FROM public.ci_reembolso_concep LIMIT 1";
 		$arr = $this->Dbsaman->consultar($sCon);
 		$this->unit->run($arr->code, 0, 'Existe (ci_reembolso_concep) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
 
@@ -89,7 +89,7 @@ class TSaman extends CI_Controller{
 		* ci_reembolso_det
 		* ---------------------------------------
 		*/		
-		$sCon = "SELECT * FROM ci_reembolso_det LIMIT 1";
+		$sCon = "SELECT * FROM public.ci_reembolso_det LIMIT 1";
 		$arr = $this->Dbsaman->consultar($sCon);
 		$this->unit->run($arr->code, 0, 'Existe (ci_reembolso_det) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
 
@@ -98,7 +98,7 @@ class TSaman extends CI_Controller{
 		* ci_reembolso_det_clase
 		* ---------------------------------------
 		*/
-		$sCon = "SELECT * FROM ci_reembolso_det_clase LIMIT 1";
+		$sCon = "SELECT * FROM public.ci_reembolso_det_clase LIMIT 1";
 		$arr = $this->Dbsaman->consultar($sCon);
 		$this->unit->run($arr->code, 0, 'Existe (ci_reembolso_det_clase) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
 
@@ -107,7 +107,7 @@ class TSaman extends CI_Controller{
 		* ci_reemb_opiniones
 		* ---------------------------------------
 		*/
-		$sCon = "SELECT * FROM ci_reemb_opiniones LIMIT 1";
+		$sCon = "SELECT * FROM public.ci_reemb_opiniones LIMIT 1";
 		$arr = $this->Dbsaman->consultar($sCon);
 		$this->unit->run($arr->code, 0, 'Existe (ci_reemb_opiniones) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
 
@@ -116,7 +116,7 @@ class TSaman extends CI_Controller{
 		* ci_reembolso_solic
 		* ---------------------------------------
 		*/
-		$sCon = "SELECT * FROM ci_reembolso_solic LIMIT 1";
+		$sCon = "SELECT * FROM public.ci_reembolso_solic LIMIT 1";
 		$arr = $this->Dbsaman->consultar($sCon);
 		$this->unit->run($arr->code, 0, 'Existe (ci_reembolso_solic) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
 
@@ -125,7 +125,7 @@ class TSaman extends CI_Controller{
 		* ci_reembolso_tipo
 		* ---------------------------------------
 		*/
-		$sCon = "SELECT * FROM ci_reembolso_tipo LIMIT 1";
+		$sCon = "SELECT * FROM public.ci_reembolso_tipo LIMIT 1";
 		$arr = $this->Dbsaman->consultar($sCon);
 		$this->unit->run($arr->code, 0, 'Existe (ci_reembolso_tipo) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
 
@@ -134,7 +134,7 @@ class TSaman extends CI_Controller{
 		* canal_liquidacion
 		* ---------------------------------------
 		*/
-		$sCon = "SELECT * FROM canal_liquidacion LIMIT 1";
+		$sCon = "SELECT * FROM public.canal_liquidacion LIMIT 1";
 		$arr = $this->Dbsaman->consultar($sCon);
 		$this->unit->run($arr->code, 0, 'Existe (canal_liquidacion) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
 
@@ -143,7 +143,7 @@ class TSaman extends CI_Controller{
 		* pers_dat_militares
 		* ---------------------------------------
 		*/
-		$sCon = "SELECT * FROM pers_dat_militares LIMIT 1";
+		$sCon = "SELECT * FROM public.pers_dat_militares LIMIT 1";
 		$arr = $this->Dbsaman->consultar($sCon);
 		$this->unit->run($arr->code, 0, 'Existe (pers_dat_militares) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
 
@@ -152,7 +152,7 @@ class TSaman extends CI_Controller{
 		* edo_civil
 		* ---------------------------------------
 		*/
-		$sCon = "SELECT * FROM edo_civil LIMIT 1";
+		$sCon = "SELECT * FROM public.edo_civil LIMIT 1";
 		$arr = $this->Dbsaman->consultar($sCon);
 		$this->unit->run($arr->code, 0, 'Existe (edo_civil) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
 
@@ -161,7 +161,7 @@ class TSaman extends CI_Controller{
 		* telefono_correo
 		* ---------------------------------------
 		*/
-		$sCon = "SELECT * FROM telefono_correo LIMIT 1";
+		$sCon = "SELECT * FROM public.telefono_correo LIMIT 1";
 		$arr = $this->Dbsaman->consultar($sCon);
 		$this->unit->run($arr->code, 0, 'Existe (telefono_correo) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
 
@@ -170,7 +170,7 @@ class TSaman extends CI_Controller{
 		* inst_financieras
 		* ---------------------------------------
 		*/
-		$sCon = "SELECT * FROM inst_financieras LIMIT 1";
+		$sCon = "SELECT * FROM public.inst_financieras LIMIT 1";
 		$arr = $this->Dbsaman->consultar($sCon);
 		$this->unit->run($arr->code, 0, 'Existe (inst_financieras) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
 
@@ -179,7 +179,7 @@ class TSaman extends CI_Controller{
 		* direcciones
 		* ---------------------------------------
 		*/
-		$sCon = "SELECT * FROM direcciones LIMIT 1";
+		$sCon = "SELECT * FROM public.direcciones LIMIT 1";
 		$arr = $this->Dbsaman->consultar($sCon);
 		$this->unit->run($arr->code, 0, 'Existe (direcciones) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
 
@@ -188,7 +188,7 @@ class TSaman extends CI_Controller{
 		* codarea
 		* ---------------------------------------
 		*/
-		$sCon = "SELECT * FROM codarea LIMIT 1";
+		$sCon = "SELECT * FROM public.codarea LIMIT 1";
 		$arr = $this->Dbsaman->consultar($sCon);
 		$this->unit->run($arr->code, 0, 'Existe (codarea) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
 
@@ -197,7 +197,7 @@ class TSaman extends CI_Controller{
 		* ipsfa_pers_situac
 		* ---------------------------------------
 		*/
-		$sCon = "SELECT * FROM ipsfa_pers_situac LIMIT 1";
+		$sCon = "SELECT * FROM public.ipsfa_pers_situac LIMIT 1";
 		$arr = $this->Dbsaman->consultar($sCon);
 		$this->unit->run($arr->code, 0, 'Existe (ipsfa_pers_situac) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
 
@@ -206,7 +206,7 @@ class TSaman extends CI_Controller{
 		* ipsfa_grado_x_pers
 		* ---------------------------------------
 		*/
-		$sCon = "SELECT * FROM ipsfa_grado_x_pers LIMIT 1";
+		$sCon = "SELECT * FROM public.ipsfa_grado_x_pers LIMIT 1";
 		$arr = $this->Dbsaman->consultar($sCon);
 		$this->unit->run($arr->code, 0, 'Existe (ipsfa_grado_x_pers) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
 
@@ -215,7 +215,7 @@ class TSaman extends CI_Controller{
 		* ipsfa_grados
 		* ---------------------------------------
 		*/
-		$sCon = "SELECT * FROM ipsfa_grados LIMIT 1";
+		$sCon = "SELECT * FROM public.ipsfa_grados LIMIT 1";
 		$arr = $this->Dbsaman->consultar($sCon);
 		$this->unit->run($arr->code, 0, 'Existe (ipsfa_grados) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
 
@@ -224,7 +224,7 @@ class TSaman extends CI_Controller{
 		* ipsfa_componentes
 		* ---------------------------------------
 		*/
-		$sCon = "SELECT * FROM ipsfa_componentes LIMIT 1";
+		$sCon = "SELECT * FROM public.ipsfa_componentes LIMIT 1";
 		$arr = $this->Dbsaman->consultar($sCon);
 		$this->unit->run($arr->code, 0, 'Existe (ipsfa_componentes) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
 
@@ -233,7 +233,7 @@ class TSaman extends CI_Controller{
 		* ipsfa_pers_categ
 		* ---------------------------------------
 		*/
-		$sCon = "SELECT * FROM ipsfa_pers_categ LIMIT 1";
+		$sCon = "SELECT * FROM public.ipsfa_pers_categ LIMIT 1";
 		$arr = $this->Dbsaman->consultar($sCon);
 		$this->unit->run($arr->code, 0, 'Existe (ipsfa_pers_categ) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
 
@@ -242,7 +242,7 @@ class TSaman extends CI_Controller{
 		* ipsfa_pers_clase
 		* ---------------------------------------
 		*/
-		$sCon = "SELECT * FROM ipsfa_pers_clase LIMIT 1";
+		$sCon = "SELECT * FROM public.ipsfa_pers_clase LIMIT 1";
 		$arr = $this->Dbsaman->consultar($sCon);
 		$this->unit->run($arr->code, 0, 'Existe (ipsfa_pers_clase) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
 
@@ -252,7 +252,7 @@ class TSaman extends CI_Controller{
 		* ci_suministros_med
 		* ---------------------------------------
 		*/
-		$sCon = "SELECT * FROM ci_suministros_med LIMIT 1";
+		$sCon = "SELECT * FROM public.ci_suministros_med LIMIT 1";
 		$arr = $this->Dbsaman->consultar($sCon);
 		$this->unit->run($arr->code, 0, 'Existe (ci_suministros_med) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
 

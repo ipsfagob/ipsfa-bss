@@ -49,16 +49,20 @@ class TSolicitud extends CI_Controller{
                 'prioridad' => 1,
                 'imagen' => 'espinal18.jpg'
             );
+
+
+
 		$arr = array(
-			'codigo' => 'syslog',
-			'numero' => '000-X', 
-			'certi' => md5('0'), 
-			'detalle' => json_encode($detalle), //Esquema Json Opcional
-			'recipes' => '',
-			'fecha' => 'now()', 
-			'tipo' => 0, 
-			'estatus' => 1
-		);
+				'codigo' => 'syslog',
+				'numero' => '000-X',
+				'certi' => md5(0), 
+				'detalle' => json_encode($detalle), //Esquema Json Opcional
+				'recipes' => 'TEST.CONEXION',
+				'fecha' => 'now()', 
+				'tipo' => 3, 
+				'estatus' => 1,
+				'fcita' => date('Y-m-j')
+			);
 
 		$arr = $this->Solicitud->crear($arr);
 

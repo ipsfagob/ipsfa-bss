@@ -59,7 +59,7 @@ class Correo extends CI_Model{
  		$mail = new PHPMailer();
         $body                ='';
         $mail->IsSMTP(); 							  // telling the class to use SMTP
-        $mail->SMTPDebug  = 1;						  //
+        $mail->SMTPDebug  = 0;						  //
         $mail->Host          = "smtp.gmail.com";      //
         $mail->SMTPSecure = "tls";					  //
         $mail->SMTPAuth      = true;                  // enable SMTP authentication
@@ -77,11 +77,15 @@ class Correo extends CI_Model{
         $mail->AltBody    = "Texto Alternativo"; // optional, comment out and test
         $mail->MsgHTML($this->cuerpo);
         $mail->AddAddress($this->para, $this->titulo);
+        
+        $err['code'] = 0;
         if(!$mail->Send()) {
-            return "Error al enviar: " . $mail->ErrorInfo;
+            $err['code'] = 1;
+            $err['message'] = "Error al enviar: " . $mail->ErrorInfo;
         } else {
-            return "Mensaje enviado a:  !";
+            $err['message'] = "Mensaje enviado Exitosamente ";
         }
+        return (object)$err;
 	}
 
 	function __destruct(){
