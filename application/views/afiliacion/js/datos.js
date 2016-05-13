@@ -99,3 +99,13 @@ function listarParroquia(){
 		alert(jqXHR.responseText);
 	});	
 }
+
+/**
+* Cargar listado de parroquias
+*
+* @access public
+* @return mixed
+*/
+function salvarDirecciones(){
+		
+}

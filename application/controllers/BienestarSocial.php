@@ -283,27 +283,17 @@ class BienestarSocial extends CI_Controller {
 				$this->load->model('comun/Archivo', 'Archivo');
 				$this->load->model('utilidad/Correo');
 				$this->load->model('utilidad/Semillero');
-				
-				
-				$this->Archivo->salvar($_POST['url'], $_FILES, $_POST['codigo']);
-				
+								
+				$this->Archivo->salvar($_POST['url'], $_FILES, $_POST['codigo']);				
 				$this->Correo->para = $_SESSION['correo'];
-				
-				/**
-				$this->Correo->cuerpo = 'Hola, ' . $_SESSION['nombreRango'] . '.<br>
-					Usted ha realizado una solicitud por reembolso bajo el codigo 
-					' . $_POST['codigo'] . ' la cual sera procesada por nuestros analistas
-					<br><br>
-					IPSFA en linea Optimizando tu bienestar...';
-				**/
-				$this->Correo->cuerpo = $this->plantillaMensajeCorreo($_SESSION['nombreRango'], 'REEMBOLSO' ,$_POST['codigo']);
-
+				$texto = 'APOYO';
+				if($_POST['url'] == 1) $texto = 'REEMBOLSO';
+				$this->Correo->cuerpo = $this->plantillaMensajeCorreo($_SESSION['nombreRango'], $texto ,$_POST['codigo']);
 				$this->Correo->gerencia = 'Gerencia de Bienestar Social';
 				$this->Correo->titulo = $_SESSION['nombreRango'];
 				$this->Correo->enviar();
 				$this->load->model('saman/Solicitud');
 				$this->Solicitud->modificar($_POST['codigo'], 1); // Cambio General del Estatus del caso
-
 				$this->home();
 			}
 		}else{
@@ -328,15 +318,6 @@ class BienestarSocial extends CI_Controller {
 				
 				$this->Archivo->salvar(3, $_FILES , $codigo);
 				$this->Correo->para = $_SESSION['correo'];
-
-				/**
-				$this->Correo->cuerpo = 'Hola, ' . $_SESSION['nombreRango'] . '.<br>
-					Usted ha realizado una actulización de documentos para su tratamiento prolongado 
-					el cual sera procesado por nuestros analistas
-					<br><br>
-					IPSFA en linea Optimizando tu bienestar...';
-				**/
-
 				$this->Correo->cuerpo = $this->plantillaMensajeCorreo($_SESSION['nombreRango'], 'TRATAMIENTO PROLONGADO' ,$_POST['codigo']);
 				$this->Correo->gerencia = 'Gerencia de Bienestar Social';
 				$this->Correo->titulo = $_SESSION['nombreRango'];
@@ -958,7 +939,7 @@ class BienestarSocial extends CI_Controller {
 	}
 
 
-	private function plantillaMensajeCorreo($nombre, $tipo, $codigo){
+	function plantillaMensajeCorreo($nombre, $tipo, $codigo){
 		$msj = '
 			Estimado Afiliado(a)  ' . $nombre . ', <br><br>
 
@@ -974,7 +955,7 @@ class BienestarSocial extends CI_Controller {
 			IPSFA en línea Optimizando tu Bienestar.
 		';
 
-		return $msj;
+		return htmlspecialchars_decode($msj);
 
 	}
 

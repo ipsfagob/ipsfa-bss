@@ -106,7 +106,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
           </div>
         </div>
     </div>
-    <br><br><br>
+    <br><br>
     </div>
   <div class="card-action">
         Procesando...

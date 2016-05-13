@@ -178,7 +178,7 @@ $this->load->view("afiliacion/inc/cabecera.php");
           <input id="email" type="email" class="validate" value="<?php echo $Militar->Persona->correoElectronico?>">
           <label for="email" data-error="Invalido" data-success="right">Correo Electronico</label>
         </div>
-        <div class="input-field col s12">
+        <div class="input-field col s12" style="display: none">
           <input id="emailAux" type="email" class="validate" value="<?php echo ''?>">
           <label for="emailAux" data-error="Invalido" data-success="right">Correo Electronico Alternativo</label>
         </div>
@@ -212,7 +212,7 @@ $this->load->view("afiliacion/inc/cabecera.php");
 
         <div class="col s6" >
         <a class="btn-large waves-effect waves-light" style="background-color:#00345A" 
-        href="<?php echo base_url(); ?>index.php/Panel/index">Ir al Inicio
+        href="http://www.ipsfa.gob.ve/NUEVO/ipsfaNet/init.session.IPSFA.web/project.Web/projects/admin/view/panel.Init/consola/menu.gral.php">Ir al Inicio
             <i class="material-icons left">home</i>
         </a>
         </div>

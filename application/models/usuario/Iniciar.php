@@ -40,7 +40,7 @@ class Iniciar extends CI_Model {
 
   private function _entrar($usuario) {
     
-   http://localhost/ipsfa-bss/index.php/Bienestar 
+   //http://localhost/ipsfa-bss/index.php/Bienestar 
   
     $this->session->set_userdata(array(
         'cedula' => $usuario->cedula,

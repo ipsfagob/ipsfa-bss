@@ -22,10 +22,12 @@
     <li class="collection-header"><h5 id="htotal">Total 0 Bs.</h5></li>
     
   </ul>
-  <ul class="collection with-header">
-    <li class="collection-header">
-    <h5 >Seleccione el banco</h5>
-      <div class="input-field col s12 m4 l5 ">
+
+   <br>
+
+   <div class="row white">
+      <h5>Seleccione el banco</h5>
+      <div class="input-field col s12 m12 l12 ">
           <select id="banco" name='banco'>
                <?php 
                     
@@ -37,10 +39,10 @@
                     }
                ?>
           </select>
+           
      </div>
-    </li>
-        
-  </ul><br>
+   </div>
+   <br>
     
 
 

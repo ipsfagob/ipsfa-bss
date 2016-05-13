@@ -85,8 +85,10 @@ class Afiliacion extends CI_Controller {
 	 * @return mixed
 	 */
   	public function salir($msj = '') {  		
-		session_destroy();		
-		header('Location: ' . base_url() . 'index.php/Login');
+		session_destroy();
+		
+		//header('Location: ' . base_url() . 'index.php/Login');
+		header('Location: http://www.ipsfa.gob.ve/NUEVO/ipsfaNet/init.session.IPSFA.web/php.Source/projects/admin/app/actions/enlace/iniciarSesion/class.DestroySesionActions.php');
 	}
   
 	function __destruct(){
