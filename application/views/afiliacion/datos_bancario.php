@@ -3,15 +3,15 @@ $this->load->view("afiliacion/inc/cabecera.php");
 ?>
 <script type="text/javascript"
   src="<?php echo base_url(); ?>application/views/afiliacion/js/datos.js"></script>
-<br><br>
-<div class="container .hide-on-small-only">
 
+<div class="container">
+<br>
   
- <div class="row">
+ <div class="row white">
 	 
 
       <h5>Datos Bancarios</h5>
-      <li class="divider"></li>
+      
 
 
       <?php
@@ -19,23 +19,23 @@ $this->load->view("afiliacion/inc/cabecera.php");
         
         foreach ($Militar->Persona->Bancos as $key => $v) {
           $cadena .= '
-            <div class="row white">
+            
               <div class="input-field col s12 m6 l6">
-                <input disabled  id="banco" type="text" class="validate  imagen-text-right" value="' . $v->nombre . '">
-                <label for="canco">Banco</label>
+                <input readonly  id="banco" type="text" class="validate  imagen-text-right" value="' . $v->nombre . '">
+                <label  style="color:#000; font-weight: bold;" for="banco">Banco</label>
               </div>
               
               <div class="input-field col s6 m6 l6">
-                <input disabled id="cuenta" type="text" class="validate  imagen-text-right" value="' . $v->cuenta . '">
-                <label for="cuenta">Cuenta Bancaria</label>
+                <input readonly id="cuenta" type="text" class="validate  imagen-text-right" value="' . $v->cuenta . '">
+                <label  style="color:#000; font-weight: bold;" for="cuenta">Cuenta Bancaria</label>
               </div>
 
               <div class="input-field col s6">
-                <input  disabled  id="cuenta" 
+                <input  readonly  id="cuenta" 
                 type="text" class="validate  imagen-text-right" value="' . $v->obtenerTipoCuenta() . '">
-                <label for=" disabled">Tipo de Cuenta</label>
+                <label  style="color:#000; font-weight: bold;" >Tipo de Cuenta</label>
               </div>        
-           </div>';
+           ';
         }
 
 
@@ -47,32 +47,27 @@ $this->load->view("afiliacion/inc/cabecera.php");
 
 
 
-      <div class="row">
-        <h5>Notas: </h5><div class="divider"></div>
+      
+ 
               
-        <div class="row">
+        <div class="col s12 m12 l12">
           <div class="col s12 card-panel blue lighten-2">
+          <h5>Notas: </h5>
             <p style="text-align: justify;">
               <ol>
-                <li>En caso de que
-                detecte algún dato errado y no pueda ser actualizado, favor dirigirse a la Gerencia de Afiliación del 
-                IPSFA en cualquiera de sus sucursales.</li>
-                <li>
-                  Si sus datos son correctos presione actualizar.
+                <li>En caso de que no sea su cuenta bancaria, favor dirigirse a la Gerencia de Finanzas del 
+                IPSFA en cualquiera de sus sucursales ya que todos los procesos estarán asociados a la cuenta. 
+
                 </li>
+                <li>
+                  Por último presione Ir al Inicio para continuar con los procesos.
+                </li>
+                
               </ol>        
             </p>    
           </div>
-          </div>    
-        </div>
 
-      <br><br>      
-      <div class="row">
-        <div class="col s6" >
-        <a  class="btn-large waves-effect waves-light" style="background-color:#00345A"   href="#" >Actualizar
-            <i class="material-icons left">swap_vertical_circle</i>
-        </a>
-        </div>
+        
 
         <div class="col s6" >
         <a class="btn-large waves-effect waves-light" style="background-color:#00345A" 

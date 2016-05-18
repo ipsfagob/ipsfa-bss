@@ -8,7 +8,7 @@
       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">					
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>public/css/materialize.min.css"  media="screen,projection"/>
-      <link type="text/css" href="<?php echo base_url(); ?>application/views/bienestarsocial/css/estilo.css" rel="stylesheet">
+      <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>public/css/afiliado/estilo.css"/>
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -185,30 +185,7 @@
 
 
 
-	<div class="fixed-action-btn horizontal" style="bottom: 45px; right: 24px;">
-	    <a class="btn-floating btn-large blue darken-3">
-	      <i class="large mdi-action-view-module"></i>
-	    </a>
-	    <ul>
-	      <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/pendientes"  
-	      	class="btn-floating blue tooltipped" data-position="top" data-delay="10" data-tooltip="Casos Generales">
-	      	<i class="material-icons">library_books</i></a>
-	      </li>
-
-	      <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/ayudas" 
-	      		class="btn-floating tooltipped blue"  data-position="top" data-delay="10" data-tooltip="Reembolsos y Apoyos">
-	      		<i class="material-icons">description</i></a>
-	      </li>
-	      
-	      <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/medicamentos" 
-	      		class="btn-floating blue tooltipped" data-position="top" data-delay="10" data-tooltip="Solicitud Medicamentos"><i class="mdi-editor-publish"></i></a>
-	      </li>
-	      <li><a href="<?php echo base_url(); ?>index.php/BienestarSocial/tratamientoSolicitud" 
-	      		class="btn-floating blue tooltipped" data-position="top" data-delay="10" data-tooltip="Tratamientos Prolongado">
-	      		<i class="material-icons">toc</i></a>
-	      </li>
-	    </ul>
-	  </div>
+	
 
 <?php 
 $this->load->view("panel/inc/mnu_tarjetas.php");

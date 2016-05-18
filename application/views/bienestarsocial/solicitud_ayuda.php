@@ -27,7 +27,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 
 
     <div class="row white">
-    <form class="col s12" action="<?php echo base_url();?>index.php/BienestarSocial/subirArchivos"  method="post" enctype="multipart/form-data">
+    <form  id='frmSolicitud' class="col s12" action="<?php echo base_url();?>index.php/BienestarSocial/subirArchivos"  method="post" enctype="multipart/form-data">
       
       <?php
         foreach ($data as $clave => $valor) {
@@ -60,10 +60,10 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       <input type="hidden" value="<?php echo $url;?>" name="url" id="url">
       <div class="row">
         <div class="col s12">
-          <button class="btn-large waves-effect waves-light" style="background-color:#00345A"  
-          name="action" onclick="imprimirHoja()" type="submit">Enviar Documentos
+          <a class="btn-large waves-effect waves-light" style="background-color:#00345A"  
+          name="action" onclick="imprimirHoja()">Enviar Documentos
               <i class="material-icons right">send</i>
-          </button>
+          </a>
         </div>
       </div>       
     </form>
@@ -71,9 +71,11 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
  </div>
 
 <div id="msg" class="card modal modal-fixed-footer" style="width: 400px; height: 400px">
-    <div  class="card-image waves-effect waves-block waves-light orange center-align" style="height: 160px">
-      <i class="material-icons md-128 orange-text text-lighten-2">restore</i><br>
-      <span id="titulos" class="white-text">Enviando Información por favor espere</span>
+    <div  class="card-image waves-effect waves-block waves-light green center-align" style="height: 160px">
+      <center>
+        <img src="<?php echo base_url(); ?>public/img/logo-central-I.png" style="width:150px;">
+      </center>
+     
     </div>
     <div class="card-content center-align">
     <div class="preloader-wrapper big active">

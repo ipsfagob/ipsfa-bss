@@ -46,7 +46,7 @@ class Estado extends CI_Model{
 	* @return array
 	*/
 	public function listar(){
-		$sConsulta = 'SELECT id_estado AS codigo, estado AS nombre FROM estados';
+		$sConsulta = 'SELECT id AS codigo, nb_estado AS nombre FROM datos.estado';
 		$arr = $this->Dbsaman->consultar($sConsulta);
 		return $arr;
 	}

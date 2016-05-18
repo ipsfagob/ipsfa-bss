@@ -85,10 +85,19 @@ class Persona extends CI_Model{
 	var $direccion = '';
 
 	/**
+	* @var Direccion
+	*/
+	var $direccionHabitacion;
+
+	/**
+	* @var Direccion
+	*/
+	var $direccionTrabajo;	
+
+	/**
 	* @var Bancos
 	*/
 	var $Bancos = array();
-
 
 
 	/**
@@ -154,6 +163,8 @@ class Persona extends CI_Model{
 			$this->cargarBancos();
 			$this->cargarTelefonos();
 			$this->cargarFamiliares();
+			$this->cargarDireccion('trabajo');
+			$this->cargarDireccion('habitacion');
 		}
 
 		return $obj;
@@ -273,6 +284,40 @@ class Persona extends CI_Model{
 			}
 		}	
 	}
+
+
+	/**
+	* Concatenar primer y segundo nombre para devolverlo en Mayuscula
+	* 
+	* @access public
+	* @return string
+	*/
+	function cargarDireccion($dir){
+		$this->load->model('saman/Direccion');
+		$obj = $this->Direccion->obtener($this->oid, $dir);	
+
+		if($obj->code == 0){
+			$Direccion = new $this->Direccion;
+			foreach ($obj->rs as $c => $v) {				
+				$Direccion->codigoEstado = $v->codigoestado;
+				$Direccion->estado = $v->estado;
+				$Direccion->codigoMunicipio = $v->codigomunicipio;
+				$Direccion->municipio = $v->municipio;
+				$Direccion->codigoParroquia = $v->codigoparroquia;
+				$Direccion->parroquia = $v->parroquia;
+				$Direccion->direccion = $v->direccion;
+			}
+			if($dir == 'habitacion'){
+				$this->direccionHabitacion = $Direccion;	
+			}else{
+				$this->direccionTrabajo = $Direccion;
+			}
+
+			
+		}
+	}
+
+
 
 
 	/**

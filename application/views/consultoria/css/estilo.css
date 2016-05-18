@@ -1,0 +1,188 @@
+body {
+display: flex;
+min-height: 100vh;
+flex-direction: column;
+}
+
+main {
+flex: 1 0 auto;
+}
+
+label { font-size: 16px;  color: #000;}
+select {  color: #000; }
+
+
+
+.btns-add{background-color:#00345A;color:#FFF;font-size:14px;text-align:center;font-weight:bold;}
+.btns{border:1px #E1E1E1 solid;padding:3px;background:#FEFBD3;color:#56000F;}
+
+
+
+.file-path::-webkit-input-placeholder { color: #828282;; }
+.file-path:-moz-placeholder { color: #828282; }
+.file-path::-moz-placeholder { color: #828282;; }
+.file-path:-ms-input-placeholder { color: #828282;; }
+
+.input-field input[type=text]:focus + label {color: #000;} 
+.input-field input[type=text]:focus { border-bottom: #FF0000;box-shadow: 0 1px 0 0 #000;}
+.input-field input[type=select]:focus { border-bottom: #FF0000;box-shadow: 0 1px 0 0 #000;}
+.input-field label {font-size: 16px;  color: #000;}
+.input-field input[type=text] {border-bottom: 1px solid #000;box-shadow: 0 1px 0 0 #000;color:#000;}
+.input-field input[type=select] {border-bottom: 1px solid #000;box-shadow: 0 1px 0 0 #000;color:#000;}
+
+.botones-solicitud{height:auto;width:100%;box-shadow: 0 0 13px 1px #000;cursor:pointer;padding:1px;}
+.botones-solicitud:hover{height:auto;width:100%;box-shadow: 0 0 25px 1px #000;cursor:pointer;padding:1px;}
+.email-unread .email-title {font-weight: 500;}
+  /* Rules for sizing the icon. */
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+.material-icons.md-64 { font-size: 64px; }
+.material-icons.md-100 { font-size: 100px; }
+.material-icons.md-128 { font-size: 128px; }
+.material-icons.md-200 { font-size: 200px; }
+.material-icons.md-254 { font-size: 254px; }
+
+.button { /* clase general */
+border: 1px solid #dedede;
+border-radius: 3px;
+color: #000;
+font: 12px/12px HelveticaNeue, Arial;
+padding: 8px 11px;
+text-decoration: none;
+}
+
+.ContactoDetalle{
+font-size: 12px;
+color: #ccc;
+overflow: hidden; height: 24px;
+}
+.ContactoDetalle span{
+float: left; 
+margin-top: -1.2em;
+}
+.ContactoDetalle a{
+font-size: 11px;
+color: blue;
+}
+/* label underline focus color */
+
+
+.input-field select {
+border-bottom: 0px solid #000;
+box-shadow: 0 0px 0 0 #000;
+}
+
+
+[class*="img-cred-"]{width:96%;height:55px;margin:auto}
+
+
+.btns-sminf{
+color:#00345A;
+text-align:justify;
+width:93%;
+float:left;
+font-weight:bold; 
+box-sizing: border-box
+}
+
+.btns-sminh{color:#00345A;width:7%;height:24px;float:left; box-sizing: border-box;}
+.__ctdrs_xxmall{font-size:8pt;text-align:justify;width:100%;float:left;color:#C4C4C4}
+.cortar{text-overflow:ellipsis;white-space:nowrap; overflow:hidden;-webkit-transition: all 1s;-moz-transition: all 1s;transition: all 1s;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+
+.bhts{
+font-size:xx-small;
+color:#000;
+width:33.3%;
+float:left;
+text-align:center
+}
+
+.btns-smin{
+background:#fff;
+height:auto;
+width:100%;
+cursor:pointer;
+padding:5px;
+margin:0;
+box-sizing:border-box;
+border:0.1rem #CECECE solid
+}
+
+.btns-smin:hover{
+height:auto;
+width:100%;
+box-shadow: 0.1rem 0.1rem 0.2rem 0.1rem #999;
+cursor:pointer
+}
+
+.btns-smin,.row .col{
+float:left;
+box-sizing:border-box;
+padding:0.4rem 0.4rem 0.4rem 0.4rem
+}
+
+.btns-smin:hover,.row .col{
+float:left;
+box-sizing:border-box;
+padding:0.4rem 0.4rem 0.4rem 0.4rem
+}
+
+
+.file-path-wrapper-pre-view{
+border:1px #000 solid;
+width:80%;height:97px;
+float:left;
+margin-left:0.1em; 
+color:#C4C4C4;
+box-sizing:border-box;
+clear:left
+}
+
+.file-path-wrapper-sopor{
+border:0px #000 solid;
+width:70%;
+box-sizing:border-box;
+clear:left;
+float:left
+}  
+
+
+.input-field .btn {
+background-color:#00345A;
+width:50px;
+height:50px;
+border-radius:50px;
+-moz-border-radius:50px;
+-webkit-border-radius:50px;
+padding:0px
+}
+
+.file-field .btn, .file-field .btn-large {
+float: right;
+height: 50px;
+line-height: 50px;
+}
+
+.input-field .btn:hover {background-color:#990000;}  
+
+
+.file-field-input-field{box-sizing:border-box;background:#fff;} 
+
+
+.input-field input[id="search"] {
+ border-bottom: 0px ;
+ box-shadow: 0 0px 0 0 #000;
+}
+.input-field input[id="search"]:hover {
+ border-bottom: 0px;
+ box-shadow: 0 0px 0 0 #000;
+}
+.input-field input[id="search"]:focus {
+ border-bottom: 0px ;
+ box-shadow: 0 0px 0 0 #000;
+}
+
+.imagen-text-right{background:url(/ipsfa-bss/public/img/texts_active.svg) #696C68  no-repeat right;}
+.titulo{background:#fff;height:auto;width:100%;cursor:pointer;padding:5px;margin:0;color:#003E82;font-size: 16px}

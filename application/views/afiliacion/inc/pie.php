@@ -56,6 +56,7 @@
       });
       
     </script>
+    
 </main>
 <footer class="page-footer" style="background-color:#00345A">
 	<div class="container white-text">

@@ -58,19 +58,19 @@ function Cancenlar(){
 */
 function listarMunicipio(){
 	var contenido = '';
-	$('#municipio').material_select('destroy');
-	$("#municipio").empty();
-	$('#parroquia').material_select('destroy');
-	$("#parroquia").empty();
-	$("#parroquia").html('<option value="0">----------</option>');
-	$('#parroquia').material_select();
-	$.getJSON( sUrlP + "listarMunicipio", {codigo: $('#estado').val()})
+	$('#idmu').material_select('destroy');
+	$("#idmu").empty();
+	$('#idpa').material_select('destroy');
+	$("#idpa").empty();
+	$("#idpa").html('<option value="0">----------</option>');
+	$('#idpa').material_select();
+	$.getJSON( sUrlP + "listarMunicipio", {codigo: $('#ides').val()})
 	 .done(function(data) {
 		$.each(data, function(indice, valor){
 			contenido += '<option value="'+valor['codigo']+'">'+valor['nombre']+'</option>';
 		});
-		$("#municipio").html(contenido);
-		$('#municipio').material_select();
+		$("#idmu").html(contenido);
+		$('#idmu').material_select();
 	})
 	 .fail(function(jqXHR, textStatus) {
 		alert(jqXHR.responseText);
@@ -85,15 +85,15 @@ function listarMunicipio(){
 */
 function listarParroquia(){
 	var contenido = '';
-	$('#parroquia').material_select('destroy');
-	$("#parroquia").empty();
-	$.getJSON( sUrlP + "listarParroquia", {codigoEstado: $('#estado').val(), codigoMunicipio: $('#municipio').val()})
+	$('#idpa').material_select('destroy');
+	$("#idpa").empty();
+	$.getJSON( sUrlP + "listarParroquia", {codigoEstado: $('#ides').val(), codigoMunicipio: $('#idmu').val()})
 	 .done(function(data) {
 		$.each(data, function(indice, valor){
 			contenido += '<option value="'+valor['codigo']+'">'+valor['nombre']+'</option>';
 		});
-		$("#parroquia").html(contenido);
-		$('#parroquia').material_select();
+		$("#idpa").html(contenido);
+		$('#idpa').material_select();
 	})
 	 .fail(function(jqXHR, textStatus) {
 		alert(jqXHR.responseText);
@@ -106,6 +106,34 @@ function listarParroquia(){
 * @access public
 * @return mixed
 */
-function salvarDirecciones(){
+function salvarDireccion(){
+
+
+	$.getJSON( sUrlP + "salvarDireccion", {oid: $('#oid').val(), ides: $('#ides').val(), idmu: $('#idmu').val(),idpa: $('#idpa').val(), dir: $('#direccion').val()})
+	 .done(function(data) {		
+
 		
+		$('#modal1').openModal();
+	})
+	 .fail(function(jqXHR, textStatus) {
+		//alert(jqXHR.responseText);
+		console.log(jqXHR.responseText);
+	});	
+}
+
+function seleccionarCodigoArea(){
+	var contenido = '';
+	$('#idpa').material_select('destroy');
+	$("#idpa").empty();
+	$.getJSON( sUrlP + "seleccionarCodigoArea", {tipo:'x'})
+	 .done(function(data) {
+		$.each(data, function(indice, valor){
+			contenido += '<option value="'+valor['codigo']+'">'+valor['nombre']+'</option>';
+		});
+		$("#idpa").html(contenido);
+		$('#idpa').material_select();
+	})
+	 .fail(function(jqXHR, textStatus) {
+		alert(jqXHR.responseText);
+	});	
 }

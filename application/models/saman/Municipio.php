@@ -44,7 +44,7 @@ class Municipio extends CI_Model{
 	* @return array
 	*/
 	public function listar($codigoEstado = '') {
-		$sConsulta = 'SELECT codmun AS codigo, denmun AS nombre FROM municipio WHERE id_estado=\'' . $codigoEstado . '\'';
+		$sConsulta = 'SELECT id AS codigo, nb_municipio AS nombre FROM datos.municipio WHERE estado_id=\'' . $codigoEstado . '\'';
 		$arr = $this->Dbsaman->consultar($sConsulta);
 		return $arr;
 	}

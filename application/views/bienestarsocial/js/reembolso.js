@@ -16,24 +16,31 @@ function agregarR(){
 	var familiar = $('#familiar').val();
 	var concepto = $('#concepto').val();
 	var monto = $('#monto').val();
-	monto = monto.replace(/\./g,'').replace(',','.');
-	if($('#monto').val() == "0,00" || concepto == "0"){				
-		Materialize.toast("Debe introducir un monto o seleccionar un concepto", 3000, 'rounded');
-		iniciarElementos();
-	}else if(maximoValor($('#concepto option:selected').val(), monto) == true){
-		var arr = familiar.split('|');
-		Pedido['codigo'] = arr[0];
-		Pedido['parentesco'] = arr[1];
-		Pedido['nombre'] = $('#familiar option:selected').text();
-		Pedido['concepto'] = $('#concepto option:selected').text();
-		Pedido['codigoconcepto'] = $('#concepto option:selected').val();
-		Pedido['monto'] = monto;
-		Solicitud[i++] = Pedido;
-		crearElementos();		
-		iniciarElementos();
+
+	if(i < 1){
+
+		monto = monto.replace(/\./g,'').replace(',','.');
+		if($('#monto').val() == "0,00" || concepto == "0"){				
+			Materialize.toast("Debe introducir un monto o seleccionar un concepto", 5000);
+			iniciarElementos();
+		}else if(maximoValor($('#concepto option:selected').val(), monto) == true){
+			var arr = familiar.split('|');
+			Pedido['codigo'] = arr[0];
+			Pedido['parentesco'] = arr[1];
+			Pedido['nombre'] = $('#familiar option:selected').text();
+			Pedido['concepto'] = $('#concepto option:selected').text();
+			Pedido['codigoconcepto'] = $('#concepto option:selected').val();
+			Pedido['monto'] = monto;
+			Solicitud[i++] = Pedido;
+			crearElementos();		
+			iniciarElementos();
+		}else{
+			msjMaximo();
+		}
 	}else{
-		msjMaximo();
+		Materialize.toast("Solo podra seleccionar un concepto a la vez", 5000);
 	}
+
 }
 
 /**
@@ -165,7 +172,7 @@ function salvarR(codigo){
 	if(i > 0){
 		$.post( sUrlP + "salvarReembolso/", Reembolso)
 			.done(function(data) {			
-				Materialize.toast(data, 3000, 'rounded');
+				Materialize.toast(data, 5000);
 				$(location).attr('href', sUrlP + "adjuntos/" + codigo + "/" + 1);	
 			})
 			.fail(function(jqXHR, textStatus) {
@@ -182,5 +189,5 @@ function eliminarR(id){
 	Solicitud.splice(id,1);
 	i--;
 	crearElementos();
-	Materialize.toast('Se ha eliminado un elemento de la lista', 4000, 'rounded');	
+	Materialize.toast('Se ha eliminado un elemento de la lista', 5000);	
 }

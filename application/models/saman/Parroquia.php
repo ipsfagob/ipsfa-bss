@@ -42,7 +42,7 @@ class Parroquia extends CI_Model{
 	* @return array
 	*/
 	public function listar($codigoEstado = '', $codigoMunicipio = ''){
-		$sConsulta = 'SELECT codpar AS codigo, denpar AS nombre FROM parroquia WHERE id_estado = \'' . $codigoEstado . '\' AND codmun=\'' . $codigoMunicipio . '\'';
+		$sConsulta = 'SELECT id AS codigo, nb_parroquia AS nombre FROM datos.parroquia WHERE estado_id = \'' . $codigoEstado . '\' AND municipio_id=\'' . $codigoMunicipio . '\'';
 		$arr = $this->Dbsaman->consultar($sConsulta);
 		return $arr;
 	}

@@ -4,78 +4,61 @@ $this->load->view("afiliacion/inc/cabecera.php");
 <script type="text/javascript"
   src="<?php echo base_url(); ?>application/views/afiliacion/js/datos.js"></script>
 
-<div class="container white">
-  <h5>Bienvenidos al sistema de datos personales</h5>
-  <div class="divider"></div>
-  
-<!--
-<h5>Datos Básicos</h5>
-<li class="divider"></li>-->
-<div class="row center">
-  <div class="col s12 m12 l12">
-    <!-- 
-    <img width="100px" class="responsive-img circle" src="http://www.ipsfa.gob.ve/SAEMI/xmlsHtmlsImgs/imgs.afiliados/pers.mil.act/<?php echo $Militar->Persona->cedula?>.jpg"> -->
-  </div>
-</div>
-  
- <div class="row">
-	 	<div class="input-field col s12 m6 l6">
-          <input disabled id="cedula" type="text" class="validate  imagen-text-right" 
-            value="<?php echo $Militar->Persona->nacionalidad . '-' . $Militar->Persona->cedula?>">
-          <label for="disabled">Documento de Identidad</label>
-        </div>
-    <div class="input-field col s12  m6 l6">
-          <input  disabled  id="edocivil" type="text" class="validate  imagen-text-right" value="<?php echo $Militar->Persona->estadoCivil;?>">
-          <label for=" disabled">Estado Civil</label>
-        </div>
 
- </div>
-    <form class="col s12">
-      <div class="row">
-      <div class="input-field col s6">
-          <input  disabled  id="componente" type="text" class="validate  imagen-text-right" value="<?php echo $Militar->Componente->nombre?>">
+
+<div class="container ">
+<br>
+  <div class="row white">
+  <form >
+ <div class="col s12 m12 l12">
+           <h5>Datos Básicos</h5>
+        </div>
+        
+	 	<div class="input-field col s12 m6 l6">
+          <input readonly id="cedula" type="text" class="validate  imagen-text-right" 
+            value="<?php echo $Militar->Persona->nacionalidad . '-' . $Militar->Persona->cedula?>">
+          <label>Documento de Identidad</label>
+        </div>
+        <div class="input-field col s12  m6 l6">
+          <input  readonly  id="edocivil" type="text" class="validate  imagen-text-right" value="<?php echo $Militar->Persona->estadoCivil;?>">
+          <label>Estado Civil</label>
+        </div>
+        <div class="input-field col s6">
+          <input  readonly  id="componente" type="text" class="validate  imagen-text-right" value="<?php echo $Militar->Componente->nombre?>">
           <label>Componente</label>
         </div>
         
         <div class="input-field col s6">
-          <input  disabled id="grado" type="text" class="validate  imagen-text-right" value="<?php echo $Militar->Componente->rango?>">
+          <input  readonly id="grado" type="text" class="validate  imagen-text-right" value="<?php echo $Militar->Componente->rango?>">
           <label>Grado</label>
         </div>
-     </div>
 
-     <div class="row">
-     	<div class="input-field col s6">
-          <input  disabled  id="first_name" type="text" class="validate  imagen-text-right" value="<?php echo $Militar->Persona->nombreCompleto()?>">
-          <label for=" disabled">Nombres</label>
+     	  <div class="input-field col s6">
+          <input  readonly  id="first_name" type="text" class="validate  imagen-text-right" value="<?php echo $Militar->Persona->nombreCompleto()?>">
+          <label>Nombres</label>
         </div>
         
         <div class="input-field col s6">
-          <input  disabled id="last_name" type="text" class="validate  imagen-text-right" value="<?php echo $Militar->Persona->apellidoCompleto()?>">
-          <label for=" disabled ">Apellidos</label>
+          <input  readonly id="last_name" type="text" class="validate  imagen-text-right" 
+          value="<?php echo $Militar->Persona->apellidoCompleto()?>">
+          <label style="color:#000; font-weight: bold;">Apellidos</label>
         </div>
-     </div>
-      <div class="row">
+
       <div class="input-field col s6">
-          <input  disabled  id="fechaNacimiento" class="validate  imagen-text-right" type="text" value="<?php echo $Militar->Persona->fechaNacimiento?>">
-          <label for="disabled">Fecha de Nacimiento</label>
+          <input  readonly  id="fechaNacimiento" class="validate  imagen-text-right" type="text" value="<?php echo $Militar->Persona->fechaNacimiento?>">
+          <label>Fecha de Nacimiento</label>
         </div>
         
         <div class="input-field col s6">
-          <select  disabled >
-            <option value="<?php echo $Militar->Persona->sexo?>"><?php echo $Militar->Persona->obtenerSexo()?></option>
-            
-            
-          </select>
+            <input  readonly  id="sexo" class="validate  imagen-text-right" 
+            type="text" value="<?php echo $Militar->Persona->obtenerSexo()?>">            
           <label>Genero</label>
         </div>
-     </div>
-
-     <div class="row">
         <?php
-
+          $i = 1;
           foreach ($Militar->Persona->Telefonos as $c => $v) {
             $sTip = '<div class="input-field col s2 m2 l1">
-                    <select id="codTipo">
+                    <select id="codTipo' . $i . '" onchange="">
                     <option value="' . $v->tipo . '">' . $v->tipo . '</option>
                     <option value="HAB">HAB</option> 
                     <option value="CEL">CEL</option> 
@@ -85,17 +68,17 @@ $this->load->view("afiliacion/inc/cabecera.php");
                     </div>';
 
             $sCodA = '<div class="input-field col s3 m3 l1">
-                      <select id="codTelefono"><option value="' . $v->codigoArea . '">' . $v->codigoArea . '</option>
+                      <select id="codTelefono' . $i . '"><option value="' . $v->codigoArea . '">' . $v->codigoArea . '</option>
                       ' . generarCodigos($CodigoArea) . '</select>
                       <label>Código</label>
                       </div>';
             $sNum = '<div class="input-field col s7 m7 l4">
                       
-                      <input id="telefono" type="text" class="validate" value="' . $v->numero . '">
+                      <input id="telefono' . $i . '" type="text" class="validate" value="' . $v->numero . '">
                       <label>Teléfono</label>
                       </div>';
 
-            
+            $i++;
             echo $sTip . $sCodA . $sNum ;
           }
 
@@ -120,13 +103,12 @@ $this->load->view("afiliacion/inc/cabecera.php");
           <select id="codTelefonoAux">
               <?php echo generarCodigos($CodigoArea);?>
           </select>                
-          <label>Código</label>
+          <label >Código</label>
         </div>
         <div class="input-field col s7 m7 l4">                      
           <input id="telefonoAux" type="text" class="validate" value="">
           <label>Teléfono Auxiliar</label>
         </div>
-      </div>
 
 
 
@@ -135,14 +117,24 @@ $this->load->view("afiliacion/inc/cabecera.php");
 
 
 
+        <div class="col s12 m12 l12">
+           <h5>Datos de la Dirección</h5>
+        </div>
 
-      <h5>Datos de la Dirección</h5>
-      <li class="divider"></li><br>
-     <div class="row">
-        <div class="input-field col s12 m6 l6">
-        <select id="estado" name='estado' onchange="listarMunicipio();">
-        <option value="0">-------------</option>
-          <?php
+     
+      
+  
+        <div class="col s12 m6 l6">
+        <label>Estado</label>
+        <select id="ides"  onchange="listarMunicipio();" class="browser-default">
+          <?php 
+            if($Militar->Persona->direccionHabitacion->codigoEstado != ''){
+              echo '<option value="' . $Militar->Persona->direccionHabitacion->codigoEstado . '">' . $Militar->Persona->direccionHabitacion->estado . '</option>';  
+            }
+            
+          ?>
+          <option value="0">-------------</option>
+          <?php        
             $sEstado = '';
             foreach ($Estado as $key => $val) {
               $sEstado .= '<option value="' . $val->codigo . '">' . $val->nombre . '</option>';
@@ -150,46 +142,64 @@ $this->load->view("afiliacion/inc/cabecera.php");
             echo $sEstado;
           ?>
           </select>
-          <label>Estado</label>
+          
         </div>
 
-        <div class="input-field col s12 m6 l6">
-          <select id="municipio" onchange="listarParroquia();">
-            <option value="0">----------</option>  
-          </select>
+        <div class="col s12 m6 l6">        
           <label>Municipio</label>
+          <select id="idmu" onchange="listarParroquia();" onclick="listarParroquia();" class="browser-default">
+          <?php 
+            if($Militar->Persona->direccionHabitacion->codigoMunicipio != ''){
+              echo '<option selected="selected" value="' . $Militar->Persona->direccionHabitacion->codigoMunicipio . '">' . 
+              $Militar->Persona->direccionHabitacion->municipio . '</option>';
+            }
+          ?>
+            <option value="0" >----------</option>  
+          </select>
         </div>
 
-        <div class="input-field col s12 m12 l12">
-        <select id="parroquia">
+        <div class="col s12 m12 l12">
+        <label>Parroquia</label>
+        <select id="idpa"  class="browser-default">
+        <?php 
+            if($Militar->Persona->direccionHabitacion->codigoParroquia != ''){
+              echo '<option value="' . $Militar->Persona->direccionHabitacion->codigoParroquia . '">' . $Militar->Persona->direccionHabitacion->parroquia . '</option>';  
+            }
+            
+          ?>
             <option value="0">----------</option>           
           </select>
-          <label>Parroquia</label>
+          
         </div>
-      </div>
 
-
-      <div class="row">
         <div class="input-field col s12">
-          <textarea id="direccion" class="materialize-textarea" length="256"><?php echo $Militar->Persona->direccion?></textarea>
+          <textarea id="direccion" class="materialize-textarea" length="256"><?php 
+              if($Militar->Persona->direccionHabitacion->direccion != ''){
+                echo trim($Militar->Persona->direccionHabitacion->direccion);  
+              }else{
+                echo $Militar->Persona->direccion;
+              }  
+            ?></textarea>
           <label for="direccion">Por favor verifique su dirección</label>
         </div>
         <div class="input-field col s12">
-          <input id="email" type="email" class="validate" value="<?php echo $Militar->Persona->correoElectronico?>">
+          <input id="email" type="email" class="validate" value="<?php echo $_SESSION['correo'];
+          //$Militar->Persona->correoElectronico?>">
           <label for="email" data-error="Invalido" data-success="right">Correo Electronico</label>
         </div>
         <div class="input-field col s12" style="display: none">
           <input id="emailAux" type="email" class="validate" value="<?php echo ''?>">
           <label for="emailAux" data-error="Invalido" data-success="right">Correo Electronico Alternativo</label>
         </div>
-      </div> 
-      <br>
-    <div class="row">
-    <h5>Notas: </h5><div class="divider"></div>
-          
-    <div class="row">
+       
+    
+
+    
+       <div class="col s12 m12 l12">
       <div class="col s12 card-panel blue lighten-2">
         <p style="text-align: justify;">
+        <h5>Notas: </h5>
+        <div class="divider"></div>
           <ol>
             <li>En caso de que
             detecte algún dato errado y no pueda ser actualizado, favor dirigirse a la Gerencia de Afiliación del 
@@ -200,12 +210,10 @@ $this->load->view("afiliacion/inc/cabecera.php");
           </ol>        
         </p>    
       </div>
-      </div>    
-    </div>
-      <br><br>      
-      <div class="row">
+
+
       	<div class="col s6" >
-  			<a  class="btn-large waves-effect waves-light" style="background-color:#00345A"   href="#" >Actualizar
+  			<a  class="btn-large waves-effect waves-light" style="background-color:#00345A"   onclick="salvarDireccion()" >Actualizar
   			    <i class="material-icons left">swap_vertical_circle</i>
   			</a>
       	</div>
@@ -216,91 +224,30 @@ $this->load->view("afiliacion/inc/cabecera.php");
             <i class="material-icons left">home</i>
         </a>
         </div>
-      </div>       
+      </div>   
+      <input id="oid" type="hidden" value="<?php echo $Militar->Persona->oid?>">    
     </form>
+
 </div>
 
 
-
-
-  <!-- Modal Structure -->
-  <div id="modal1" class="modal modal-fixed-footer">
+        <!-- Modal Structure -->
+  <div id="modal1" class="modal modal-fixed-footer" style="width: 340px; height: 220px">
     <div class="modal-content">
-      <h4>Notificar!!!</h4>
-     
-
-
-     <form class="col s12" id="reportar" method="post" name="reportar">
-       <div class="row">
-         <div class="col s12">
-          <p style="text-align: justify;">
-            Bienvenidos al sistema de reportes.<br>
-            ¿Los datos presentados en el anterior formulario son correctos?
-          </p>    
-         </div>
-       </div>
-      
-       <div class="section" style="display: none">
-          <h5>Datos Personales</h5>
-          <div class="divider"></div>
-          <br>
-           <div class="row">
-              <div class="col s12 m4">
-                <input type="checkbox" id="chNombre" />
-                <label for="chNombre" >Nombre y Apellido</label>
-              </div>
-
-              <div class="col s12 m4">
-                <input type="checkbox" id="chSexo" />
-                <label for="chSexo">Sexo o Genero</label>
-              </div>
-
-              <div class="col s12 m4">
-                <input type="checkbox" id="chFecha" />
-                <label for="chFecha">Fecha de Nacimiento</label>
-              </div>
-           </div>
-
-           <br>
-           <h5>Datos Militares</h5>
-           <div class="divider"></div>
-           <br>
-           <div class="row">
-              <div class="col s12 m4">
-                <input type="checkbox" id="chComponente" />
-                <label for="chComponente">Componente</label>
-              </div>
-              <div class="col s12 m4">
-                <input type="checkbox" id="chRango" />
-                <label for="chRango">Rango Militar</label>
-              </div>
-
-           </div>
-
-          <br>
-           <h5>Datos Bancarios</h5>
-           <div class="divider"></div>
-           <br>
-           <div class="row">
-              <div class="col s12 m4">
-                <input type="checkbox" id="chBanco" />
-                <label for="chBanco">Cuenta Bancario</label>
-              </div>
-
-           </div>
-          <br>
-
-           
-      </div>
-    </form>
+      <h4>Felicitaciones!!!</h4>
+      <p>Sus datos han sido actualizados</p>
     </div>
     <div class="modal-footer">
-      <a class="modal-action modal-close waves-effect waves-blue btn-flat" onclick="Salvar()">NO</a>  
-      <a href="#!" class="modal-action modal-close waves-effect waves-blue btn-flat">SI</a>
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">ACEPTAR
+      <i class="material-icons left green-text">check_circle</i></a>
     </div>
   </div>
-    
-      
+
+
+          
+
+
+          
 
 
 <?php 

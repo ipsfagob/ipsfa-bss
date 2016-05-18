@@ -748,40 +748,6 @@ class BienestarSocial extends CI_Controller {
 		}	
 	}
 
-	/**
-	 * Permite generar un codigo de planillas
-	 *
-	 * @access public
-	 * @return string
-	 */	
-	public function generarCodigo($tipo = "", $obs = ""){
-		if(isset($_SESSION['cedula'])){
-			$this->load->model('utilidad/Semillero', 'Semillero');
-			$this->Semillero->obtener($tipo, $_SESSION['cedula'], $obs);
-			return $this->Semillero->codigo;
-		}else{
-			$this->salir();
-			exit;
-		}	
-	}
-
-
-	/**
-	 * Permite generar un codigo de planillas
-	 *
-	 * @access public
-	 * @return string
-	 */	
-	public function generarCita(){
-		if(isset($_SESSION['cedula'])){
-			$this->load->model('comun/Cita');
-			$this->Cita->generar();
-			$this->citas();
-		}else{
-			$this->salir();
-			exit;
-		}	
-	}
 
 	/**
 	 * Salvar Anomalia Media
@@ -863,6 +829,85 @@ class BienestarSocial extends CI_Controller {
 		}	
 	}
 
+	public function salvarDireccion(){
+		$this->load->model('saman/Direccion');
+		$this->load->model('utilidad/Correo', 'Correo');
+
+		$this->Direccion->oid = $_POST['oid'];
+		$this->Direccion->ides = $_POST['ides'];
+		$this->Direccion->idmu = $_POST['idmu'];
+		$this->Direccion->idpa = $_POST['idpa'];
+		$this->Direccion->direccion = $_POST['dire'];
+
+	}
+
+	/**
+	 * Permite generar un codigo de planillas
+	 *
+	 * @access public
+	 * @return string
+	 */	
+	public function generarCodigo($tipo = "", $obs = ""){
+		if(isset($_SESSION['cedula'])){
+			$this->load->model('utilidad/Semillero', 'Semillero');
+			$this->Semillero->obtener($tipo, $_SESSION['cedula'], $obs);
+			return $this->Semillero->codigo;
+		}else{
+			$this->salir();
+			exit;
+		}	
+	}
+
+
+	/**
+	 * Permite generar un codigo de planillas
+	 *
+	 * @access public
+	 * @return string
+	 */	
+	public function generarCita(){
+		if(isset($_SESSION['cedula'])){
+			$this->load->model('comun/Cita');
+
+			$codigo = $this->Cita->generar();
+
+			$this->Correo->para = $_SESSION['correo'];
+			$texto = 'CITA PARA TRATAMIENTO PROLONGADO';
+			$this->Correo->cuerpo = $this->plantillaMensajeCorreo($_SESSION['nombreRango'], $texto , $codigo);
+			$this->Correo->gerencia = 'Gerencia de Bienestar Social';
+			$this->Correo->titulo = $_SESSION['nombreRango'];
+			$this->Correo->enviar();
+			$this->citas();
+		}else{
+			$this->salir();
+			exit;
+		}	
+	}
+
+
+
+	function plantillaMensajeCorreo($nombre, $tipo, $codigo){
+		$msj = '
+			Estimado Afiliado(a)  ' . $nombre . ', <br><br>
+
+			Usted ha realizado una solicitud por  ' . $tipo . ' bajo el c&oacute;digo  ' . $codigo . ' la cual ser&aacute; procesada  por nuestros
+			analistas de Bienestar y Seguridad Social. Para mayor información puede mantenerse en contacto a trav&eacute;s de nuestro portal web 
+			http://www.ipsfa.gob.ve, o le estaremos notificando a través de su correo electr&oacute;nico.<br><br>
+
+			.- IPSFA jam&aacute;s le enviar&aacute; un enlace donde le solicite informaci&oacute;n de claves de acceso a IPSFA en l&iacute;nea, cuentas bancarias, ni correo electr&aacute;nico personal.<br>
+			.- IPSFA s&aacute;lo env&iacute;a correos personalizados, es decir, con su nombre, por ejemplo: CNEL. BOLIVAR SIMON.<br>
+			.- IPSFA nunca le enviar&aacute; un correo en el que se use su direcci&oacute;n en el encabezado del mensaje, por ejemplo: Estimado afiliado Sr.(a): juan.cristobal.arocha@gmail.com.<br>
+			.- Esta es una cuenta no monitoreada. No responda o reenv&aacute;e correos a esta cuenta.<br>
+			Ud. dispone de los siguientes correos en caso que requiera reportar cualquier situación irregular: 
+
+			Todos los documentos reposaran en su expediente fisico del Instituto.<br>
+			IPSFA en línea Optimizando tu Bienestar.';
+
+		return $msj;
+
+	}
+
+
 	function cancelarSolicitud($cod = ''){
 		$this->load->model('saman/Solicitud');
 		$this->Solicitud->modificar($cod, 9); // Cambio General del Estatus del caso
@@ -938,26 +983,6 @@ class BienestarSocial extends CI_Controller {
 		echo "exito";
 	}
 
-
-	function plantillaMensajeCorreo($nombre, $tipo, $codigo){
-		$msj = '
-			Estimado Afiliado(a)  ' . $nombre . ', <br><br>
-
-			Usted ha realizado una solicitud por  ' . $tipo . ' bajo el código  ' . $codigo . ' la cual será procesada  por nuestros analistas de Bienestar y Seguridad Social. Para mayor información puede mantenerse en contacto a través de nuestro portal web http://www.ipsfa.gob.ve, o le estaremos notificando a través de su correo electrónico.<br><br>
-
-			.- IPSFA jamás le enviará un enlace donde le solicite información de claves de acceso a IPSFA en línea, cuentas bancarias, ni correo electrónico personal.<br>
-			.- IPSFA sólo envía correos personalizados, es decir, con su nombre, por ejemplo: CNEL. BOLIVAR SIMON.<br>
-			.- IPSFA nunca le enviará un correo en el que se use su dirección en el encabezado del mensaje, por ejemplo: Estimado afiliado Sr.(a): juan.cristobal.arocha@gmail.com.<br>
-			.- Esta es una cuenta no monitoreada. No responda o reenvíe correos a esta cuenta.<br>
-			Ud. dispone de los siguientes correos en caso que requiera reportar cualquier situación irregular: 
-
-			Todos los documentos reposaran en su expediente fisico del Instituto.<br>
-			IPSFA en línea Optimizando tu Bienestar.
-		';
-
-		return htmlspecialchars_decode($msj);
-
-	}
 
 	function jsonObject(){
 		echo "<pre>";

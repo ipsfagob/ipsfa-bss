@@ -354,7 +354,9 @@ class Solicitud extends CI_Model{
 	public function seleccionarDocumentos($codigo){
 		$arr = array();
 		$obj = $this->listarSolicitudes($codigo);
+		
 		$solicitud = json_decode($obj->rs[0]->detalle)->solicitud;
+		
 		foreach ($solicitud as $c => $v) {
 			$arr[$v->codigoconcepto] = $this->listarDocumentosConceptos($v->codigoconcepto);
 		}
