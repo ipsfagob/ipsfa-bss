@@ -50,6 +50,27 @@ function Cancenlar(){
 	
 }
 
+
+function listarCodigos(e){
+	tipo = $("#codTipo" + e).val();
+	$("#codTelefono" + e).empty();
+	$.getJSON( sUrlP + "listarCodigos", {tip: tipo})
+	 .done(function(data) {
+	 	
+		contenido = '';
+		$.each(data, function(indice, valor){
+			console.log(valor);
+			contenido += '<option value="'+valor['codarea']+'">'+valor['codarea']+'</option>';
+		});
+		
+		$("#codTelefono" + e).html(contenido);
+		
+	})
+	 .fail(function(jqXHR, textStatus) {
+		alert(jqXHR.responseText);
+	});	
+}
+
 /**
 * Cargar los municipios de un estado
 *
@@ -109,7 +130,17 @@ function listarParroquia(){
 function salvarDireccion(){
 
 
-	$.getJSON( sUrlP + "salvarDireccion", {oid: $('#oid').val(), ides: $('#ides').val(), idmu: $('#idmu').val(),idpa: $('#idpa').val(), dir: $('#direccion').val()})
+	$.getJSON( sUrlP + "salvarDireccion", {
+		oid: $('#oid').val(), 
+		ides: $('#ides').val(), 
+		idmu: $('#idmu').val(),
+		idpa: $('#idpa').val(), 
+		dir: $('#direccion').val(),
+		cor: $('#emailAux').val(), 
+		tip: $('#codTipo0').val(), 
+		cod: $('#codTelefono0').val(),
+		tel: $('#telefono0').val()
+	})
 	 .done(function(data) {		
 
 		

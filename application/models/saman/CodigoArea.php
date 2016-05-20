@@ -41,10 +41,22 @@ class CodigoArea extends CI_Model{
 	* @access public
 	* @return array
 	*/
-	public function listar(){
-		$sConsulta = 'SELECT codarea FROM codarea';
-		$lst = array();
-		$arr = $this->Dbsaman->consultar($sConsulta);
+	public function listar($tipo = ''){
+		if($tipo == 'CEL'){
+			(object)$rs['rs'] = array(
+				'0' => (object)array('codarea' => '0416'),
+				'1' => (object)array('codarea' => '0426'),
+				'2' => (object)array('codarea' => '0414'),
+				'3' => (object)array('codarea' => '0424'),
+				'4' => (object)array('codarea' => '0412')
+				);
+			$arr = $rs;
+			$arr = (object)$arr;
+		}else{
+			$sConsulta = 'SELECT codarea FROM codarea';
+			$arr = $this->Dbsaman->consultar($sConsulta);
+		}
+		//print_r($arr);
 		return $arr;
 	}
 

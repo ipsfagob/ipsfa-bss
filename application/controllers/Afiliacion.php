@@ -94,7 +94,7 @@ class Afiliacion extends CI_Controller {
 		}
 	}
 
-		public function listarParroquia(){
+	public function listarParroquia(){
 		if(isset($_SESSION['cedula'])){
 			$this->load->model('saman/Parroquia', 'Parroquia');
 			echo json_encode($this->Parroquia->listar($_GET['codigoEstado'], $_GET['codigoMunicipio'])->rs);
@@ -103,6 +103,17 @@ class Afiliacion extends CI_Controller {
 		}
 	}
 
+
+	public function listarCodigos(){
+		if(isset($_SESSION['cedula'])){
+			$this->load->model('saman/CodigoArea', 'CodigoArea');
+			//echo 'Object: ';
+			echo json_encode($this->CodigoArea->listar($_GET['tip'])->rs);
+		}else{			
+			$this->salir("Debe iniciar session");			
+		}
+
+	}
 	/**
 	 *Menu
 	 */
@@ -120,15 +131,20 @@ class Afiliacion extends CI_Controller {
 	 */
 	function salvarDireccion(){
 		$this->load->model('saman/Direccion');
+		
 		$this->load->model('utilidad/Correo', 'Correo');
 
-		$this->Direccion->oid = $_GET['oid'];
-		$this->Direccion->ides = $_GET['ides'];
-		$this->Direccion->idmu = $_GET['idmu'];
-		$this->Direccion->idpa = $_GET['idpa'];
-		$this->Direccion->direccion = $_GET['dir'];
+		$this->Direccion->oid = str_replace("'","",$_GET['oid']);
+		$this->Direccion->ides =  str_replace("'","",$_GET['ides']);
+		$this->Direccion->idmu =  str_replace("'","",$_GET['idmu']);
+		$this->Direccion->idpa =  str_replace("'","",$_GET['idpa']);
+		$this->Direccion->direccion =  str_replace("'","",$_GET['dir']);
+		$this->Direccion->telefono->tipo =  str_replace("'","",$_GET['tip']);
+		$this->Direccion->telefono->codigoArea =  str_replace("'","",$_GET['cod']);
+		$this->Direccion->telefono->numero =  str_replace("'","",$_GET['tel']);
+		$this->Direccion->correo =  str_replace("'","",$_GET['cor']);
 
-		$this->Direccion->guardarDireccion($this->Direccion, 'habitacion');
+		$this->Direccion->salvar($this->Direccion, 'habitacion');
 
 		$this->Correo->para = $_SESSION['correo'];
 		$texto = 'ACTUALIZACION DE DATOS';

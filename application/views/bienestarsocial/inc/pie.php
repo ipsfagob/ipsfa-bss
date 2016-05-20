@@ -10,18 +10,6 @@
 <script type="text/javascript">
 
 	var bPreguntar = true;	 
-	
-	window.onbeforeunload = function (e){
-		
-		//if (bPreguntar)return "¿Seguro que desea quieres salir?";
-
-		//alert(window.closed);
-	}
-	
-
-
-	//if (history.back(1)){alert("¡Cobarde, has vuelto atrás!")}
-	
 	$( window ).on('beforeunload', function() {
 	 	if (bPreguntar)return 'Bienestar y Seguridad Social';
 	});

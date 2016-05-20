@@ -8,8 +8,6 @@ main {
 flex: 1 0 auto;
 }
 
-label { font-size: 16px;  color: #000;}
-select {  color: #000; }
 
 
 
@@ -23,7 +21,7 @@ select {  color: #000; }
 .file-path::-moz-placeholder { color: #828282;; }
 .file-path:-ms-input-placeholder { color: #828282;; }
 
-.input-field label {  color: #000000; font-weight: bold;}
+.input-field label {  color: #000000; font-size: 16px }
 .input-field input, select, textarea {
     background:url(texts_active.svg) no-repeat right 1px top 1px, url(back-text-area.png) repeat;
     border: none;
@@ -35,7 +33,19 @@ select {  color: #000; }
  
 
 }
+label {  color: #000000; font-size: 16px }
+input, select, textarea {
+    background:url(texts_active.svg) no-repeat right 1px top 1px, url(back-text-area.png) repeat;
+    border: none;
+    border: 1px solid #00345A;
+    box-sizing: border-box;
+    transition: all .3s;
+}
 
+   /* label focus color */
+   .input-field input[type=text]:focus + label {
+     color: #00345A;
+   }
 
 .botones-solicitud{height:auto;width:100%;box-shadow: 0 0 13px 1px #000;cursor:pointer;padding:1px;}
 .botones-solicitud:hover{height:auto;width:100%;box-shadow: 0 0 25px 1px #000;cursor:pointer;padding:1px;}

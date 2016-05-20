@@ -294,6 +294,8 @@ class Persona extends CI_Model{
 	*/
 	function cargarDireccion($dir){
 		$this->load->model('saman/Direccion');
+		$this->load->model('saman/Telefono', 'Telefono');
+		$Telefono = new $this->Telefono();
 		$obj = $this->Direccion->obtener($this->oid, $dir);	
 
 		if($obj->code == 0){
@@ -306,6 +308,14 @@ class Persona extends CI_Model{
 				$Direccion->codigoParroquia = $v->codigoparroquia;
 				$Direccion->parroquia = $v->parroquia;
 				$Direccion->direccion = $v->direccion;
+				$Direccion->correo = $v->correo;
+
+				$Telefono->tipo = $v->tip;
+				$Telefono->codigoPais = '058';
+				$Telefono->codigoArea = $v->cod;
+				$Telefono->numero = $v->tel;
+				$Direccion->telefono = $Telefono;
+
 			}
 			if($dir == 'habitacion'){
 				$this->direccionHabitacion = $Direccion;	

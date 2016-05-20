@@ -62,7 +62,15 @@ class Direccion extends CI_Model{
 	*/
 	var $direccion;
 
+	/**
+	* @var object
+	*/
+	var $telefono;
 
+	/**
+	* @var string
+	*/
+	var $correo;
 
 	/**
 	* Iniciando la clase, Cargando Elementos BD Ipsfa
@@ -73,8 +81,21 @@ class Direccion extends CI_Model{
 	function __construct(){
 		parent::__construct();
 		$this->load->model('comun/Dbipsfa');
+		$this->load->model('saman/Telefono');
+		$this->telefono = new $this->Telefono();
 	}
 
+	function salvar(Direccion $Direccion, $dir){
+		$sConsulta = 'SELECT * FROM datos.dir' . $dir . ' WHERE oid=' . $Direccion->oid;
+		$obj = $this->Dbipsfa->consultar($sConsulta);
+		
+		if($obj->cant > 0){
+			$acc = $this->actualizarDireccion($Direccion, $dir);
+		}else{
+			$acc = $this->guardarDireccion($Direccion, $dir);
+		}
+		return $acc;
+	}
 
 	/**
 	* Listar todos los codigos de Areas del país
@@ -87,7 +108,7 @@ class Direccion extends CI_Model{
 		$sConsulta = 'SELECT datos.estado.id AS codigoestado, nb_estado AS estado, 
 		datos.municipio.id AS codigomunicipio, nb_municipio AS municipio, 
 		datos.parroquia.id AS codigoparroquia, nb_parroquia AS parroquia, 
-		obse AS direccion 
+		obse AS direccion, cor AS correo, tip, cod, tel
 		FROM ' . $this->esq . '.dir' . $dir . ' 
 		LEFT JOIN datos.estado ON 
 			datos.estado.id = ' . $this->esq . '.dir' . $dir . '.ides 
@@ -108,12 +129,23 @@ class Direccion extends CI_Model{
 	* @return array
 	*/
 	public function guardarDireccion(Direccion $Direccion, $dir){
-		$sInsertar = 'INSERT INTO ' . $this->esq . '.dir' . $dir . ' (oid, ides, idmu, idpa, obse,fech) 
+
+		$sInsertar = 'INSERT INTO ' . $this->esq . '.dir' . $dir . ' (oid, ides, idmu, idpa, tip, cod, tel, cor, obse,fech) 
 		VALUES (' . $Direccion->oid . ',' . $Direccion->ides . ',' . $Direccion->idmu . 
-		',' . $Direccion->idpa . ',\'' . $Direccion->direccion . '\', \'now()\')';
+		',' . $Direccion->idpa . ',\'' . $Direccion->telefono->tipo . '\',\'' . $Direccion->telefono->codigoArea . '\',\'' . $Direccion->telefono->numero . '\',\'' . $Direccion->correo . '\',\'' . $Direccion->direccion . '\', \'now()\')';
 		$exec = $this->Dbipsfa->consultar($sInsertar);
-		
 		return $exec;
 	}
 
+	public function actualizarDireccion(Direccion $Direccion, $dir){
+		$sUdate = 'UPDATE ' . $this->esq . '.dir' . $dir . ' SET  ides=' . $Direccion->ides . ', idmu=' . $Direccion->idmu . 
+		', idpa=' . $Direccion->idpa . ',tip=\'' . $Direccion->telefono->tipo . '\',cod=\'' . $Direccion->telefono->codigoArea . 
+		'\',tel=\'' . $Direccion->telefono->numero . '\',cor=\'' . $Direccion->correo . '\',obse=\'' . $Direccion->direccion . 
+		'\', fech=\'now()\' WHERE oid=' . $Direccion->oid;
+		$exec = $this->Dbipsfa->consultar($sUdate);
+		
+		return $exec;
+
+	}
 }
+

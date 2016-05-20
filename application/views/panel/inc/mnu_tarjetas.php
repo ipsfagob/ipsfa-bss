@@ -19,7 +19,7 @@
 					if($_SESSION['estatus'] == 0){
 						$validar = '<i class="material-icons red-text md-18 left">warning</i>';
 					}
-					echo $validar . $_SESSION['correo'];
+					echo $validar . $_SESSION['correoaux'];
 				?>
 				</span>
 			</div>

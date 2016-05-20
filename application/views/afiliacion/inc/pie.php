@@ -14,6 +14,17 @@
 		$('.materialboxed').materialbox();
   		$('select').material_select();  
 		
+  		$("input").keyup( function() {
+	        var value = $(this).val();
+	        $(this).val(value.toUpperCase());
+	    });
+	    $("textarea").keyup( function() {
+	        var pos_act = $(this).scrollTop();
+	        var value = $(this).val();
+	        $(this).val(value.toUpperCase());
+	        $(this).scrollTop(pos_act);
+	    });
+		
 		$('.dropdown-panel').dropdown({
 			inDuration: 400,
 			outDuration: 225,
@@ -44,6 +55,7 @@
 	    	selectMonths: true, // Creates a dropdown to control month
 	    	selectYears: 15 // Creates a dropdown of 15 years to control year
 	  	});
+
 
 	  	//$('textarea#direccion').characterCounter();
 

@@ -17,65 +17,58 @@ $this->load->view("afiliacion/inc/cabecera.php");
 	 	<div class="input-field col s12 m6 l6">
           <input readonly id="cedula" type="text" class="validate  imagen-text-right" 
             value="<?php echo $Militar->Persona->nacionalidad . '-' . $Militar->Persona->cedula?>">
-          <label>Documento de Identidad</label>
+          <label style="font-size: 16px">Documento de Identidad</label>
         </div>
         <div class="input-field col s12  m6 l6">
           <input  readonly  id="edocivil" type="text" class="validate  imagen-text-right" value="<?php echo $Militar->Persona->estadoCivil;?>">
-          <label>Estado Civil</label>
+          <label style="font-size: 16px">Estado Civil</label>
         </div>
         <div class="input-field col s6">
           <input  readonly  id="componente" type="text" class="validate  imagen-text-right" value="<?php echo $Militar->Componente->nombre?>">
-          <label>Componente</label>
+          <label style="font-size: 16px">Componente</label>
         </div>
         
         <div class="input-field col s6">
           <input  readonly id="grado" type="text" class="validate  imagen-text-right" value="<?php echo $Militar->Componente->rango?>">
-          <label>Grado</label>
+          <label style="font-size: 16px">Grado</label>
         </div>
 
      	  <div class="input-field col s6">
           <input  readonly  id="first_name" type="text" class="validate  imagen-text-right" value="<?php echo $Militar->Persona->nombreCompleto()?>">
-          <label>Nombres</label>
+          <label style="font-size: 16px">Nombres</label>
         </div>
         
         <div class="input-field col s6">
           <input  readonly id="last_name" type="text" class="validate  imagen-text-right" 
           value="<?php echo $Militar->Persona->apellidoCompleto()?>">
-          <label style="color:#000; font-weight: bold;">Apellidos</label>
+          <label style="font-size: 16px">Apellidos</label>
         </div>
 
       <div class="input-field col s6">
           <input  readonly  id="fechaNacimiento" class="validate  imagen-text-right" type="text" value="<?php echo $Militar->Persona->fechaNacimiento?>">
-          <label>Fecha de Nacimiento</label>
+          <label style="font-size: 16px">Fecha de Nacimiento</label>
         </div>
         
         <div class="input-field col s6">
             <input  readonly  id="sexo" class="validate  imagen-text-right" 
             type="text" value="<?php echo $Militar->Persona->obtenerSexo()?>">            
-          <label>Genero</label>
+          <label style="font-size: 16px">Genero</label>
         </div>
         <?php
           $i = 1;
           foreach ($Militar->Persona->Telefonos as $c => $v) {
-            $sTip = '<div class="input-field col s2 m2 l1">
-                    <select id="codTipo' . $i . '" onchange="">
-                    <option value="' . $v->tipo . '">' . $v->tipo . '</option>
-                    <option value="HAB">HAB</option> 
-                    <option value="CEL">CEL</option> 
-                    <option value="PRIN">PRIN</option>    
-                    </select>
+            $sTip = '<div class="col s2 m2 l1">
                     <label>Tipo</label>
+                    <input readonly id="codTipo' . $i . '" type="text" value="' . $v->tipo . '">                    
                     </div>';
 
-            $sCodA = '<div class="input-field col s3 m3 l1">
-                      <select id="codTelefono' . $i . '"><option value="' . $v->codigoArea . '">' . $v->codigoArea . '</option>
-                      ' . generarCodigos($CodigoArea) . '</select>
+            $sCodA = '<div class="col s3 m3 l1">
                       <label>Código</label>
+                      <input readonly id="codTelefono' . $i . '" type="text" value="' . $v->codigoArea . '">
                       </div>';
-            $sNum = '<div class="input-field col s7 m7 l4">
-                      
-                      <input id="telefono' . $i . '" type="text" class="validate" value="' . $v->numero . '">
+            $sNum = '<div class="col s7 m7 l4">                      
                       <label>Teléfono</label>
+                      <input readonly id="telefono' . $i . '" type="text" class="validate" value="' . $v->numero . '"  maxlength="7">
                       </div>';
 
             $i++;
@@ -91,23 +84,47 @@ $this->load->view("afiliacion/inc/cabecera.php");
             return $sArea;
           }
         ?>
-        <div class="input-field col s2 m2 l1">
-            <select id="codTipoAux">
+        <div class="col s2 m2 l1">
+            <label>Tipo</label>
+            <select id="codTipo0" class="browser-default" onchange="listarCodigos('0')">
+             <?php 
+                if($Militar->Persona->direccionHabitacion->telefono->tipo != ''){
+                  echo '<option value="' . $Militar->Persona->direccionHabitacion->telefono->tipo . '">' . $Militar->Persona->direccionHabitacion->telefono->tipo . '</option>';  
+                }
+                
+              ?>
               <option value="HAB">HAB</option> 
               <option value="CEL">CEL</option> 
               <option value="PRIN">PRIN</option>    
             </select>
-            <label>Tipo</label>
+            
         </div>
-        <div class="input-field col s3 m3 l1">
-          <select id="codTelefonoAux">
-              <?php echo generarCodigos($CodigoArea);?>
-          </select>                
+        <div class="col s3 m3 l1">
           <label >Código</label>
+          <select id="codTelefono0" class="browser-default">
+
+              <?php 
+              
+                if($Militar->Persona->direccionHabitacion->telefono->codigoArea != ''){
+                  echo '<option value="' . $Militar->Persona->direccionHabitacion->telefono->codigoArea . '">' . $Militar->Persona->direccionHabitacion->telefono->codigoArea . '</option>';  
+                }
+                
+            
+              echo generarCodigos($CodigoArea);?>
+          </select>                
         </div>
-        <div class="input-field col s7 m7 l4">                      
-          <input id="telefonoAux" type="text" class="validate" value="">
+        <div class="col s7 m7 l4">                      
           <label>Teléfono Auxiliar</label>
+          
+            <input id="telefono0" type="text" class="validate" value="<?php 
+              if($Militar->Persona->direccionHabitacion->telefono->numero != ''){
+                echo  $Militar->Persona->direccionHabitacion->telefono->numero;  
+              }else{
+                echo '';
+              }
+            
+            ?>" maxlength="7">
+          
         </div>
 
 
@@ -125,7 +142,7 @@ $this->load->view("afiliacion/inc/cabecera.php");
       
   
         <div class="col s12 m6 l6">
-        <label>Estado</label>
+        <label >Estado</label>
         <select id="ides"  onchange="listarMunicipio();" class="browser-default">
           <?php 
             if($Militar->Persona->direccionHabitacion->codigoEstado != ''){
@@ -172,24 +189,31 @@ $this->load->view("afiliacion/inc/cabecera.php");
           
         </div>
 
-        <div class="input-field col s12">
-          <textarea id="direccion" class="materialize-textarea" length="256"><?php 
+        <div class="col s12">
+          <label style="font-size: 16px" for="direccion">Por favor verifique su dirección</label>
+          <textarea class="materialize-textarea" length="256" id='direccion'><?php 
               if($Militar->Persona->direccionHabitacion->direccion != ''){
                 echo trim($Militar->Persona->direccionHabitacion->direccion);  
               }else{
                 echo $Militar->Persona->direccion;
               }  
             ?></textarea>
-          <label for="direccion">Por favor verifique su dirección</label>
         </div>
-        <div class="input-field col s12">
-          <input id="email" type="email" class="validate" value="<?php echo $_SESSION['correo'];
+        <div class="col s12">
+          <label  for="email" data-error="Invalido" data-success="right">Correo Electronico Principal</label>
+          <input readonly id="email" type="text" class="validate" value="<?php echo $_SESSION['correoaux'];
           //$Militar->Persona->correoElectronico?>">
-          <label for="email" data-error="Invalido" data-success="right">Correo Electronico</label>
         </div>
-        <div class="input-field col s12" style="display: none">
-          <input id="emailAux" type="email" class="validate" value="<?php echo ''?>">
+        <div class="col s12" >
           <label for="emailAux" data-error="Invalido" data-success="right">Correo Electronico Alternativo</label>
+          <input id="emailAux" type="email" class="validate" value="<?php 
+            if($Militar->Persona->direccionHabitacion->correo != ''){
+              echo  $Militar->Persona->direccionHabitacion->correo;  
+            }else{
+              echo '';
+            }
+            
+          ?>">
         </div>
        
     

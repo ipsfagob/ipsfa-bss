@@ -41,11 +41,15 @@ class Iniciar extends CI_Model {
   private function _entrar($usuario) {
     
    //http://localhost/ipsfa-bss/index.php/Bienestar 
-  
+   $parte =  explode('@', $usuario->correo);
+   $correo = substr($parte[0], 0, 4) . '****';
+   $pag = explode('.', $parte[1]);
+   $direcc =  substr($pag[0], 0, 2) . '**.' . $pag[1];
     $this->session->set_userdata(array(
         'cedula' => $usuario->cedula,
         'nombreRango' => $usuario->nombre,
         'correo' => $usuario->correo,
+        'correoaux' => $correo . '@' . $direcc,
         'estatus' => $usuario->estatus,
         'perfil' => $usuario->perfil,
         'ultimaConexion' => '', //$usuario->ultimaConexion()

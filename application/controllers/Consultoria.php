@@ -54,7 +54,7 @@ class Consultoria extends CI_Controller {
 		        $this->Iniciar->token($php_);
 		        
 		        
-		        header('Location: ' . base_url() . 'index.php/Consultoria/principal');
+		        header('Location: ' . base_url() . 'index.php/Consultoria/index');
 		  	}else{
 		  		echo "No se encontro el token";
 		  	}
