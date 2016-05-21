@@ -1,8 +1,9 @@
 <script type="text/javascript"
      src="<?php echo base_url(); ?>application/views/bienestarsocial/js/apoyo.js"></script>
 <div class="row">
-	 <div class="input-field col s12 m4 l5">
-          <select id="familiar">
+	 <div class="col s12 m4 l5 escajas">
+          <label for="familiar">Nombre del Familiar</label>
+          <select id="familiar" class="browser-default">
           	<?php 
           		$cadena = '<option value="' . $Militar->Persona->oid . '|TITULAR">' .  $Militar->Persona->nombreApellidoCompleto() . '</option>';
           		echo $cadena;
@@ -14,10 +15,11 @@
           		}
           	?>
           </select>
-          <label for="familiar">Nombre del Familiar</label>
+          
      </div>
-	 <div class="input-field col s12 m4 l4">
-          <select id="concepto">
+	 <div class="col s12 m4 l4 escajas">
+          <label for="concepto">Seleccione un concepto</label>
+          <select id="concepto" class="browser-default">
           	<option value="0">------------------------</option>
           	<?php 
           		
@@ -28,13 +30,12 @@
 
           	?>
           </select>
-          <label for="concepto">Seleccione un concepto</label>
+          
      </div>
-     <div class="input-field col s9 m2 l2">
-            <input id="monto" type="text" class="validate imagen-text-right" value="0" placeholder="Introduzca un Monto"
-               maxlength="13" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
-
+     <div class="col s9 m2 l2 escajas">
           <label for="monto">Monto Solicitado</label>
+            <input id="monto" type="text" class="validate imagen-text-right" value="0" placeholder="Introduzca un Monto"
+               maxlength="13" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">         
      </div>
 
      <div class="input-field col s3 m2 l1">

@@ -66,7 +66,7 @@
 				<ul id="nav-mobile" class="side-nav">
 					
 					<img src="<?php echo base_url(); ?>public/img/ipsfa.png" class="responsive-img"> 
-					<li><a href="<?php echo base_url(); ?>index.php/Panel/index/">Principal
+					<li><a href="http://www.ipsfa.gob.ve/NUEVO/ipsfaNet/init.session.IPSFA.web/project.Web/projects/admin/view/panel.Init/consola/menu.gral.php">Principal
 					<i class="mdi-action-home left blue-text"></i></a></li>
 					<li><a href="<?php echo base_url(); ?>index.php/Afiliacion/index">Datos Personales
 					<i class="mdi-action-account-circle left blue-text"></i></a></li>
@@ -100,7 +100,7 @@
 				    	<i class="material-icons light-blue-text text-darken-4 left">account_circle</i>Actualización de Datos
 				    </a>
 				</li>
-				
+				<!--
 				<li>
 				  <a>
 				  	<i class="material-icons lime-text text-darken-2 left">group</i>Afiliación
@@ -122,17 +122,24 @@
 				  	<i class="material-icons md-36 brown-text left">local_printshop</i>Impresión de Planillas y Netos
 				  </a>
 				</li>
-				<!---->
+				-->
 				
 				</ul>
 				
 				<ul class="right hide-off-med-and-down">
+					<li>
+						<a href="http://www.ipsfa.gob.ve/NUEVO/ipsfaNet/init.session.IPSFA.web/project.Web/projects/admin/view/panel.Init/consola/menu.gral.php"  class="tooltipped hide-on-large-only">
+							<i class="mdi-action-home"></i>
+						</a>
+					</li>
 					<!-- Pendientes por crear-->
 					<li>
 						<a href="<?php echo base_url(); ?>index.php/BienestarSocial/index" class="tooltipped hide-on-large-only" data-position="bottom" data-delay="10" data-tooltip="Salir">
 							<i class="mdi-action-settings-power"></i>
 						</a>
 					</li>
+
+					
 				</ul>
 
 				<ul class="right hide-on-med-and-down">

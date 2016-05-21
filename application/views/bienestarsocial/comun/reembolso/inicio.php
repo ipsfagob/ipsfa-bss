@@ -26,9 +26,10 @@
    <br>
 
    <div class="row white">
-      <h5>Seleccione el banco</h5>
-      <div class="input-field col s12 m12 l12 ">
-          <select id="banco" name='banco'>
+     
+      <div class="col s12 m12 l12 escajas">
+          <label>Seleccione el banco</label>
+          <select id="banco" name='banco' class="browser-default">
                <?php 
                     
 
@@ -61,15 +62,16 @@
 
 
     <div class="row">
-  	<div class="col s12">
-      <input type="hidden" value=0 id="total"></input>
-      <button class="btn-large waves-effect waves-light"  style="background-color:#00345A" onclick="mensaje('<?php echo $Codigo?>','0')">volver Atrás
-          <i class="material-icons left">arrow_back</i>
-      </button>
-  		<button class="btn-large waves-effect waves-light"  style="background-color:#00345A" onclick="mensaje('<?php echo $Codigo?>','1')">Adjuntar Requisitos
+  	<div class="col s6">
+        <input type="hidden" value=0 id="total"></input>
+        <button class="btn-large waves-effect waves-light"  style="background-color:#00345A" onclick="mensaje('<?php echo $Codigo?>','0')">volver Atrás
+            <i class="material-icons left">arrow_back</i>
+        </button>
+      </div>
+      <div class="col s6">
+  		  <button class="btn-large waves-effect waves-light"  style="background-color:#00345A" onclick="mensaje('<?php echo $Codigo?>','1')">Adjuntar Requisitos
   		    <i class="material-icons right">attach_file</i>
-  		</button>
-      
+  		  </button>     
   	</div>
   </div>
   </div>

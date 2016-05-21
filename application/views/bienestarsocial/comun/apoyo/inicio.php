@@ -25,7 +25,7 @@
 
   <ul class="collection with-header" style="display: none">
     <li class="collection-header">
-    <h5 >Seleccione el banco</h5>
+    <h5 >Seleccione la cuenta donde le realizaremos el deposito</h5>
       <div class="input-field col s12 m4 l5 ">
           <select id="banco">
                <?php 
@@ -62,14 +62,16 @@
 
 
     <div class="row">
-    <div class="col s12">
+    <div class="col s6">
       <input type="hidden" value=0 id="total"></input>
-      <button class="btn-large waves-effect waves-light"  style="background-color:#00345A" onclick="mensaje('<?php echo $Codigo?>','0')">volver Atrás
+      <a class="btn-large waves-effect waves-light"  style="background-color:#00345A" onclick="mensaje('<?php echo $Codigo?>','0')">volver Atrás
           <i class="material-icons left">arrow_back</i>
-      </button>
-      <button class="btn-large waves-effect waves-light"  style="background-color:#00345A" onclick="mensaje('<?php echo $Codigo?>','1')">Adjuntar Requisitos
+      </a>
+      </div>
+    <div class="col s6">
+      <a class="btn-large waves-effect waves-light"  style="background-color:#00345A" onclick="mensaje('<?php echo $Codigo?>','1')">Adjuntar Requisitos
           <i class="material-icons right">attach_file</i>
-      </button>
+      </a>
       
     </div>
   </div>

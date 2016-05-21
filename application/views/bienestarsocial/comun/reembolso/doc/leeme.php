@@ -1,13 +1,17 @@
-
+<div class="row">
+	<ul class="collection with-header">
+    	<li class="collection-header"><span class="titulo">Notitificar Reembolsos</span></li>
+	</ul>
+</div>
 <div class="row">
 
-<h5>RECAUDOS A ANEXAR PARA TODOS LOS CONCEPTOS:</h5>
+<h5>Recaudos a anexar para todos los conceptos:</h5>
 	<ol>
-		<li>COPIA DEL CARNET Y CEDULA DEL MILITAR Y DEL FAMILIAR VIGENTE Y AMPLIADA.</li>
-		<li>FORMULARIO “REEMBOLSO POR SERVICIOS MEDICOS” FIRMADO POR EL MILITAR Y/O SOBREVIVIENTE.</li>
-		<li>COPIA DE LA LIBRETA DE AHORRO O CHEQUE PERSONALIZADO (MILITAR O SOBREVIVIENTE)</li>
-		<li>LAS FACTURAS DEBEN ESTAR INDENTIFICADAS CON EL NOMBRE DEL MILITAR O FAMILIAR INMEDIATO 
-		(BENEFICIARIO) A QUIEN SE LE PRESTO EL SERVICIO.</li>
+		<li>Copia del carnet y cedula del militar y del familiar vigente y ampliada.</li>
+		<li>Formulario “reembolso por servicios medicos” firmado por el militar y/o sobreviviente.</li>
+		<li>Copia de la libreta de ahorro o cheque personalizado (militar o sobreviviente)</li>
+		<li>Las facturas deben estar indentificadas con el nombre del militar o familiar inmediato 
+		(beneficiario) a quien se le presto el servicio.</li>
 		
 	</ol>
 

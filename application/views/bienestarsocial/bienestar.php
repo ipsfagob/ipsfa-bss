@@ -2,8 +2,8 @@
 $this->load->view("bienestarsocial/inc/cabecera.php");
 ?>
 
-<br><br>
-<div class="container .hide-on-small-only">
+
+<div class="container">
 
  <div class="row">
  <div class="col s12 ">
@@ -33,10 +33,12 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       </div> 
       
       <div class="row" >
-      	<div class="col s12">
+      	<div class="col s6">
           <a href="#" class="btn-large waves-effect waves-light"  style="background-color:#00345A" onclick="irPanel()">Volver atrás
             <i class="material-icons left">arrow_back</i>       
           </a>
+          </div>
+          <div class="col s6">
     			<button class="btn-large waves-effect waves-light"  style="background-color:#00345A" type="submit">llenar Planilla
     			    <i class="material-icons right">description</i>
     			</button>

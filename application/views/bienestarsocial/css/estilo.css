@@ -8,8 +8,6 @@ main {
 flex: 1 0 auto;
 }
 
-label { font-size: 16px;  color: #000;}
-select {  color: #000; }
 
 
 
@@ -184,5 +182,14 @@ line-height: 50px;
  box-shadow: 0 0px 0 0 #000;
 }
 
-.imagen-text-right{background:url(/ipsfa-bss/public/img/texts_active.svg) #696C68  no-repeat right;}
+
 .titulo{background:#fff;height:auto;width:100%;cursor:pointer;padding:5px;margin:0;color:#003E82;font-size: 16px}
+
+.escajas label {  color: #000000; font-size: 16px }
+.escajas input, select, textarea {
+    background:url(texts_active.svg) no-repeat right 1px top 1px, url(back-text-area.png) repeat;
+    border: none;
+    border: 1px solid #00345A;
+    box-sizing: border-box;
+    transition: all .3s;
+}

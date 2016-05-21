@@ -868,6 +868,7 @@ class BienestarSocial extends CI_Controller {
 	public function generarCita(){
 		if(isset($_SESSION['cedula'])){
 			$this->load->model('comun/Cita');
+			$this->load->model('utilidad/Correo');
 
 			$codigo = $this->Cita->generar();
 
