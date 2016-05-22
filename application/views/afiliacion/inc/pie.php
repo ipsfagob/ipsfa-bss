@@ -9,6 +9,12 @@
 
 
 <script type="text/javascript">
+
+	var bPreguntar = true;	 
+	$( window ).on('beforeunload', function() {
+	 	if (bPreguntar)return 'Bienestar y Seguridad Social';
+	});
+
     $(document).ready(function(){
     	$('.tooltipped').tooltip({delay: 10});
 		$('.materialboxed').materialbox();
@@ -63,9 +69,49 @@
 		    prefix: '',
 		    thousandsSeparator: ''
 		});
-
+		
+	  	$('a').click(function (e){
+			 bPreguntar = false;
+		});	  	
+      	
+		$('form').submit(function (){
+			 bPreguntar = false;
+		});	
 		    	 
       });
+
+    function cancel(){
+    	bPreguntar = false;
+    }
+
+    function irPanel(){
+    	bPreguntar = false;
+    	$(location).attr('href', sUrlP + "index");
+    }
+
+	function readURL(input, id, tipo) {
+	 	div = '<div class="preloader-wrapper small active"><div class="spinner-layer spinner-green-only">';
+	 	div += '<div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div>';
+      	div += '</div><div class="circle-clipper right"><div class="circle"></div></div></div></div>';
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+            	if(tipo == 'pdf'){
+            		$('#view-' + id).html('<p>Cargando...</p>');
+            		$('#view-' + id).html('<object type="application/pdf" data= "'+ e.target.result + '" #toolbar=0&amp;navpanes=0&amp;scrollbar=0" width="200" height="100">');
+
+            	}else{
+
+                	$('#pre-view-' + id).attr('src', e.target.result);
+            	}
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+
       
     </script>
     

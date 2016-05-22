@@ -15,7 +15,7 @@ if (!defined('BASEPATH'))
  * @link http://www.mamonsoft.com.ve
  * @since version 1.0
  */
-class Dbsaman extends CI_Model {
+class Dbroraima extends CI_Model {
 	
 	var $__DB;
 	
@@ -26,15 +26,15 @@ class Dbsaman extends CI_Model {
 	*/
 	function __construct(){
 		parent::__construct();
-		$this->__iniciarSaman();
+		$this->__iniciarRoraima();
 	}
 
 	/**
 	*	Establecer Conexión a la Base de datos SAMAN
 	*/
-	function __iniciarSaman(){
+	function __iniciarRoraima(){
 		if (! isset ( $this->__DB )) {
-			$this->__DB = $this->load->database('saman', true);
+			$this->__DB = $this->load->database('Roraima', true);
 		}
 		return $this->__DB;
 	}
@@ -69,6 +69,7 @@ class Dbsaman extends CI_Model {
 		return (object)$this->err;
 	}
 
+	
 	/**
 	* Permite Insertar Datos por arreglos
 	*
@@ -78,6 +79,7 @@ class Dbsaman extends CI_Model {
 	function insertarArreglo($tabla, $datos){
 		$this->__DB->insert($tabla, $datos);
 	}
+
 
 	/**
 	* Permite Actualizar Datos por arreglos

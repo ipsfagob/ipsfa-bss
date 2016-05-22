@@ -829,17 +829,7 @@ class BienestarSocial extends CI_Controller {
 		}	
 	}
 
-	public function salvarDireccion(){
-		$this->load->model('saman/Direccion');
-		$this->load->model('utilidad/Correo', 'Correo');
 
-		$this->Direccion->oid = $_POST['oid'];
-		$this->Direccion->ides = $_POST['ides'];
-		$this->Direccion->idmu = $_POST['idmu'];
-		$this->Direccion->idpa = $_POST['idpa'];
-		$this->Direccion->direccion = $_POST['dire'];
-
-	}
 
 	/**
 	 * Permite generar un codigo de planillas

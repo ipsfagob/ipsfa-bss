@@ -58,11 +58,9 @@ class Persona extends CI_Model{
 	var $primerApellido = "";
 
 	/**
-	* AAAA/MM/DD
-	*
 	* @var string
 	*/
-	var $fechaNacimiento = "";
+	var $fechaNacimiento = '';
 
 	/**
 	* @var string
@@ -83,6 +81,11 @@ class Persona extends CI_Model{
 	* @var string
 	*/
 	var $direccion = '';
+
+	/**
+	* @var Afiliado
+	*/
+	var $Afiliado;
 
 	/**
 	* @var Direccion
@@ -109,6 +112,7 @@ class Persona extends CI_Model{
 	* @var Denpendiente
 	*/
 	var $Familiares = array();
+
 
 	/**
 	* Iniciando la clase, Cargando Elementos BD SAMAN
@@ -143,9 +147,10 @@ class Persona extends CI_Model{
 	*/
 	function consultar($cedula, $codigo = null){
 		$obj = $this->Dbsaman->consultar($this->generarSelectPersonas($cedula,$codigo));
-		if($obj->code == 0){
+
+		if($obj->code == 0 ){
 			foreach ($obj->rs as $clv => $val) {
-				$this->oid = $val->oid;				
+				$this->oid = $val->oid;
 				$this->nacionalidad = $val->tipnip;
 				$this->cedula = $val->codnip;				
 				$this->sexo = $val->sexocod;
@@ -158,6 +163,7 @@ class Persona extends CI_Model{
 				$this->correoElectronico = $val->email1;
 				$this->codigoDireccion = $val->direccioncod;
 				$this->direccion = $val->direccion1;
+				
 				
 			}
 			$this->cargarBancos();
@@ -374,6 +380,29 @@ class Persona extends CI_Model{
 		}
 	}
 	
+
+	/**
+	* Obtener la fecha de nacimiento en formato humano DD/MM/AAA
+	* 
+	* @access public
+	* @return string
+	*/
+	public function obtenerFechaHumana(){
+		list($Y,$m,$d) = explode("/",$this->fechaNacimiento);
+		return $d . '/' . $m . '/' . $Y;
+	}
+
+	/**
+	* Obtener la Edad actual de una persona
+	* 
+	* @access public
+	* @return string
+	*/
+	public function obtenerEdad(){
+		list($Y,$m,$d) = explode("/",$this->fechaNacimiento);
+    	return( date("md") < $m.$d ? date("Y")-$Y-1 : date("Y")-$Y );
+	}
+
 
 
 	/**

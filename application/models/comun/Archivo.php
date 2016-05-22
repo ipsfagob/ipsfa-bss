@@ -94,6 +94,9 @@ class Archivo extends CI_Model{
 			case 4:
 				$ruta .= "medicamento";
 				break;
+			case 7:
+				$ruta .= "renovacion";
+				break;
 			default:
 				# code...
 				break;
@@ -221,6 +224,10 @@ class Archivo extends CI_Model{
 				break;
 			case 4:
 				$sTipo = "medicamento";
+				break;
+
+			case 7:
+				$sTipo = "renovacion";
 				break;
 			default:
 				$sTipo = 'tratamiento';

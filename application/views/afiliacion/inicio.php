@@ -11,10 +11,10 @@ $this->load->view("afiliacion/inc/cabecera.php");
   <div class="row white">
   <form >
  <div class="col s12 m12 l12">
-           <h5>Datos Básicos</h5>
-        </div>
+    <h5>Datos Básicos</h5>
+  </div>
         
-	 	<div class="input-field col s12 m6 l6">
+	 	   <div class="input-field col s12 m6 l6">
           <input readonly id="cedula" type="text" class="validate  imagen-text-right" 
             value="<?php echo $Militar->Persona->nacionalidad . '-' . $Militar->Persona->cedula?>">
           <label style="font-size: 16px">Documento de Identidad</label>
@@ -45,7 +45,7 @@ $this->load->view("afiliacion/inc/cabecera.php");
         </div>
 
       <div class="input-field col s6">
-          <input  readonly  id="fechaNacimiento" class="validate  imagen-text-right" type="text" value="<?php echo $Militar->Persona->fechaNacimiento?>">
+          <input  readonly  id="fechaNacimiento" class="validate  imagen-text-right" type="text" value="<?php echo $Militar->Persona->obtenerFechaHumana()?>">
           <label style="font-size: 16px">Fecha de Nacimiento</label>
         </div>
         
@@ -219,7 +219,7 @@ $this->load->view("afiliacion/inc/cabecera.php");
     
 
     
-       <div class="col s12 m12 l12">
+      <div class="col s12 m12 l12">
       <div class="col s12 card-panel blue lighten-2">
         <p style="text-align: justify;">
         <h5>Notas: </h5>

@@ -15,7 +15,14 @@ class Afiliacion extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->helper('url');
-		$this->load->library('session');	
+		$this->load->library('session');
+		//if(!isset($_SESSION['cedula'])) $this->salir("Debe iniciar session");
+		if(!isset($_SESSION['cedula'])) {
+			$this->salir("Debe iniciar session");
+
+		}else{
+			$_SESSION['cedula'] = '7682282';
+		}
 	}
 	
 	function index() {
@@ -65,6 +72,7 @@ class Afiliacion extends CI_Controller {
 			$data['CodigoArea'] = $this->CodigoArea->listar()->rs;
 			$data['Militar'] = $this->Militar;
 			$data['Estado'] = $this->Estado->listar()->rs;
+			$data['menu'] = 'mnu_datos_basicos';
 			$this->load->view ( 'afiliacion/inicio', $data );
 		}else{			
 			$this->salir("Debe iniciar session");
@@ -74,15 +82,73 @@ class Afiliacion extends CI_Controller {
 	function datosBancarios(){
 		if(isset($_SESSION['cedula'])){
 			$this->load->model('saman/Militar', 'Militar');
+			
 			$this->Militar->consultar($_SESSION['cedula']);
+			$data['menu'] = 'mnu_datos_bancarios';
 			$data['Militar'] = $this->Militar;
+
 			$this->load->view ( 'afiliacion/datos_bancario', $data );
 		}else{			
 			$this->salir("Debe iniciar session");
 		}
 	}
 
-	
+
+	/**
+	 * Renovacion de Carnet para afiliados
+	 *
+	 * @access public
+	 * @return mixed
+	 */
+	public function renovacionCarnet(){
+		if(isset($_SESSION['cedula'])){
+			$this->load->model('saman/Militar', 'Militar');
+			$this->load->model('saman/Sucursales', 'Sucursales');
+			
+			$this->Militar->consultar($_SESSION['cedula']);
+			$data['Militar'] = $this->Militar;
+			$data['Sucursales'] = $this->Sucursales->listar()->rs;
+			
+			$data['menu'] = 'mnu_renovacion_carnet';
+			$this->load->view ( 'afiliacion/renovacion', $data );
+		}else{			
+			$this->salir("Debe iniciar session");
+		}
+	}
+
+	function consultarp(){
+		echo "<pre>";
+		$this->load->model('saman/Persona');
+		$this->load->model('roraima/Afiliado');
+		$this->Persona->consultar('7682282', '');
+		
+		$this->Afiliado->consultarReferencia($this->Persona);
+		
+		print_r($this->Persona);
+	}
+	/**
+	 * Renovacion de Carnet para afiliados
+	 *
+	 * @access public
+	 * @return mixed
+	 */
+	public function adjuntar($id, $motivo, $sucursal){
+		if(isset($_SESSION['cedula'])){
+			$this->load->model('saman/Estado', 'Estado');
+			$this->load->model('saman/Persona');
+			$this->load->model('roraima/Afiliado');
+
+			$this->Persona->consultar('', $id);
+			$this->Afiliado->consultarReferencia($this->Persona);	
+			$data['Persona'] = $this->Persona;
+			$data['Estado'] = $this->Estado->listar()->rs;
+			$data['menu'] = 'mnu_renovacion_carnet';
+			$this->load->view ( 'afiliacion/adjuntar', $data );
+		}else{			
+			$this->salir("Debe iniciar session");
+		}
+	}
+
 	public function listarMunicipio(){
 		if(isset($_SESSION['cedula'])){
 			$this->load->model('saman/Municipio', 'Municipio');
@@ -155,6 +221,28 @@ class Afiliacion extends CI_Controller {
 		
 		$arr['msj'] = 'Exito';
 		echo json_encode($arr);
+	}
+
+	/**
+	 * Actualizar Foto
+	 *
+	 * @access public
+	 * @return mixed
+	 */
+	function actualizarFoto(){
+		$this->load->model('comun/Archivo', 'Archivo');
+		$this->Archivo->salvar(7, $_FILES, $_POST['oid']);
+		echo json_encode($_POST);
+	}
+
+	/**
+	 * Salvar los datos Fisionomicos y medicos
+	 *
+	 * @access public
+	 * @return mixed
+	 */
+	function salvarDatosFisionomicos(){
+
 	}
 
 

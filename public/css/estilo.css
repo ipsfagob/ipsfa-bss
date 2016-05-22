@@ -19,12 +19,7 @@ main {
  box-shadow: 0 0px 0 0 #000;
 }
 
-.blue-ipsfa {
-	background-color:#00345A;
-}
-.blue-ipsfa-text {
-	color:#1070B7;
-}
+
 
 .btns-add{background-color:#00345A;color:#FFF;font-size:14px;text-align:center;font-weight:bold;}
 .btns{border:1px #E1E1E1 solid;padding:3px;background:#FEFBD3;color:#56000F;}
@@ -84,7 +79,7 @@ main {
 
 
 .imagen-text-right{
-	background:url(/ipsfa-bss/public/img/texts_active.svg) #696C68  no-repeat right;
+	background:url(texts_active.svg) #696C68  no-repeat right;
 }
 .titulo{
 	background:#fff;

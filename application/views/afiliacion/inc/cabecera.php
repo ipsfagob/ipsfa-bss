@@ -5,9 +5,10 @@
       <!--Import Google Icon Font
       
 	
-      	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">	-->					
-      <title>Ipsfa en linea</title>
       <link type="text/css" href="<?php echo base_url(); ?>public/css/material.css" rel="stylesheet" />
+      		-->					
+      <title>Ipsfa en linea</title>
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>public/css/materialize.min.css"  media="screen,projection"/>
       <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>public/css/afiliado/estilo.css"/>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -28,37 +29,9 @@
 				
 								
 
-				<ul id="control" class="dropdown-content">
-					<!--
-					<li>
-					  <a>
-					  	<i class="material-icons lime-text text-darken-2 left">group</i>Afiliación
-					  </a>
-					</li>
-					-->
-					<li>
-					  <a href="<?php echo base_url(); ?>index.php/BienestarSocial/index">
-					  	<i class="material-icons red-text text-lighten-1 left">local_convenience_store</i>Bienestar Social
-					  </a>
-					</li>
-					<!--
-					<li>
-						<a>
-					  		<i class="material-icons amber-text left">credit_card</i>Crédito
-					  	</a>
-					</li>
-					<li>
-					  <a>
-					  	<i class="material-icons md-36 green-text left">access_alarms</i>Citas Automatizadas
-					  </a>
-					</li>
-					<li>
-					  <a>
-					  	<i class="material-icons md-36 brown-text left">local_printshop</i>Planillas y Netos
-					  </a>
-					</li>
-					-->
-				</ul>
+				<?php 
+					$this->load->view('afiliacion/inc/' . $menu . '.php');
+				?>
 				<ul class="right hide-off-med-and-down">
 					<!-- Pendientes por crear-->
 					<li>

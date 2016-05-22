@@ -8,7 +8,12 @@ main {
 flex: 1 0 auto;
 }
 
-
+.blue-ipsfa {
+	background-color:#00345A;
+}
+.blue-ipsfa-text {
+	color:#1070B7;
+}
 
 
 .btns-add{background-color:#00345A;color:#FFF;font-size:14px;text-align:center;font-weight:bold;}
@@ -158,9 +163,9 @@ padding:0px
 }
 
 .file-field .btn, .file-field .btn-large {
-float: right;
-height: 50px;
-line-height: 50px;
+	float: right;
+	height: 50px;
+	line-height: 50px;
 }
 
 .input-field .btn:hover {background-color:#990000;}  

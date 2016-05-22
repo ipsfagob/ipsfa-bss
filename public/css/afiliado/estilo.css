@@ -8,9 +8,22 @@ main {
 flex: 1 0 auto;
 }
 
+label {  color: #000000; font-size: 16px }
+.input-field > label {  color: #000000; font-size: 16px }
+.input-field > input, select, textarea {
+    background:url(texts_active.svg) no-repeat right 1px top 1px, url(back-text-area.png) repeat;
+    border: none;
+    border: 1px solid #00345A;
+    box-sizing: border-box;
+    transition: all .3s;
+}
 
-
-
+.blue-ipsfa {
+  background-color:#00345A;
+}
+.blue-ipsfa-text {
+  color:#1070B7;
+}
 .btns-add{background-color:#00345A;color:#FFF;font-size:14px;text-align:center;font-weight:bold;}
 .btns{border:1px #E1E1E1 solid;padding:3px;background:#FEFBD3;color:#56000F;}
 
@@ -21,31 +34,12 @@ flex: 1 0 auto;
 .file-path::-moz-placeholder { color: #828282;; }
 .file-path:-ms-input-placeholder { color: #828282;; }
 
-.input-field label {  color: #000000; font-size: 16px }
-.input-field input, select, textarea {
-    background:url(texts_active.svg) no-repeat right 1px top 1px, url(back-text-area.png) repeat;
-    border: none;
-    border: 1px solid #00345A;
-    box-sizing: border-box;
-    transition: all .3s;
-
-   
- 
-
-}
-label {  color: #000000; font-size: 16px }
-input, select, textarea {
-    background:url(texts_active.svg) no-repeat right 1px top 1px, url(back-text-area.png) repeat;
-    border: none;
-    border: 1px solid #00345A;
-    box-sizing: border-box;
-    transition: all .3s;
-}
-
-   /* label focus color */
-   .input-field input[type=text]:focus + label {
-     color: #00345A;
-   }
+.input-field input[type=text]:focus + label {color: #000;} 
+.input-field input[type=text]:focus { border-bottom: #FF0000;box-shadow: 0 1px 0 0 #000;}
+.input-field input[type=select]:focus { border-bottom: #FF0000;box-shadow: 0 1px 0 0 #000;}
+.input-field label {font-size: 16px;  color: #000;}
+.input-field input[type=text] {border-bottom: 1px solid #000;box-shadow: 0 1px 0 0 #000;color:#000;}
+.input-field input[type=select] {border-bottom: 1px solid #000;box-shadow: 0 1px 0 0 #000;color:#000;}
 
 .botones-solicitud{height:auto;width:100%;box-shadow: 0 0 13px 1px #000;cursor:pointer;padding:1px;}
 .botones-solicitud:hover{height:auto;width:100%;box-shadow: 0 0 25px 1px #000;cursor:pointer;padding:1px;}
@@ -179,7 +173,7 @@ clear:left
 .file-field .btn, .file-field .btn-large {
     float: right;
     height: 50px;
-    line-height: 1px;
+    line-height: 50px;
 }
 
 .input-field .btn:hover {
@@ -211,5 +205,21 @@ clear:left
     color:#000000;
 }
 
+.imagen-text-right{
+  background:url(texts_active.svg) no-repeat right 1px top 1px, url(back-text-area.png) repeat;
+    border: none;
+    border: 1px solid #00345A;
+    box-sizing: border-box;
+    transition: all .3s;
+}
+
 
 .titulo{background:#fff;height:auto;width:100%;cursor:pointer;padding:5px;margin:0;color:#003E82;font-size: 16px}
+
+.tabs .indicator {
+    position: absolute;
+    bottom: 0px;
+    height: 2px;
+    background-color: #FFFFFF;
+    will-change: left, right;
+}
