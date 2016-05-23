@@ -25,6 +25,7 @@ if (!defined('BASEPATH'))
 class Medico extends CI_Model{
 	
 
+	protected $esq = 'roraima';
 
 	/**
 	* @var integer
@@ -57,6 +58,11 @@ class Medico extends CI_Model{
 	var $historiaClinica;
 
 	/**
+	* @var string
+	*/
+	var $estatus = 1;
+
+	/**
 	* Iniciando la clase, Cargando Elementos BD Ipsfa
 	*
 	* @access public
@@ -65,6 +71,19 @@ class Medico extends CI_Model{
 	function __construct(){
 		parent::__construct();
 		$this->load->model('saman/Dbroraima');
+	}
+
+	private function mapear(){
+		$arr = array(	
+			'oid' => $this->oid,			
+			'dma_tipo_de_sangre' => $this->tipoSangre,
+			'dma_alergias_medicamentos'=> $this->alergiasMedicamentos,
+			'dma_enfermedades_cronicas' => $this->enfermedadesCronicas,
+			'dma_donante_de_organo' => $this->donanteOrgano,
+			'dma_num_hist_clinica' => $this->historiaClinica,
+			'dma_estatus' => $this->estatus
+		);
+		return $arr;
 	}
 
 	/**
@@ -78,13 +97,46 @@ class Medico extends CI_Model{
 	}
 
 	/**
-	* Actualizar Medicamentos
+	* Salvar Datos Fisionomicos
 	*
 	* @access public
-	* @return void
+	* @return bool
 	*/
-	function actualizar(Medico $Medico){
+	function salvar(){
+		$sConsulta = 'SELECT * FROM ' . $this->esq . '.tbl_datos_medicos_afil WHERE oid=' . $this->oid;
+		$obj = $this->Dbroraima->consultar($sConsulta);		
+		if($obj->cant > 0){
+			$acc = $this->actualizar();
+		}else{
+			$acc = $this->guardar();
+		}
+		return $acc;
+	
+	}
 
+	
+
+	/**
+	* Actualizar Datos Fisionomicos
+	*
+	* @access public
+	* @return bool
+	*/
+	private function actualizar(){
+		$donde = array('oid' => $this->oid);
+		$this->Dbroraima->actualizarArreglo($this->esq . '.tbl_datos_medicos_afil', $this->mapear(), $donde);
+	
+	}
+
+	/**
+	* Guardar Datos Fisionomicos
+	*
+	* @access public
+	* @return bool
+	*/
+	private function guardar(){
+		$this->Dbroraima->insertarArreglo($this->esq . '.tbl_datos_medicos_afil', $this->mapear());
+	
 	}
 
 

@@ -34,7 +34,7 @@ class Dbroraima extends CI_Model {
 	*/
 	function __iniciarRoraima(){
 		if (! isset ( $this->__DB )) {
-			$this->__DB = $this->load->database('Roraima', true);
+			$this->__DB = $this->load->database('default', true);
 		}
 		return $this->__DB;
 	}

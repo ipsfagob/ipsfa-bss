@@ -122,7 +122,7 @@ function listarParroquia(){
 }
 
 /**
-* Cargar listado de parroquias
+* Salvar listado de Direcciones
 *
 * @access public
 * @return mixed

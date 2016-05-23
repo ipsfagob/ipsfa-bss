@@ -24,6 +24,8 @@ if (!defined('BASEPATH'))
  */
 class Fisionomico extends CI_Model{
 	
+	
+	protected $esq = 'roraima';
 	/**
 	* @var integer
 	*/
@@ -68,7 +70,7 @@ class Fisionomico extends CI_Model{
 	/**
 	* @var integer
 	*/
-	var $estatus;
+	var $estatus = 1;
 
 
 
@@ -84,15 +86,16 @@ class Fisionomico extends CI_Model{
 		$this->load->model('saman/Dbroraima');
 	}
 
-	function mapear(){
-		$arr = array(				
+	private function mapear(){
+		$arr = array(	
+				'oid' => $this->oid,
 				'dfi_color_piel_' => $this->codPiel,
 				'dfi_color_cabello_'=> $this->codCabello,
 				'dfi_color_ojos_' => $this->codOjos,
 				'dfi_estatura' => $this->estatura,
 				'dfi_estatus' => $this->estatus
 			);
-
+		return $arr;
 	}
 	/**
 	* Consultar Elemento
@@ -101,19 +104,55 @@ class Fisionomico extends CI_Model{
 	* @return void
 	*/
 	function consultar(){
-		$sConsulta = 'SELECT * FROM services.tbl_datos_fisionomicos WHERE afi_afiliado_id = \'' . $this->oid . '\';';
+		$sConsulta = 'SELECT * FROM ' . $this->esq . '.tbl_datos_fisionomicos WHERE afi_afiliado_id = \'' . $this->oid . '\';';
 
 		return true;
 	}
 
+
+
 	/**
-	* Actualizar Medicamentos
+	* Salvar Datos Fisionomicos
 	*
 	* @access public
 	* @return bool
 	*/
-	function actualizar(){
-		return true;
+	function salvar(){
+		$sConsulta = 'SELECT * FROM ' . $this->esq . '.tbl_datos_fisionomicos WHERE oid=' . $this->oid;
+		$obj = $this->Dbroraima->consultar($sConsulta);		
+		if($obj->cant > 0){
+			$acc = $this->actualizar();
+		}else{
+			$acc = $this->guardar();
+		}
+		return $acc;
+	
 	}
+
+	
+
+	/**
+	* Actualizar Datos Fisionomicos
+	*
+	* @access public
+	* @return bool
+	*/
+	private function actualizar(){
+		$donde = array('oid' => $this->oid);
+		$this->Dbroraima->actualizarArreglo($this->esq . '.tbl_datos_fisionomicos', $this->mapear(), $donde);
+	
+	}
+
+	/**
+	* Guardar Datos Fisionomicos
+	*
+	* @access public
+	* @return bool
+	*/
+	private function guardar(){
+		$this->Dbroraima->insertarArreglo($this->esq . '.tbl_datos_fisionomicos', $this->mapear());
+	
+	}
+
 
 }

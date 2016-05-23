@@ -134,8 +134,11 @@ class Afiliado extends CI_Model{
 	* @access public
 	* @return void
 	*/
-	function actualizar($id){
-
+	function salvar(){
+		$this->DatosFisionomicos->oid = $this->oid;
+		$this->DatosFisionomicos->salvar();
+		$this->DatosMedicos->oid = $this->oid;
+		$this->DatosMedicos->salvar();
 	}
 
 	/**
@@ -145,7 +148,7 @@ class Afiliado extends CI_Model{
 	* @return void
 	*/
 	function listarColorPiel(){
-		$sConsulta = 'SELECT id, nombre FROM public.tbl_color_piel;';
+		$sConsulta = 'SELECT id, nombre FROM datos.tbl_color_piel;';
 		$color = $this->Dbroraima->consultar($sConsulta);
 		return $color;
 	}
@@ -157,7 +160,7 @@ class Afiliado extends CI_Model{
 	* @return void
 	*/
 	function listarColorOjos(){
-		$sConsulta = 'SELECT  id, nombre FROM public.tbl_color_ojos;';
+		$sConsulta = 'SELECT  id, nombre FROM datos.tbl_color_ojos;';
 		$color = $this->Dbroraima->consultar($sConsulta);
 		return $color;
 	}
@@ -169,7 +172,7 @@ class Afiliado extends CI_Model{
 	* @return void
 	*/
 	function listarColorCabello(){
-		$sConsulta = 'SELECT  id, nombre FROM public.tbl_color_cabello;';
+		$sConsulta = 'SELECT  id, nombre FROM datos.tbl_color_cabello;';
 		$color = $this->Dbroraima->consultar($sConsulta);
 		return $color;
 	}

@@ -231,8 +231,15 @@ class Afiliacion extends CI_Controller {
 	 */
 	function actualizarFoto(){
 		$this->load->model('comun/Archivo', 'Archivo');
-		$this->Archivo->salvar(7, $_FILES, $_POST['oid']);
-		echo json_encode($_POST);
+		if(!isset($_POST['file'])) {
+			if( $_FILES['file']['size'] < 1000000 ) {
+				$this->Archivo->salvar(7, $_FILES, $_POST['oid']);
+				$err = "El archivo se subio exitosamente";
+			}else{
+				$err = "No se puede subir un archivo mayor a 1 MB";
+			}
+		}
+		
 	}
 
 	/**
@@ -241,7 +248,27 @@ class Afiliacion extends CI_Controller {
 	 * @access public
 	 * @return mixed
 	 */
-	function salvarDatosFisionomicos(){
+	function salvarDatosMedicos(){
+		$this->load->model('roraima/Afiliado');
+
+		$Afiliado = (Object)$_GET;
+		$this->Afiliado->oid = $Afiliado->oid;
+		$this->Afiliado->estatus = '1';
+		$this->Afiliado->DatosMedicos->tipoSangre = str_replace("'","",$Afiliado->Medicos['alergia']);
+		$this->Afiliado->DatosMedicos->alergiasMedicamentos = str_replace("'","",$Afiliado->Medicos['alergia']);
+		$this->Afiliado->DatosMedicos->enfermedadesCronicas = str_replace("'","",$Afiliado->Medicos['enfermedad']);
+		$this->Afiliado->DatosMedicos->donanteOrgano = str_replace("'","",$Afiliado->Medicos['organo']);
+		$this->Afiliado->DatosMedicos->historiaClinica = str_replace("'","",$Afiliado->Medicos['expediente']);
+
+		$this->Afiliado->DatosFisionomicos->codPiel = str_replace("'","",$Afiliado->Fisionomicos['piel']);
+		$this->Afiliado->DatosFisionomicos->codCabello = str_replace("'","",$Afiliado->Fisionomicos['cabello']);
+		$this->Afiliado->DatosFisionomicos->codOjos = str_replace("'","",$Afiliado->Fisionomicos['ojos']);
+		$this->Afiliado->DatosFisionomicos->estatura = str_replace("'","",$Afiliado->Fisionomicos['estatura']);
+		$this->Afiliado->salvar();
+
+		print_r($this->Afiliado);
+
+
 
 	}
 
