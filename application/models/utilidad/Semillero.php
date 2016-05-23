@@ -142,7 +142,15 @@ class Semillero extends CI_Model{
 	}
 
 	function validar(){
-		$sConsulta = 'SELECT * FROM ' . $this->esq . '.semillero WHERE certi=\'' . $this->session . '\' AND tipo=\'' . $this->tipo . '\' AND estatus=0';		
+		$sConsulta = 'SELECT * FROM ' . $this->esq . '.semillero 
+						WHERE certi=\'' . $this->session . '\' AND tipo=\'' . $this->tipo . '\' AND estatus=0';
+		if($this->tipo == 7)
+			$sConsulta = 'SELECT * FROM ' . $this->esq . '.semillero 
+						WHERE certi=\'' . $this->session . '\' AND tipo=\'' . $this->tipo . '\'  
+						AND observacion=\'' . $this->observacion . '\' AND estatus=0';
+
+		echo $sConsulta;
+			
 		$obj = $this->generarConsultaSQL($sConsulta);
 		return $obj;
 	}

@@ -46,7 +46,7 @@ class Afiliado extends CI_Model{
 	/**
 	* @var string
 	*/	
-	var $estaus = '';
+	var $estaus = '1';
 
 
 	/**
@@ -73,13 +73,13 @@ class Afiliado extends CI_Model{
 	* @return void
 	*/
 	function consultarReferencia(Persona &$Persona){		
-
+		$this->oid = $Persona->oid;
 		$obj = $this->Dbroraima->consultar($this->generarSelect());
 		if($obj->code == 0){
 			foreach ($obj->rs as $clv => $val) {
 
-				$this->oid = $val->oid;				
-				$this->DatosFisionomicos->codpiel = $val->codpiel;
+								
+				$this->DatosFisionomicos->codPiel = $val->codpiel;
 				$this->DatosFisionomicos->colorPiel = $val->colorpiel;
 				$this->DatosFisionomicos->codOjos = $val->codojos;
 				$this->DatosFisionomicos->colorOjos = $val->colorojos;
@@ -97,16 +97,17 @@ class Afiliado extends CI_Model{
 
 			}
 		}
+		
 		$Persona->Afiliado = $this;
 	}
 
 	private function generarSelect(){
 		$sConsulta = '
 		SELECT 
-			services.tbl_afiliado.afi_afiliado_id AS oid,
-			dfi_color_piel_ AS codpiel,  public.tbl_color_piel.nombre AS colorpiel,
-			dfi_color_ojos_ AS codojos,  public.tbl_color_ojos.nombre AS colorojos,
-			dfi_color_cabello_ AS codcabello, public.tbl_color_ojos.nombre AS colorcabello,
+			roraima.tbl_datos_fisionomicos.oid AS oid,
+			dfi_color_piel_ AS codpiel,  datos.tbl_color_piel.nombre AS colorpiel,
+			dfi_color_ojos_ AS codojos,  datos.tbl_color_ojos.nombre AS colorojos,
+			dfi_color_cabello_ AS codcabello, datos.tbl_color_cabello.nombre AS colorcabello,
 			dfi_estatura AS estatura,
 			dma_tipo_de_sangre AS tiposangre, 
 			dma_alergias_medicamentos AS alergiasmedicamentos,
@@ -114,17 +115,15 @@ class Afiliado extends CI_Model{
 			dma_donante_de_organo AS donanteorgano,
 			dma_num_hist_clinica AS historiaclinica, 
 			dma_estatus estatusmedico
-			FROM services.tbl_afiliado 
-			INNER JOIN services.tbl_datos_fisionomicos  ON 
-				services.tbl_datos_fisionomicos.afi_afiliado_id = services.tbl_afiliado.afi_afiliado_id
-				INNER JOIN public.tbl_color_piel ON public.tbl_color_piel.id=services.tbl_datos_fisionomicos.dfi_color_piel_
-				INNER JOIN public.tbl_color_cabello ON public.tbl_color_cabello.id=services.tbl_datos_fisionomicos.dfi_color_cabello_
-				INNER JOIN public.tbl_color_ojos ON public.tbl_color_ojos.id=services.tbl_datos_fisionomicos.dfi_color_ojos_
-			INNER JOIN services.tbl_datos_medicos_afil  ON 
-				services.tbl_datos_medicos_afil.afi_afiliado_id = services.tbl_afiliado.afi_afiliado_id
+			FROM roraima.tbl_datos_fisionomicos 
+				INNER JOIN datos.tbl_color_piel ON datos.tbl_color_piel.id=roraima.tbl_datos_fisionomicos.dfi_color_piel_
+				INNER JOIN datos.tbl_color_cabello ON datos.tbl_color_cabello.id=roraima.tbl_datos_fisionomicos.dfi_color_cabello_
+				INNER JOIN datos.tbl_color_ojos ON datos.tbl_color_ojos.id=roraima.tbl_datos_fisionomicos.dfi_color_ojos_
+			INNER JOIN roraima.tbl_datos_medicos_afil  ON 
+				roraima.tbl_datos_medicos_afil.oid = roraima.tbl_datos_fisionomicos.oid
 		WHERE 
-			services.tbl_afiliado.afi_estatus=\'a\' AND 
-			services.tbl_afiliado.afi_nro_persona=\'' . $this->oid . '\'';
+			roraima.tbl_datos_fisionomicos.oid=' . $this->oid ;
+			
 		return $sConsulta;
 	}
 

@@ -100,6 +100,18 @@
 				    	<i class="material-icons light-blue-text text-darken-4 left">account_circle</i>Actualización de Datos
 				    </a>
 				</li>
+				<li>
+						<a href="<?php echo base_url(); ?>index.php/Afiliacion/datosBancarios">
+				    	<i class="material-icons light-blue-text text-darken-4 left">account_balance</i>Datos Bancarios
+				    </a>
+				</li>
+				<li>
+					  <a href="<?php echo base_url(); ?>index.php/Afiliacion/renovacionCarnet">
+					  	<i class="material-icons lime-text text-darken-2 left">group</i>Renovación Carnet
+					  </a>
+				</li>
+					
+
 				<!--
 				<li>
 				  <a>

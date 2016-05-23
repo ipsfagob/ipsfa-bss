@@ -16,13 +16,16 @@ class Afiliacion extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->library('session');
-		//if(!isset($_SESSION['cedula'])) $this->salir("Debe iniciar session");
+		/**
+		if(!isset($_SESSION['cedula'])) $this->salir("Debe iniciar session");
+		
 		if(!isset($_SESSION['cedula'])) {
 			$this->salir("Debe iniciar session");
 
 		}else{
 			$_SESSION['cedula'] = '7682282';
 		}
+		**/
 	}
 	
 	function index() {
@@ -120,7 +123,7 @@ class Afiliacion extends CI_Controller {
 		echo "<pre>";
 		$this->load->model('saman/Persona');
 		$this->load->model('roraima/Afiliado');
-		$this->Persona->consultar('7682282', '');
+		$this->Persona->consultar('492565', '');
 		
 		$this->Afiliado->consultarReferencia($this->Persona);
 		
@@ -148,6 +151,19 @@ class Afiliacion extends CI_Controller {
 			$this->salir("Debe iniciar session");
 		}
 	}
+	
+	public function confirmarPago($id = ''){
+		if(isset($_SESSION['cedula'])){
+			
+			$data['menu'] = 'mnu_renovacion_carnet';
+			$data['oid'] = $id; 
+
+			$this->load->view ( 'afiliacion/reportar', $data );
+		}else{			
+			$this->salir("Debe iniciar session");
+		}
+	}
+
 
 	public function listarMunicipio(){
 		if(isset($_SESSION['cedula'])){
@@ -250,26 +266,54 @@ class Afiliacion extends CI_Controller {
 	 */
 	function salvarDatosMedicos(){
 		$this->load->model('roraima/Afiliado');
-
-		$Afiliado = (Object)$_GET;
+		$Afiliado = (Object)$_POST;
 		$this->Afiliado->oid = $Afiliado->oid;
-		$this->Afiliado->estatus = '1';
-		$this->Afiliado->DatosMedicos->tipoSangre = str_replace("'","",$Afiliado->Medicos['alergia']);
+		$this->Afiliado->DatosMedicos->tipoSangre = str_replace("'","",$Afiliado->Medicos['sangre']);
 		$this->Afiliado->DatosMedicos->alergiasMedicamentos = str_replace("'","",$Afiliado->Medicos['alergia']);
 		$this->Afiliado->DatosMedicos->enfermedadesCronicas = str_replace("'","",$Afiliado->Medicos['enfermedad']);
 		$this->Afiliado->DatosMedicos->donanteOrgano = str_replace("'","",$Afiliado->Medicos['organo']);
 		$this->Afiliado->DatosMedicos->historiaClinica = str_replace("'","",$Afiliado->Medicos['expediente']);
-
 		$this->Afiliado->DatosFisionomicos->codPiel = str_replace("'","",$Afiliado->Fisionomicos['piel']);
 		$this->Afiliado->DatosFisionomicos->codCabello = str_replace("'","",$Afiliado->Fisionomicos['cabello']);
 		$this->Afiliado->DatosFisionomicos->codOjos = str_replace("'","",$Afiliado->Fisionomicos['ojos']);
 		$this->Afiliado->DatosFisionomicos->estatura = str_replace("'","",$Afiliado->Fisionomicos['estatura']);
 		$this->Afiliado->salvar();
+		$this->salvarSolicitudRenovacion($Afiliado->oid);		
+	}
 
-		print_r($this->Afiliado);
+	private function salvarSolicitudRenovacion($id){
+		$this->load->model('saman/Solicitud');
+		$codigo = $this->generarCodigo('7','REN-'. $id);
+		$detalle = array('nafiliado' => $id, 'datospago' => 'NO');
+		$arr = array(
+				'codigo' => $_SESSION['cedula'],
+				'numero' => $codigo,
+				'certi' => md5($id), 
+				'detalle' => json_encode($detalle), //Esquema Json Opcional
+				'recipes' => 'Renovacion de Carnet' ,
+				'fecha' => 'now()', 
+				'tipo' => 7, 
+				'estatus' => 1,
+				'fcita' => date('Y-m-j')
+			);
+		$obj = $this->Solicitud->crear($arr);
+	}
 
-
-
+	/**
+	 * Permite generar un codigo de planillas
+	 *
+	 * @access public
+	 * @return string
+	 */	
+	 function generarCodigo($tipo = '', $obs = ''){
+		if(isset($_SESSION['cedula'])){
+			$this->load->model('utilidad/Semillero', 'Semillero');
+			$this->Semillero->obtener($tipo, $_SESSION['cedula'], $obs);
+			return $this->Semillero->codigo;
+		}else{
+			$this->salir();
+			exit;
+		}	
 	}
 
 

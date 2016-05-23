@@ -40,7 +40,7 @@ $this->load->view("afiliacion/inc/cabecera.php");
       </ul>
     </div>
     <div id="test1" class="col s12">
-      <div class="col s12 m4 l3" >        
+            <div class="col s12 m4 l3" >        
                 <div style="width: 140px;height: 160px; margin-left:20px " id="view-1" >
                   <img style="width: 140px;height: 160px; margin-left: 0px" 
                   src="http://192.168.12.198/imagenes/imagenes/<?php echo $Persona->cedula;?>.jpg"

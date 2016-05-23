@@ -87,7 +87,7 @@ function msjRenovacion(){
 		'VENEZUELA #00000000000000000000 Cuenta Corriente<br>' +
 		'BANFAN #00000000000000000000 Cuenta Corriente<br>' +
 		'A nombre de INSTITUTO DE PREVISION SOCIAL DE LA FUERZA ARMADA NACIONAL';
-	acciones = '<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" onclick="">' +
+	acciones = '<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" onclick="confirmarPago()">' +
       	'Confirmar Pago<i class="material-icons left green-text">check_circle</i></a>' +
       	'<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">' +
       	'Cancelar<i class="material-icons left red-text">cancel</i>' +
@@ -110,6 +110,19 @@ function msjRenovacion(){
 function ruta(){
 	$(location).attr('href', sUrlP + "adjuntar/" + familiar + "/" + motivo + "/" + sucursal);	
 }
+
+/**
+* Enrutar a segmentos de la pagina Confirmar
+*
+* @access public
+* @return mixed
+*/
+function confirmarPago(){
+	var id = $('#oid').val();
+	$(location).attr('href', sUrlP + "confirmarPago/" + id);	
+}
+
+
 
 /**
 * Salvar detalles de medicos y datos fisionomicos
@@ -137,10 +150,10 @@ function salvarDatosMedicos(){
 	Datos['oid'] =  $('#oid').val();
 	Datos['Medicos'] = Medicos;
 	Datos['Fisionomicos'] = Fisionomicos;
-	$.getJSON( sUrlP + "salvarDatosMedicos/", Datos)
+	$.post( sUrlP + "salvarDatosMedicos/", Datos)
 			.done(function(data) {			
-				console.log(data);
-				$(location).attr('href', sUrlP + "adjuntos/" + codigo + "/" + 1);	
+				Materialize.toast('Datos Fisionomicos y Medicos Salvados', 3000);
+				
 			})
 			.fail(function(jqXHR, textStatus) {
 		    	alert(jqXHR.responseText);
