@@ -35,7 +35,7 @@ $this->load->view("afiliacion/inc/cabecera.php");
     <div class="col s12">
       <ul class="tabs blue-ipsfa">
         <li class="tab col s3"><a class="white-text waves-effect waves-light active" href="#test1">Datos Básicos</a></li>
-        <li class="tab col s3"><a class="white-text waves-effect waves-light"  href="#test2">Direccion</a></li>        
+        <li class="tab col s3"><a class="white-text waves-effect waves-light"  href="#test2">Dirección</a></li>        
         <li class="tab col s3"><a class="white-text waves-effect waves-light" href="#test3">+ Datos</a></li>
       </ul>
     </div>
@@ -73,7 +73,8 @@ $this->load->view("afiliacion/inc/cabecera.php");
   
 
                   <div class="input-field col s12 m6 l6">
-                    <input  readonly  id="fechaNacimiento" class="validate  imagen-text-right" type="text" value="<?php echo $Persona->obtenerFechaHumana()?>">
+                    <input  readonly  id="fechaNacimiento" class="validate  imagen-text-right" type="text" 
+                    value="<?php echo $Persona->obtenerFechaHumana()?>">
                     <label style="font-size: 16px">Fecha de Nacimiento</label>
                   </div>
                   
@@ -82,6 +83,11 @@ $this->load->view("afiliacion/inc/cabecera.php");
                       type="text" value="<?php echo $Persona->obtenerSexo()?>">            
                     <label style="font-size: 16px">Genero</label>
                   </div>  
+                  <div class="col s12 m12 l12" >
+                    <a  class="right btn-large waves-effect waves-light" style="background-color:#00345A"   onclick="continuar('test2')" >Continuar
+                        <i class="material-icons right">send</i>
+                    </a>
+                  </div>
       
               </div>
 
@@ -122,8 +128,8 @@ $this->load->view("afiliacion/inc/cabecera.php");
           </a>
         </div>
 
-        <div class="col s6" >
-  			<a  class="right btn-large waves-effect waves-light" style="background-color:#00345A"   onclick="guardar()" >RENOVACION
+        <div class="col s6" id="renovar">
+  			<a  class="right btn-large waves-effect waves-light" style="background-color:#00345A"   onclick="guardar()" >GUARDAR
   			    <i class="material-icons right">assignment_ind</i>
   			</a>
       	</div>

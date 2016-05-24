@@ -37,7 +37,7 @@ $this->load->view("afiliacion/inc/cabecera.php");
             		IPSFA en cualquiera de sus sucursales.
             	</li>
 	            <li>
-	            	Recuerde que la normativa del instituto condiciona las renovaciones de Carnet's para los hijos de afiliados con edad igual o mayor a veinticinco (25) años. Estos casos son atendidos unicamente en forma presencial, con los respectivos recaudos.
+	            	Recuerde que la normativa del instituto condiciona las renovaciones de carnet para los hijos de afiliados con edad igual o mayor a veinticinco (25) años. Estos casos son atendidos unicamente en forma presencial, con los respectivos recaudos.
 	            </li>
 	            
 	          </ol>        
@@ -47,7 +47,7 @@ $this->load->view("afiliacion/inc/cabecera.php");
 
 
     	<div class="col s12 m6 l6">
-    	  <label >Nombre del Familiar</label>
+    	  <label >Nombre del Familiar (*)</label>
           <select id="familiar" name="familiar" class="browser-default">
           	<option value="" disabled selected>ELIJA UNA OPCIÓN</option>
           	<?php 
@@ -62,7 +62,7 @@ $this->load->view("afiliacion/inc/cabecera.php");
           </select>
     	</div>
     	<div class="col s12 m6 l6">
-    	  <label >Motivo de la Renovación</label>
+    	  <label >Motivo de la Renovación (*)</label>
           <select id="motivo" name="motivo" class="browser-default">
            	<option value="" disabled selected>INDIQUE EL MOTIVO</option>
           	<option value="0">VENCIMIENTO</option>
@@ -71,7 +71,7 @@ $this->load->view("afiliacion/inc/cabecera.php");
     	</div>
 
     	<div class="col s12 m12 l12">
-	    	<label>Ubicacíón para ser atendido por el IPSFA</label>
+	    	<label>Ubicacíón para ser atendido por el IPSFA (*)</label>
 	        <select id="sucursal" name="sucursal" class="browser-default">
 	        <option value="" disabled selected>ELIJA UNA SUCURSAL</option>
 	          <?php

@@ -107,7 +107,7 @@
 
 
         <div class=" col s12" >
-          <label >Correo Electronico Alternativo</label>
+          <label >Correo Electrónico</label>
           <input id="emailAux" type="email" class="validate" data-error="Invalido" data-success="Bien" value="<?php 
             if($Persona->direccionHabitacion->correo != ''){
               echo  $Persona->direccionHabitacion->correo;  
@@ -116,4 +116,10 @@
             }
             
           ?>">
+        </div>
+
+        <div class="col s12 m12 l12" >
+          <a  class="right btn-large waves-effect waves-light" style="background-color:#00345A"   onclick="continuar('test3')" >Continuar
+              <i class="material-icons right">send</i>
+          </a>
         </div>

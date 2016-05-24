@@ -140,7 +140,7 @@ class Afiliacion extends CI_Controller {
 			$this->load->model('saman/Estado', 'Estado');
 			$this->load->model('saman/Persona');
 			$this->load->model('roraima/Afiliado');
-
+			
 			$this->Persona->consultar('', $id);
 			$this->Afiliado->consultarReferencia($this->Persona);	
 			$data['Persona'] = $this->Persona;

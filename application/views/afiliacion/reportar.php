@@ -62,7 +62,7 @@ $this->load->view("afiliacion/inc/cabecera.php");
               <div class="col s12 m8 l9">
                 <div class="col s12 m6 l6">
                   <label >Nombre del Banco</label>
-                    <select id="familiar" name="familiar" class="browser-default">
+                    <select id="banco" class="browser-default">
                       <option value="" disabled selected>ELIJA UNA OPCIÓN</option>
                       <option value="0">BANFAN</option>
                       <option value="1">BANCO VENEZUELA</option>
@@ -83,12 +83,13 @@ $this->load->view("afiliacion/inc/cabecera.php");
 
                 <div class="col s12 m4 l4">
                  <label >Fecha </label>
-                  <input  id="fecha" class="validate  imagen-text-right" type="text" value="">
+                  <input  id="fecha" required  type="date" class="datepicker blue-ipsfa validate  imagen-text-right" type="text" value="">
                 </div>
 
                 <div class="col s12 m4 l4">
                  <label>Monto </label>
-                  <input  id="numero" class="validate  imagen-text-right" type="text" value="">
+                  <input  id="monto" class="validate  imagen-text-right" type="text" value="0,00" 
+                  maxlength="13">
                 </div>
 
                 <div class="col s12" >

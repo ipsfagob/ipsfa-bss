@@ -1,5 +1,5 @@
       <div class="col s12">
-        <h5>Datos Medicos</h5>
+        <h5>Datos Médicos</h5>
         <div class="divider"></div>
       </div>
 
@@ -49,7 +49,7 @@
       </div>
 
     <div class="col s12 m4 l4">
-        <label >Número Exp Médico </label>
+        <label >Historial Médico</label>
         <input  id="expediente" class="validate  imagen-text-right" type="text" 
           value="<?php echo $Persona->Afiliado->DatosMedicos->historiaClinica?>">
 
@@ -65,7 +65,7 @@
 
 
     <div class="col s12 m6 l6">
-        <label>Enferemedades Crónicas</label>
+        <label>Enfermedades Crónicas</label>
         <input  id="enfermedad" class="validate  imagen-text-right" type="text" 
           value="<?php echo $Persona->Afiliado->DatosMedicos->enfermedadesCronicas?>">
 
