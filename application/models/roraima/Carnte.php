@@ -38,9 +38,22 @@ class Carnet extends CI_Model{
 		$this->load->model('saman/Dbipsfa');
 	}
 
-	function obtenerSolicitud($oid){
+	/**
+	* Obtener Solicitud pendiente por Carnet
+	*
+	* @access public
+	* @return void
+	*/	
+	public function obtenerSolicitud($oid){
 		$sConsulta = 'SELECT * FROM bss.semillero WHERE observacion=\'REN-' . $oid  . '\' AND estatus=0';
-		$this->
+		$obj = $this->Dbipsfa->consultar($sConsulta);
+		if ($obj->code == 0){
+			$rs = $boj->rs;
+			foreach ($rs as $cla => $val) {
+				
+			}
+		}
+
 	}
 
 

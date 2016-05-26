@@ -191,7 +191,7 @@ $this->load->view("afiliacion/inc/cabecera.php");
 
         <div class="col s12">
           <label style="font-size: 16px" for="direccion">Por favor verifique su dirección</label>
-          <textarea class="materialize-textarea" length="256" id='direccion'><?php 
+          <textarea class="materialize-textarea" length="128" id='direccion'><?php 
               if($Militar->Persona->direccionHabitacion->direccion != ''){
                 echo trim($Militar->Persona->direccionHabitacion->direccion);  
               }else{
@@ -227,7 +227,7 @@ $this->load->view("afiliacion/inc/cabecera.php");
           <ol>
             <li>En caso de que
             detecte algún dato errado y no pueda ser actualizado, favor dirigirse a la Gerencia de Afiliación del 
-            IPSFA en cualquiera de sus sucursales.</li>
+            IPSFA en cualquiera de nuestras sucursales.</li>
             <li>
               Si sus datos son correctos presione actualizar.
             </li>
@@ -262,7 +262,7 @@ $this->load->view("afiliacion/inc/cabecera.php");
       <p>Sus datos han sido actualizados</p>
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">ACEPTAR
+      <a href="http://www.ipsfa.gob.ve/NUEVO/ipsfaNet/init.session.IPSFA.web/project.Web/projects/admin/view/panel.Init/consola/menu.gral.php" class="modal-action modal-close waves-effect waves-green btn-flat ">ACEPTAR
       <i class="material-icons left green-text">check_circle</i></a>
     </div>
   </div>

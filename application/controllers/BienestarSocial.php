@@ -350,16 +350,37 @@ class BienestarSocial extends CI_Controller {
 	}
 
 	/**
-	 * Generar solicitud de medicamentos
+	 * Seleccionar tratamientos prolongados
 	 *
 	 * @access  public
 	 * @return html
 	 */
 	public function tratamiento(){
 		if(isset($_SESSION['cedula'])){
-			$this->load->model('saman/Tratamiento');
-			$data['data'] = $this->Tratamiento->consultarProlongado($_SESSION['cedula']);
+			
+			$this->load->model('saman/Militar');
+			$this->Militar->consultar($_SESSION['cedula']);
+			$data['Militar'] = $this->Militar;
 			$this->load->view ( 'bienestarsocial/comun/tratamiento/inicio', $data );
+		}else{
+			$this->salir();
+			exit;
+		}	
+	}
+
+	/**
+	 * Generar solicitud de medicamentos
+	 *
+	 * @access  public
+	 * @return html
+	 */
+	public function casoTratamientos(){
+		if(isset($_SESSION['cedula'])){
+			$this->load->model('saman/Tratamiento');
+			$id = (!isset($_POST['familiar'])) ?  $_SESSION['cedula'] : $_POST['familiar'];
+			$data['data'] = $this->Tratamiento->consultarProlongado($id);
+			$data['id'] = $id;
+			$this->load->view ( 'bienestarsocial/comun/tratamiento/casos', $data );
 		}else{
 			$this->salir();
 			exit;
@@ -417,7 +438,9 @@ class BienestarSocial extends CI_Controller {
 	public function adjuntarProlongado(){
 		if(isset($_SESSION['cedula'])){
 			$this->load->model('saman/Tratamiento');
-			$data['data'] = $this->Tratamiento->consultarProlongado($_SESSION['cedula']);
+			$id = (!isset($_POST['id'])) ?  $_SESSION['cedula'] : $_POST['id'];
+			$data['data'] = $this->Tratamiento->consultarProlongado($id);
+
 			$this->load->view ( 'bienestarsocial/comun/tratamiento/frm/datos',$data);
 		}else{
 			
@@ -432,9 +455,16 @@ class BienestarSocial extends CI_Controller {
 	 * @access  public
 	 * @return json
 	 */
-	public function listarKitDetalle($codigo){		
-		$this->load->model('saman/Tratamiento');
-		echo json_encode($this->Tratamiento->listarKitDetalle($_SESSION['cedula'], $codigo)->rs);
+	public function listarKitDetalle(){	
+		if(isset($_SESSION['cedula'])){	
+			$this->load->model('saman/Tratamiento');
+			echo json_encode($this->Tratamiento->listarKitDetalle($_GET['id'], $_GET['diag'])->rs);
+			
+		}else{
+			
+			$this->salir();
+			exit;
+		}	
 	}
 
 
@@ -882,8 +912,9 @@ class BienestarSocial extends CI_Controller {
 			Estimado Afiliado(a)  ' . $nombre . ', <br><br>
 
 			Usted ha realizado una solicitud por  ' . $tipo . ' bajo el c&oacute;digo  ' . $codigo . ' la cual ser&aacute; procesada  por nuestros
-			analistas de Bienestar y Seguridad Social. Para mayor información puede mantenerse en contacto a trav&eacute;s de nuestro portal web 
-			http://www.ipsfa.gob.ve, o le estaremos notificando a través de su correo electr&oacute;nico.<br><br>
+			analistas de Bienestar y Seguridad Social. Para mayor informaci&oacute;n puede 
+			mantenerse en contacto a trav&eacute;s de nuestro portal web 
+			http://www.ipsfa.gob.ve, o le estaremos notificando a trav&eacute;s de su correo electr&oacute;nico.<br><br>
 
 			.- IPSFA jam&aacute;s le enviar&aacute; un enlace donde le solicite informaci&oacute;n de claves de acceso a IPSFA en l&iacute;nea, cuentas bancarias, ni correo electr&aacute;nico personal.<br>
 			.- IPSFA s&aacute;lo env&iacute;a correos personalizados, es decir, con su nombre, por ejemplo: CNEL. BOLIVAR SIMON.<br>

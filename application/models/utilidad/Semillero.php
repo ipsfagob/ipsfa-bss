@@ -149,7 +149,7 @@ class Semillero extends CI_Model{
 						WHERE certi=\'' . $this->session . '\' AND tipo=\'' . $this->tipo . '\'  
 						AND observacion=\'' . $this->observacion . '\' AND estatus=0';
 
-		echo $sConsulta;
+		//echo $sConsulta;
 			
 		$obj = $this->generarConsultaSQL($sConsulta);
 		return $obj;

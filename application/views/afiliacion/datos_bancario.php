@@ -56,7 +56,7 @@ $this->load->view("afiliacion/inc/cabecera.php");
             <p style="text-align: justify;">
               <ol>
                 <li>En caso de que no sea su cuenta bancaria, favor dirigirse a la Gerencia de Finanzas del 
-                IPSFA en cualquiera de sus sucursales ya que todos los procesos estarán asociados a la cuenta. 
+                IPSFA en cualquiera de nuestras sucursales ya que todos los procesos estarán asociados a la cuenta. 
 
                 </li>
                 <li>

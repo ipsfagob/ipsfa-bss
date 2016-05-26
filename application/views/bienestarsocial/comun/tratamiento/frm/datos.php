@@ -11,7 +11,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
           <div class="col s12 card-panel blue lighten-2">
             <p style="text-align: justify;">
               <ol>
-                <li><font color="black" >* Los archivos adjuntos para el informe medico debe ser en extensión PDF.</font></li>               
+                <li><font color="black" >Los archivos adjuntos para el informe medico debe ser en extensión PDF.</font></li>               
               </ol>        
             </p>    
         </div>
@@ -23,8 +23,9 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
         <input type="hidden" id= "codigo" name="codigo">
         <input type="hidden" value="3" name="url">
         <input type="hidden" name="diagnostico" id="diagnostico">
+        <input type="hidden" id="id" value="<?php echo $data->rs[0]->codnip;?>"></input>
         <div class="row white">
-          <div class="col s12">
+          <div class="col s12 escajas">
           <label for="patologia">Seleccioné la patología que desea actualizar</label>
              <select id="patologia" name="patologia" onchange="listarKitDetalle()">
              <option value="0">--------------</option>

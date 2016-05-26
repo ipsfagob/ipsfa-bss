@@ -14,10 +14,9 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
           <div class="col s12 card-panel blue lighten-2">
             <p style="text-align: justify;">
               <ol>
-                <li>* Los archivos adjuntos para el informe medico debe ser en extensión PDF, y deben estar en un orden correlativo acorde al Informe Médico, de igual forma los documentos deben estar legibles,
+                <li>Los archivos adjuntos para el informe medico debe ser en extensión PDF, y deben estar en un orden correlativo acorde al Informe Médico, de igual forma los documentos deben estar legibles,
               asimismo el Informe medico deberá estar vigente.<br></li>
-                <li>
-                  * Recuerde que si la factura es mayor a tres meses se considera extemporanéa.
+                <li>Recuerde que si la factura es mayor a tres meses se considera extemporanéa.
                 </li>
               </ol>        
             </p>    

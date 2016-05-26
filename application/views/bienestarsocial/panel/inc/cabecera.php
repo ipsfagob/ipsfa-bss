@@ -5,15 +5,18 @@
       <!--Import Google Icon Font
       
 
-      	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">	-->	
+      		-->	
       <title>Ipsfa en linea</title>				
 	  <link type="text/css" href="<?php echo base_url(); ?>public/css/material.css" rel="stylesheet" />
+
       <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>public/css/materialize.min.css"  media="screen,projection"/>
       <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>public/css/estilo.css"/>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
 	  <style type="text/css">
-	  	  [class*="img-cred-"]{width:96%;height:55px;margin:auto}
+	  	  [class*="img-cred-"]{
+	  	  	width:96%;height:55px;margin:auto
+	  	  }
 
 
 		.btns-sminf{color:#003E82;text-align:justify;width:93%;float:left;font-weight:bold; box-sizing: border-box}

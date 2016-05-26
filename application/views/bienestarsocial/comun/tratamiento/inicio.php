@@ -5,57 +5,68 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 <script type="text/javascript"
   src="<?php echo base_url(); ?>application/views/bienestarsocial/js/tratamiento.js"></script>
 
-<div class="container .hide-on-small-only">
-
+<div class="container">
  
  <div class="row">
- <div class="col s12">
-
-  <?php
-
-      if($data->cant != 0){
-        echo '<div class="row">
-          <div class="col s12 card-panel blue lighten-2">
-            <center>
-                <h5>Usted actualmente ya posee tratamiento prolongado por:</h5> 
-            </center>    
-          </div>
-          </div>';
-
-        echo "<ol>";
-        foreach ($data->rs as $k => $v) {
-          $fecha = explode('/', $v->vencimiento);
-          echo "<li>" . $v->nombre . " Y <b>VENCE</b> EL " . $fecha[2] . "/" . $fecha[1]  . "/" . $fecha[0]  . "</li>";
-        }
-        echo "</ol>";
-        echo "<h5>Nota: </h5>";
-        echo 'Si desea actualizar algunos de los casos anteriores presione "Actualizar Expediente". <br>
-        En caso de presentar otra patologia por favor concertar cita con Droguería y Farmacia';
-        $this->load->view('bienestarsocial/comun/tratamiento/frm/pcaso');
-      }else{
-        echo '
-          <div class="row">
-          <div class="col s12 card-panel blue lighten-2">
-            <center>
-                <h5>Usted actualmente no posee tratamiento prolongado.</h5> 
-            </center>    
-          </div>
-          </div> 
-
-        ';
-        $this->load->view('bienestarsocial/comun/tratamiento/doc/leeme'); 
-        $this->load->view('bienestarsocial/comun/tratamiento/frm/scaso');
-      }
-
-
-      //$this->load->view('bienestarsocial/comun/tratamiento/doc/leeme');
-  ?>
-
-  <br><br>
-  
-
-
+    <ul class="collection with-header">
+        <li class="collection-header"><span class="titulo">Solicitud de Tratamiento Prolongados</span></li>
+    </ul>
 </div>
+<div class="row">
+
+<form 
+  action="<?php echo base_url() . 'index.php/BienestarSocial/casoTratamientos';?>"  method="post">
+
+ <div class="col s12">
+  <p align="justify">Nota: <br>
+        Este programa está diseñado para la entrega del Kit de medicamentos a los pacientes con tratamientos de por vida, existen una red de farmacias a nivel nacional en las cuales dichos pacientes serán atendidos para la entrega de las mismas.
+        <br><br>
+        <!-- RECAUDOS<br>
+        Informe médico original y copia con firma y sello húmedo médico tratante y sello del Centro de Salud. (Debe venir avalado por el director o sub-director de un hospital militar), el informe debe contener:
+        <ol>
+          <li>Presentación.</li>
+          <li>Miligramos.</li>
+          <li>Régimen de Dosificación.</li>
+          <li>Documentos de Afiliación.</li>
+          <li>Fe de vida emitida por el IPSFA o Guarnición Militar, solo familiares.</li>
+        </ol>
+        -->
+  </div>
+  <div class="col s12 m6 l6 escajas">
+  <label>Nombre del Familiar (*)</label>
+    <select id="familiar" name="familiar" class="browser-default">
+      <option value="" disabled selected>ELIJA UNA OPCIÓN</option>
+      <?php 
+        print_r($Militar);
+        $cadena = '<option value="' . $Militar->Persona->cedula . '">' .  $Militar->Persona->nombreApellidoCompleto() . ' (TITULAR)</option>';
+        echo $cadena;
+        foreach ($Militar->Persona->Familiares as $key => $val) {          
+          $cadena = '<option value="' . $val->cedula . '">' .  
+                             $val->nombreApellidoCompleto() . '(' . $val->parentesco . ')</option>';
+          //if($val->parentesco == 'HIJO (A)' && $val->obtenerEdad() >= 25) $cadena = '';
+          echo $cadena;
+        }
+      ?>
+    </select>
+  </div>
+  </div>
+  <div class="row" >
+    <div class="col s6">
+      <a href="#" class="btn-large waves-effect waves-light"  style="background-color:#00345A" onclick="irPanel()">Volver atrás
+        <i class="material-icons left">arrow_back</i>       
+      </a>
+      </div>
+      <div class="col s6">
+      <button class="right btn-large waves-effect waves-light" onclick="cargando()" style="background-color:#00345A" type="submit">Continuar
+          <i class="material-icons right">arrow_forward</i>
+      </button>
+  </div>
+</form>
+</div> 
+
+
+
+
 
 
 

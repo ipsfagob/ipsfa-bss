@@ -55,7 +55,9 @@ class Tratamiento extends CI_Model{
 	*/
 	public function consultarProlongado($codigo = ''){
 		$sConsulta = 'SELECT diagnosticonombre AS nombre, casofchinicio As inico, casodiagnosttexto, 
-		fchiniciotrat, fchinformemedico, fchvencinformemed AS vencimiento, casonro FROM ci_casos 
+		fchiniciotrat, fchinformemedico, fchvencinformemed AS vencimiento, casonro,
+		personas.nropersona,apellidoprimero,nombreprimero, codnip
+		 FROM ci_casos 
 		INNER JOIN ci_diagnosticos ON ci_casos.diagnosticocod=ci_diagnosticos.diagnosticocod
 		INNER JOIN personas ON ci_casos.nropersona=personas.nropersona
 		WHERE codnip=\'' . $codigo . '\'';

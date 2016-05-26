@@ -82,30 +82,46 @@
 
 	});
 
+	function cargando(){
+		$("#cargando").show();
+	}
+
     function cancel(){
     	bPreguntar = false;
+    }
+    
+    function clearURL(input){
+    	var clon = input.clone();  // Creamos un clon del elemento original
+        input.replaceWith(clon); 
+    	alert(1);
+    	
     }
 
 	function readURL(input, id, tipo) {
 	 	div = '<div class="preloader-wrapper small active"><div class="spinner-layer spinner-green-only">';
 	 	div += '<div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div>';
       	div += '</div><div class="circle-clipper right"><div class="circle"></div></div></div></div>';
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
 
-            reader.onload = function (e) {
-            	if(tipo == 'pdf'){
-            		$('#view-' + id).html('<p>Cargando...</p>');
-            		$('#view-' + id).html('<object type="application/pdf" data= "'+ e.target.result + '" #toolbar=0&amp;navpanes=0&amp;scrollbar=0" width="200" height="100">');
+      	var archivo = input.files[0];      	
+      	if(archivo.size < 1000000){
+	        if (input.files && input.files[0]) {
+	            var reader = new FileReader();
+	            reader.onload = function (e) {
+	            	if(tipo == 'pdf'){
+	            		$('#view-' + id).html('<p>Cargando...</p>');
+	            		$('#view-' + id).html('<object type="application/pdf" data= "'+ e.target.result + '" #toolbar=0&amp;navpanes=0&amp;scrollbar=0" width="200" height="100">');
 
-            	}else{
+	            	}else{
 
-                	$('#pre-view-' + id).attr('src', e.target.result);
-            	}
-            }
+	                	$('#pre-view-' + id).attr('src', e.target.result);
+	            	}
+	            }
 
-            reader.readAsDataURL(input.files[0]);
-        }
+	            reader.readAsDataURL(input.files[0]);
+	        }
+	    }else{	    	
+	    	Materialize.toast('No se puede subir un archivo mayor a 1 MB', 3000);
+	    }
     }
 
     function irPanel(){

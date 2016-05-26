@@ -49,7 +49,7 @@
       </div>
 
     <div class="col s12 m4 l4">
-        <label >Historial Médico</label>
+        <label >Número de historia médico</label>
         <input  id="expediente" class="validate  imagen-text-right" type="text" 
           value="<?php echo $Persona->Afiliado->DatosMedicos->historiaClinica?>">
 

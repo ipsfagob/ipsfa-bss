@@ -7,7 +7,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 <div class="container">
 
 <h4>Solicitud de Citas </h4>
-Deberá asistir a la Gerencia de Droguería y Farmacia del Instituto. en horario de oficina
+Deberá asistir a la Gerencia de Droguería y Farmacia del Instituto en horario de oficina
 <ul  >
 
 

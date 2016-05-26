@@ -2,14 +2,11 @@
 
 function solicitarCita(){
 	bPreguntar = false;
+	id = $("#id").val();
 	Materialize.toast('Su cita ha sido creada...!', 5000);
-	$(location).attr('href', sUrlP + "generarCita");	
+	$(location).attr('href', sUrlP + "generarCita/" + id);	
 }
 
-function adjuntar(){
-	bPreguntar = false;
-	$(location).attr('href', sUrlP + "adjuntarProlongado");
-}
 
 /**
 * Listar los Medicamentos de un tratamiento
@@ -18,8 +15,13 @@ function adjuntar(){
 * @return mixed
 */
 function listarKitDetalle(){
-	$("#diagnostico").val($("#patologia option:selected").text());
-	$.getJSON(sUrlP + "listarKitDetalle/" + $("#patologia option:selected").val() , function(data) {
+	var datos = {};
+	datos['diag'] = $("#patologia option:selected").val();
+	datos['id'] = $("#id").val();
+
+	console.log(datos);
+
+	$.getJSON(sUrlP + "listarKitDetalle/", datos, function(data) {
 		var cadena = '';
 		$(".collection-item").remove();
 		if(data == ""){

@@ -1,5 +1,5 @@
 <?php 
-$this->load->view("afiliacion/inc/cabecera.php");
+  $this->load->view("afiliacion/inc/cabecera.php");
 ?>
 <script type="text/javascript"
   src="<?php echo base_url(); ?>application/views/afiliacion/js/renovacion.js"></script>
