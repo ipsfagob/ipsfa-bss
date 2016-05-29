@@ -25,23 +25,31 @@ $this->load->view("afiliacion/inc/cabecera.php");
 
     <div class="row white">
 
-    	<div class="col s12 m12 l12">
+    	<div class="col s12 m6 l6">
 	    	<div class="col s12 card-panel blue lighten-2">
-	        <p style="text-align: justify;">
-	        <h5>Notas: </h5>
-	        <div class="divider"></div>
-	          <ol>
+	        <p style="text-align: justify;">        
+	         <ol>
 	          	<li>
-	          		Los numeros de cuenta para realizar los depositos son:.
+	          		Los numeros de cuenta para realizar los depositos son:
+                <br><b>Banco de Venezuela</b><br>
+                Cuenta Corriente<br>
+                Nro. 0102-0552-21000003-1480<br>
+                A NOMBRE DEL IPSFA.<br><br>
+                <b>Banco de BANFANB</b><br>
+                Cuenta Corriente<br>
+                Nro. 0177-0006-56110017-4099<br>
+                A NOMBRE DEL IPSFA.
             	</li>
 	          </ol>        
 	        </p>    
 	      </div>
+
+        
 	    </div>
 
 
       <div class="col s12 m4 l3" >        
-                <div style="width: 190px;height: 140px; margin-left:20px; margin-top: 20px " id="view-1" >
+                <div style="width: 190px;height: 140px; margin-left:20px; margin-top: 20px" id="view-1" >
                   <img style="width: 190px;height: 140px; margin-left: 0px"                  
                   class="file-path-wrapper-pre-view" id="pre-view-1" />
                 </div>
@@ -78,7 +86,7 @@ $this->load->view("afiliacion/inc/cabecera.php");
                 </div>
                 <div class="col s12 m4 l4">
                  <label >Número </label>
-                  <input  id="numero" class="validate  imagen-text-right" type="text" value="">
+                  <input  id="numero" class="validate  imagen-text-right" type="text" value="" maxlength="16">
                 </div>
 
                 <div class="col s12 m4 l4">
@@ -107,10 +115,13 @@ $this->load->view("afiliacion/inc/cabecera.php");
 
 
         <div class="col s6" >
-        <a class="btn-large waves-effect waves-light" style="background-color:#00345A" 
-        href="http://www.ipsfa.gob.ve/NUEVO/ipsfaNet/init.session.IPSFA.web/project.Web/projects/admin/view/panel.Init/consola/menu.gral.php">Ir al Inicio
-            <i class="material-icons left">home</i>
-        </a>
+          <a href="#" class=" btn-large waves-effect waves-light"  style="background-color:#00345A" onclick="irAtras()">Volver atrás
+            <i class="material-icons left">arrow_back</i>       
+          </a>
+          <a class="btn-large waves-effect waves-light" style="background-color:#00345A" 
+            href="http://www.ipsfa.gob.ve/NUEVO/ipsfaNet/init.session.IPSFA.web/project.Web/projects/admin/view/panel.Init/consola/menu.gral.php">Ir al Inicio
+                <i class="material-icons left">home</i>
+          </a>
         </div>
 
         <div class="col s6" >

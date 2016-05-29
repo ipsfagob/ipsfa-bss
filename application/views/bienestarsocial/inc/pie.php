@@ -8,7 +8,7 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>public/js/price_format.2.0.min.js"></script>
 
 <script type="text/javascript">
-
+	var bFile = 0;
 	var bPreguntar = true;	 
 	$( window ).on('beforeunload', function() {
 	 	if (bPreguntar)return 'Bienestar y Seguridad Social';
@@ -90,46 +90,55 @@
     	bPreguntar = false;
     }
     
-    function clearURL(input){
-    	var clon = input.clone();  // Creamos un clon del elemento original
-        input.replaceWith(clon); 
-    	alert(1);
-    	
-    }
-
 	function readURL(input, id, tipo) {
-	 	div = '<div class="preloader-wrapper small active"><div class="spinner-layer spinner-green-only">';
-	 	div += '<div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div>';
-      	div += '</div><div class="circle-clipper right"><div class="circle"></div></div></div></div>';
-
-      	var archivo = input.files[0];      	
+	   	var archivo = input.files[0];      	
+      	bFile = 0;
       	if(archivo.size < 1000000){
 	        if (input.files && input.files[0]) {
+	        	if (!archivo.type.match('pdf') && !archivo.type.match(/image.*/)) {
+	        		limpiarObjetos(input, id);
+	        		return false;
+	        	}
+	        	$("#load" + id).show();
 	            var reader = new FileReader();
 	            reader.onload = function (e) {
-	            	if(tipo == 'pdf'){
-	            		$('#view-' + id).html('<p>Cargando...</p>');
+	            	if(tipo == 'pdf'){	            		
 	            		$('#view-' + id).html('<object type="application/pdf" data= "'+ e.target.result + '" #toolbar=0&amp;navpanes=0&amp;scrollbar=0" width="200" height="100">');
-
 	            	}else{
-
 	                	$('#pre-view-' + id).attr('src', e.target.result);
 	            	}
-	            }
-
-	            reader.readAsDataURL(input.files[0]);
+	            	bFile = 1;
+	            };	         
+			    reader.readAsDataURL(input.files[0]);	            
+			    $("#load" + id).hide();			   
 	        }
-	    }else{	    	
+	    }else{    	
+			limpiarObjetos(input, id);
 	    	Materialize.toast('No se puede subir un archivo mayor a 1 MB', 3000);
 	    }
+    }
+    
+    function limpiarObjetos(input, id){
+    	input.value = "";
+    	$('#view-' + id).html('<img style="width: 140px;height: 140px; margin-left: 0px" class="file-path-wrapper-pre-view" id="pre-view-' + id + '" />');
     }
 
     function irPanel(){
     	bPreguntar = false;
     	$(location).attr('href', sUrlP + "index");
     }
+    function irAtras() {
+    	bPreguntar = false;
+	    window.history.back();
+	}
 
-
+	function validar(){
+		var inputFileImage = document.getElementById("inputFile[1]");
+		var file = inputFileImage.files[0];
+		if(file == undefined){
+			form.submit = false;
+		}
+	}
 
     </script>
 </main>

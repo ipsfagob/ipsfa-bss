@@ -135,17 +135,30 @@ class Afiliacion extends CI_Controller {
 	 * @access public
 	 * @return mixed
 	 */
-	public function adjuntar($id, $motivo, $sucursal){
+	public function adjuntar($id, $tipo, $sucursal){
 		if(isset($_SESSION['cedula'])){
 			$this->load->model('saman/Estado', 'Estado');
 			$this->load->model('saman/Persona');
 			$this->load->model('roraima/Afiliado');
-			
+			$this->load->model('utilidad/Semillero', 'Semillero');
+			$this->Semillero->tipo = 7;
+			$this->Semillero->session = md5($_SESSION['cedula']);
+			$this->Semillero->observacion = 'REN-' . $id;
+			$this->Semillero->validar();
+
+
 			$this->Persona->consultar('', $id);
-			$this->Afiliado->consultarReferencia($this->Persona);	
+			$this->Afiliado->consultarReferencia($this->Persona, 'roraima');	
+
+			
+			$data['btn'] = $this->Semillero->estatus;
+			$data['tipo'] =  $tipo;
+			$data['sucursal'] =$sucursal;
 			$data['Persona'] = $this->Persona;
 			$data['Estado'] = $this->Estado->listar()->rs;
+
 			$data['menu'] = 'mnu_renovacion_carnet';
+
 			$this->load->view ( 'afiliacion/adjuntar', $data );
 		}else{			
 			$this->salir("Debe iniciar session");
@@ -225,8 +238,11 @@ class Afiliacion extends CI_Controller {
 		$this->Direccion->telefono->codigoArea =  str_replace("'","",$_GET['cod']);
 		$this->Direccion->telefono->numero =  str_replace("'","",$_GET['tel']);
 		$this->Direccion->correo =  str_replace("'","",$_GET['cor']);
+		$tipo =  str_replace("'","",$_GET['tip']);
+		$sucursal =  str_replace("'","",$_GET['suc']);
 
 		$this->Direccion->salvar($this->Direccion, 'habitacion');
+		$this->salvarSolicitudRenovacion($this->Direccion->oid, $tipo, $sucursal);
 
 		$this->Correo->para = $_SESSION['correo'];
 		$texto = 'ACTUALIZACION DE DATOS';
@@ -278,13 +294,13 @@ class Afiliacion extends CI_Controller {
 		$this->Afiliado->DatosFisionomicos->codOjos = str_replace("'","",$Afiliado->Fisionomicos['ojos']);
 		$this->Afiliado->DatosFisionomicos->estatura = str_replace("'","",$Afiliado->Fisionomicos['estatura']);
 		$this->Afiliado->salvar();
-		$this->salvarSolicitudRenovacion($Afiliado->oid);		
+				
 	}
 
-	private function salvarSolicitudRenovacion($id){
+	private function salvarSolicitudRenovacion($id, $tipo, $sucursal){
 		$this->load->model('saman/Solicitud');
 		$codigo = $this->generarCodigo('7','REN-'. $id);
-		$detalle = array('nafiliado' => $id, 'datospago' => 'NO');
+		$detalle = array('nafiliado' => $id, 'tip' => $tipo, 'suc' => $sucursal, 'datospago' => 'NO');
 		$arr = array(
 				'codigo' => $_SESSION['cedula'],
 				'numero' => $codigo,
@@ -320,18 +336,20 @@ class Afiliacion extends CI_Controller {
 
 	function plantillaMensajeCorreo($nombre, $tipo, $codigo){
 		$msj = '
-			Estimado Afiliado(a)  ' . $nombre . ', <br><br>
+			Estimado Afiliado(a)  ' . $nombre . '. <br><br>
 
-			Usted ha realizado una solicitud por  ' . $tipo . ' bajo el c&oacute;digo  ' . $codigo . '. Para mayor información puede mantenerse en contacto a trav&eacute;s de nuestro portal web 
-			http://www.ipsfa.gob.ve, o le estaremos notificando a través de su correo electr&oacute;nico.<br><br>
+			Usted ha realizado una solicitud por  ' . $tipo . ' bajo el c&oacute;digo  ' . $codigo . ' la cual ser&aacute; procesada  por nuestros
+			analistas de Bienestar y Seguridad Social. Para mayor informaci&oacute;n puede 
+			mantenerse en contacto a trav&eacute;s de nuestro portal web 
+			http://www.ipsfa.gob.ve, o le estaremos notificando a trav&eacute;s de su correo electr&oacute;nico.<br><br>
 
-			.- IPSFA jam&aacute;s le enviar&aacute; un enlace donde le solicite informaci&oacute;n de claves de acceso a IPSFA en l&iacute;nea, cuentas bancarias, ni correo electr&aacute;nico personal.<br>
-			.- IPSFA s&aacute;lo env&iacute;a correos personalizados, es decir, con su nombre, por ejemplo: CNEL. BOLIVAR SIMON.<br>
+			.- IPSFA jam&aacute;s le enviar&aacute; un enlace donde le solicite informaci&oacute;n de claves de acceso a IPSFA en l&iacute;nea, cuentas bancarias, ni correo electr&oacute;nico personal.<br>
+			.- IPSFA s&oacute;lo env&iacute;a correos personalizados por ejemplo: CNEL. BOLIVAR SIMON.<br>
 			.- IPSFA nunca le enviar&aacute; un correo en el que se use su direcci&oacute;n en el encabezado del mensaje, por ejemplo: Estimado afiliado Sr.(a): juan.cristobal.arocha@gmail.com.<br>
-			.- Esta es una cuenta no monitoreada. No responda o reenv&aacute;e correos a esta cuenta.<br>
-			Ud. dispone de los siguientes correos en caso que requiera reportar cualquier situación irregular: 
+			.- Esta es una cuenta no monitoreada. No responda o reenv&iacute;e correos a esta cuenta.<br>
+			Ud. dispone de los siguientes correos en caso que requiera reportar cualquier situación irregular: <br><br>
 
-			Todos los documentos reposaran en su expediente fisico del Instituto.<br>
+			Todos los documentos reposaran en su expediente f&iactue;sico del Instituto.<br>
 			IPSFA en línea Optimizando tu Bienestar.';
 
 		return $msj;

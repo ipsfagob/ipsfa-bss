@@ -139,11 +139,11 @@ function salvarDireccion(){
 		cor: $('#emailAux').val(), 
 		tip: $('#codTipo0').val(), 
 		cod: $('#codTelefono0').val(),
-		tel: $('#telefono0').val()
+		tel: $('#telefono0').val(),
+		tip: $('#tipo').val(),
+		suc: $('#sucursal').val(),
 	})
-	 .done(function(data) {		
-
-		
+	 .done(function(data) {			
 		$('#modal1').openModal();
 	})
 	 .fail(function(jqXHR, textStatus) {

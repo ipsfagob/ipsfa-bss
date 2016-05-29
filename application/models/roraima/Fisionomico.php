@@ -25,7 +25,9 @@ if (!defined('BASEPATH'))
 class Fisionomico extends CI_Model{
 	
 	
-	protected $esq = 'roraima';
+	protected $esq = '';
+
+	protected $_DB = null;
 	/**
 	* @var integer
 	*/
@@ -81,9 +83,11 @@ class Fisionomico extends CI_Model{
 	* @access public
 	* @return void
 	*/
-	function __construct(){
+	function __construct($esq = '', $db = ''){
 		parent::__construct();
-		$this->load->model('saman/Dbroraima');
+		$this->_DB = $db;
+		$this->esq = $esq;
+		
 	}
 
 	private function mapear(){
@@ -119,7 +123,7 @@ class Fisionomico extends CI_Model{
 	*/
 	function salvar(){
 		$sConsulta = 'SELECT * FROM ' . $this->esq . '.tbl_datos_fisionomicos WHERE oid=' . $this->oid;
-		$obj = $this->Dbroraima->consultar($sConsulta);		
+		$obj = $this->_DB->consultar($sConsulta);		
 		if($obj->cant > 0){
 			$acc = $this->actualizar();
 		}else{
@@ -139,7 +143,7 @@ class Fisionomico extends CI_Model{
 	*/
 	private function actualizar(){
 		$donde = array('oid' => $this->oid);
-		$this->Dbroraima->actualizarArreglo($this->esq . '.tbl_datos_fisionomicos', $this->mapear(), $donde);
+		$this->_DB->actualizarArreglo($this->esq . '.tbl_datos_fisionomicos', $this->mapear(), $donde);
 	
 	}
 
@@ -150,7 +154,7 @@ class Fisionomico extends CI_Model{
 	* @return bool
 	*/
 	private function guardar(){
-		$this->Dbroraima->insertarArreglo($this->esq . '.tbl_datos_fisionomicos', $this->mapear());
+		$this->_DB->insertarArreglo($this->esq . '.tbl_datos_fisionomicos', $this->mapear());
 	
 	}
 

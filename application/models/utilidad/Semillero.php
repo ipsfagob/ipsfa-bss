@@ -122,12 +122,12 @@ class Semillero extends CI_Model{
 	/**
 	* Obtener Codigo Automatico
 	*
-	* @var string | 1: Reembolso 2: Apoyo 3: Medicamentos 4: Citas 5: Tratamiento 6: Carta Aval
+	* @var integer | 1: Reembolso 2: Apoyo 3: Medicamentos 4: Citas 5: Tratamiento 6: Carta Aval 7: Renovacion de Carnet
 	* @var string
 	* @var string | Observaciones extras
-	* @return mixed
+	* @return bool
 	*/
-	function obtener($tipo = 0, $session, $obs){
+	public function obtener($tipo = 0, $session, $obs){
 		$this->tipo = $tipo;
 		$this->session = md5($session);
 		$this->observacion = $obs;
@@ -138,10 +138,10 @@ class Semillero extends CI_Model{
 			$this->estatus = 0;
 			$this->salvar($this->codigo, $session , $this->tipo, $this->observacion);
 		}
-		
+		return $this->estatus;
 	}
 
-	function validar(){
+	public function validar(){
 		$sConsulta = 'SELECT * FROM ' . $this->esq . '.semillero 
 						WHERE certi=\'' . $this->session . '\' AND tipo=\'' . $this->tipo . '\' AND estatus=0';
 		if($this->tipo == 7)
@@ -156,7 +156,7 @@ class Semillero extends CI_Model{
 	}
 
 
-	function activar(){
+	private function activar(){
 
 	}
 	/**
@@ -168,7 +168,7 @@ class Semillero extends CI_Model{
 	*
 	* @return mixed
 	*/
-	function salvar($sCodigo,$sCertificado, $sTipo, $sObservacion){
+	public function salvar($sCodigo,$sCertificado, $sTipo, $sObservacion){
 		$sConsulta = "INSERT INTO " . $this->esq . ".semillero (codigo,certi,fecha, tipo, observacion, estatus ) VALUES ('" .  
 		$this->completar($sCodigo, $this->longitud) . "','" .  md5($sCertificado) . "', now()," .  $sTipo . ",'" .  $sObservacion . "',0);";
 		
@@ -182,7 +182,7 @@ class Semillero extends CI_Model{
 	* @param string
 	* @return bool
 	*/
-	function anular($codigo){
+	public function anular($codigo){
 
 		return TRUE;
 	}
@@ -193,12 +193,17 @@ class Semillero extends CI_Model{
 	* @param string
 	* @return bool
 	*/
-	function eliminar($codigo){
+	public function eliminar($codigo){
 
 		return TRUE;
 	}
 
-
+	/**
+	* Completar ceros al codigo
+	*
+	* @param string
+	* @return bool
+	*/	
 	public function completar($sCadena = '', $iLongitud = 0) {
 		$strContenido = '';
 		$strAux = '';

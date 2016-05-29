@@ -10,7 +10,10 @@
 <div class="container">
 <br>
     <form>
-    <input id="oid" type="hidden" value="<?php echo $Persona->oid?>">   
+      <input id="oid" type="hidden" value="<?php echo $Persona->oid?>">   
+      <input id="tipo" type="hidden" value="<?php echo $Persona->oid?>">   
+      <input id="sucursal" type="hidden" value="<?php echo $Persona->oid?>">   
+
       <div class="row white">
       <br>
         
@@ -81,9 +84,17 @@
                   <div class="input-field col  s12 m6 l6">
                       <input  readonly  id="sexo" class="validate  imagen-text-right" 
                       type="text" value="<?php echo $Persona->obtenerSexo()?>">            
-                    <label style="font-size: 16px">Genero</label>
+                    <label style="font-size: 16px">Género</label>
                   </div>  
                   <div class="col s12 m12 l12" >
+                  <?php
+                      if($btn == 1) 
+                       echo '<a href="#" class=" btn-large waves-effect waves-light"  style="background-color:#00345A" 
+                                  onclick="irConfirmarPago()">Confirmar Pago
+                                  <i class="material-icons left">lock_open</i> 
+                                </a>';
+                         
+                    ?>
                     <a  class="right btn-large waves-effect waves-light" style="background-color:#00345A"   onclick="continuar('test2')" >Continuar
                         <i class="material-icons right">send</i>
                     </a>
@@ -126,6 +137,8 @@
           <a href="#" class=" btn-large waves-effect waves-light"  style="background-color:#00345A" onclick="anterior()">Volver atrás
             <i class="material-icons left">arrow_back</i>       
           </a>
+
+          
         </div>
 
         <div class="col s6" id="renovar">

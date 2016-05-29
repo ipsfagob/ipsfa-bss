@@ -37,11 +37,11 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
                $i++;
             $cabecera = '
             <div class="col s12 m6 l4 white" >        
-          <div style="width: 140px;height: 140px; margin:0px " id="view-'. $i .'" >
-            <img style="width: 140px;height: 140px; margin-left: 0px" class="file-path-wrapper-pre-view" id="pre-view-'. $i .'" />
-          </div>
-          
-          <div class="file-field input-field col file-field-input-field" >
+              <div style="width: 140px;height: 140px; margin:0px " id="view-'. $i .'" >
+                <img style="width: 140px;height: 140px; margin-left: 0px" class="file-path-wrapper-pre-view" id="pre-view-'. $i .'" />
+              </div>
+              
+              <div class="file-field input-field col file-field-input-field" >
               <div class="file-path-wrapper file-path-wrapper-sopor">
                 <input class="file-path validate" type="text"  placeholder="' .  $v['descripcion'] . '">
               </div>
@@ -51,8 +51,11 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
                 onchange="readURL(this, '. $i .', \'pdf\');" onclick="clearURL(this)">
                 <i class="material-icons">file_upload</i>
               </div>
+               <div class="progress" id="load'. $i .'" style="display: none">
+                <div class="indeterminate"></div>
+              </div>
             </div>
-        </div>';
+          </div>';
         echo $cabecera;
               /**
               $cabecera = '<div class="row">

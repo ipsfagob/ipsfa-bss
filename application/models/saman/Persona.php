@@ -160,9 +160,9 @@ class Persona extends CI_Model{
 				$this->primerApellido = strtoupper($val->apellidoprimero);
 				$this->segundoApellido = strtoupper($val->apellidosegundo);
 				$this->fechaNacimiento = $val->fechanacimiento;
-				$this->correoElectronico = $val->email1;
-				$this->codigoDireccion = $val->direccioncod;
-				$this->direccion = $val->direccion1;
+				$this->correoElectronico = strtoupper($val->email1);
+				$this->codigoDireccion = strtoupper($val->direccioncod);
+				$this->direccion = strtoupper($val->direccion1);
 				
 				
 			}

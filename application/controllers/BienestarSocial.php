@@ -440,8 +440,14 @@ class BienestarSocial extends CI_Controller {
 			$this->load->model('saman/Tratamiento');
 			$id = (!isset($_POST['id'])) ?  $_SESSION['cedula'] : $_POST['id'];
 			$data['data'] = $this->Tratamiento->consultarProlongado($id);
+			if(isset($data['data']->rs[0])){
+				$this->load->view ( 'bienestarsocial/comun/tratamiento/frm/datos',$data);	
+				
+			}else{
+				$this->index();
+			}
 
-			$this->load->view ( 'bienestarsocial/comun/tratamiento/frm/datos',$data);
+			//
 		}else{
 			
 			$this->salir();
@@ -909,20 +915,20 @@ class BienestarSocial extends CI_Controller {
 
 	function plantillaMensajeCorreo($nombre, $tipo, $codigo){
 		$msj = '
-			Estimado Afiliado(a)  ' . $nombre . ', <br><br>
+			Estimado Afiliado(a)  ' . $nombre . '. <br><br>
 
 			Usted ha realizado una solicitud por  ' . $tipo . ' bajo el c&oacute;digo  ' . $codigo . ' la cual ser&aacute; procesada  por nuestros
 			analistas de Bienestar y Seguridad Social. Para mayor informaci&oacute;n puede 
 			mantenerse en contacto a trav&eacute;s de nuestro portal web 
 			http://www.ipsfa.gob.ve, o le estaremos notificando a trav&eacute;s de su correo electr&oacute;nico.<br><br>
 
-			.- IPSFA jam&aacute;s le enviar&aacute; un enlace donde le solicite informaci&oacute;n de claves de acceso a IPSFA en l&iacute;nea, cuentas bancarias, ni correo electr&aacute;nico personal.<br>
-			.- IPSFA s&aacute;lo env&iacute;a correos personalizados, es decir, con su nombre, por ejemplo: CNEL. BOLIVAR SIMON.<br>
+			.- IPSFA jam&aacute;s le enviar&aacute; un enlace donde le solicite informaci&oacute;n de claves de acceso a IPSFA en l&iacute;nea, cuentas bancarias, ni correo electr&oacute;nico personal.<br>
+			.- IPSFA s&oacute;lo env&iacute;a correos personalizados por ejemplo: CNEL. BOLIVAR SIMON.<br>
 			.- IPSFA nunca le enviar&aacute; un correo en el que se use su direcci&oacute;n en el encabezado del mensaje, por ejemplo: Estimado afiliado Sr.(a): juan.cristobal.arocha@gmail.com.<br>
-			.- Esta es una cuenta no monitoreada. No responda o reenv&aacute;e correos a esta cuenta.<br>
-			Ud. dispone de los siguientes correos en caso que requiera reportar cualquier situación irregular: 
+			.- Esta es una cuenta no monitoreada. No responda o reenv&iacute;e correos a esta cuenta.<br>
+			Ud. dispone de los siguientes correos en caso que requiera reportar cualquier situación irregular: <br><br>
 
-			Todos los documentos reposaran en su expediente fisico del Instituto.<br>
+			Todos los documentos reposaran en su expediente f&iactue;sico del Instituto.<br>
 			IPSFA en línea Optimizando tu Bienestar.';
 
 		return $msj;

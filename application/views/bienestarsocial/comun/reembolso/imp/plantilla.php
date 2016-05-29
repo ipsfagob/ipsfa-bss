@@ -57,10 +57,16 @@
 				<H1>SOLICITUD DE REEMBOLSO<br>POR SERVICOS M&Eacute;DICOS</H1>
 			</td>
 			<td style="width:20%;" class="biz bde btop bajo">
-				Codigo: <b><?php echo $Codigo ?></b>
+				C&Oacute;DIGO: <b><?php echo $Codigo ?></b>
 			</td>
 		</tr>
-		<tr><td style="width:20%;" class="biz bde btop bajo"><table class="tcontenedor"><tr><td colspan="3">2.FECHA</td></tr><tr class="simple"><td style="width:30%;" class="bde"></td><td style="width:30%;" class="bde"></td><td style="width:40%;"></td></tr></table></td></tr>
+		<tr>
+			<td style="width:20%;" class="biz bde btop bajo">
+				<table class="tcontenedor">
+					<tr><td colspan="3">2.FECHA</td></tr>
+					<tr class="simple"><td style="width:30%;" class="bde"></td>
+					<td style="width:30%;" class="bde"></td><td style="width:40%;"></td></tr>
+				</table></td></tr>
 	</table>
 
 
@@ -136,7 +142,7 @@
 			<tr class="texto12 doble"><td colspan="4" class="biz bde bajo"></td></tr>
 			<tr class="texto12"><td colspan="2" class="biz bde btop">CORREO ELECTRONICO:<br>
 				<font style="font-size: 12px"><?php echo $_SESSION['correo'];?></font>
-			</td><td class="bde btop">13.TEL&Eacute;EFONO HABITACI&Oacute;N:</td><td class="bde">MOVIL/CELULAR:</td></tr>
+			</td><td class="bde btop">13.TEL&Eacute;FONO HABITACI&Oacute;N:</td><td class="bde">MOVIL/CELULAR:</td></tr>
 			<tr class="texto12 doble"><td colspan="2" class="biz bde  bajo"></td><td class="bde bajo"></td><td class="bde bajo"></td></tr>
 		</tbody>
 	</table>

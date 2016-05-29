@@ -58,7 +58,7 @@ $this->load->view("consultoria/inc/cabecera.php");
               </div>
 
               <div class="input-field col s12">
-                <textarea id="requerimiento" class="materialize-textarea" length="256"></textarea>
+                <textarea id="requerimiento" class="materialize-textarea" length="256" maxlength="256"></textarea>
                 <label for="requerimiento">Por favor describa brevemente su requerimiento</label>
                 <input id="oid" type="hidden" value="<?php echo $Militar->Persona->oid?>"> 
             </div>

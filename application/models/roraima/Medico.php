@@ -70,7 +70,6 @@ class Medico extends CI_Model{
 	*/
 	function __construct(){
 		parent::__construct();
-		$this->load->model('saman/Dbroraima');
 	}
 
 	private function mapear(){
@@ -104,7 +103,7 @@ class Medico extends CI_Model{
 	*/
 	function salvar(){
 		$sConsulta = 'SELECT * FROM ' . $this->esq . '.tbl_datos_medicos_afil WHERE oid=' . $this->oid;
-		$obj = $this->Dbroraima->consultar($sConsulta);		
+		$obj = $this->_DB->consultar($sConsulta);		
 		if($obj->cant > 0){
 			$acc = $this->actualizar();
 		}else{
@@ -124,7 +123,7 @@ class Medico extends CI_Model{
 	*/
 	private function actualizar(){
 		$donde = array('oid' => $this->oid);
-		$this->Dbroraima->actualizarArreglo($this->esq . '.tbl_datos_medicos_afil', $this->mapear(), $donde);
+		$this->_DB->actualizarArreglo($this->esq . '.tbl_datos_medicos_afil', $this->mapear(), $donde);
 	
 	}
 
@@ -135,7 +134,7 @@ class Medico extends CI_Model{
 	* @return bool
 	*/
 	private function guardar(){
-		$this->Dbroraima->insertarArreglo($this->esq . '.tbl_datos_medicos_afil', $this->mapear());
+		$this->_DB->insertarArreglo($this->esq . '.tbl_datos_medicos_afil', $this->mapear());
 	
 	}
 

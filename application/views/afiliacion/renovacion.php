@@ -13,7 +13,7 @@ $this->load->view("afiliacion/inc/cabecera.php");
           <li class="collection-header">
           	<center>
           		<span class="titulo" style="font-size: 19px;color: #000;font-weight: bold;">
-          			Renovación de Carnet's (Afiliados)
+          			Renovación de Carnet (Afiliados)
           		</span>
           	</center>
           
@@ -37,8 +37,11 @@ $this->load->view("afiliacion/inc/cabecera.php");
             		IPSFA en cualquiera de sus sucursales.
             	</li>
 	            <li>
-	            	Recuerde que la normativa del instituto condiciona las renovaciones de carnet para los hijos de afiliados con edad igual o mayor a veinticinco (25) años. Estos casos son atendidos unicamente en forma presencial, con los respectivos recaudos.
+	            	Recuerde que la normativa del Instituto condiciona las renovaciones de carnet para los hijos de afiliados con edad igual o mayor a veinticinco (25) años. Estos casos son atendidos unicamente en forma presencial, con los respectivos recaudos.
 	            </li>
+              <li>
+                En caso de extravío o perdida deberá consignar documentos de la denuncia al CICPC.
+              </li>
 	            
 	          </ol>        
 	        </p>    

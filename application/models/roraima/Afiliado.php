@@ -27,6 +27,8 @@ if (!defined('BASEPATH'))
   afi_estatus character varying(7),
  */
 class Afiliado extends CI_Model{
+
+	var $_DB = null;
 	
 	/**
 	* @var integer
@@ -48,6 +50,7 @@ class Afiliado extends CI_Model{
 	*/	
 	var $estaus = '1';
 
+	var $esqema = '';
 
 	/**
 	* Iniciando la clase, Cargando Elementos BD Ipsfa
@@ -56,15 +59,31 @@ class Afiliado extends CI_Model{
 	* @return void
 	*/
 	function __construct(){
-		parent::__construct();
-		$this->load->model('roraima/Dbroraima');
+		parent::__construct();		
 		$this->load->model('roraima/Fisionomico');
 		$this->load->model('roraima/Medico');
-		$this->DatosFisionomicos = new $this->Fisionomico();
-		$this->DatosMedicos = new $this->Medico();
 
 	}
 
+	function loadDB($db = ''){
+		if($db != '') {
+			$this->load->model('roraima/Dbroraima');
+			$this->_DB = $this->Dbroraima;
+			$this->esqema = 'public';	
+
+			$sConsulta = $this->generarSelectRoraima();
+			//$object = $this->_DB->consultar('select * from services.tbl_afiliado limit 1');
+			//print_r($object);
+			
+		}else{
+			$this->load->model('comun/Dbipsfa');	
+			$this->_DB = $this->Dbipsfa;
+			$this->esqema = 'datos';				
+			$sConsulta = $this->generarSelect();
+		}
+		return $sConsulta;
+
+	}
 
 	/**
 	* Consultar Elemento
@@ -72,38 +91,42 @@ class Afiliado extends CI_Model{
 	* @access public
 	* @return void
 	*/
-	function consultarReferencia(Persona &$Persona){		
+	function consultarReferencia(Persona &$Persona, $db = ''){	
 		$this->oid = $Persona->oid;
-		$obj = $this->Dbroraima->consultar($this->generarSelect());
+
+		$Afiliado = new Afiliado();
+		$Afiliado->DatosFisionomicos = new $this->Fisionomico($this->esqema, $this->_DB);
+		$Afiliado->DatosMedicos = new $this->Medico($this->esqema, $this->_DB);
+		$sConsulta = $this->loadDB($db);
+		$obj = $this->_DB->consultar($sConsulta);
+		
 		if($obj->code == 0){
-			foreach ($obj->rs as $clv => $val) {
+			foreach ($obj->rs as $clv => $val) {						
+				
+				$Afiliado->DatosFisionomicos->codPiel = $val->codpiel;
+				$Afiliado->DatosFisionomicos->colorPiel = strtoupper($val->colorpiel);
+				$Afiliado->DatosFisionomicos->codOjos = $val->codojos;
+				$Afiliado->DatosFisionomicos->colorOjos = strtoupper($val->colorojos);
+				$Afiliado->DatosFisionomicos->codCabello = $val->codcabello;
+				$Afiliado->DatosFisionomicos->colorCabello = strtoupper($val->colorcabello);
+				$Afiliado->DatosFisionomicos->estatura = $val->estatura;
 
-								
-				$this->DatosFisionomicos->codPiel = $val->codpiel;
-				$this->DatosFisionomicos->colorPiel = $val->colorpiel;
-				$this->DatosFisionomicos->codOjos = $val->codojos;
-				$this->DatosFisionomicos->colorOjos = $val->colorojos;
-				$this->DatosFisionomicos->codCabello = $val->codcabello;
-				$this->DatosFisionomicos->colorCabello = $val->colorcabello;
-				$this->DatosFisionomicos->estatura = $val->estatura;
+				$Afiliado->DatosMedicos->tipoSangre = trim($val->tiposangre);
+				$Afiliado->DatosMedicos->alergiasMedicamentos =  strtoupper($val->alergiasmedicamentos);
+				$Afiliado->DatosMedicos->enfermedadesCronicas =  strtoupper($val->enfermedadescronicas);
+				$Afiliado->DatosMedicos->donanteOrgano = $val->donanteorgano;
+				$Afiliado->DatosMedicos->historiaClinica = $val->historiaclinica;
 
-				$this->DatosMedicos->tipoSangre = $val->tiposangre;
-				$this->DatosMedicos->alergiasMedicamentos = $val->alergiasmedicamentos;
-				$this->DatosMedicos->enfermedadesCronicas = $val->enfermedadescronicas;
-				$this->DatosMedicos->donanteOrgano = $val->donanteorgano;
-				$this->DatosMedicos->historiaClinica = $val->historiaclinica;
-
-				$this->estaus = $val->estatusmedico;
+				$Afiliado->estaus = $val->estatusmedico;
 
 			}
-		}
+		}		
+		$Persona->Afiliado = $Afiliado;
 		
-		$Persona->Afiliado = $this;
 	}
 
 	private function generarSelect(){
-		$sConsulta = '
-		SELECT 
+		$sConsulta = 'SELECT 
 			roraima.tbl_datos_fisionomicos.oid AS oid,
 			dfi_color_piel_ AS codpiel,  datos.tbl_color_piel.nombre AS colorpiel,
 			dfi_color_ojos_ AS codojos,  datos.tbl_color_ojos.nombre AS colorojos,
@@ -127,6 +150,36 @@ class Afiliado extends CI_Model{
 		return $sConsulta;
 	}
 
+	private function generarSelectRoraima(){
+		$sConsulta = 'SELECT 
+			services.tbl_datos_fisionomicos.afi_afiliado_id AS oid,
+			dfi_color_piel_ AS codpiel,  public.tbl_color_piel.nombre AS colorpiel,
+			dfi_color_ojos_ AS codojos,  public.tbl_color_ojos.nombre AS colorojos,
+			dfi_color_cabello_ AS codcabello, public.tbl_color_cabello.nombre AS colorcabello,
+			dfi_estatura AS estatura,
+			dma_tipo_de_sangre AS tiposangre, 
+			dma_alergias_medicamentos AS alergiasmedicamentos,
+			dma_enfermedades_cronicas AS enfermedadescronicas, 
+			dma_donante_de_organo AS donanteorgano,
+			dma_num_hist_clinica AS historiaclinica, 
+			dma_estatus estatusmedico
+			FROM services.tbl_afiliado
+				INNER JOIN services.tbl_datos_fisionomicos ON 
+					services.tbl_datos_fisionomicos.afi_afiliado_id=services.tbl_afiliado.afi_afiliado_id
+				INNER JOIN services.tbl_datos_medicos_afil  ON 
+					services.tbl_datos_medicos_afil.afi_afiliado_id = services.tbl_datos_fisionomicos.afi_afiliado_id
+					INNER JOIN public.tbl_color_piel ON public.tbl_color_piel.id=services.tbl_datos_fisionomicos.dfi_color_piel_
+					INNER JOIN public.tbl_color_cabello ON public.tbl_color_cabello.id=services.tbl_datos_fisionomicos.dfi_color_cabello_
+					INNER JOIN public.tbl_color_ojos ON public.tbl_color_ojos.id=services.tbl_datos_fisionomicos.dfi_color_ojos_				
+			WHERE 
+				services.tbl_afiliado.afi_estatus = \'a\' AND
+				services.tbl_afiliado.afi_nro_persona='  . $this->oid ;
+		
+
+		return $sConsulta;
+
+	}
+
 	/**
 	* Actualizar Medicamentos
 	*
@@ -146,9 +199,10 @@ class Afiliado extends CI_Model{
 	* @access public
 	* @return void
 	*/
-	function listarColorPiel(){
-		$sConsulta = 'SELECT id, nombre FROM datos.tbl_color_piel;';
-		$color = $this->Dbroraima->consultar($sConsulta);
+	function listarColorPiel($db =''){
+		if(!isset($this->_DB)) $this->loadDB();
+		$sConsulta = 'SELECT id, nombre FROM ' . $this->esqema . '.tbl_color_piel;';
+		$color = $this->_DB->consultar($sConsulta);
 		return $color;
 	}
 
@@ -158,9 +212,10 @@ class Afiliado extends CI_Model{
 	* @access public
 	* @return void
 	*/
-	function listarColorOjos(){
-		$sConsulta = 'SELECT  id, nombre FROM datos.tbl_color_ojos;';
-		$color = $this->Dbroraima->consultar($sConsulta);
+	function listarColorOjos($db =''){
+		if(!isset($this->_DB)) $this->loadDB();
+		$sConsulta = 'SELECT  id, nombre FROM ' . $this->esqema . '.tbl_color_ojos;';
+		$color = $this->_DB->consultar($sConsulta);
 		return $color;
 	}
 
@@ -170,9 +225,10 @@ class Afiliado extends CI_Model{
 	* @access public
 	* @return void
 	*/
-	function listarColorCabello(){
-		$sConsulta = 'SELECT  id, nombre FROM datos.tbl_color_cabello;';
-		$color = $this->Dbroraima->consultar($sConsulta);
+	function listarColorCabello($db =''){
+		if(!isset($this->_DB)) $this->loadDB();
+		$sConsulta = 'SELECT  id, nombre FROM ' . $this->esqema . '.tbl_color_cabello;';
+		$color = $this->_DB->consultar($sConsulta);
 		return $color;
 	}
 

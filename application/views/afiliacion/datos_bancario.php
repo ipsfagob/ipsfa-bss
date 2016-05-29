@@ -18,23 +18,25 @@ $this->load->view("afiliacion/inc/cabecera.php");
         $cadena = '';
         
         foreach ($Militar->Persona->Bancos as $key => $v) {
+          //$v->cuenta = '00000000000000000001';
           $cadena .= '
             
               <div class="col s12 m6 l6">
                 <label for="banco">Banco</label>
-                <input readonly  id="banco" type="text" class="validate  imagen-text-right" value="' . $v->nombre . '">
+                <input readonly  id="banco" type="text" class="validate  imagen-text-right" value="' . strtoupper($v->nombre) . '">
               </div>
-              
-              <div class="col s6 m6 l6">
-                <label for="cuenta">Cuenta Bancaria</label>
-                <input readonly id="cuenta" type="text" class="validate  imagen-text-right" value="' . $v->cuenta . '">
-              </div>
-
               <div class="col s6">
                 <label  >Tipo de Cuenta</label>
                 <input  readonly  id="cuenta" 
                 type="text" class="validate  imagen-text-right" value="' . $v->obtenerTipoCuenta() . '">
-              </div>       
+              </div>
+              
+              <div class="col s12 m12 l12">
+                <label for="cuenta">Cuenta Bancaria</label>
+                <input readonly id="cuenta" type="text" class="validate  imagen-text-right" value="' . $v->cuenta . '">
+              </div>
+
+                     
            ';
         }
 

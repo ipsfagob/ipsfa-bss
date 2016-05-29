@@ -41,6 +41,7 @@ function cargarCampos(){
 
 
 function anterior(){
+	bPreguntar = false;
 	$(location).attr('href', sUrlP + "renovacionCarnet");	
 }
 
@@ -78,8 +79,28 @@ function guardar(){
 		}	
 	}
 	salvarDireccion();
-	salvarDatosMedicos();
+	//salvarDatosMedicos();
 }
+
+/**
+* Mensaje de Renovación
+*
+* @access public
+* @return mixed
+*/
+function msjRenovacion(){
+	msj = 'Para la sustitución del carnet deberá efectuar su déposito en nuestras cuentas bancarias.<br><br>';
+	acciones = '<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" onclick="irConfirmarPago()">' +
+      	'Confirmar Pagos<i class="material-icons left green-text">check_circle</i></a>' +
+      	'<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">' +
+      	'Cancelar<i class="material-icons left red-text">cancel</i>' +
+	  	'</a>';
+	$("#msj").html(msj);
+	$("#acciones").html(acciones);
+
+	return true;
+}
+
 
 /**
 * Validar Campos Existentes para salvar
@@ -98,27 +119,7 @@ function validarCampos(){
 	return valores;
 }
 
-/**
-* Mensaje de Renovación
-*
-* @access public
-* @return mixed
-*/
-function msjRenovacion(){
-	msj = 'Para la sustitución del carnet deberá efectuar su déposito en nuestras cuentas del Banco:.<br><br> ' +
-		'VENEZUELA #00000000000000000000 Cuenta Corriente<br>' +
-		'BANFAN #00000000000000000000 Cuenta Corriente<br>' +
-		'A nombre de INSTITUTO DE PREVISION SOCIAL DE LA FUERZA ARMADA NACIONAL';
-	acciones = '<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" onclick="confirmarPago()">' +
-      	'Confirmar Pago<i class="material-icons left green-text">check_circle</i></a>' +
-      	'<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">' +
-      	'Cancelar<i class="material-icons left red-text">cancel</i>' +
-	  	'</a>';
-	$("#msj").html(msj);
-	$("#acciones").html(acciones);
 
-	return true;
-}
 
 /**
 * Enrutar a segmentos de la pagina
@@ -127,20 +128,22 @@ function msjRenovacion(){
 * @return mixed
 */
 function ruta(){
+	bPreguntar = false;
 	$(location).attr('href', sUrlP + "adjuntar/" + familiar + "/" + motivo + "/" + sucursal);	
 }
 
 /**
 * Enrutar a segmentos de la pagina Confirmar
-*9
+*
 * @access public
 * @return mixed
-
-function confirmarPago(){
+*/
+function irConfirmarPago(){
+	bPreguntar = false;
 	var id = $('#oid').val();
 	$(location).attr('href', sUrlP + "confirmarPago/" + id);	
 }
-*/
+
 
 
 /**
@@ -169,7 +172,7 @@ function salvarDatosMedicos(){
 	Datos['Fisionomicos'] = Fisionomicos;
 	$.post( sUrlP + "salvarDatosMedicos/", Datos)
 			.done(function(data) {			
-				Materialize.toast('Datos Fisionomicos y Medicos Salvados', 3000);
+				Materialize.toast('Datos Fisionómicos y Medicos Guardados', 3000);
 				
 			})
 			.fail(function(jqXHR, textStatus) {
@@ -188,14 +191,11 @@ function confirmarPago(){
 	var inputFileImage = document.getElementById("inputFile[1]");
 	var file = inputFileImage.files[0];
 	if(file == undefined ) {
-		Materialize.toast('Si desea puede sustituir la foto para actualizar su expediente', 3000);
+		Materialize.toast('Debe adjuntar el imagen del voucher', 3000);
 	}else{
 		if(file.size < 1000000) {		
 			var data = new FormData();
 			data.append('file',file);
-			data.append('oid', $("#oid").val());		
-			data.append('oid', $("#oid").val());
-			data.append('oid', $("#oid").val());
 			data.append('oid', $("#oid").val());
 			
 			$.ajax({
@@ -213,4 +213,5 @@ function confirmarPago(){
 			Materialize.toast('No se puede subir un archivo mayor a 1 MB', 3000);
 		}	
 	}
+
 }

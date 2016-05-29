@@ -105,32 +105,61 @@
     	bPreguntar = false;
     }
 
+	function cargando(){
+		$("#cargando").show();
+	}
+
+   
+	function readURL(input, id, tipo) {
+	   	var archivo = input.files[0];      	
+      	bFile = 0;
+      	if(archivo.size < 1000000){
+	        if (input.files && input.files[0]) {
+	        	if (!archivo.type.match('pdf') && !archivo.type.match(/image.*/)) {
+	        		Materialize.toast('El archivo no posee el formato', 3000);
+	        		limpiarObjetos(input, id);
+	        		return false;
+	        	}
+	        	$("#load" + id).show();
+	            var reader = new FileReader();
+	            reader.onload = function (e) {
+	            	if(tipo == 'pdf'){	            		
+	            		$('#view-' + id).html('<object type="application/pdf" data= "'+ e.target.result + '" #toolbar=0&amp;navpanes=0&amp;scrollbar=0" width="200" height="100">');
+	            	}else{
+	                	$('#pre-view-' + id).attr('src', e.target.result);
+	            	}
+	            	bFile = 1;
+	            };	         
+			    reader.readAsDataURL(input.files[0]);	            
+			    $("#load" + id).hide();			   
+	        }
+	    }else{    	
+			limpiarObjetos(input, id);
+	    	Materialize.toast('No se puede subir un archivo mayor a 1 MB', 3000);
+	    }
+    }
+    
+    function limpiarObjetos(input, id){
+    	input.value = "";
+    	$('#view-' + id).html('<img style="width: 190px;height: 140px; margin-left: 0px" class="file-path-wrapper-pre-view" id="pre-view-' + id + '" />');
+    }
+
     function irPanel(){
     	bPreguntar = false;
     	$(location).attr('href', sUrlP + "index");
     }
+    function irAtras() {
+    	bPreguntar = false;
+	    window.history.back();
+	}
 
-	function readURL(input, id, tipo) {
-	 	div = '<div class="preloader-wrapper small active"><div class="spinner-layer spinner-green-only">';
-	 	div += '<div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div>';
-      	div += '</div><div class="circle-clipper right"><div class="circle"></div></div></div></div>';
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-            	if(tipo == 'pdf'){
-            		$('#view-' + id).html('<p>Cargando...</p>');
-            		$('#view-' + id).html('<object type="application/pdf" data= "'+ e.target.result + '" #toolbar=0&amp;navpanes=0&amp;scrollbar=0" width="200" height="100">');
-
-            	}else{
-
-                	$('#pre-view-' + id).attr('src', e.target.result);
-            	}
-            }
-
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
+	function validar(){
+		var inputFileImage = document.getElementById("inputFile[1]");
+		var file = inputFileImage.files[0];
+		if(file == undefined){
+			form.submit = false;
+		}
+	}
 
 
       

@@ -96,7 +96,7 @@
 
         <div class="col s12">
           <label style="font-size: 16px" for="direccion">Por favor verifique su dirección</label>
-          <textarea class="materialize-textarea" length="128" id='direccion'><?php 
+          <textarea class="materialize-textarea" length="128" id='direccion' maxlength="128"><?php 
               if($Persona->direccionHabitacion->direccion != ''){
                 echo trim($Persona->direccionHabitacion->direccion);  
               }else{

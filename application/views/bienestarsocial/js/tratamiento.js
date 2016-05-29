@@ -19,7 +19,7 @@ function listarKitDetalle(){
 	datos['diag'] = $("#patologia option:selected").val();
 	datos['id'] = $("#id").val();
 
-	console.log(datos);
+	$('#load').show();
 
 	$.getJSON(sUrlP + "listarKitDetalle/", datos, function(data) {
 		var cadena = '';
@@ -40,11 +40,9 @@ function listarKitDetalle(){
 
 	).done(function(msg) {
 		$("#menuprincipal").focus();
+
 	}).fail(function(jqXHR, textStatus) {
 		alert(jqXHR.responseText);
 	});
-}
-
-function cargando(){
-	$('#msg').openModal();
+	$('#load').hide();
 }

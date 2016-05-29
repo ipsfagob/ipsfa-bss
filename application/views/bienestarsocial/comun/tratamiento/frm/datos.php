@@ -6,7 +6,6 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
   src="<?php echo base_url(); ?>application/views/bienestarsocial/js/tratamiento.js"></script>
 
 <div class="container">
-        <h5>Nota:</h5>
         <div class="row">
           <div class="col s12 card-panel blue lighten-2">
             <p style="text-align: justify;">
@@ -27,7 +26,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
         <div class="row white">
           <div class="col s12 escajas">
           <label for="patologia">Seleccioné la patología que desea actualizar</label>
-             <select id="patologia" name="patologia" onchange="listarKitDetalle()">
+             <select id="patologia" name="patologia" onchange="listarKitDetalle()" class="browser-default">
              <option value="0">--------------</option>
             <?php 
               foreach ($data->rs as $k => $v) {
@@ -35,7 +34,9 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
               }
             ?>
           </select>
-          
+          <div class="progress" id="load" style="display: none">
+              <div class="indeterminate"></div>
+          </div> 
         </div>
       </div>
 
@@ -49,8 +50,9 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       | 
       -->
       <div class="row white">
+
         <div class="col s12 m6 l4 white" >        
-          <div style="width: 140px;height: 140px; margin:0px " id="view-1" >
+          <div style="width: 140px;height: 140px; margin-left:15px " id="view-1" >
             <img style="width: 140px;height: 140px; margin-left: 0px" class="file-path-wrapper-pre-view" id="pre-view-1" />
           </div>
           
@@ -63,13 +65,16 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
                 <input type="file" name="informe" id="inputFile[1]" accept=".pdf" onchange="readURL(this, 1, 'pdf');">
                 <i class="material-icons">file_upload</i>
               </div>
+              <div class="progress" id="load1" style="display: none">
+                <div class="indeterminate"></div>
+              </div>
             </div>
         </div>  
  
 
 
         <div class="col s12 m6 l4 white" >        
-          <div style="width: 140px;height: 140px; margin:0px " id="view-2" >
+          <div style="width: 140px;height: 140px; margin-left:15px " id="view-2" >
             <img style="width: 140px;height: 140px; margin-left: 0px" class="file-path-wrapper-pre-view" id="pre-view-2" />
           </div>
           <!-- -->
@@ -82,6 +87,9 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
                 <input type="file" name="fe" id="inputFile[2]"  accept="image/gif, image/jpeg, image/png" onchange="readURL(this, 2, 'img');">
                 <i class="material-icons">file_upload</i>
               </div>
+            </div>
+            <div class="progress" id="load2" style="display: none">
+                <div class="indeterminate"></div>
             </div>
         </div>  
       </div>
@@ -96,38 +104,31 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       </div> 
       
       <div class="row">
-        <div class="col s12">
-          <button class="btn-large medium waves-effect waves-light" type="submit"  style="background-color:#00345A" onclick="cargando();">Enviar Documentos
+      <div class="col s12" id='cargando' style="display: none">
+         
+          <center><b>Cargando por favor espere</b></center>
+          <div class="progress">
+
+              <div class="indeterminate"></div>
+          </div> 
+
+       </div>
+      <div class="col s6">
+        <a class="btn-large waves-effect waves-light"  style="background-color:#00345A" onclick="cargando();irAtras()">Volver atrás
+            <i class="material-icons left">arrow_back</i>       
+        </a>
+      </div>
+        <div class="col s6">
+          <a class="right btn-large medium waves-effect waves-light" 
+          style="background-color:#00345A" onclick="cargando();validar();">Enviar Documentos
             <i class="material-icons right">send</i>
-          </button>
+          </a>
         </div>
       </div>
     </form>
 </div>
 
-<div id="msg" class="card modal modal-fixed-footer" style="width: 400px; height: 400px">
-    <div  class="card-image waves-effect waves-block waves-light orange center-align" style="height: 160px">
-      <i class="material-icons md-128 orange-text text-lighten-2">restore</i><br>
-      <span id="titulos" class="white-text">Enviando Información por favor espere</span>
-    </div>
-    <div class="card-content center-align">
-    <div class="preloader-wrapper big active">
-        <div class="spinner-layer spinner-blue-only">
-          <div class="circle-clipper left">
-            <div class="circle"></div>
-          </div><div class="gap-patch">
-            <div class="circle"></div>
-          </div><div class="circle-clipper right">
-            <div class="circle"></div>
-          </div>
-        </div>
-    </div>
-    <br><br><br>
-    </div>
-  <div class="card-action">
-        Procesando...
-    </div>    
-  </div>
+
 <?php
 $this->load->view ( "bienestarsocial/inc/pie.php" );
 ?>

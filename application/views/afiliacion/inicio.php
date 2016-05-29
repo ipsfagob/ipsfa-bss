@@ -17,7 +17,7 @@ $this->load->view("afiliacion/inc/cabecera.php");
 	 	   <div class="input-field col s12 m6 l6">
           <input readonly id="cedula" type="text" class="validate  imagen-text-right" 
             value="<?php echo $Militar->Persona->nacionalidad . '-' . $Militar->Persona->cedula?>">
-          <label style="font-size: 16px">Documento de Identidad</label>
+          <label style="font-size: 16px">Documento de Idéntidad</label>
         </div>
         <div class="input-field col s12  m6 l6">
           <input  readonly  id="edocivil" type="text" class="validate  imagen-text-right" value="<?php echo $Militar->Persona->estadoCivil;?>">
@@ -52,7 +52,7 @@ $this->load->view("afiliacion/inc/cabecera.php");
         <div class="input-field col s6">
             <input  readonly  id="sexo" class="validate  imagen-text-right" 
             type="text" value="<?php echo $Militar->Persona->obtenerSexo()?>">            
-          <label style="font-size: 16px">Genero</label>
+          <label style="font-size: 16px">Género</label>
         </div>
         <?php
           $i = 1;
@@ -191,7 +191,7 @@ $this->load->view("afiliacion/inc/cabecera.php");
 
         <div class="col s12">
           <label style="font-size: 16px" for="direccion">Por favor verifique su dirección</label>
-          <textarea class="materialize-textarea" length="128" id='direccion'><?php 
+          <textarea class="materialize-textarea" length="128" id='direccion' maxlength="128"><?php 
               if($Militar->Persona->direccionHabitacion->direccion != ''){
                 echo trim($Militar->Persona->direccionHabitacion->direccion);  
               }else{
@@ -200,13 +200,13 @@ $this->load->view("afiliacion/inc/cabecera.php");
             ?></textarea>
         </div>
         <div class="col s12">
-          <label  for="email" data-error="Invalido" data-success="right">Correo Electronico Principal</label>
+          <label  for="email" data-error="Invalido" data-success="right">Correo Electrónico Principal</label>
           <input readonly id="email" type="text" class="validate" value="<?php echo $_SESSION['correoaux'];
           //$Militar->Persona->correoElectronico?>">
         </div>
         <div class="col s12" >
-          <label for="emailAux" data-error="Invalido" data-success="right">Correo Electronico Alternativo</label>
-          <input id="emailAux" type="email" class="validate" value="<?php 
+          <label for="emailAux" data-error="Invalido" data-success="right" >Correo Electrónico Alternativo</label>
+          <input id="emailAux" type="email" maxlength="64" class="validate" value="<?php 
             if($Militar->Persona->direccionHabitacion->correo != ''){
               echo  $Militar->Persona->direccionHabitacion->correo;  
             }else{
