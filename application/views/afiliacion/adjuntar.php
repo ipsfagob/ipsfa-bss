@@ -11,8 +11,8 @@
 <br>
     <form>
       <input id="oid" type="hidden" value="<?php echo $Persona->oid?>">   
-      <input id="tipo" type="hidden" value="<?php echo $Persona->oid?>">   
-      <input id="sucursal" type="hidden" value="<?php echo $Persona->oid?>">   
+      <input id="tipo" type="hidden" value="<?php echo $tipo?>">   
+      <input id="sucursal" type="hidden" value="<?php echo $sucursal?>">   
 
       <div class="row white">
       <br>
@@ -56,7 +56,7 @@
                     </div>
                           
                     <div class="btn btns-rd-c">
-                      <input type="file" name='recipe' id="inputFile[1]"  accept="image/gif, image/jpeg, image/png" 
+                      <input type="file" name='fotocarnet' id="inputFile[1]"  accept="image/gif, image/jpeg, image/png" 
                       onchange="readURL(this, 1, 'img');">
                       <i class="material-icons">camera_alt </i>
                     </div>
@@ -87,17 +87,21 @@
                     <label style="font-size: 16px">Género</label>
                   </div>  
                   <div class="col s12 m12 l12" >
-                  <?php
-                      if($btn == 1) 
-                       echo '<a href="#" class=" btn-large waves-effect waves-light"  style="background-color:#00345A" 
-                                  onclick="irConfirmarPago()">Confirmar Pago
-                                  <i class="material-icons left">lock_open</i> 
-                                </a>';
-                         
-                    ?>
-                    <a  class="right btn-large waves-effect waves-light" style="background-color:#00345A"   onclick="continuar('test2')" >Continuar
-                        <i class="material-icons right">send</i>
-                    </a>
+                    <?php
+                        if($btn == 1) 
+                         echo '<div class="col s6 m6 l6" > 
+                                  <a href="#" class=" btn-large waves-effect waves-light"  style="background-color:#00345A" 
+                                    onclick="irConfirmarPago()">Confirmar Pago
+                                    <i class="material-icons left">lock_open</i> 
+                                  </a>
+                               </div>';
+                           
+                      ?>
+                    <div class="col s6 m6 l6" >                    
+                      <a  class="right btn-large waves-effect waves-light" style="background-color:#00345A"   onclick="continuar('test2')" >Continuar
+                          <i class="material-icons right">send</i>
+                      </a>
+                    </div>
                   </div>
       
               </div>
@@ -133,7 +137,7 @@
       </div> <!-- Fin de Fila -->
       
       <div class="row white">
-        <div class="col s6 " >
+        <div class="col s6 m6 l6 " >
           <a href="#" class=" btn-large waves-effect waves-light"  style="background-color:#00345A" onclick="anterior()">Volver atrás
             <i class="material-icons left">arrow_back</i>       
           </a>
@@ -141,7 +145,7 @@
           
         </div>
 
-        <div class="col s6" id="renovar">
+        <div class="col s6 m6 l6" id="renovar">
   			<a  class="right btn-large waves-effect waves-light" style="background-color:#00345A"   onclick="guardar()" >GUARDAR
   			    <i class="material-icons right">assignment_ind</i>
   			</a>

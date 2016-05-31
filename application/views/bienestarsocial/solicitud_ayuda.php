@@ -24,9 +24,19 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
           </div>    
         </div>
 
-
     <div class="row white">
-    <form  id='frmSolicitud' class="col s12" action="<?php echo base_url();?>index.php/BienestarSocial/subirArchivos"  method="post" enctype="multipart/form-data">
+      <div class="col s12" id='cargando' style="display: none">
+         
+          <center><b>Cargando por favor espere</b></center>
+          <div class="progress">
+
+              <div class="indeterminate"></div>
+          </div> 
+
+       </div>
+    </div>
+    <div class="row white">
+    <form  id='frmData' class="col s12" action="<?php echo base_url();?>index.php/BienestarSocial/subirArchivos"  method="post" enctype="multipart/form-data">
       
       <?php
         foreach ($data as $clave => $valor) {
@@ -35,7 +45,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
                $i++;
             $cabecera = '
             <div class="col s12 m6 l4 white" >        
-          <div style="width: 140px;height: 140px; margin:0px " id="view-'. $i .'" >
+          <div style="width: 140px;height: 140px; margin-left:20px " id="view-'. $i .'" >
             <img style="width: 140px;height: 140px; margin-left: 0px" class="file-path-wrapper-pre-view" id="pre-view-'. $i .'" />
           </div>
           
@@ -59,7 +69,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       <input type="hidden" value="<?php echo $url;?>" name="url" id="url">
       <div class="row">
         <div class="col s12">
-          <a class="btn-large waves-effect waves-light" style="background-color:#00345A"  
+          <a id="btnEnviarDoc" class="right btn-large waves-effect waves-light" style="background-color:#00345A"  
           name="action" onclick="imprimirHoja()">Enviar Documentos
               <i class="material-icons right">send</i>
           </a>
@@ -69,31 +79,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
   </div>
  </div>
 
-<div id="msg" class="card modal modal-fixed-footer" style="width: 400px; height: 400px">
-    <div  class="card-image waves-effect waves-block waves-light green center-align" style="height: 160px">
-      <center>
-        <img src="<?php echo base_url(); ?>public/img/logo-central-I.png" style="width:150px;">
-      </center>
-     
-    </div>
-    <div class="card-content center-align">
-    <div class="preloader-wrapper big active">
-        <div class="spinner-layer spinner-blue-only">
-          <div class="circle-clipper left">
-            <div class="circle"></div>
-          </div><div class="gap-patch">
-            <div class="circle"></div>
-          </div><div class="circle-clipper right">
-            <div class="circle"></div>
-          </div>
-        </div>
-    </div>
-    <br><br><br>
-    </div>
-  <div class="card-action">
-        Procesando...
-    </div>    
-  </div>
+
  
 <?php 
 $this->load->view("bienestarsocial/inc/pie.php");

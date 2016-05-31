@@ -27,7 +27,7 @@ class Login extends CI_Controller {
 	 *Menu
 	 */
   	function ingresar() {
-		if(isset($_SESSION['cedula'])){
+		if(isset($_SESSION['usuario'])){
 			$this->inicio();	
 		}else{
 			$this->load->view ( 'login/login');

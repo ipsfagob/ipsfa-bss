@@ -12,13 +12,28 @@
  */
 define ('__CONTROLADOR', 'Consultoria');
 class Consultoria extends CI_Controller {
-	function __construct(){
+
+
+	/**
+	* Iniciando la clase
+	*
+	* @access public
+	* @return void
+	*/
+	public function __construct(){
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->library('session');	
 	}
 	
-	function index() {
+
+	/**
+	* Inicio de la Aplicacion
+	*
+	* @access public
+	* @return void
+	*/
+	public function index() {
 		if(isset($_SESSION['cedula'])){
 			$this->load->model('saman/Militar', 'Militar');
 			$this->Militar->consultar($_SESSION['cedula']);	

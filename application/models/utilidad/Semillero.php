@@ -37,7 +37,7 @@ class Semillero extends CI_Model{
 	var $codigo = '';
 
 	/**
-	* Tipo de Codigo en los casos (R: Reembolso |A: Apoyo |C: Carta Aval)
+	* Postgres::tipo_solicitud (Tipo de Codigo en los casos Ejemplo: (R: Reembolso |A: Apoyo |C: Carta Aval))
 	*
 	* @return string
 	*/
@@ -50,10 +50,26 @@ class Semillero extends CI_Model{
 	*/
 	var $longitud = 8;
 
+	/**
+	* Estatus del codigo (Creado, Activo, Atendido)
+	*
+	* @return int
+	*/
 	var $estatus = 0;
 	
+	/**
+	* Postgres::md5 (Certificado clave en caso de una anomalia excentrica del sistema)
+	*
+	* @return string
+	*/
 	var $session = '';
 
+
+	/**
+	* Tipo de Codigo en los casos (R: Reembolso |A: Apoyo |C: Carta Aval)
+	*
+	* @return string
+	*/
 	var $observacion = '';
 
 
@@ -108,7 +124,12 @@ class Semillero extends CI_Model{
 	}
 
 
-
+	/**
+	* Iniciar los datos de la clase mediante la ejecución del QUERY
+	*
+	* @var string | SQL_QUERY
+	* @return object (Dbipsfa)
+	*/
 	private function generarConsultaSQL($sConsulta){
 		$obj = $this->Dbipsfa->consultar($sConsulta);
 		foreach ($obj->rs as $clave => $valor) {
@@ -144,10 +165,14 @@ class Semillero extends CI_Model{
 	public function validar(){
 		$sConsulta = 'SELECT * FROM ' . $this->esq . '.semillero 
 						WHERE certi=\'' . $this->session . '\' AND tipo=\'' . $this->tipo . '\' AND estatus=0';
-		if($this->tipo == 7)
+		
+
+
+		if($this->tipo == 7 || $this->tipo == 5 )
 			$sConsulta = 'SELECT * FROM ' . $this->esq . '.semillero 
 						WHERE certi=\'' . $this->session . '\' AND tipo=\'' . $this->tipo . '\'  
 						AND observacion=\'' . $this->observacion . '\' AND estatus=0';
+
 
 		//echo $sConsulta;
 			

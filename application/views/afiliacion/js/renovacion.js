@@ -50,13 +50,11 @@ function continuar(id){
 }
 
 function guardar(){
-	msjRenovacion();
 	
-
 	var inputFileImage = document.getElementById("inputFile[1]");
 	var file = inputFileImage.files[0];	
-	if(file == undefined ) {
-		Materialize.toast('Si desea puede sustituir la foto para actualizar su expediente', 3000);
+	if(file == undefined) {
+		msjSinFoto();
 	}else{
 		if(file.size < 1000000) {		
 			var data = new FormData();
@@ -72,14 +70,39 @@ function guardar(){
 				cache : false,
 				success : function(res){	           
 		               	Materialize.toast(res, 3000);             
-		            } 
+		            },
+		        error: function(e){
+		        	Materialize.toast(e, 5000);
+		        }
 			});		
 		}else{
 			Materialize.toast('No se puede subir un archivo mayor a 1 MB', 3000);
-		}	
+		}
+		salvarDireccion();	
+		msjRenovacion();
 	}
-	salvarDireccion();
+	
 	//salvarDatosMedicos();
+}
+
+
+
+function msjSinFoto(){
+	msj = 'No ha actualizado la foto si desea hacerlo pulse cancelar; sin embargo en caso que desee seguir con la foto actual pulse continuar.<br><br>';
+	acciones = '<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" onclick="guardarSinFoto()">' +
+      	'Continuar<i class="material-icons left green-text">check_circle</i></a>' +
+      	'<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">' +
+      	'Cancelar<i class="material-icons left red-text">cancel</i>' +
+	  	'</a>';
+	$("#msj").html(msj);
+	$("#acciones").html(acciones);
+	$('#modal1').openModal();
+	return true;
+}
+
+function guardarSinFoto(){
+	salvarDireccion();
+	msjRenovacion();
 }
 
 /**
@@ -101,7 +124,9 @@ function msjRenovacion(){
 	return true;
 }
 
+function msjguardarConFoto(){
 
+}
 /**
 * Validar Campos Existentes para salvar
 *

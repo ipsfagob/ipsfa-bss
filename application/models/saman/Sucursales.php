@@ -39,6 +39,16 @@ class Sucursales extends CI_Model{
 	}
 
 
+	public function obtener($oid){
+		$nombre = '';
+		$sConsulta = 'SELECT oid, nomb AS nombre FROM bss.sucursales WHERE oid=' . $oid;
+		$obj = $this->Dbsaman->consultar($sConsulta);
+		foreach ($obj->rs as $clave => $valor) {
+			$nombre = $valor->nombre;
+		}
+		return $nombre;
+	}
+
 	/**
 	* Listar todos los codigos de Areas del país
 	*

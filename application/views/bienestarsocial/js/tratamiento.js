@@ -18,7 +18,7 @@ function listarKitDetalle(){
 	var datos = {};
 	datos['diag'] = $("#patologia option:selected").val();
 	datos['id'] = $("#id").val();
-
+	$("#diagnostico").val($("#patologia option:selected").text());
 	$('#load').show();
 
 	$.getJSON(sUrlP + "listarKitDetalle/", datos, function(data) {
@@ -42,6 +42,7 @@ function listarKitDetalle(){
 		$("#menuprincipal").focus();
 
 	}).fail(function(jqXHR, textStatus) {
+		
 		alert(jqXHR.responseText);
 	});
 	$('#load').hide();

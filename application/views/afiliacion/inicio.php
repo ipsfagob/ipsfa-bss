@@ -10,6 +10,8 @@ $this->load->view("afiliacion/inc/cabecera.php");
 <br>
   <div class="row white">
   <form >
+  <input readonly id="tipo" type="hidden" value="">
+  <input readonly id="sucursal" type="hidden" value="">
  <div class="col s12 m12 l12">
     <h5>Datos Básicos</h5>
   </div>
@@ -236,14 +238,14 @@ $this->load->view("afiliacion/inc/cabecera.php");
       </div>
 
 
-      	<div class="col s6" >
+      	<div class="col s6 m6 l6" >
   			<a  class="btn-large waves-effect waves-light" style="background-color:#00345A"   onclick="salvarDireccion()" >Actualizar
   			    <i class="material-icons left">swap_vertical_circle</i>
   			</a>
       	</div>
 
-        <div class="col s6" >
-        <a class="btn-large waves-effect waves-light" style="background-color:#00345A" 
+        <div class="col s6 m6 l6" >
+        <a class="right btn-large waves-effect waves-light" style="background-color:#00345A" 
         href="http://www.ipsfa.gob.ve/NUEVO/ipsfaNet/init.session.IPSFA.web/project.Web/projects/admin/view/panel.Init/consola/menu.gral.php">Ir al Inicio
             <i class="material-icons left">home</i>
         </a>

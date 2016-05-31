@@ -69,7 +69,7 @@
       </a>
       </div>
     <div class="col s6">
-      <a class="btn-large waves-effect waves-light"  style="background-color:#00345A" onclick="mensaje('<?php echo $Codigo?>','1')">Adjuntar Requisitos
+      <a class="right btn-large waves-effect waves-light"  style="background-color:#00345A" onclick="mensaje('<?php echo $Codigo?>','1')">Adjuntar Requisitos
           <i class="material-icons right">attach_file</i>
       </a>
       

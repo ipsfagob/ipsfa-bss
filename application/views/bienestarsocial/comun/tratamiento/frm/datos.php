@@ -18,14 +18,14 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 
   
     <form class="col s12" action="<?php echo base_url() . "index.php/BienestarSocial/subirArchivosTratamiento";?>"  method="post" 
-    enctype="multipart/form-data">
-        <input type="hidden" id= "codigo" name="codigo">
-        <input type="hidden" value="3" name="url">
+    enctype="multipart/form-data" id="frmData">
+        
+        <input type="hidden" id= "oid" name="oid" value="<?php echo $data->rs[0]->nropersona;?>">        
         <input type="hidden" name="diagnostico" id="diagnostico">
         <input type="hidden" id="id" value="<?php echo $data->rs[0]->codnip;?>"></input>
         <div class="row white">
           <div class="col s12 escajas">
-          <label for="patologia">Seleccioné la patología que desea actualizar</label>
+            <label class="truncate" for="patologia">Seleccioné la patología que desea actualizar</label>
              <select id="patologia" name="patologia" onchange="listarKitDetalle()" class="browser-default">
              <option value="0">--------------</option>
             <?php 
@@ -84,7 +84,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
               </div>
                     
               <div class="btn btns-rd-c">
-                <input type="file" name="fe" id="inputFile[2]"  accept="image/gif, image/jpeg, image/png" onchange="readURL(this, 2, 'img');">
+                <input type="file" name="fe" id="inputFile[2]"  accept="image/jpeg, image/png" onchange="readURL(this, 2, 'img');">
                 <i class="material-icons">file_upload</i>
               </div>
             </div>
@@ -104,7 +104,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
       </div> 
       
       <div class="row">
-      <div class="col s12" id='cargando' style="display: none">
+        <div class="col s12" id='cargando' style="display: none">
          
           <center><b>Cargando por favor espere</b></center>
           <div class="progress">
@@ -114,14 +114,14 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 
        </div>
       <div class="col s6">
-        <a class="btn-large waves-effect waves-light"  style="background-color:#00345A" onclick="cargando();irAtras()">Volver atrás
+        <a id="btnAnterior" class="btn-large waves-effect waves-light"  style="background-color:#00345A" onclick="cargando();irAtras()">Volver atrás
             <i class="material-icons left">arrow_back</i>       
         </a>
       </div>
         <div class="col s6">
-          <a class="right btn-large medium waves-effect waves-light" 
+          <a id="btnEnviarDoc" class="right btn-large medium waves-effect waves-light" 
           style="background-color:#00345A" onclick="cargando();validar();">Enviar Documentos
-            <i class="material-icons right">send</i>
+            <i class="material-icons right" >send</i>
           </a>
         </div>
       </div>

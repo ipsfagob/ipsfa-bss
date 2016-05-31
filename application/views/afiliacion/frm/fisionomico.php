@@ -5,13 +5,13 @@
 
 
       <div class="col s6 m4 l4">
-        <label >Tipo de Sangre</label>
+        <label class="truncate">Tipo de Sangre</label>
          <input type="text" readonly class="validate  imagen-text-right" value="<?php echo $Persona->Afiliado->DatosMedicos->tipoSangre;?>" id='familiar'></input>
       </div>
 
 
       <div class="col s6 m4 l4">
-        <label >Donante de Órganos</label>
+        <label class="truncate">Donante de Órganos</label>
         <input type="text" class="validate  imagen-text-right" readonly 
           value="<?php echo $Persona->Afiliado->DatosMedicos->donanteOrgano;?>" id='organo'>
         </input>
@@ -19,7 +19,7 @@
       </div>
 
     <div class="col s12 m4 l4">
-        <label >Número de historia médica</label>
+        <label class="truncate">Número de historia médica</label>
         <input  id="expediente" readonly class="validate  imagen-text-right" type="text" 
           value="<?php echo $Persona->Afiliado->DatosMedicos->historiaClinica?>">
 

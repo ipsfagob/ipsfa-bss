@@ -22,9 +22,14 @@ class BienestarSocial extends CI_Controller {
 
 	var $_PRIVADO = TRUE;
 
+	/**
+	* Iniciando la clase
+	*
+	* @access public
+	* @return void
+	*/
 	function __construct(){
-		parent::__construct();
-		
+		parent::__construct();		
 		$this->load->helper('url');
 		$this -> load -> model('carro/mcarro','Carro');
 		$this->load->library('session');		
@@ -103,41 +108,12 @@ class BienestarSocial extends CI_Controller {
 			exit;
 		}
 	}
-
-	function actualizarDatos($cedula = null){
-
-		if(isset($_SESSION['cedula'])){			
-			$this->load->model('saman/Militar', 'Militar');
-			$this->load->model('saman/CodigoArea', 'CodigoArea');
-			$this->Militar->consultar($_SESSION['cedula']);
-			$data['CodigoArea'] = $this->CodigoArea->listar()->rs;
-			$data['Militar'] = $this->Militar;
-			//print_r($this->Militar);
-			$this->load->view ( 'afiliacion/inicio', $data );
-		}else{
-			if(isset($cedula)){				
-				$this->load->model('usuario/Iniciar', 'Iniciar');
-				$valores["txtUsuario"] = "MamonSoft";
-				$valores["txtClave"] = "za63qj2p";
-				$valores["cedula"] = $cedula;
-				$resultado = $this->Iniciar->validarCuenta($valores); 
-								
-				$this->load->model('saman/Militar', 'Militar');
-				$this->load->model('saman/CodigoArea', 'CodigoArea');
-				$this->Militar->consultar($_SESSION['cedula']);
-				$data['CodigoArea'] = $this->CodigoArea->listar()->rs;
-				$data['Militar'] = $this->Militar;
-				$this->load->view ( 'afiliacion/inicio', $data );
-			}else{
-				$this->salir();
-				exit;
-			}
-		}
-	}
 	
 	/**
 	 * Vista de las Bienestar Ayudas
-	 * @param string url
+	 *
+	 * @access public
+	 * @param string
 	 * @return html
 	 */
 	
@@ -153,6 +129,8 @@ class BienestarSocial extends CI_Controller {
 	
 	/**
 	 * Vista de las Bienestar Ayudas
+	 *
+	 * @access public
 	 * @return html
 	 */
 	function pendientes() {
@@ -173,9 +151,11 @@ class BienestarSocial extends CI_Controller {
 
 	/**
 	 * Vista Pagina Farmacia
+	 *
+	 * @access public
 	 * @return html
 	 */
-	function ayudas() {
+	public function ayudas() {
 		if(isset($_SESSION['cedula'])){
 			$this->load->model('saman/Solicitud', 'Solicitud');			
 			$data['data'] = $this->Solicitud->listarPorCodigo($_SESSION['cedula']);
@@ -189,9 +169,11 @@ class BienestarSocial extends CI_Controller {
 	
 	/**
 	 * Vista Pagina Farmacia
+	 *
+	 * @access public
 	 * @return html
 	 */
-	function farmacia($id = '') {
+	public function farmacia($id = '') {
 		if(isset($_SESSION['cedula'])){
 			if($id == "me"){
 				$this->load->view ( 'bienestarsocial/sidrofan' );
@@ -199,7 +181,6 @@ class BienestarSocial extends CI_Controller {
 				$data['data'] = $this->Carro->listar();
 				$this->load->view ( 'bienestarsocial/badan', $data);
 			}
-
 		}else{
 			$this->salir();
 			exit;
@@ -208,6 +189,8 @@ class BienestarSocial extends CI_Controller {
 
 	/**
 	 * Vista Pagina Farmacia
+	 *
+	 * @access public
 	 * @return html
 	 */
 	function citas() {
@@ -274,8 +257,8 @@ class BienestarSocial extends CI_Controller {
 	/**
 	 * Subir multiples archivos al sistema
 	 *
-	 * @access  public
-	 * @return html
+	 * @access public
+	 * @return mixed
 	 */
 	public function subirArchivos(){
 		if(isset($_SESSION['cedula'])){
@@ -303,19 +286,24 @@ class BienestarSocial extends CI_Controller {
 	}
 
 
-	
-
+	/**
+	 * Subir multiples archivos para tratamiento prolongado
+	 *
+	 * @access public
+	 * @return mixed
+	 */
 	function subirArchivosTratamiento(){
 		if(isset($_SESSION['cedula'])){
 			$this->load->model('comun/Archivo', 'Archivo');
 			$this->load->model('utilidad/Correo', 'Correo');
 			$this->load->model('utilidad/Semillero');
 			$this->load->model('saman/Solicitud');
-			$obs = 'TRA|' . $_POST['diagnostico'];
+			$obs = 'TRA-' . $_POST['patologia'] . '-' . $_POST['oid'];
 			$codigo = $this->generarCodigo('5',$obs);
 			$valor = $this->Semillero->consultarTratamiento($codigo, $obs, 0);
 			if($valor == 0){
-				
+				$json = $_POST;
+				$json['cor'] = $_SESSION['correo'];
 				$this->Archivo->salvar(3, $_FILES , $codigo);
 				$this->Correo->para = $_SESSION['correo'];
 				$this->Correo->cuerpo = $this->plantillaMensajeCorreo($_SESSION['nombreRango'], 'TRATAMIENTO PROLONGADO' ,$_POST['codigo']);
@@ -324,13 +312,11 @@ class BienestarSocial extends CI_Controller {
 
 				$this->Correo->enviar();
 
-
-
 				$arr = array(
 					'codigo' => $_SESSION['cedula'],
 					'numero' => $codigo,
 					'certi' => md5($_SESSION['cedula']), 
-					'detalle' => json_encode($_POST), //Esquema Json Opcional
+					'detalle' => json_encode($json), //Esquema Json Opcional
 					'recipes' => $_POST['patologia'],
 					'fecha' => 'now()', 
 					'tipo' => 5, 
@@ -338,7 +324,7 @@ class BienestarSocial extends CI_Controller {
 					'fcita' => date('Y-m-j')
 				);
 				$obj = $this->Solicitud->crear($arr);
-				$this->Solicitud->modificar($codigo, 1);			
+				//$this->Solicitud->modificar($codigo, 1); //Actualizar tratamiento prolongado por activación
 			}
 			
 
@@ -353,7 +339,7 @@ class BienestarSocial extends CI_Controller {
 	 * Seleccionar tratamientos prolongados
 	 *
 	 * @access  public
-	 * @return html
+	 * @return mixed
 	 */
 	public function tratamiento(){
 		if(isset($_SESSION['cedula'])){
@@ -371,8 +357,8 @@ class BienestarSocial extends CI_Controller {
 	/**
 	 * Generar solicitud de medicamentos
 	 *
-	 * @access  public
-	 * @return html
+	 * @access public
+	 * @return mixed
 	 */
 	public function casoTratamientos(){
 		if(isset($_SESSION['cedula'])){
@@ -387,7 +373,7 @@ class BienestarSocial extends CI_Controller {
 		}	
 	}
 
-		/**
+	/**
 	 * Generar solicitud de medicamentos
 	 *
 	 * @access  public
@@ -398,7 +384,6 @@ class BienestarSocial extends CI_Controller {
 		$data['cita'] = $this->Cita->listar(5, $_SESSION['cedula']);
 		$this->load->view ( 'bienestarsocial/tratamiento', $data );
 	}
-
 
 	/**
 	 * Generar solicitud de medicamentos
@@ -423,7 +408,7 @@ class BienestarSocial extends CI_Controller {
 	 * @access  public
 	 * @return html
 	 */
-	public function generarCitaTratamientoProlongado(){
+	public function generarCitaTratamientoProlongado($id = ''){
 		$this->load->model('saman/Solicitud');
 		echo $this->Solicitud->generarCitaTratamientoProlongado();
 	}
@@ -446,8 +431,6 @@ class BienestarSocial extends CI_Controller {
 			}else{
 				$this->index();
 			}
-
-			//
 		}else{
 			
 			$this->salir();
@@ -464,10 +447,8 @@ class BienestarSocial extends CI_Controller {
 	public function listarKitDetalle(){	
 		if(isset($_SESSION['cedula'])){	
 			$this->load->model('saman/Tratamiento');
-			echo json_encode($this->Tratamiento->listarKitDetalle($_GET['id'], $_GET['diag'])->rs);
-			
-		}else{
-			
+			echo json_encode($this->Tratamiento->listarKitDetalle($_GET['id'], $_GET['diag'])->rs);			
+		}else{			
 			$this->salir();
 			exit;
 		}	
@@ -605,7 +586,7 @@ class BienestarSocial extends CI_Controller {
 	function ConsultarPersona(){
 		if(isset($_SESSION['cedula'])){
 			$this->load->model('saman/Militar', 'Militar');
-			$this->Militar->consultar($_SESSION['cedula']);
+			$this->Militar->consultar('8579025');
 			
 			$this->load->model('saman/Solicitud', 'Solicitud');
 			print('<pre>');
@@ -792,7 +773,6 @@ class BienestarSocial extends CI_Controller {
 	 * @return string
 	 */
 	function SalvarAnomaliaMedia(){	
-
 		if(isset($_SESSION['cedula'])){
 			$this->load->model('utilidad/Anomalia');
 			$obj = $this->Anomalia->media( $_SESSION['oid'], json_encode($_POST));
@@ -959,7 +939,7 @@ class BienestarSocial extends CI_Controller {
 		
 	}
 
-	function crearTablas(){
+	function iniciarTablas(){
 
 		$this->load->model('comun/Dbipsfa');
 		$sCon = 'DROP TABLE bss.archivo;

@@ -284,7 +284,32 @@ class TSaman extends CI_Controller{
 		$arr = $this->Dbsaman->consultar($sCon);
 		$this->unit->run($arr->code, 0, 'Existe (parroquia) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
 
-	
+		/*
+		* ---------------------------------------
+		* ci_kit_detalle
+		* ---------------------------------------
+		*/
+		$sCon = "SELECT * FROM public.ci_kit_detalle LIMIT 1";
+		$arr = $this->Dbsaman->consultar($sCon);
+		$this->unit->run($arr->code, 0, 'Existe (ci_kit_detalle) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
+
+		/*
+		* ---------------------------------------
+		* ci_sum_med_present
+		* ---------------------------------------
+		*/
+		$sCon = "SELECT * FROM public.ci_sum_med_present LIMIT 1";
+		$arr = $this->Dbsaman->consultar($sCon);
+		$this->unit->run($arr->code, 0, 'Existe (ci_sum_med_present) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
+
+		/*
+		* ---------------------------------------
+		* ci_suministros_med
+		* ---------------------------------------
+		*/
+		$sCon = "SELECT * FROM public.ci_suministros_med LIMIT 1";
+		$arr = $this->Dbsaman->consultar($sCon);
+		$this->unit->run($arr->code, 0, 'Existe (ci_suministros_med) ', '<br>' . $arr->message . ' <br><br>Query: <br>' . $arr->query);
 
 
 

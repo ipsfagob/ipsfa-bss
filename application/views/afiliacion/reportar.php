@@ -21,7 +21,7 @@ $this->load->view("afiliacion/inc/cabecera.php");
       </ul>
     </div>
 
-    <form>
+    <form id="frmData" action="<?php echo base_url(); ?>index.php/Afiliacion/renovacionCarnet" method="POST" enctype="multipart/form-data">
 
     <div class="row white">
 
@@ -30,44 +30,34 @@ $this->load->view("afiliacion/inc/cabecera.php");
 	        <p style="text-align: justify;">        
 	         <ol>
 	          	<li>
-	          		Los numeros de cuenta para realizar los depositos son:
-                <br><b>Banco de Venezuela</b><br>
+	          		<b>Banco de Venezuela</b><br>
                 Cuenta Corriente<br>
                 Nro. 0102-0552-21000003-1480<br>
-                A NOMBRE DEL IPSFA.<br><br>
+                A NOMBRE DEL IPSFA.                
+            	</li>
+	          </ol>        
+	        </p>    
+	      </div>        
+	    </div>
+      <div class="col s12 m6 l6">
+        <div class="col s12 card-panel blue lighten-2">
+          <p style="text-align: justify;">        
+           <ol>
+              <li>
                 <b>Banco de BANFANB</b><br>
                 Cuenta Corriente<br>
                 Nro. 0177-0006-56110017-4099<br>
                 A NOMBRE DEL IPSFA.
-            	</li>
-	          </ol>        
-	        </p>    
-	      </div>
+              </li>
+            </ol>        
+          </p>    
+        </div>
+      </div>
+    </div>
+    <div class="row white">
+              
 
-        
-	    </div>
-
-
-      <div class="col s12 m4 l3" >        
-                <div style="width: 190px;height: 140px; margin-left:20px; margin-top: 20px" id="view-1" >
-                  <img style="width: 190px;height: 140px; margin-left: 0px"                  
-                  class="file-path-wrapper-pre-view" id="pre-view-1" />
-                </div>
-                <!-- -->
-                <div class="file-field input-field col file-field-input-field" >
-                    <div class="file-path-wrapper file-path-wrapper-sopor">
-                      <input class="file-path validate" type="text"  placeholder="Voucher">
-                    </div>
-                          
-                    <div class="btn btns-rd-c">
-                      <input type="file" name='recipe' id="inputFile[1]"  accept="image/gif, image/jpeg, image/png" 
-                      onchange="readURL(this, 1, 'img');">
-                      <i class="material-icons">camera_alt </i>
-                    </div>
-                  </div>
-              </div> 
-
-              <div class="col s12 m8 l9">
+              <div class="col s12 m12 l12">
                 <div class="col s12 m6 l6">
                   <label >Nombre del Banco</label>
                     <select id="banco" class="browser-default">
@@ -101,31 +91,66 @@ $this->load->view("afiliacion/inc/cabecera.php");
                 </div>
 
                 <div class="col s12" >
-                <a  class="left btn-large waves-effect waves-light" style="background-color:#00345A"   onclick="msjSucursal()" >Agregar Otro Pago
+                <a  class="right btn-large waves-effect waves-light" style="background-color:#00345A"   onclick="()" >Agregar Otro Pago
                     <i class="material-icons left">add</i>
                 </a>
                 </div>
               </div>
 
         </div>
+        <!-- -->
+        <div class="row white">
+            <div class="col s12 m4 l3" >        
+                <div style="width: 190px;height: 140px; margin-left:20px; margin-top: 20px" id="view-1" >
+                  <img style="width: 190px;height: 140px; margin-left: 0px"                  
+                  class="file-path-wrapper-pre-view" id="pre-view-1" />
+                </div>
+                <!-- -->
+                <div class="file-field input-field col file-field-input-field" >
+                    <div class="file-path-wrapper file-path-wrapper-sopor">
+                      <input class="file-path validate" type="text"  placeholder="Voucher">
+                    </div>
+                          
+                    <div class="btn btns-rd-c">
+                      <input type="file" name='recipe' id="inputFile[1]"  accept="image/gif, image/jpeg, image/png" 
+                      onchange="readURL(this, 1, 'img');">
+                      <i class="material-icons">camera_alt </i>
+                    </div>
+                  </div>
+              </div> 
+              <div class="col s12 m4 l3" >        
+                <div style="width: 190px;height: 140px; margin-left:20px; margin-top: 20px" id="view-2" >
+                  <img style="width: 190px;height: 140px; margin-left: 0px"                  
+                  class="file-path-wrapper-pre-view" id="pre-view-2" />
+                </div>
+                <!-- -->
+                <div class="file-field input-field col file-field-input-field" >
+                    <div class="file-path-wrapper file-path-wrapper-sopor">
+                      <input class="file-path validate" type="text"  placeholder="Denuncia CICPC">
+                    </div>
+                          
+                    <div class="btn btns-rd-c">
+                      <input type="file" name='cicpc' id="inputFile[2]"  accept="image/gif, image/jpeg, image/png" 
+                      onchange="readURL(this, 2, 'img');">
+                      <i class="material-icons">camera_alt </i>
+                    </div>
+                  </div>
+              </div> 
+        </div>
+
         <div class="row white"> 
-    	  
-      	
-
-
-
         <div class="col s6" >
-          <a href="#" class=" btn-large waves-effect waves-light"  style="background-color:#00345A" onclick="irAtras()">Volver atrás
+          <a href="#" class="hide-on-small-only btn-large waves-effect waves-light"  style="background-color:#00345A" onclick="irAtras()">Volver atrás
             <i class="material-icons left">arrow_back</i>       
           </a>
           <a class="btn-large waves-effect waves-light" style="background-color:#00345A" 
-            href="http://www.ipsfa.gob.ve/NUEVO/ipsfaNet/init.session.IPSFA.web/project.Web/projects/admin/view/panel.Init/consola/menu.gral.php">Ir al Inicio
-                <i class="material-icons left">home</i>
+            href="<?php echo base_url(); ?>index.php/Afiliacion/renovacionCarnet">Principal
+                <i class="material-icons left">group</i>
           </a>
         </div>
 
         <div class="col s6" >
-  			<a  class="right btn-large waves-effect waves-light" style="background-color:#00345A"   onclick="msjSucursal()" >CONFIRMAR
+  			<a  class="right btn-large waves-effect waves-light" style="background-color:#00345A"   onclick="validar();" >CONFIRMAR
   			    <i class="right material-icons left">done_all</i>
   			</a>
       	</div>

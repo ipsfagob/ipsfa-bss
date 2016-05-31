@@ -18,7 +18,7 @@ $this->load->view("afiliacion/inc/cabecera.php");
         $cadena = '';
         
         foreach ($Militar->Persona->Bancos as $key => $v) {
-          //$v->cuenta = '00000000000000000001';
+          $v->cuenta = '00000000000000000001';
           $cadena .= '
             
               <div class="col s12 m6 l6">

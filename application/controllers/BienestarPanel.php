@@ -43,6 +43,15 @@ class BienestarPanel extends CI_Controller{
 		$this->load->view('bienestarsocial/panel/inicio');
 	}
 
+	function farmacia(){
+		$this->load->view('bienestarsocial/panel/farmacia');
+	}
+
+	function bienestar(){
+		$this->load->view('bienestarsocial/panel/bienestar');
+	}
+
+
 	function login(){
 		$this->load->view('login/login');
 	}

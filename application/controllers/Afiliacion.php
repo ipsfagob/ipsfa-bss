@@ -12,27 +12,32 @@
  */
 define ('__CONTROLADOR', 'Afiliacion');
 class Afiliacion extends CI_Controller {
+	
 	function __construct(){
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->library('session');
-		/**
-		if(!isset($_SESSION['cedula'])) $this->salir("Debe iniciar session");
-		
-		if(!isset($_SESSION['cedula'])) {
-			$this->salir("Debe iniciar session");
-
-		}else{
-			$_SESSION['cedula'] = '7682282';
-		}
-		**/
 	}
 	
+	/**
+	* Inicio de la Aplicacion
+	*
+	* @access public
+	* @return void
+	*/
 	function index() {
 		$this->actualizarDatos ();
 	}
 
-
+	/**
+	 * Ingresar al sistema
+	 *
+	 * @access public
+	 * @return mixed
+	 */
+  	function ingresar() {
+		$this->load->view ( 'login/login');
+	}
 
 	/**
 	* Rohamel Conexion
@@ -66,6 +71,11 @@ class Afiliacion extends CI_Controller {
 		}
 	}
 
+	/**
+	 * GUI datos personales
+	 *
+	 * @return mixed
+	 */
 	function actualizarDatos(){
 		if(isset($_SESSION['cedula'])){
 			$this->load->model('saman/Militar', 'Militar');
@@ -82,10 +92,14 @@ class Afiliacion extends CI_Controller {
 		}
 	}
 
+	/**
+	 * GUI datos bancarios
+	 *
+	 * @return mixed
+	 */
 	function datosBancarios(){
 		if(isset($_SESSION['cedula'])){
-			$this->load->model('saman/Militar', 'Militar');
-			
+			$this->load->model('saman/Militar', 'Militar');			
 			$this->Militar->consultar($_SESSION['cedula']);
 			$data['menu'] = 'mnu_datos_bancarios';
 			$data['Militar'] = $this->Militar;
@@ -105,11 +119,14 @@ class Afiliacion extends CI_Controller {
 	 */
 	public function renovacionCarnet(){
 		if(isset($_SESSION['cedula'])){
-			$this->load->model('saman/Militar', 'Militar');
+			//$this->load->model('saman/Militar', 'Militar');
+			$this->load->model('saman/Persona');
 			$this->load->model('saman/Sucursales', 'Sucursales');
 			
-			$this->Militar->consultar($_SESSION['cedula']);
-			$data['Militar'] = $this->Militar;
+			//$this->Militar->consultar($_SESSION['cedula']);
+			$this->Persona->consultar($_SESSION['cedula'], '');
+			//$data['Militar'] = $this->Militar;
+			$data['Persona'] = $this->Persona;
 			$data['Sucursales'] = $this->Sucursales->listar()->rs;
 			
 			$data['menu'] = 'mnu_renovacion_carnet';
@@ -129,6 +146,7 @@ class Afiliacion extends CI_Controller {
 		
 		print_r($this->Persona);
 	}
+
 	/**
 	 * Renovacion de Carnet para afiliados
 	 *
@@ -138,6 +156,7 @@ class Afiliacion extends CI_Controller {
 	public function adjuntar($id, $tipo, $sucursal){
 		if(isset($_SESSION['cedula'])){
 			$this->load->model('saman/Estado', 'Estado');
+			$this->load->model('saman/Sucursales');
 			$this->load->model('saman/Persona');
 			$this->load->model('roraima/Afiliado');
 			$this->load->model('utilidad/Semillero', 'Semillero');
@@ -150,10 +169,10 @@ class Afiliacion extends CI_Controller {
 			$this->Persona->consultar('', $id);
 			$this->Afiliado->consultarReferencia($this->Persona, 'roraima');	
 
-			
+			$data['sucursal'] = $this->Sucursales->obtener(2);
 			$data['btn'] = $this->Semillero->estatus;
 			$data['tipo'] =  $tipo;
-			$data['sucursal'] =$sucursal;
+			$data['sucursal'] = $sucursal;
 			$data['Persona'] = $this->Persona;
 			$data['Estado'] = $this->Estado->listar()->rs;
 
@@ -164,12 +183,28 @@ class Afiliacion extends CI_Controller {
 			$this->salir("Debe iniciar session");
 		}
 	}
-	
+
+	/**
+	 * Reportar los pagos
+	 *
+	 * @param int
+	 * @return mixed
+	 */
 	public function confirmarPago($id = ''){
 		if(isset($_SESSION['cedula'])){
-			
+			$this->load->model('utilidad/Semillero');
+			$this->load->model('saman/Solicitud');
+			$this->Semillero->tipo = 7;
+			$this->Semillero->session = md5($_SESSION['cedula']);
+			$this->Semillero->observacion = 'REN-' . $id;
+			$this->Semillero->validar();
+			$this->Solicitud->consultar($this->Semillero->codigo);
+			$detalle = json_decode($this->Solicitud->detalle);
+			$data['datospago'] = $detalle;
+
 			$data['menu'] = 'mnu_renovacion_carnet';
-			$data['oid'] = $id; 
+			$data['oid'] = $id;
+
 
 			$this->load->view ( 'afiliacion/reportar', $data );
 		}else{			
@@ -178,6 +213,11 @@ class Afiliacion extends CI_Controller {
 	}
 
 
+	/**
+	 * Listar municipios
+	 *
+	 * @return json
+	 */
 	public function listarMunicipio(){
 		if(isset($_SESSION['cedula'])){
 			$this->load->model('saman/Municipio', 'Municipio');
@@ -189,6 +229,11 @@ class Afiliacion extends CI_Controller {
 		}
 	}
 
+	/**
+	 * Listar parroquias
+	 *
+	 * @return json
+	 */
 	public function listarParroquia(){
 		if(isset($_SESSION['cedula'])){
 			$this->load->model('saman/Parroquia', 'Parroquia');
@@ -199,6 +244,11 @@ class Afiliacion extends CI_Controller {
 	}
 
 
+	/**
+	 * Listar Codigos de Areas de los telefonos
+	 *
+	 * @return json
+	 */
 	public function listarCodigos(){
 		if(isset($_SESSION['cedula'])){
 			$this->load->model('saman/CodigoArea', 'CodigoArea');
@@ -209,13 +259,6 @@ class Afiliacion extends CI_Controller {
 		}
 
 	}
-	/**
-	 *Menu
-	 */
-  	function ingresar() {
-		$this->load->view ( 'login/login');
-	}
-
 
 
 	/**
@@ -224,11 +267,9 @@ class Afiliacion extends CI_Controller {
 	 * @access public
 	 * @return mixed
 	 */
-	function salvarDireccion(){
-		$this->load->model('saman/Direccion');
-		
+	public function salvarDireccion(){
+		$this->load->model('saman/Direccion');		
 		$this->load->model('utilidad/Correo', 'Correo');
-
 		$this->Direccion->oid = str_replace("'","",$_GET['oid']);
 		$this->Direccion->ides =  str_replace("'","",$_GET['ides']);
 		$this->Direccion->idmu =  str_replace("'","",$_GET['idmu']);
@@ -238,18 +279,18 @@ class Afiliacion extends CI_Controller {
 		$this->Direccion->telefono->codigoArea =  str_replace("'","",$_GET['cod']);
 		$this->Direccion->telefono->numero =  str_replace("'","",$_GET['tel']);
 		$this->Direccion->correo =  str_replace("'","",$_GET['cor']);
-		$tipo =  str_replace("'","",$_GET['tip']);
+		$tipo =  str_replace("'","",$_GET['tipo']);
 		$sucursal =  str_replace("'","",$_GET['suc']);
 
 		$this->Direccion->salvar($this->Direccion, 'habitacion');
-		$this->salvarSolicitudRenovacion($this->Direccion->oid, $tipo, $sucursal);
+		if($tipo != '') $this->salvarSolicitudRenovacion($this->Direccion->oid, $tipo, $sucursal);
 
 		$this->Correo->para = $_SESSION['correo'];
 		$texto = 'ACTUALIZACION DE DATOS';
 		$this->Correo->cuerpo = $this->plantillaMensajeCorreo($_SESSION['nombreRango'], $texto , 'UNICO');
 		$this->Correo->gerencia = 'Gerencia de Afiliacion';
 		$this->Correo->titulo = $_SESSION['nombreRango'];
-		//$this->Correo->enviar();
+		$this->Correo->enviar();
 		
 		$arr['msj'] = 'Exito';
 		echo json_encode($arr);

@@ -140,15 +140,15 @@ function salvarDireccion(){
 		tip: $('#codTipo0').val(), 
 		cod: $('#codTelefono0').val(),
 		tel: $('#telefono0').val(),
-		tip: $('#tipo').val(),
+		tipo: $('#tipo').val(),
 		suc: $('#sucursal').val(),
 	})
 	 .done(function(data) {			
 		$('#modal1').openModal();
 	})
 	 .fail(function(jqXHR, textStatus) {
-		//alert(jqXHR.responseText);
-		console.log(jqXHR.responseText);
+		alert(jqXHR.responseText);
+		//console.log(jqXHR.responseText);
 	});	
 }
 

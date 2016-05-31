@@ -76,8 +76,14 @@ R: Reembolsos | A: Ayudas
 	</ul>
 	<br style="">
 
-	</div>
-	</div>
+
+<div class="row">  
+<a href="#" class="btn-large waves-effect waves-light"  style="background-color:#00345A" onclick="irAtras()">Volver atrás
+            <i class="material-icons left">arrow_back</i>       
+          </a>
+</div>
+</div>
+
 
 
   <!-- Modal Structure -->

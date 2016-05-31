@@ -115,7 +115,7 @@
       	bFile = 0;
       	if(archivo.size < 1000000){
 	        if (input.files && input.files[0]) {
-	        	if (!archivo.type.match('pdf') && !archivo.type.match(/image.*/)) {
+	        	if (!archivo.type.match(/image.*/)) {
 	        		Materialize.toast('El archivo no posee el formato', 3000);
 	        		limpiarObjetos(input, id);
 	        		return false;
@@ -154,11 +154,41 @@
 	}
 
 	function validar(){
-		var inputFileImage = document.getElementById("inputFile[1]");
-		var file = inputFileImage.files[0];
-		if(file == undefined){
-			form.submit = false;
+		cargando();
+		var result = true;
+		var sAux = '';
+		var frm = document.getElementById("frmData");
+		for (i=0;i<frm.elements.length;i++){
+			if(frm.elements[i].type == 'file'){
+				var inputFileImage = document.getElementById(frm.elements[i].id);
+				var file = inputFileImage.files[0];
+				if(file == undefined){
+					$("#cargando").hide();
+					//Materialize.toast('Debe cargar el documento nombre: ' + frm.elements[i].name + ' para continuar', 3000);
+					result = false;
+					//form.submit = false;
+				}
+				
+			}
+			sAux = '';
 		}
+		if(result == true){
+			$("#btnEnviarDoc").hide();
+			$("#btnAnterior").hide();
+			Materialize.toast('Su solicitud ha sido enviada', 3000);		
+			$('#frmData').submit();
+		} else {
+			$("#btnAnterior").show();
+			$("#btnEnviarDoc").show();
+			Materialize.toast('Debe cargar cada uno de los documentos', 3000);
+		}
+
+		return result;
+		/**
+		$.each(files, function(index, file) {
+			console.log(file);
+		});
+		**/
 	}
 
 

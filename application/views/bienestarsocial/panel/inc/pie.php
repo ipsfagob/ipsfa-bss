@@ -97,6 +97,10 @@
 		    	 
       });
       
+    function irAtras() {
+    	bPreguntar = false;
+	    window.history.back();
+	}
     </script>
 </main>
 <footer class="page-footer" style="background-color:#00345A">

@@ -93,9 +93,15 @@
 	function readURL(input, id, tipo) {
 	   	var archivo = input.files[0];      	
       	bFile = 0;
+      	if(tipo != 'pdf'){	
+      		type = 'image.*';
+      	}else{
+      		type = 'pdf.*';
+      	}
       	if(archivo.size < 1000000){
 	        if (input.files && input.files[0]) {
-	        	if (!archivo.type.match('pdf') && !archivo.type.match(/image.*/)) {
+	        	if (!archivo.type.match(type)) {
+	        		Materialize.toast('El formato de archivo debe ser: (' + type + ')', 3000);
 	        		limpiarObjetos(input, id);
 	        		return false;
 	        	}
@@ -133,11 +139,40 @@
 	}
 
 	function validar(){
-		var inputFileImage = document.getElementById("inputFile[1]");
-		var file = inputFileImage.files[0];
-		if(file == undefined){
-			form.submit = false;
+		cargando();
+		var result = true;
+		var sAux = '';
+		var frm = document.getElementById("frmData");
+		for (i=0;i<frm.elements.length;i++){
+			if(frm.elements[i].type == 'file'){
+				var inputFileImage = document.getElementById(frm.elements[i].id);
+				var file = inputFileImage.files[0];
+				if(file == undefined){
+					$("#cargando").hide();
+					//Materialize.toast('Debe cargar el documento nombre: ' + frm.elements[i].name + ' para continuar', 3000);
+					result = false;
+					//form.submit = false;
+				}
+				
+			}
+			sAux = '';
 		}
+		if(result == true){
+			$("#btnEnviarDoc").hide();
+			$("#btnAnterior").hide();			
+			$('#frmData').submit();
+		} else {
+			$("#btnAnterior").show();
+			$("#btnEnviarDoc").show();
+			Materialize.toast('Debe cargar cada uno de los documentos', 3000);
+		}
+
+		return result;
+		/**
+		$.each(files, function(index, file) {
+			console.log(file);
+		});
+		**/
 	}
 
     </script>

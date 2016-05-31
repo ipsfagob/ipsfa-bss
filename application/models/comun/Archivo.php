@@ -136,9 +136,9 @@ class Archivo extends CI_Model{
 			case 'cobertura':
 				$cod = 3;
 				break;
-			case 'carta':
-				$cod = 4;
-				break;
+			// case 'carta':
+			// 	$cod = 4;
+			// 	break;
 			case 'exposicion':
 				$cod = 4;
 				break;
@@ -165,6 +165,15 @@ class Archivo extends CI_Model{
 				break;
 			case 'recibo':
 				$cod = 12;
+				break;
+			case 'fotocarnet':
+				$cod = 13;
+				break;
+			case 'voucher':
+				$cod = 14;
+				break;
+			case 'cicpc':
+				$cod = 15;
 				break;
 			default:
 				# code...

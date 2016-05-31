@@ -22,7 +22,7 @@ $this->load->view ( "bienestarsocial/panel/inc/cabecera.php" );
       <div class="nav-wrapper white ">      
         <div class="input-field col s10">
 
-          <input id="search" type="text" required placeholder='Introducir codigo del caso...' class="grey-text">
+          <input id="search" maxlength="8" type="text" required placeholder='Introducir codigo del caso...' class="grey-text">
           <label for="search"><i class="mdi-action-search grey-text "></i></label>
           
         </div>
@@ -32,10 +32,7 @@ $this->load->view ( "bienestarsocial/panel/inc/cabecera.php" );
 	</div>
 </div>
 
-
-        <div class="tabla">
-         
-        </div>
+<div class="row">  
 
 
 <ul class="collection" >
@@ -43,7 +40,12 @@ $this->load->view ( "bienestarsocial/panel/inc/cabecera.php" );
 
 </ul>
 
-
+</div>
+<div class="row">  
+<a href="#" class="btn-large waves-effect waves-light"  style="background-color:#00345A" onclick="irAtras()">Volver atrás
+            <i class="material-icons left">arrow_back</i>       
+          </a>
+</div>
   <!-- Modal Structure -->
   <div id="modal1" class="modal modal-fixed-footer">
     <div class="modal-content">

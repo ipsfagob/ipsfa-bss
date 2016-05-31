@@ -54,7 +54,7 @@ $this->load->view("afiliacion/inc/cabecera.php");
           <select id="familiar" name="familiar" class="browser-default">
           	<option value="" disabled selected>ELIJA UNA OPCIÓN</option>
           	<?php 
-          		foreach ($Militar->Persona->Familiares as $key => $val) {
+          		foreach ($Persona->Familiares as $key => $val) {
           			
           			$cadena = '<option value="' . $val->oid . '">' .  
                                    $val->nombreApellidoCompleto() . '(' . $val->parentesco . ')</option>';
@@ -68,13 +68,13 @@ $this->load->view("afiliacion/inc/cabecera.php");
     	  <label >Motivo de la Renovación (*)</label>
           <select id="motivo" name="motivo" class="browser-default">
            	<option value="" disabled selected>INDIQUE EL MOTIVO</option>
-          	<option value="0">VENCIMIENTO</option>
-          	<option value="1">EXTRAVÍO O ROBO</option>
+          	<option value="0">VENCIMIENTO (10 UNIDADES TRIBUTARIAS)</option>
+          	<option value="1">EXTRAVÍO O ROBO (20 UNIDADES TRIBUTARIAS)</option>
           </select>
     	</div>
 
     	<div class="col s12 m12 l12">
-	    	<label>Ubicacíón para ser atendido por el IPSFA (*)</label>
+	    	<label>Ubicacíón para ser atendido (*)</label>
 	        <select id="sucursal" name="sucursal" class="browser-default">
 	        <option value="" disabled selected>ELIJA UNA SUCURSAL</option>
 	          <?php
@@ -104,7 +104,7 @@ $this->load->view("afiliacion/inc/cabecera.php");
 
         
       </div>   
-      <input id="oid" type="hidden" value="<?php echo $Militar->Persona->oid?>" name="oid"> 
+      <input id="oid" type="hidden" value="<?php echo $Persona->oid?>" name="oid"> 
 
     </div> 
     </form>    

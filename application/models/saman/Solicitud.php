@@ -17,15 +17,54 @@ if (!defined('BASEPATH'))
  */
 class Solicitud extends CI_Model{
 
-	var $numero = "";
-
-	var $estatus = "";
-
+	/**
+	* Codigo de seguridad asociado a un usuario (ID: Cédula)
+	* @var string
+	*/
 	var $codigo = "";
 
+	/**
+	* Numero autoincremetal Establecido por el semillero
+	* @var Semillero
+	*/
+	var $numero = '';
+
+	/**
+	* Bug (llave única en caso de una anomalia o falla de las solicitudes)
+	* @var string | md5
+	*/
+	var $certificado = '';
+
+	/**
+	* Estatos de la solicitud
+	* @var integer
+	*/
+	var $estatus = 0;
+
+
+	/**
+	* Postgres (El esquema principal del sistema)
+	* @var string | JSON
+	*/
 	var $esq = 'bss';
 
+	/**
+	* Postgres (El esquema de seguridad)
+	* @var string 
+	*/	
 	var $esq_sess = 'session';
+
+	/**
+	* 
+	* @var string | JSON
+	*/
+	var $detalle = '';
+
+	/**
+	* 
+	* @var string | JSON
+	*/
+	var $recipes = '';
 
 	/**
 	* Iniciando la clase, Cargando Elementos BD SAMAN
@@ -64,8 +103,34 @@ class Solicitud extends CI_Model{
 		return $obj;
 	}
 
+	/**
+	* Consultar Solicitud por Numero
+	* 
+	* @var string
+	* @access public
+	* @return bool
+	*/
+	public function consultar($codigo = ''){
+		$valor = 0;
+		$sConsulta = 'SELECT * FROM ' . $this->esq . '.solicitud WHERE numero=\'' . $codigo . '\'';
+		$obj = $this->Dbipsfa->consultar($sConsulta);
+		foreach ($obj->rs as $clave => $valor) {
+			$this->numero = $valor->codigo;
+			$this->estatus = $valor->estatus;
+			$this->detalle = $valor->detalle;
+			$valor = 1;
+		}
+		return $valor;
+	}
 
-	function listarMedicamentos($codigo = ''){
+	/**
+	* Listar todas las solicitudes de tipo medicamentos para un usuario
+	* 
+	* @var string
+	* @access public
+	* @return object (Dbipsfa)
+	*/
+	public function listarMedicamentos($codigo = ''){
 		$sConsulta = "SELECT " . $this->esq . ".solicitud.codigo AS cedula, * FROM solicitud 
 		LEFT JOIN  " . $this->esq . ".archivo ON  " . $this->esq . ".solicitud.numero=archivo.codigo
 		INNER JOIN  " . $this->esq_sess . ".tbl_usuario ON  " . $this->esq . ".solicitud.codigo = " . $this->esq_sess . ".tbl_usuario.id
@@ -82,7 +147,14 @@ class Solicitud extends CI_Model{
 		return $obj;
 	}
 
-	function listarMedicamentosPanel($estatus){
+	/**
+	* Listar todas las solicitudes de tipo medicamentos para el panel
+	* 
+	* @var integer
+	* @access public
+	* @return object (Dbipsfa)
+	*/
+	public function listarMedicamentosPanel($estatus){
 		$sConsulta = 'SELECT  ' . $this->esq . '.solicitud.codigo AS cedula, * FROM ' . $this->esq . '.solicitud 
 		
 		INNER JOIN ' . $this->esq_sess . '.tbl_usuario ON ' . $this->esq . '.solicitud.codigo = ' 
@@ -93,24 +165,7 @@ class Solicitud extends CI_Model{
 		return $obj;
 	}
 
-	/**
-	* Consultar Solicitud por Numero
-	* 
-	* @var string
-	* @access public
-	* @return bool
-	*/
-	public function consultar($codigo = ''){
-		$valor = 0;
-		$sConsulta = 'SELECT * FROM ' . $this->esq . '.solicitud WHERE numero=\'' . $codigo . '\'';
-		$obj = $this->Dbipsfa->consultar($sConsulta);
-		foreach ($obj->rs as $clave => $valor) {
-			$this->numero = $valor->codigo;
-			$this->estatus = $valor->estatus;
-			$valor = 1;
-		}
-		return $valor;
-	}
+
 
 
 
@@ -380,7 +435,7 @@ class Solicitud extends CI_Model{
 	}
 
 	/**
-	* Permite cambiar o actualizar el estatus de una solicitud
+	* Permite modificar el estatus de una solicitud
 	*
 	* @access public
 	* @return mixed
@@ -393,7 +448,7 @@ class Solicitud extends CI_Model{
 		return $exec;
 	}
 
-		/**
+	/**
 	* Permite cambiar o actualizar el estatus de una solicitud
 	*
 	* @access public
