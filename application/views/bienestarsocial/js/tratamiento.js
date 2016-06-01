@@ -1,10 +1,22 @@
 
 
+/**
+* Listar los Medicamentos de un tratamiento
+*
+* @access public
+* @return mixed
+*/
+function seleccion(){
+	$('#nomb').val($('#familiar option:selected').text());
+}
+
 function solicitarCita(){
 	bPreguntar = false;
-	id = $("#id").val();
+	cargando();
+	var id = $("#oid").val();
 	Materialize.toast('Su cita ha sido creada...!', 5000);
-	$(location).attr('href', sUrlP + "generarCita/" + id);	
+	$("#frmData").submit();	
+
 }
 
 

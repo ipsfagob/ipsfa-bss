@@ -15,7 +15,6 @@ function salvar(){
 	data = {"oid" : soid,  "coddoc" : scoddoc, "fecha" : sfecha };
 	$('#f' + soid).text(sfecha);
 	$.getJSON(sUrlP + "modificarArchivo/", data)
-
 	 .done(function(msg) {
 		Materialize.toast("Modificación exitosa", 5000);
 	}).fail(function(jqXHR, textStatus) {
@@ -27,4 +26,15 @@ function salvar(){
 function limpiar(){
 	$('#oid').val('');
 	$('#fechaVence').val('');
+}
+
+
+function notificarSolicitud(){
+	if($("#nota").val() == "0"){
+		Materialize.toast("Disculpe debe seleccionar una respuesta", 5000);
+	}else{
+		$("#frmData").submit();	
+	}
+	
+
 }

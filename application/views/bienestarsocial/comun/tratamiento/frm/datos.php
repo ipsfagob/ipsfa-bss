@@ -19,7 +19,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
   
     <form class="col s12" action="<?php echo base_url() . "index.php/BienestarSocial/subirArchivosTratamiento";?>"  method="post" 
     enctype="multipart/form-data" id="frmData">
-        
+        <input type="hidden" name="nomb" id="nomb" value="<?php echo $nomb;?>">
         <input type="hidden" id= "oid" name="oid" value="<?php echo $data->rs[0]->nropersona;?>">        
         <input type="hidden" name="diagnostico" id="diagnostico">
         <input type="hidden" id="id" value="<?php echo $data->rs[0]->codnip;?>"></input>

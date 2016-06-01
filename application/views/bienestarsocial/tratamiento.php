@@ -27,11 +27,12 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 	foreach ($cita->rs as $k => $val) {
 		$arr = json_decode($val->detalle);
 		$icon = '';
-		$sDiagnostico = explode("|", $val->observacion);
+		//$sDiagnostico = explode("-", $val->observacion);
 		$cadena .= '<li>
       	<div class="collapsible-header">
 	      
-	      ' . $sDiagnostico[1] . ' ( <b><font color="green">' . $val->numero . ' </font></b> ) 
+	      ' . $arr->diagnostico . ' <b><font color="green">' . $val->numero . ' </font></b> a nombre de:
+	      ' . $arr->nomb . ' 
 	      
 	      ' . estatus($val->estatus). '
 	    </div>
@@ -48,13 +49,8 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
     	$msj = '';
 		switch ($id) {
 			case 0:
-				$msj = '<i class="material-icons left amber-text text-darken-4 hide-on-large-only">alarm_on</i>';
-				$msj .= '<i class="material-icons right amber-text text-darken-4 hide-on-small-only">alarm_on</i>';
-				
-				break;
-			case 1:
 				$msj = '<i class="material-icons left amber-text text-darken-4 hide-on-large-only">assignment_returned</i>';
-				$msj .= '<i class="material-icons right amber-text text-darken-4 hide-on-small-only">assignment_returned</i>';
+				$msj .= '<i class="material-icons right amber-text text-darken-4 hide-on-small-only">assignment_returned</i>';				
 				break;
 			case 2:
 				$msj = '<i class="material-icons left green-text text-darken-4 hide-on-large-only">settings</i>';
@@ -64,6 +60,12 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 				$msj = '<i class="material-icons left blue-text text-darken-4 hide-on-large-only">done_all</i>';
 				$msj .= '<i class="material-icons right blue-text text-darken-4 hide-on-small-only">done_all</i>';
 				break;
+			case 4:
+				$msj = '<i class="material-icons left red-text text-darken-4 hide-on-large-only">cancel</i>';
+				$msj .= '<i class="material-icons right red-text text-darken-4 hide-on-small-only">cancel</i>';
+				break;
+
+			
 
 
 			default:

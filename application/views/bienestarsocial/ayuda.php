@@ -41,7 +41,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 		      		
 			      ' . tipo($val->tipo)  . ' 
 			      ' . $sFech. ' ( <b><font color="green">' . $val->numero . '</font></b> )
-			      ' . estatus($val->estatus, $val->numero). '	      
+			      ' . estatus($val->estatus, $val->numero, $val->tipo). '	      
 			    </div>
 			   	<div class="collapsible-body" style="padding:10px">	
 			   	<table class="responsive-table">';	
@@ -62,16 +62,16 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 			
 
  
-    function estatus($id, $numero){
+    function estatus($id, $numero, $tipo){
     	$msj = '';
-    	$print = '<a target="top" href="' . base_url() . 'index.php/BienestarSocial/imprimirHoja/' . $numero . '/' . $id . '">
+    	$print = '<a target="top" href="' . base_url() . 'index.php/BienestarSocial/imprimirHoja/' . $numero . '/' . $tipo . '">
 			      	<i class="material-icons right green-text hide-on-small-only">print</i>
 			      </a>';
 		switch ($id) {
 			case 0:
 				$msj = '<i class="material-icons left amber-text text-darken-4 hide-on-large-only">alarm_on</i>';
 				$msj .= '<i class="material-icons right amber-text text-darken-4 hide-on-small-only">alarm_on</i>';
-				$print = '<a href="' . base_url() . 'index.php/BienestarSocial/adjuntos/' . $numero . '/' . $id . '">
+				$print = '<a href="' . base_url() . 'index.php/BienestarSocial/adjuntos/' . $numero . '/' . $tipo . '">
 			      	<i class="material-icons right blue-text hide-on-small-only">description</i>
 			      </a>';
 				break;

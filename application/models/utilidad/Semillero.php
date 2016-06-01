@@ -168,7 +168,7 @@ class Semillero extends CI_Model{
 		
 
 
-		if($this->tipo == 7 || $this->tipo == 5 )
+		if($this->tipo == 7 || $this->tipo == 5 || $this->tipo == 4 )
 			$sConsulta = 'SELECT * FROM ' . $this->esq . '.semillero 
 						WHERE certi=\'' . $this->session . '\' AND tipo=\'' . $this->tipo . '\'  
 						AND observacion=\'' . $this->observacion . '\' AND estatus=0';

@@ -23,7 +23,7 @@ Deberá asistir a la Gerencia de Droguería y Farmacia del Instituto en horario 
 		$sFech = $fecha[2] . '/' . $fecha[1] . '/' . $fecha[0];
 		$cadena .= '<li>
       	<div class="collapsible-header">
-	      Su cita número ( <b><font color="green">' . $val->numero . ' </font></b> ) 
+	      Su cita <b><font color="green">' . $val->numero . ' </font></b> a nombre de: ' . $arr->nomb . ' 
 	      ha sido programada para el día : ' . $sFech . '
 	      <a href="' . base_url() . 'index.php/BienestarSocial/adjuntos/' . $val->numero . '">' . $icon . '</a>
 	    </div>

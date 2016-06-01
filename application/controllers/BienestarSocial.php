@@ -66,7 +66,7 @@ class BienestarSocial extends CI_Controller {
 		$this->load->model('usuario/Iniciar');
 
 		if($token != ''){
-			$ruta = '/var/www/NUEVO/ipsfaNet/init.session.IPSFA.web/fileWebSourceLogic/admin/';
+			$ruta = '/var/www/ipsfaNet/init.session.IPSFA.web/fileWebSourceLogic/admin/';
 			if(base_url() == '/ipsfa-bss/') $ruta = '/home/www/';
 			
 			$ruta = $ruta . $token . '.json';
@@ -306,7 +306,7 @@ class BienestarSocial extends CI_Controller {
 				$json['cor'] = $_SESSION['correo'];
 				$this->Archivo->salvar(3, $_FILES , $codigo);
 				$this->Correo->para = $_SESSION['correo'];
-				$this->Correo->cuerpo = $this->plantillaMensajeCorreo($_SESSION['nombreRango'], 'TRATAMIENTO PROLONGADO' ,$_POST['codigo']);
+				$this->Correo->cuerpo = $this->plantillaMensajeCorreo($_SESSION['nombreRango'], 'TRATAMIENTO PROLONGADO', $codigo);
 				$this->Correo->gerencia = 'Gerencia de Bienestar Social';
 				$this->Correo->titulo = $_SESSION['nombreRango'];
 
@@ -342,8 +342,7 @@ class BienestarSocial extends CI_Controller {
 	 * @return mixed
 	 */
 	public function tratamiento(){
-		if(isset($_SESSION['cedula'])){
-			
+		if(isset($_SESSION['cedula'])){			
 			$this->load->model('saman/Militar');
 			$this->Militar->consultar($_SESSION['cedula']);
 			$data['Militar'] = $this->Militar;
@@ -362,10 +361,20 @@ class BienestarSocial extends CI_Controller {
 	 */
 	public function casoTratamientos(){
 		if(isset($_SESSION['cedula'])){
+			$oid = '';
+			$id = '';
 			$this->load->model('saman/Tratamiento');
-			$id = (!isset($_POST['familiar'])) ?  $_SESSION['cedula'] : $_POST['familiar'];
+			$arr = (!isset($_POST['familiar'])) ?  $_SESSION['cedula'] : explode('|', $_POST['familiar']);
+			if(is_array($arr)) {
+
+				$id = $arr[0];
+				$oid = $arr[1];
+				$nomb = $_POST['nomb'];
+			}
 			$data['data'] = $this->Tratamiento->consultarProlongado($id);
 			$data['id'] = $id;
+			$data['oid'] = $oid;
+			$data['nomb'] = $nomb;
 			$this->load->view ( 'bienestarsocial/comun/tratamiento/casos', $data );
 		}else{
 			$this->salir();
@@ -426,8 +435,8 @@ class BienestarSocial extends CI_Controller {
 			$id = (!isset($_POST['id'])) ?  $_SESSION['cedula'] : $_POST['id'];
 			$data['data'] = $this->Tratamiento->consultarProlongado($id);
 			if(isset($data['data']->rs[0])){
-				$this->load->view ( 'bienestarsocial/comun/tratamiento/frm/datos',$data);	
-				
+				$data['nomb'] = $_POST['nomb'];				
+				$this->load->view ( 'bienestarsocial/comun/tratamiento/frm/datos',$data);				
 			}else{
 				$this->index();
 			}
@@ -621,7 +630,7 @@ class BienestarSocial extends CI_Controller {
 
 
 				if($this->Semillero->estatus == 1 && $valor == 1){
-					$this->adjuntos($this->Semillero->codigo, 2);				
+					$this->adjuntos($this->Semillero->codigo, 1);				
 				}else{
 					$this->Militar->consultar($_SESSION['cedula']);
 					$data['CodigoArea'] = $this->CodigoArea->listar()->rs;
@@ -861,7 +870,7 @@ class BienestarSocial extends CI_Controller {
 		}else{
 			$this->salir();
 			exit;
-		}	
+		}
 	}
 
 
@@ -875,16 +884,21 @@ class BienestarSocial extends CI_Controller {
 		if(isset($_SESSION['cedula'])){
 			$this->load->model('comun/Cita');
 			$this->load->model('utilidad/Correo');
-
-			$codigo = $this->Cita->generar();
-
-			$this->Correo->para = $_SESSION['correo'];
-			$texto = 'CITA PARA TRATAMIENTO PROLONGADO';
-			$this->Correo->cuerpo = $this->plantillaMensajeCorreo($_SESSION['nombreRango'], $texto , $codigo);
-			$this->Correo->gerencia = 'Gerencia de Bienestar Social';
-			$this->Correo->titulo = $_SESSION['nombreRango'];
-			$this->Correo->enviar();
-			$this->citas();
+			if(isset($_POST['id'])){
+				$codigo = $this->Cita->generar($_POST);
+				$this->Correo->para = $_SESSION['correo'];
+				$texto = 'CITA PARA TRATAMIENTO PROLONGADO';
+				$this->Correo->cuerpo = $this->plantillaMensajeCorreo($_SESSION['nombreRango'], $texto , $codigo);
+				$this->Correo->gerencia = 'Gerencia de Bienestar Social';
+				$this->Correo->titulo = $_SESSION['nombreRango'];
+				$this->Correo->enviar();
+				//$this->citas();
+				header('Location: ' . base_url() . 'index.php/BienestarSocial/citas');
+			}else{
+				$this->index();
+			}
+			
+			
 		}else{
 			$this->salir();
 			exit;
@@ -942,8 +956,7 @@ class BienestarSocial extends CI_Controller {
 	function iniciarTablas(){
 
 		$this->load->model('comun/Dbipsfa');
-		$sCon = 'DROP TABLE bss.archivo;
-
+		$sCon = "DROP TABLE bss.archivo;
 		CREATE TABLE bss.archivo
 		(
 		  oid serial NOT NULL,
@@ -951,12 +964,37 @@ class BienestarSocial extends CI_Controller {
 		  nombre character varying(250),
 		  coddoc integer,
 		  fecha date
-		)';
-
+		);
+		COMMENT ON TABLE bss.archivo IS 'Registra todos los archivos del sistema';
+		COMMENT ON COLUMN bss.archivo.oid IS 'Indentificador clave y unico e incremetal';
+		COMMENT ON COLUMN bss.archivo.codigo IS 'Origen del documento Solicitud (Responsable)';
+		COMMENT ON COLUMN bss.archivo.nombre IS 'Nombre del documento con su extención';
+		COMMENT ON COLUMN bss.archivo.coddoc IS 'Releción::tdocumento';";
 		$this->Dbipsfa->consultar($sCon);
 
-		$sCon = 'DROP TABLE bss.solicitud;
+		$sCon = "DROP TABLE bss.semillero;
+		CREATE TABLE bss.semillero
+		(
+		  oid serial NOT NULL,
+		  codigo character varying(16),
+		  certi character varying(32),
+		  fecha timestamp without time zone,
+		  tipo bigint,
+		  observacion character varying(250) NOT NULL,
+		  estatus bigint,
+		  CONSTRAINT semillero_pkey PRIMARY KEY (oid)
+		);
+		COMMENT ON TABLE bss.semillero IS 'Generador de codigos';
+		COMMENT ON COLUMN bss.semillero.oid IS 'Indentificador clave y unico e incremetal';
+		COMMENT ON COLUMN bss.semillero.codigo IS 'Indentificador interno de una solicitud';
+		COMMENT ON COLUMN bss.semillero.certi IS 'Marca uncica de evaluacion de la solicitud';
+		COMMENT ON COLUMN bss.semillero.fecha IS 'Momento preciso en el cual se hace una solicitud';
+		COMMENT ON COLUMN bss.semillero.tipo IS 'Indicador de la Solicitud (1 - N) ::tipo_solicitud';
+		COMMENT ON COLUMN bss.semillero.observacion IS 'Observaciones generales clave de apoyo unica';
+		COMMENT ON COLUMN bss.semillero.estatus IS 'Estatus de la solicitud (0-N)';";
+		$this->Dbipsfa->consultar($sCon);
 
+		$sCon = "DROP TABLE bss.solicitud;
 		CREATE TABLE bss.solicitud
 		(
 		  oid serial NOT NULL,
@@ -970,24 +1008,22 @@ class BienestarSocial extends CI_Controller {
 		  estatus bigint,
 		  fcita date,
 		  CONSTRAINT numero_pkey PRIMARY KEY (numero)
-		)';
+		);
+		COMMENT ON TABLE bss.solicitud IS 'Solicitudes del sistema';
+		COMMENT ON COLUMN bss.solicitud.oid IS 'Indentificador clave y unico e incremetal';
+		COMMENT ON COLUMN bss.solicitud.codigo IS 'Establece el numero del solicitante (Cédula)';
+		COMMENT ON COLUMN bss.solicitud.numero IS 'Indentificador interno de una solicitud';
+		COMMENT ON COLUMN bss.solicitud.certi IS 'Marca uncica de evaluacion de la solicitud';
+		COMMENT ON COLUMN bss.solicitud.detalle IS 'Descripcion JSON de los casos segun su forma';
+		COMMENT ON COLUMN bss.solicitud.recipes IS 'Descripcion JSON de los casos segun su forma';
+		COMMENT ON COLUMN bss.solicitud.fecha IS 'Momento preciso en el cual se hace una solicitud';
+		COMMENT ON COLUMN bss.solicitud.tipo IS 'Indicador de la Solicitud (1 - N) ::tipo_solicitud';
+		COMMENT ON COLUMN bss.solicitud.estatus IS 'Estatus de la solicitud (0-N)';
+		COMMENT ON COLUMN bss.solicitud.fcita IS 'Fecha estimada del evento';";
 
 		$this->Dbipsfa->consultar($sCon);
 
-		$sCon = 'DROP TABLE bss.semillero;	
 
-		CREATE TABLE bss.semillero
-		(
-		  oid serial NOT NULL,
-		  codigo character varying(16),
-		  certi character varying(32),
-		  fecha timestamp without time zone,
-		  tipo bigint,
-		  observacion character varying(250) NOT NULL,
-		  estatus bigint,
-		  CONSTRAINT semillero_pkey PRIMARY KEY (oid)
-		)';
-		$this->Dbipsfa->consultar($sCon);
 		echo "exito";
 	}
 

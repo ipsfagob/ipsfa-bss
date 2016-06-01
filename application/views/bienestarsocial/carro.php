@@ -141,7 +141,7 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
               <i class="material-icons left">arrow_back</i>
            
           </a>
-          <a href="<?php echo base_url();?>index.php/BienestarSocial/farmacia/ba" class="btn-large waves-effect waves-light"  style="background-color:#00345A" >Seleccionar mas
+          <a href="<?php echo base_url();?>index.php/BienestarSocial/farmacia/ba" class="btn-large waves-effect waves-light"  style="background-color:#00345A; display: none" >Seleccionar mas
               <i class="material-icons right">add_shopping_cart</i>
            
           </a>

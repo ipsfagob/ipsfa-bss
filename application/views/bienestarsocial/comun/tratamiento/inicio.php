@@ -34,20 +34,21 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
   </div>
   <div class="col s12 m6 l6 escajas">
   <label>Nombre del Familiar (*)</label>
-    <select id="familiar" name="familiar" class="browser-default">
-      <option value="" disabled selected>ELIJA UNA OPCIÓN</option>
+    <select id="familiar" name="familiar" class="browser-default" onchange="seleccion();">
+      <option value="0" disabled selected>ELIJA UNA OPCIÓN</option>
       <?php 
-        print_r($Militar);
-        $cadena = '<option value="' . $Militar->Persona->cedula . '">' .  $Militar->Persona->nombreApellidoCompleto() . ' (TITULAR)</option>';
+       
+        $cadena = '<option value="' . $Militar->Persona->cedula . '|' . $Militar->Persona->oid . '">' .  $Militar->Persona->nombreApellidoCompleto() . ' (TITULAR)</option>';
         echo $cadena;
         foreach ($Militar->Persona->Familiares as $key => $val) {          
-          $cadena = '<option value="' . $val->cedula . '">' .  
+          $cadena = '<option value="' . $val->cedula . '|' . $val->oid . '">' .  
                              $val->nombreApellidoCompleto() . '(' . $val->parentesco . ')</option>';
           //if($val->parentesco == 'HIJO (A)' && $val->obtenerEdad() >= 25) $cadena = '';
           echo $cadena;
         }
       ?>
     </select>
+    <input type="hidden" name="nomb" id="nomb"></input>
   </div>
   </div>
   <div class="row" >

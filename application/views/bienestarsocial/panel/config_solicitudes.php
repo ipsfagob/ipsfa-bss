@@ -42,18 +42,17 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
 			?>
 			<li class="collection-item" >
 			
-				<form class="col s12" 
+				<form id="frmData"
 			      action="<?php echo base_url();?>index.php/BienestarPanel/notificarCasos/"  method="post">
 
 			      <div class="row">
 			        <div class="row">
 			         <div class="input-field col s12">
 
-			          <select  id="descripciondocumento" name="nota">
+			          <select  id="nota" name="nota">
 			            <option value="0">----------</option>
-			            <option value="VERIFICADA">SU SOLICITUD HA SIDO VERIFICADA</option>
-			            <option value="ERROR">SU SOLICITUD PRESENTA ERROR EN LOS DOCUMENTOS</option>
-			            <option value="RECHAZADA">SU SOLICITUD HA SIDO RECHAZADA</option>
+			            <option value="3">SU SOLICITUD HA SIDO VERIFICADA</option>
+			            <option value="4">SU SOLICITUD HA SIDO RECHAZADA</option>
 			          </select>
 			          <label style="color:#000">RESPUESTAS</label>
 			        </div>
@@ -62,7 +61,7 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
 
 			        <div class="input-field col s12">
 			          <i class="material-icons prefix">mode_edit</i>
-			          <textarea id="icon_prefix2" class="materialize-textarea" length="256" name="observa"></textarea>
+			          <textarea id="icon_prefix2" class="materialize-textarea" length="256" name="observa" maxlength="256"></textarea>
 			          <label for="icon_prefix2">Escriba las observaciones que se enviaran al afiliado</label>
 			        </div>
 			      </div>
@@ -72,10 +71,16 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
 			      <input type="hidden" name="nombre" value="<?php echo $nombre;?>">
 			      
 			      <div class="row">
-			      	<div class="col s12">        
-			    		<button class="btn-large waves-effect waves-light" style="background-color:#00345A" type="submit">Notificar
+			      	<div class="col s6">
+			      			<a href="#" class="btn-large waves-effect waves-light"  style="background-color:#00345A" 
+			      				onclick="irAtras()">Volver atrás
+								<i class="material-icons left">arrow_back</i>       
+							</a>
+			      	</div>
+			      	<div class="col s6">        
+			    		<a class="right btn-large waves-effect waves-light" style="background-color:#00345A" onclick="notificarSolicitud()">Notificar
 			    			<i class="material-icons left">contact_mail</i>
-			    		</button>
+			    		</a>
 			      	</div>
 			      </div>       
 	    		</form>

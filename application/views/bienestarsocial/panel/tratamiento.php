@@ -23,14 +23,12 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
 		$sDiagnostico = explode("-", $val->observacion);
 		$cadena .= '<li>
       	<div class="collapsible-header">
-	      <a class="waves-effect waves-light modal-trigger" href="#modal1" 
-	      onclick="setValor(\'' . $val->numero . '\', \'' . $val->codigo . '\', 0);">
-	      	<i class="material-icons red-text left">remove_circle</i>
-	      	<input type="hidden" value="' . $val->cor . '" id="corr' . $val->numero . '">
+	      
+	      	<input type="hidden" value="' . $arr->cor . '" id="corr' . $val->numero . '">
 	      	<input type="hidden" value="' . $val->nom . '" id="nomb' . $val->numero . '">
 	      </a>
-	      ' . $arr->diagnostico . ' ( <b><font color="green">' . $val->numero . ' </font></b> ) 
-	      <a href="' . base_url() . 'index.php/BienestarPanel/solicitudesConfigurar/' . $val->numero . '/5" class="right">
+	       ( <b><font color="green">' . $val->numero . ' </font></b> ) ' . $arr->diagnostico . ' DE: ' . $arr->nomb . '
+	      <a href="' . base_url() . 'index.php/BienestarPanel/solicitudesConfigurarT/' . $val->numero . '/5" class="right">
 	      <i class="material-icons green-text right">forward</i></a>
 	    </div>
 	   	<div class="collapsible-body" style="padding:10px">
@@ -45,9 +43,9 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
 </ul>
 <br>
 <div class="row">  
-<a href="#" class="btn-large waves-effect waves-light"  style="background-color:#00345A" onclick="irAtras()">Volver atrás
-            <i class="material-icons left">arrow_back</i>       
-          </a>
+	<a href="#" class="btn-large waves-effect waves-light"  style="background-color:#00345A" onclick="irAtras()">Volver atrás
+    	<i class="material-icons left">arrow_back</i>       
+  	</a>
 </div>
 </div>
 

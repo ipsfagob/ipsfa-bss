@@ -12,6 +12,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
  <div class="col s12">
 
   <?php
+      
       $rs = $data->rs;
       
       if($data->cant != 0){

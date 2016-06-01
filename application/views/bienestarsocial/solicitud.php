@@ -9,7 +9,7 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 <div class="container">
 	
 <div class="row">
-        <h5>Notas Por Reembolso (<?php echo $codigo;?>): </h5><div class="divider"></div>
+        <h5>Notas por reembolso (<?php echo $codigo;?>): </h5><div class="divider"></div>
               
         <div class="row">
           <div class="col s12 card-panel blue lighten-2">

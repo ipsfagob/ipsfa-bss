@@ -78,7 +78,7 @@ function Eliminar(oid){
 * @return html
 */
 function Salvar(){
-
+	bPreguntar = false;
 	var inputFileImage = document.getElementById("inputFile[1]");
 	var file = inputFileImage.files[0];
 

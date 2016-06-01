@@ -5,10 +5,10 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
 
 <script type="text/javascript"
   src="<?php echo base_url(); ?>application/views/bienestarsocial/js/solicitud.js"></script>
-<div class="container .hide-on-small-only">
+<div class="container">
   
 <div class="row">
-        <h5>Notas Por Ayuda (<?php echo $codigo;?>): </h5><div class="divider"></div>
+        <h5>Notas por ayuda (<?php echo $codigo;?>): </h5><div class="divider"></div>
               
         <div class="row">
           <div class="col s12 card-panel blue lighten-2">
@@ -16,8 +16,6 @@ $this->load->view("bienestarsocial/inc/cabecera.php");
               <ol>
                 <li>Los archivos adjuntos para el informe medico debe ser en extensión PDF, y deben estar en un orden correlativo acorde al Informe Médico, de igual forma los documentos deben estar legibles,
               asimismo el Informe medico deberá estar vigente.<br></li>
-                <li>Recuerde que si la factura es mayor a tres meses se considera extemporanéa.
-                </li>
               </ol>        
             </p>    
           </div>

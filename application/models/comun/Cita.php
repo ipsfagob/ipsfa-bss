@@ -51,15 +51,16 @@ class Cita extends CI_Model{
 
 
 
-	function generar(){
+	function generar($arr = array()){
 		$this->load->model('utilidad/Semillero');
-		$this->Semillero->obtener(4, $_SESSION['cedula'], 'CIT');
+		$this->Semillero->obtener(4, $_SESSION['cedula'], 'CIT-' . $arr['id']);
 		$this->load->model('saman/Solicitud');
 		$imagen = array(); //Listado de Imagenes Subidas
 		$fecha = $this->Solicitud->generarCitaTratamientoProlongado();
 		$detalle = array(
 			"desde" =>  date('Y-m-j'), 
-			"hasta" => $fecha
+			"hasta" => $fecha,
+			"nomb" => $arr['nomb']
 		);
 		$arr = array(
 			'codigo' => $_SESSION['cedula'],

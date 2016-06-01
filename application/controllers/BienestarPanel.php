@@ -186,31 +186,75 @@ class BienestarPanel extends CI_Controller{
 		$this->load->model('comun/Archivo');
 		$this->load->model('saman/Solicitud');
 		$this->load->model('utilidad/Correo');
-
 		$solicitud  = $this->Solicitud->listarSolicitudes($id)->rs;
-
-		$this->Correo->para = $solicitud[0]->corr;
-		$this->Correo->cuerpo = 'Hola, ' . $solicitud[0]->nomb . '.<br>
-				Su solicitud de reembolso bajo el codigo 
-				' . $id . ' está siendo procesada por nuestros analistas
+		$corr = json_decode($solicitud[0]->detalle);
+		$this->Correo->para = $solicitud[0]->cor;
+		$contenido = 'Ayuda';
+		if($solicitud[0]->tipo == 1) $contenido = 'Reembolso';
+		$this->Correo->cuerpo = 'Hola, ' . $solicitud[0]->nom . '.<br>
+				Su solicitud de ' . $contenido . ' bajo el codigo 
+				' . $id . ' para ' . $solicitud[0]->nom . ' esta siendo procesada por nuestros analistas
 				<br><br>
 				IPSFA en linea Optimizando tu bienestar...';
 		$this->Correo->gerencia = 'Gerencia de Bienestar Social';
-		$this->Correo->titulo = $solicitud[0]->nomb;
-		//$this->Correo->enviar();
+		$this->Correo->titulo = $solicitud[0]->nom;
+		$this->Correo->enviar();
+		
+		$data['detalles'] = $this->listarDocumentos($id);
+		$data['combo'] = $this->listarTipoDocumento();
+		$data['ruta'] = base_url() . "public/doc/" . $this->Archivo->_obtenerTipoCarpeta($tipo) . "/" . $id . '/';
+		$data['codigo'] = $id;
+		$data['correo'] = $solicitud[0]->cor;
+		$data['nombre'] = $solicitud[0]->nomb;
+		$data['tipo'] = $tipo;
+		$this->Solicitud->modificar($id, 2);
+		header('Location: ' . base_url() . 'index.php/BienestarPanel/solicitudesConfigurarSM/' . $id . '/' . $tipo);		
+	}
+
+	function solicitudesConfigurarT($id = '', $tipo = ''){
+		error_reporting(0);
+		$this->load->model('comun/Archivo');
+		$this->load->model('saman/Solicitud');
+		$this->load->model('utilidad/Correo');
+		$solicitud  = $this->Solicitud->listarSolicitudes($id)->rs;
+		$corr = json_decode($solicitud[0]->detalle);
+		$this->Correo->para = $corr->cor;
+		$this->Correo->cuerpo = 'Hola, ' . $solicitud[0]->nom . '.<br>
+				Su solicitud de Tratamiento Prolongado bajo el codigo 
+				' . $id . ' para ' . $corr->nomb . ' por  ' . $corr->diagnostico . '  esta siendo procesada por nuestros analistas
+				<br><br>
+				IPSFA en linea Optimizando tu bienestar...';
+		$this->Correo->gerencia = 'Gerencia de Bienestar Social';
+		
+		$this->Correo->titulo = $solicitud[0]->nom;
+		$this->Correo->enviar();
+		
+		$this->Solicitud->modificar($id, 2);
+		header('Location: ' . base_url() . 'index.php/BienestarPanel/solicitudesConfigurarSM/' . $id . '/' . $tipo);		
+	}
+
+
+	function solicitudesConfigurarSM($id = '', $tipo = ''){
+		error_reporting(0);
+		$this->load->model('comun/Archivo');
+		$this->load->model('saman/Solicitud');
+		$this->load->model('utilidad/Correo');
+
+		$solicitud  = $this->Solicitud->listarSolicitudes($id)->rs;
+		$corr = json_decode($solicitud[0]->detalle);
+
+		$this->Correo->para = $corr->cor;
+		
 
 		$data['detalles'] = $this->listarDocumentos($id);
 
 		$data['combo'] = $this->listarTipoDocumento();
 		$data['ruta'] = base_url() . "public/doc/" . $this->Archivo->_obtenerTipoCarpeta($tipo) . "/" . $id . '/';
 		$data['codigo'] = $id;
-		$data['correo'] = $solicitud[0]->corr;
-		$data['nombre'] = $solicitud[0]->nomb;
-		$data['tipo'] = $tipo;
-
-		$this->Solicitud->modificar($id, 2);		
+		$data['correo'] = $corr->cor;
+		$data['nombre'] = $solicitud[0]->nom;
+		$data['tipo'] = $tipo;		
 		$this->load->view('bienestarsocial/panel/config_solicitudes', $data);
-		
 	}
 
 
@@ -226,17 +270,19 @@ class BienestarPanel extends CI_Controller{
 
 		$this->load->model('utilidad/Correo');
 		$this->load->model('saman/Solicitud');
-		$this->Solicitud->modificar($_POST['codigo'], 3);
-		$this->Solicitud->modificarCodigo($_POST['codigo'], $_POST['nota'] . ". MOTIVO: " . $_POST['observa']);
-
+		$this->Solicitud->modificar($_POST['codigo'], $_POST['nota']);
+		$this->Solicitud->modificarCodigo($_POST['codigo'], $_POST['nota'] . "- MOTIVO: " . $_POST['observa']);
+		$aprobacion = "RECHAZADO";
+		if($_POST['nota'] == 3) $aprobacion = "APROBADO";
 		$this->Correo->para = $_POST['correo'];
 		$this->Correo->cuerpo = 'HOLA, ' . $_POST['nombre'] . '.<br>
-				' . $_POST['nota'] . ' SEGUN EL CODIGO ' . $_POST['codigo'] . '<br><br>
+				SU CASO SEGUN EL CODIGO ' . $_POST['codigo'] . ' HA SIDO ' . $aprobacion . ' <br><br>
 				OBSERVACIONES: <BR> ' . $_POST['observa'] . '<br><br>
 				IPSFA EN LINEA OPTIMIZANDO SU BIENESTAR...';
 		$this->Correo->gerencia = 'Gerencia de Bienestar Social';
 		$this->Correo->titulo = $_POST['nombre'];
 		$this->Correo->enviar();
+		
 		header('Location: ' . base_url() . 'index.php/BienestarPanel/index');
 
 

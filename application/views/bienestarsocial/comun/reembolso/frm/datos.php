@@ -38,7 +38,7 @@
          
      </div>
      <div class="col s9 m2 l2 escajas">
-          <label for="monto">Monto Solicitado</label>
+          <label for="monto" class="truncate">Monto Solicitado</label>
             <input id="monto" type="text" class="validate imagen-text-right" value="0,00" placeholder="Introduzca un Monto"
                maxlength="13" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
 
