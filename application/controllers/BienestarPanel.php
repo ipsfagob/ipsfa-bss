@@ -20,17 +20,17 @@
  * @link http://www.mamonsoft.com.ve
  * @since version 1.0
  */
-session_start();
+//session_start();
+date_default_timezone_set ( 'America/Caracas' );
 define ('__CONTROLADOR', 'BienestarPanel');
-
 class BienestarPanel extends CI_Controller{
 
 
 	function __construct(){
 		parent::__construct();
+		$this->load->library('session');
 		$this->load->helper('url');
 		$this->load->model('panel/Mpanel');
-		$_SESSION['nivel'] = 0;
 		header("Cache-Control: no-cache, must-revalidate, max-age=0"); // HTTP/1.1
 	}
 
@@ -188,7 +188,10 @@ class BienestarPanel extends CI_Controller{
 		$this->load->model('utilidad/Correo');
 		$solicitud  = $this->Solicitud->listarSolicitudes($id)->rs;
 		$corr = json_decode($solicitud[0]->detalle);
-		$this->Correo->para = $solicitud[0]->cor;
+		$doc = json_decode($solicitud[0]->doc);
+		$this->Correo->para = $solicitud[0]->cor . ',' . $doc->cor;
+
+		//print_r($this->Correo->para);
 		$contenido = 'Ayuda';
 		if($solicitud[0]->tipo == 1) $contenido = 'Reembolso';
 		$this->Correo->cuerpo = 'Hola, ' . $solicitud[0]->nom . '.<br>
@@ -218,7 +221,8 @@ class BienestarPanel extends CI_Controller{
 		$this->load->model('utilidad/Correo');
 		$solicitud  = $this->Solicitud->listarSolicitudes($id)->rs;
 		$corr = json_decode($solicitud[0]->detalle);
-		$this->Correo->para = $corr->cor;
+		$doc = json_decode($solicitud[0]->doc);
+		$this->Correo->para = $corr->cor . ',' . $doc->cor;
 		$this->Correo->cuerpo = 'Hola, ' . $solicitud[0]->nom . '.<br>
 				Su solicitud de Tratamiento Prolongado bajo el codigo 
 				' . $id . ' para ' . $corr->nomb . ' por  ' . $corr->diagnostico . '  esta siendo procesada por nuestros analistas
@@ -408,6 +412,13 @@ class BienestarPanel extends CI_Controller{
 
 	}
 
+	function salir(){
+		session_destroy();
+		header('Location: ' . base_url() . 'index.php/Login/salir');
+	}
+	function info(){
+		phpinfo();
+	}
 
 	function __destruct(){
 

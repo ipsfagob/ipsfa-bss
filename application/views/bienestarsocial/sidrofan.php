@@ -50,7 +50,7 @@ $this->load->view ( "bienestarsocial/inc/cabecera.php" );
 
       <div class="col s12 m4 l4">
         <div class="btns-smin">
-          <div class="btns-sminf small">FarmaIpsfa (Luna Miel)</div>
+          <div class="btns-sminf small">FarmaMiel</div>
           <!-- data-position="bottom" data-delay="30" data-tooltip="I am tooltip" data-activates="dropdown1" -->
           <div class="btns-sminh  dropdown-button" >
             <a href="#"><i class="material-icons white-text">more_vert</i></a>

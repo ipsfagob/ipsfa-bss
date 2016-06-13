@@ -37,12 +37,15 @@ class Login extends CI_Controller {
 
 
 	protected function inicio(){
+		/**
 		if($_SESSION['cedula'] == '2888818' || $_SESSION['cedula'] == '2894093'){
 			$this->load->view ('bienestarsocial/principal');	
 		}else{
 			$this->load->view ('panel/inicio');	
 		}
-		
+		**/
+		$this->load->view ('bienestarsocial/panel/inicio');	
+		//header('Location: ' . base_url() . 'index.php/BienestarPanel/index');
 	}
 	/* 
 	| ------------------------------------------------------------
@@ -318,7 +321,7 @@ class Login extends CI_Controller {
 		print_r($_SESSION);
 	}
 
-  	function salir(){
+  	public function salir(){
   		session_destroy();
   		$this->load->view ( 'login/login');
   	}
@@ -331,7 +334,7 @@ class Login extends CI_Controller {
   	}
 
 
-  	function descargar(){
+  	public function descargar(){
 
 	ini_set("max_execution_time ","60000");
 	ini_set("max_input_time  ","60000");

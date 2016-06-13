@@ -3,12 +3,12 @@
   <html>
     <head>
       <!--Import Google Icon Font
-      <link type="text/css" href="<?php echo base_url(); ?>public/css/material.css" rel="stylesheet" />
 
+      <link type="text/css" href="<?php echo base_url(); ?>public/css/material.css" rel="stylesheet" />
       		-->	
       <title>Ipsfa en linea</title>				
-	  
       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">	
+	  
       <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>public/css/materialize.min.css"  media="screen,projection"/>
       <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>public/css/estilo.css"/>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -171,7 +171,7 @@
 
 				<ul class="right hide-on-med-and-down">
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarPanel/index" >
-						<i class="right"></i>ANALISTA</a>
+						<i class="right"></i><?php print_r($_SESSION['nombreRango']); ?></a>
 					</li>
 					<li><a href="<?php echo base_url(); ?>index.php/BienestarPanel/index" >
 						<i class="mdi-action-home"></i></a>
@@ -182,7 +182,7 @@
 					<li><a class="dropdown-panel" href="#!" data-activates="reportes">
 						<i class="material-icons">more_vert</i></a>
 					</li>
-					<li><a href="<?php echo base_url(); ?>index.php/BienestarPanel/index" >
+					<li><a href="<?php echo base_url(); ?>index.php/BienestarPanel/salir" >
 						<i class="material-icons">settings_power</i></a>
 					</li>
 									

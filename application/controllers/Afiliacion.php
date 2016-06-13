@@ -388,9 +388,9 @@ class Afiliacion extends CI_Controller {
 			.- IPSFA s&oacute;lo env&iacute;a correos personalizados por ejemplo: CNEL. BOLIVAR SIMON.<br>
 			.- IPSFA nunca le enviar&aacute; un correo en el que se use su direcci&oacute;n en el encabezado del mensaje, por ejemplo: Estimado afiliado Sr.(a): juan.cristobal.arocha@gmail.com.<br>
 			.- Esta es una cuenta no monitoreada. No responda o reenv&iacute;e correos a esta cuenta.<br>
-			Ud. dispone de los siguientes correos en caso que requiera reportar cualquier situación irregular: <br><br>
+			Ud. dispone de los siguientes correos en caso que requiera reportar cualquier situaci&oacute;n irregular: <br><br>
 
-			Todos los documentos reposaran en su expediente f&iactue;sico del Instituto.<br>
+			Todos los documentos reposaran en su expediente f&iacute;sico del Instituto.<br>
 			IPSFA en línea Optimizando tu Bienestar.';
 
 		return $msj;

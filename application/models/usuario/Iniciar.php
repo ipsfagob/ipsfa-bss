@@ -44,8 +44,9 @@ class Iniciar extends CI_Model {
    $parte =  explode('@', $usuario->correo);
    $correo = substr($parte[0], 0, 4) . '****';
    $pag = explode('.', $parte[1]);
-   $direcc =  substr($pag[0], 0, 2) . '**.' . $pag[1];
-   $usuario->correo = 'gesaodin@gmail.com';
+   $direcc = '';
+   if(is_array( $pag))$direcc =  substr($pag[0], 0, 2) . '**.' . $pag[1];
+   //$usuario->correo = 'gesaodin@gmail.com';
    //$usuario->nombre = 'GD-PASTACUI';
    $this->session->set_userdata(array(
         'cedula' => $usuario->cedula,

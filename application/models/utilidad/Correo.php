@@ -76,7 +76,7 @@ class Correo extends CI_Model{
 
         $mail->AltBody    = "Texto Alternativo"; // optional, comment out and test
         $mail->MsgHTML($this->cuerpo);
-        $this->para = 'gesaodin@gmail.com';
+        //$this->para = 'gesaodin@gmail.com';
         $mail->AddAddress($this->para, $this->titulo);
 
         

@@ -1,8 +1,8 @@
 	<div id="datos" class="dropdown-content" style="width: 350px; padding-top: 15px; padding-bottom: 0px;">
 		
 			<div style="padding: 1em; padding-left: 0px; float: left;  margin-left: 10px; margin-bottom: 4px; overflow: hidden;">
-				<!--<img src="http://192.168.12.198/imagenes/imagenes/<?php echo $_SESSION['cedula'];?>.jpg" 
-				class="responsive-img circle" style="width: 80px;height:90px">-->
+				<img src="http://192.168.12.198/imagenes/imagenes/<?php echo $_SESSION['cedula'];?>.jpg" 
+				class="responsive-img circle" style="width: 80px;height:90px">
 			</div>
 			<div  class="ContactoDetalle">
 				<span>Hola, Bienvenido</span>

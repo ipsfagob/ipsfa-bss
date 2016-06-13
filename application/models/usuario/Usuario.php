@@ -227,6 +227,7 @@ class Usuario extends CI_Model {
     $consulta = 'SELECT *  
     FROM bss.usuario
     WHERE (seud=\'' . $this -> sobreNombre . '\' OR corr=\'' . $this -> sobreNombre . '\' OR cedu=\'' . $this -> sobreNombre . '\') AND clav=\'' . $this -> _claveEncriptada() . '\' LIMIT 1;';
+    
     $obj = $this->Dbipsfa->consultar($consulta);
     return $obj;
   }

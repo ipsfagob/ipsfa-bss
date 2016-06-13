@@ -148,6 +148,21 @@ $this->load->view("bienestarsocial/panel/inc/cabecera.php");
           </div>  
         </div>
         
+        <div class="col s12 m3 l3">
+          <div class="btns-smin">
+            <div class="btns-sminf small">Carnetización</div>
+            <div class="btns-sminh tooltipped dropdown-button" data-position="bottom" data-delay="30" data-tooltip="I am tooltip" data-activates='dropdown1' >
+              <a href="#"><i class="material-icons white-text">more_vert</i></a>
+            </div>
+            <a href="<?php echo base_url(); ?>index.php/BienestarPanel/solicitudesCarnet">
+              <div class="__ctdrs_xxmall cortar">Aprobar o Rechazar Carnet</div>
+              <div >
+                <img src="<?php echo base_url(); ?>public/img/carnet.jpg" style="width:215px;height: 100px">
+              </div>
+            </a>
+          </div>  
+        </div>
+
   </div>
 
 </div>
